@@ -8,11 +8,11 @@ const config: Config = {
       colors: {
         brand: {
           500: "#7d8678",
-          600: "#6f786b",
-          700: "#5d6659",
+          600: "#1a1a1a",
+          700: "#ededed",
         },
         surface: {
-          50: "#f5ede4",
+          50: "#fff",
         },
         accent: colors.amber,
       },

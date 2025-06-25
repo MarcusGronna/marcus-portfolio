@@ -15,7 +15,8 @@ export default function ProjectShelf({ projects, title }: ProjectShelfProps) {
     <section className="mb-8">
       {title && <h4 className="text-2xl font-bold mb-4">{title}</h4>}
       <motion.div
-        className="flex gap-6 overflow-x-auto snap-x md:grid md:grid-cols-3 md:gap-8"
+        // Byt ut flex mot grid och ta bort overflow-x-auto
+        className="grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3"
         variants={staggerContainer}
         initial="hidden"
         animate="visible"
