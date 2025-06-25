@@ -1,14 +1,20 @@
 @import "tailwindcss";
+@import "tailwindcss/preflight";
+@tailwind utilities;
 
-/* Lägg gärna kvar font-variabler om du använder dem */
+/* Font-variabler */
 :root {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans, Arial, Helvetica, sans-serif);
+  --font-mono: var(--font-geist-mono, 'Fira Mono', monospace);
+  --brand-600: #7d8678;
+  --surface-50: #f5ede4;
+  --brand-700: #222;
+  --accent-700: #bfa46f;
+  --accent-800: #8c7a4f;
+  --accent-200: #f7e9c6;
+  --surface-100: #fff;
+  --background: #f5ede4;
+  --foreground: #222;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,26 +27,44 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem 0; /* Ger vertikal marginal för hela sidan */
 }
 
-/* Tailwind CSS theme extension */
-@import "tailwindcss/preflight";
-@tailwind utilities;
+@media (min-width: 640px) {
+  body {
+    padding: 3rem 0;
+  }
+}
 
+@media (min-width: 1024px) {
+  body {
+    padding: 4rem 0;
+  }
+}
+
+/* Tailwind custom färger via CSS-variabler */
 @layer base {
-  :root {
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  }
+  .bg-brand-600 { background-color: var(--brand-600) !important; }
+  .bg-surface-50 { background-color: var(--surface-50) !important; }
+  .text-brand-700 { color: var(--brand-700) !important; }
+  .text-surface-50 { color: var(--surface-50) !important; }
+  .bg-accent-200 { background-color: var(--accent-200) !important; }
+  .text-accent-700 { color: var(--accent-700) !important; }
+  .text-accent-800 { color: var(--accent-800) !important; }
 }
 
-@layer components {
-  .btn {
-    @apply px-4 py-2 rounded-md font-semibold;
-  }
+/* Smooth anchor scroll och offset för sticky nav */
+html {
+  scroll-behavior: smooth;
+}
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
+/* Container utility */
 @layer utilities {
   .container {
     max-width: 1200px;
@@ -51,4 +75,36 @@ body {
   }
 }
 
-/* Custom colors */
+/* Exempel på knapp */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-semibold;
+  }
+}
+
+section {
+  margin-bottom: 4rem;
+}
+h1, h2, h3 {
+  font-family: var(--font-sans);
+  font-weight: bold;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+footer {
+  margin-top: 6rem;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 1rem;
+}

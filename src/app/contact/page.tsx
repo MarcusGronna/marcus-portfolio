@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub, faXTwitter } from "@fortawesome/free-brands-svg-icons";
-
 export default function ContactPage() {
   return (
     <section className="max-w-md mx-auto py-12 px-4 text-center">
@@ -16,7 +13,7 @@ export default function ContactPage() {
       </p>
       <div className="flex justify-center gap-6 text-2xl mt-6">
         <a
-          href="https://linkedin.com/in/marcusgronna"
+          href="https://www.linkedin.com/in/marcus-gr%C3%B6nn%C3%A5-6a5006260/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -25,7 +22,7 @@ export default function ContactPage() {
           LinkedIn
         </a>
         <a
-          href="https://github.com/marcusgronna"
+          href="https://github.com/MarcusGronna"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"

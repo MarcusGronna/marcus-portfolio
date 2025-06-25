@@ -3,13 +3,18 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function PortraitFrame({ small }: { small?: boolean }) {
+type PortraitFrameProps = {
+  small?: boolean;
+  className?: string;
+};
+
+export default function PortraitFrame({ small, className }: PortraitFrameProps) {
   return (
     <motion.div
       whileHover={{ rotateZ: 2 }}
       className={`ring-4 ring-surface-50 rounded-lg shadow-lg mx-auto ${
         small ? "w-32 h-32" : "w-48 h-48"
-      }`}
+      } ${className ?? ""}`}
     >
       {/* TODO: Byt ut till din riktiga porträttbild */}
       <Image

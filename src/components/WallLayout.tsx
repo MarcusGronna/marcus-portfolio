@@ -1,6 +1,8 @@
 // Grid-layout som “gallerivägg”. Div class='grid gap-16 md:grid-cols-12'. Placera children i auto-flow. Exportera FC<{children}>.
 export default function WallLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid gap-16 md:grid-cols-12 auto-rows-auto max-w-6xl mx-auto">{children}</div>
+    <div className="grid gap-20 lg:gap-24 lg:grid-cols-12 lg:auto-rows-min mx-auto max-w-5xl px-4 py-8">
+      {children}
+    </div>
   );
 }

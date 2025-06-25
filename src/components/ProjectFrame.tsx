@@ -30,9 +30,9 @@ export default function ProjectFrame({ project }: { project: Project }) {
 
   return (
     <motion.div
-      whileHover={{ scale: 1.04 }}
+      whileHover={{ scale: 1.05 }}
       variants={fadeUp}
-      className="rounded-xl bg-brand-600/10 p-4 shadow-lg hover:shadow-xl transition cursor-pointer w-72 min-w-[16rem] flex flex-col"
+      className="rounded-xl bg-brand-600/10 p-5 shadow-lg hover:shadow-xl transition cursor-pointer min-w-[260px] md:min-w-0 flex flex-col mb-4"
     >
       {isExternal ? (
         <a href={project.url} target="_blank" rel="noopener noreferrer">
