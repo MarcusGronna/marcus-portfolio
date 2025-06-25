@@ -12,7 +12,7 @@ export default function PortfolioPage() {
 
   return (
     <section className="max-w-4xl mx-auto py-8 px-4">
-      <h2 className="text-2xl font-bold mb-8">Projekt</h2>
+      <h2 className="text-2xl font-bold mb-8">Portfolio</h2>
       {Object.entries(projectsByYear)
         .sort(([a], [b]) => Number(b) - Number(a)) // Senaste år först
         .map(([year, yearProjects]) => (

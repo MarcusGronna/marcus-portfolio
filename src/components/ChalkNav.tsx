@@ -3,23 +3,29 @@ import Link from "next/link";
 
 const navLinks = [
   { href: "/", label: "Hem" },
-  { href: "/about", label: "Om mig" },
+  { href: "/about", label: "About Me" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/contact", label: "Kontakt" },
+  { href: "/education", label: "Education" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function ChalkNav() {
   return (
-    <nav className="bg-brand-600 text-surface-50 sticky top-0 p-4 backdrop-blur rounded-b-xl shadow-lg z-40">
-      <ul className="flex flex-col gap-4">
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <Link href={link.href} className="hover:underline">
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <nav className="bg-brand-600 text-surface-50 sticky top-0 p-6 z-50 backdrop-blur shadow-md">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <span className="text-4xl font-bold tracking-widest font-mono select-none">
+          Marcus <span className="block md:inline">Grönnå</span>
+        </span>
+        <ul className="flex gap-8 text-lg font-mono">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="hover:underline underline-offset-4 transition">
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 }
