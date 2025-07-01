@@ -20,14 +20,16 @@ export default function Home() {
       {/* HOME */}
       <section
         id="home"
-        className="lg:col-span-12 flex flex-col lg:flex-row items-center justify-center min-h-[60vh] gap-10 mb-12"
+        className="lg:col-span-12 flex flex-col lg:flex-row items-center justify-center min-h-[60vh] gap-16 mb-16"
       >
         <div className="flex-1 flex flex-col items-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-brand-700">Hej, jag är Marcus</h1>
-          <PortraitFrame className="lg:sticky lg:top-36 w-32 md:w-48" />
+          <h1 className="text-5xl md:text-6xl font-bold mb-8 text-brand-700 text-center lg:text-left">
+            Hej, jag är Marcus
+          </h1>
+          <PortraitFrame className="lg:sticky lg:top-36 w-48 md:w-80 xl:w-100 h-48 md:h-80 xl:h-100" />
         </div>
         <div className="flex-1 flex flex-col justify-center items-start max-w-xl">
-          <h2 className="text-2xl font-bold mb-4">About Me</h2>
+          <h2 className="text-3xl font-bold mb-6">About Me</h2>
           <div className="prose prose-neutral text-lg">
             {/* TODO: Lägg in din riktiga presentationstext här */}
             <p>

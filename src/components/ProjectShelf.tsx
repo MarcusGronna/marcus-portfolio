@@ -16,8 +16,8 @@ export default function ProjectShelf({ projects, title }: ProjectShelfProps) {
       {title && <h4 className="text-2xl font-bold mb-4">{title}</h4>}
       <motion.div
         className="
-          flex gap-6 overflow-x-auto snap-x pb-4
-          md:grid md:grid-cols-3 md:gap-8 md:overflow-x-visible
+          flex gap-8 overflow-x-auto snap-x pb-4
+          md:grid md:grid-cols-3 md:gap-10 md:overflow-x-visible
         "
         variants={staggerContainer}
         initial="hidden"
