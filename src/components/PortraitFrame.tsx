@@ -12,7 +12,7 @@ export default function PortraitFrame({ small, className }: PortraitFrameProps) 
   return (
     <motion.div
       whileHover={{ rotateZ: 2 }}
-      className={`ring-4 ring-surface-50 rounded-lg shadow-lg mx-auto ${
+      className={`ring-4 ring-surface-50 rounded-lg shadow-lg mx-auto overflow-hidden ${
         small ? "w-32 h-32" : "w-48 h-48"
       } ${className ?? ""}`}
     >

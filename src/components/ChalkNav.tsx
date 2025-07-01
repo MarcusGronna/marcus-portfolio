@@ -15,7 +15,7 @@ export default function ChalkNav() {
         <span className="text-4xl font-bold tracking-widest font-mono select-none">
           Marcus <span className="block md:inline">Grönnå</span>
         </span>
-        <ul className="flex gap-8 text-lg font-mono scroll-smooth items-center">
+        <ul className="flex gap-8 text-lg font-mono items-center">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="hover:underline underline-offset-4 transition">
@@ -23,17 +23,6 @@ export default function ChalkNav() {
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href="https://www.linkedin.com/in/marcus-gr%C3%B6nn%C3%A5-6a5006260/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline underline-offset-4 transition"
-              aria-label="LinkedIn"
-            >
-              LinkedIn
-            </a>
-          </li>
         </ul>
       </div>
     </nav>

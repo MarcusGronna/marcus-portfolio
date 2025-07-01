@@ -39,14 +39,19 @@ export default function Home() {
       </section>
 
       {/* PORTFOLIO */}
-      <section id="portfolio" className="lg:col-span-12">
-        <motion.div variants={fadeUp} initial="hidden" animate="visible">
-          <h2 className="text-2xl font-bold mb-8">Portfolio</h2>
+      <section id="portfolio" className="lg:col-span-12 flex flex-col items-center">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-5xl mx-auto"
+        >
+          <h2 className="text-2xl font-bold mb-8 text-center">Portfolio</h2>
           {Object.entries(projectsByYear)
             .sort(([a], [b]) => Number(b) - Number(a))
             .map(([year, yearProjects]) => (
               <div key={year} className="mb-12">
-                <h3 className="text-xl font-semibold mb-4">{year}</h3>
+                <h3 className="text-xl font-semibold mb-4 text-center">{year}</h3>
                 <ProjectShelf projects={yearProjects} />
               </div>
             ))}
@@ -54,9 +59,14 @@ export default function Home() {
       </section>
 
       {/* EDUCATION */}
-      <section id="education" className="lg:col-span-7">
-        <motion.div variants={fadeUp} initial="hidden" animate="visible">
-          <h2 className="text-2xl font-bold mb-8">Education</h2>
+      <section id="education" className="lg:col-span-7 flex flex-col items-center">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-2xl"
+        >
+          <h2 className="text-2xl font-bold mb-8 text-center">Education</h2>
           <ul className="space-y-6">
             {education.map((item) => (
               <li key={item.id || `${item.year}-${item.school}`}>

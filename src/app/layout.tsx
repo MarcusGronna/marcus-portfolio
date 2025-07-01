@@ -25,7 +25,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-surface-50 text-brand-700 min-h-screen flex flex-col`}
       >
         <ChalkNav />
-        <main className="flex-1 p-4 flex flex-col">{children}</main>
+        <main className="flex-1 flex flex-col px-2 md:px-6 ">{children}</main>
         <Footer />
       </body>
     </html>
