@@ -1,3 +1,4 @@
+"use client";
 import { useLang } from "@/components/LangProvider";
 import { FiMail, FiLinkedin, FiGithub } from "react-icons/fi";
 
