@@ -1,103 +1,186 @@
-import Image from "next/image";
+"use client";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import WallLayout from "@/components/WallLayout";
+import PortraitFrame from "@/components/PortraitFrame";
+import ProjectShelf from "@/components/ProjectShelf";
+import { fadeUp } from "@/lib/framer-variants";
+import { projects } from "@/content/projects";
+import { education } from "@/content/education";
+import { useLang } from "@/components/LangProvider";
+
+const texts = {
+  aboutBtn: {
+    en: "About Me",
+    sv: "Om Mig",
+  },
+  about: {
+    en: [
+      "Hi! I’m Marcus Grönnå, a Stockholm-based developer with a passion for building beautiful, robust web experiences. My journey started in the gym as a personal trainer, but these days I channel that same discipline and curiosity into full-stack development, always striving for clean code and seamless user interfaces.",
+      "I thrive on learning fast and solving real problems. Whether it’s crafting React components that feel effortless, optimizing APIs for performance, or designing interfaces that invite interaction, I love the challenge of making tech both powerful and approachable.",
+      "Outside of coding, you’ll find me running long distances, lifting heavy, or rolling on the mats for some early-morning Brazilian Jiu-Jitsu. I believe the same principles apply in both training and tech: set clear goals, iterate quickly, and celebrate every bit of progress, no matter how small.",
+      "Right now, I’m studying full-stack development full-time, freelancing when I can, and launching projects you can explore here. If you have an idea you want to bring to life, feel free to reach out, let’s build something great together!",
+    ],
+    sv: [
+      "Hej! Jag heter Marcus Grönnå, en Stockholm-baserad utvecklare med en passion för att bygga vackra och robusta webbupplevelser. Min resa började på gymmet som personlig tränare, men nuförtiden kanaliserar jag samma disciplin och nyfikenhet i fullstackutveckling, alltid strävan efter ren kod och sömlösa användargränssnitt.",
+      "Jag trivs med att lära mig snabbt och lösa verkliga problem. Oavsett om det handlar om att skapa React-komponenter som känns enkla, optimera API:er för prestanda eller designa gränssnitt som bjuder in till interaktion, älskar jag utmaningen att göra teknik både kraftfull och lättillgänglig.",
+      "Utanför kodning hittar du mig springa långa sträckor, lyfta tungt eller rulla på mattorna för lite tidig morgon Brazilian Jiu-Jitsu. Jag tror att samma principer gäller både i träning och teknik: sätt tydliga mål, iterera snabbt och fira varje framsteg, oavsett hur litet.",
+      "Just nu studerar jag fullstackutveckling på heltid, frilansar när jag kan och lanserar projekt som du kan utforska här. Om du har en idé som du vill förverkliga, tveka inte att höra av dig, låt oss bygga något fantastiskt tillsammans!",
+    ],
+  },
+};
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const { lang } = useLang();
+  const [showAbout, setShowAbout] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const projectsByYear = projects.reduce<Record<string, typeof projects>>((acc, project) => {
+    const year = project.year || "Unknown year";
+    if (!acc[year]) acc[year] = [];
+    acc[year].push(project);
+    return acc;
+  }, {});
+
+  return (
+    <WallLayout>
+      {/* HOME */}
+      <section
+        id="home"
+        className="lg:col-span-12 flex flex-col lg:flex-row items-center justify-center min-h-[60vh] gap-16 mb-16"
+      >
+        <div className="flex-1 flex flex-col items-center">
+          <PortraitFrame className="lg:sticky lg:top-36 w-48 md:w-80 xl:w-100 h-48 md:h-80 xl:h-100" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <div className="flex-1 flex flex-col justify-center items-start max-w-xl">
+          <button
+            className="flex items-center gap-3 font-extrabold mb-10 underline underline-offset-[10px] transition hover:text-accent-400 cursor-pointer [text-decoration-thickness:5px] hover:[text-decoration-thickness:2px] [text-underline-position:from-font] hover:[text-decoration-color:theme(colors.accent-400)]"
+            style={{ fontSize: "3rem", lineHeight: 2 }}
+            onClick={() => setShowAbout((v) => !v)}
+            aria-expanded={showAbout}
+            aria-controls="about-me-text"
+            type="button"
+          >
+            {texts.aboutBtn[lang]}
+            {showAbout ? (
+              <FiChevronUp className="text-4xl" aria-hidden="true" />
+            ) : (
+              <FiChevronDown className="text-4xl" aria-hidden="true" />
+            )}
+          </button>
+          <div
+            className={`relative w-full transition-all duration-300 ${
+              showAbout ? "max-h-96" : "max-h-0"
+            }`}
+            style={{
+              overflow: "hidden",
+            }}
+          >
+            <motion.div
+              id="about-me-text"
+              className="prose prose-neutral text-lg bg-surface-50 rounded-xl shadow-md border border-brand-600 p-6 overflow-y-auto"
+              style={{
+                maxHeight: showAbout ? 320 : 0,
+                opacity: showAbout ? 1 : 0,
+                pointerEvents: showAbout ? "auto" : "none",
+                transition: "opacity 0.3s, max-height 0.3s",
+              }}
+              initial={false}
+              animate={showAbout ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+              transition={{ duration: 0.3 }}
+            >
+              {texts.about[lang].map((p, i) => (
+                <p key={i} className="mb-4 leading-relaxed">
+                  {p}
+                </p>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* PORTFOLIO */}
+      <section id="portfolio" className="lg:col-span-12 flex flex-col items-center">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-5xl mx-auto"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <h2 className="text-2xl font-bold mb-8 text-center">Portfolio</h2>
+          {Object.entries(projectsByYear)
+            .sort(([a], [b]) => Number(b) - Number(a))
+            .map(([year, yearProjects]) => (
+              <div key={year} className="mb-12">
+                <h3 className="text-xl font-semibold mb-4 text-center">{year}</h3>
+                <ProjectShelf projects={yearProjects} />
+              </div>
+            ))}
+        </motion.div>
+      </section>
+
+      {/* EDUCATION */}
+      <section id="education" className="lg:col-span-7 flex flex-col items-center">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-2xl"
         >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <h2 className="text-2xl font-bold mb-8 text-center">Education</h2>
+          <ul className="space-y-6">
+            {education.map((item) => (
+              <li key={item.id || `${item.year}-${item.school}`}>
+                <div>
+                  <div className="text-lg font-bold">{item.school[lang]}</div>
+                  <div className="text-base text-brand-800">{item.program[lang]}</div>
+                  {item.description && (
+                    <div className="text-sm text-brand-700 mt-1">
+                      {item.description && item.description[lang]}
+                    </div>
+                  )}
+                  <div className="text-sm text-brand-700 font-semibold">{item.year}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="lg:col-span-5 flex flex-col justify-center">
+        <motion.div variants={fadeUp} initial="hidden" animate="visible">
+          <h2 className="text-2xl font-bold mb-6">Contact</h2>
+          <p className="mb-4">
+            <a
+              href="mailto:hi@marcusgronna.com"
+              className="text-accent-700 underline hover:text-accent-800"
+            >
+              hi@marcusgronna.com
+            </a>
+          </p>
+          <div className="flex justify-center gap-6 text-2xl mt-6">
+            <a
+              href="https://www.linkedin.com/in/marcus-gr%C3%B6nn%C3%A5-6a5006260/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:text-accent-700"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/MarcusGronna"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="hover:text-accent-700"
+            >
+              GitHub
+            </a>
+          </div>
+        </motion.div>
+      </section>
+    </WallLayout>
   );
 }
