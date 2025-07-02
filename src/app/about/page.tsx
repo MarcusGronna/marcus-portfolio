@@ -1,3 +1,4 @@
+"use client";
 import PortraitFrame from "@/components/PortraitFrame";
 import { useLang } from "@/components/LangProvider";
 
