@@ -1,15 +1,42 @@
 "use client";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import WallLayout from "@/components/WallLayout";
 import PortraitFrame from "@/components/PortraitFrame";
 import ProjectShelf from "@/components/ProjectShelf";
 import { fadeUp } from "@/lib/framer-variants";
 import { projects } from "@/content/projects";
 import { education } from "@/content/education";
+import { useLang } from "@/components/LangProvider";
+
+const texts = {
+  aboutBtn: {
+    en: "About Me",
+    sv: "Om Mig",
+  },
+  about: {
+    en: [
+      "Hi! I’m Marcus Grönnå, a Stockholm-based developer with a passion for building beautiful, robust web experiences. My journey started in the gym as a personal trainer, but these days I channel that same discipline and curiosity into full-stack development, always striving for clean code and seamless user interfaces.",
+      "I thrive on learning fast and solving real problems. Whether it’s crafting React components that feel effortless, optimizing APIs for performance, or designing interfaces that invite interaction, I love the challenge of making tech both powerful and approachable.",
+      "Outside of coding, you’ll find me running long distances, lifting heavy, or rolling on the mats for some early-morning Brazilian Jiu-Jitsu. I believe the same principles apply in both training and tech: set clear goals, iterate quickly, and celebrate every bit of progress, no matter how small.",
+      "Right now, I’m studying full-stack development full-time, freelancing when I can, and launching projects you can explore here. If you have an idea you want to bring to life, feel free to reach out, let’s build something great together!",
+    ],
+    sv: [
+      "Hej! Jag heter Marcus Grönnå, en Stockholm-baserad utvecklare med en passion för att bygga vackra och robusta webbupplevelser. Min resa började på gymmet som personlig tränare, men nuförtiden kanaliserar jag samma disciplin och nyfikenhet i fullstackutveckling, alltid strävan efter ren kod och sömlösa användargränssnitt.",
+      "Jag trivs med att lära mig snabbt och lösa verkliga problem. Oavsett om det handlar om att skapa React-komponenter som känns enkla, optimera API:er för prestanda eller designa gränssnitt som bjuder in till interaktion, älskar jag utmaningen att göra teknik både kraftfull och lättillgänglig.",
+      "Utanför kodning hittar du mig springa långa sträckor, lyfta tungt eller rulla på mattorna för lite tidig morgon Brazilian Jiu-Jitsu. Jag tror att samma principer gäller både i träning och teknik: sätt tydliga mål, iterera snabbt och fira varje framsteg, oavsett hur litet.",
+      "Just nu studerar jag fullstackutveckling på heltid, frilansar när jag kan och lanserar projekt som du kan utforska här. Om du har en idé som du vill förverkliga, tveka inte att höra av dig, låt oss bygga något fantastiskt tillsammans!",
+    ],
+  },
+};
 
 export default function Home() {
+  const { lang } = useLang();
+  const [showAbout, setShowAbout] = useState(false);
+
   const projectsByYear = projects.reduce<Record<string, typeof projects>>((acc, project) => {
-    const year = project.year || "Okänt år";
+    const year = project.year || "Unknown year";
     if (!acc[year]) acc[year] = [];
     acc[year].push(project);
     return acc;
@@ -23,19 +50,51 @@ export default function Home() {
         className="lg:col-span-12 flex flex-col lg:flex-row items-center justify-center min-h-[60vh] gap-16 mb-16"
       >
         <div className="flex-1 flex flex-col items-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-8 text-brand-700 text-center lg:text-left">
-            Hej, jag är Marcus
-          </h1>
           <PortraitFrame className="lg:sticky lg:top-36 w-48 md:w-80 xl:w-100 h-48 md:h-80 xl:h-100" />
         </div>
         <div className="flex-1 flex flex-col justify-center items-start max-w-xl">
-          <h2 className="text-3xl font-bold mb-6">About Me</h2>
-          <div className="prose prose-neutral text-lg">
-            {/* TODO: Lägg in din riktiga presentationstext här */}
-            <p>
-              Hey there! I&#39;m a passionate IT enthusiast from Stockholm, Sweden, with a love for
-              web development and full-stack technologies.
-            </p>
+          <button
+            className="flex items-center gap-3 font-extrabold mb-10 underline underline-offset-[10px] transition hover:text-accent-400 cursor-pointer [text-decoration-thickness:5px] hover:[text-decoration-thickness:2px] [text-underline-position:from-font] hover:[text-decoration-color:theme(colors.accent-400)]"
+            style={{ fontSize: "3rem", lineHeight: 2 }}
+            onClick={() => setShowAbout((v) => !v)}
+            aria-expanded={showAbout}
+            aria-controls="about-me-text"
+            type="button"
+          >
+            {texts.aboutBtn[lang]}
+            {showAbout ? (
+              <FiChevronUp className="text-4xl" aria-hidden="true" />
+            ) : (
+              <FiChevronDown className="text-4xl" aria-hidden="true" />
+            )}
+          </button>
+          <div
+            className={`relative w-full transition-all duration-300 ${
+              showAbout ? "max-h-96" : "max-h-0"
+            }`}
+            style={{
+              overflow: "hidden",
+            }}
+          >
+            <motion.div
+              id="about-me-text"
+              className="prose prose-neutral text-lg bg-surface-50 rounded-xl shadow-md border border-brand-600 p-6 overflow-y-auto"
+              style={{
+                maxHeight: showAbout ? 320 : 0,
+                opacity: showAbout ? 1 : 0,
+                pointerEvents: showAbout ? "auto" : "none",
+                transition: "opacity 0.3s, max-height 0.3s",
+              }}
+              initial={false}
+              animate={showAbout ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+              transition={{ duration: 0.3 }}
+            >
+              {texts.about[lang].map((p, i) => (
+                <p key={i} className="mb-4 leading-relaxed">
+                  {p}
+                </p>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
@@ -72,14 +131,15 @@ export default function Home() {
           <ul className="space-y-6">
             {education.map((item) => (
               <li key={item.id || `${item.year}-${item.school}`}>
-                {/* TODO: Lägg till TimelineItem-komponent */}
                 <div>
-                  <div className="text-sm text-brand-700 font-semibold">{item.year}</div>
-                  <div className="text-lg font-bold">{item.school}</div>
-                  <div className="text-base text-brand-800">{item.program}</div>
+                  <div className="text-lg font-bold">{item.school[lang]}</div>
+                  <div className="text-base text-brand-800">{item.program[lang]}</div>
                   {item.description && (
-                    <div className="text-sm text-brand-700 mt-1">{item.description}</div>
+                    <div className="text-sm text-brand-700 mt-1">
+                      {item.description && item.description[lang]}
+                    </div>
                   )}
+                  <div className="text-sm text-brand-700 font-semibold">{item.year}</div>
                 </div>
               </li>
             ))}
@@ -91,7 +151,6 @@ export default function Home() {
       <section id="contact" className="lg:col-span-5 flex flex-col justify-center">
         <motion.div variants={fadeUp} initial="hidden" animate="visible">
           <h2 className="text-2xl font-bold mb-6">Contact</h2>
-          {/* TODO: Lägg in riktiga kontaktuppgifter */}
           <p className="mb-4">
             <a
               href="mailto:hi@marcusgronna.com"

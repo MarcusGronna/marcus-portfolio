@@ -2,18 +2,15 @@ import type { Config } from "tailwindcss";
 import colors from "tailwindcss/colors";
 
 const config: Config = {
-  content: ["./src/**/*.{ts,tsx,mdx}"],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     extend: {
       colors: {
-        brand: {
-          500: "#7d8678",
-          600: "#1a1a1a",
-          700: "#ededed",
-        },
-        surface: {
-          50: "#fff",
-        },
+        'brand-600': '#7d8678',
+        'brand-700': '#6f786b',
+        'surface-50': '#f5ede4',
         accent: colors.amber,
       },
     },

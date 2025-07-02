@@ -5,8 +5,10 @@ import SkillBadge from "./SkillBadge";
 import type { Project } from "@/content/projects";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/framer-variants";
+import { useLang } from "@/components/LangProvider";
 
 export default function ProjectFrame({ project }: { project: Project }) {
+  const { lang } = useLang();
   const isExternal = project.url.startsWith("http");
 
   const content = (
@@ -14,12 +16,13 @@ export default function ProjectFrame({ project }: { project: Project }) {
       {/* TODO: Byt ut till riktig projektbild */}
       <Image
         src={project.image}
-        alt={project.title}
+        alt={project.title[lang]}
         width={256}
         height={144}
         className="rounded mb-2 object-cover w-full h-36"
       />
-      <h5 className="font-bold text-lg mb-1">{project.title}</h5>
+      <h5 className="font-bold text-lg mb-1">{project.title[lang]}</h5>
+      <p>{project.summary[lang]}</p>
       <div className="flex flex-wrap gap-2 mt-2">
         {project.tech.map((label) => (
           <SkillBadge key={label} label={label} />
