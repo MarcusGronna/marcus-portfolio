@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { education } from "@/content/education";
 import TimelineItem from "@/components/TimelineItem";

@@ -1,3 +1,4 @@
+"use client";
 import { projects } from "@/content/projects";
 import ProjectShelf from "@/components/ProjectShelf";
 import { useLang } from "@/components/LangProvider";
