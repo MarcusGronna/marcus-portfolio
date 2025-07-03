@@ -31,7 +31,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${abel.variable} ${dosis.variable} antialiased min-h-screen flex flex-col`}>
         <LangProvider>
           <ChalkNav />
-          <main className="flex-1 flex flex-col px-2 md:px-6">{children}</main>
+          <main className="container mx-auto px-6 lg:px-8 flex flex-col">{children}</main>
           <Footer />
         </LangProvider>
       </body>

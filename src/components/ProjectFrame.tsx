@@ -12,8 +12,7 @@ export default function ProjectFrame({ project }: { project: Project }) {
   const isExternal = project.url.startsWith("http");
 
   const content = (
-    <div>
-      {/* TODO: Byt ut till riktig projektbild */}
+    <div className="text-left p-2">
       <Image
         src={project.image}
         alt={project.title[lang]}
@@ -21,8 +20,8 @@ export default function ProjectFrame({ project }: { project: Project }) {
         height={144}
         className="rounded mb-2 object-cover w-full h-36"
       />
-      <h5 className="font-bold text-lg mb-1">{project.title[lang]}</h5>
-      <p>{project.summary[lang]}</p>
+      <h5 className="font-bold text-lg mb-1 text-center">{project.title[lang]}</h5>
+      <p className=" m-3">{project.summary[lang]}</p>
       <div className="flex flex-wrap gap-2 mt-2">
         {project.tech.map((label) => (
           <SkillBadge key={label} label={label} />

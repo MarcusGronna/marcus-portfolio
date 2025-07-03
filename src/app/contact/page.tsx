@@ -46,10 +46,10 @@ export default function ContactPage() {
   }
 
   return (
-    <section className="max-w-lg mx-auto py-12 px-4 text-center">
+    <section className="max-w-lg mx-auto py-6 px-2 sm:px-4 text-center flex flex-col items-center">
       <h2 className="text-2xl font-bold mb-2">{texts.title[lang]}</h2>
-      <p className="mb-8 text-brand-700">{texts.subtitle[lang]}</p>
-      <div className="flex justify-center gap-6 text-2xl mb-8">
+      <p className="mb-8 text-brand-700 text-base sm:text-lg">{texts.subtitle[lang]}</p>
+      <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-2xl mb-8 w-full">
         <a
           href="mailto:hi@marcusgronna.com"
           className="flex items-center gap-2 text-accent-700 hover:text-accent-800 underline"

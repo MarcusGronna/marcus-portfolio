@@ -9,11 +9,12 @@ type PortraitFrameProps = {
 };
 
 export default function PortraitFrame({ className }: PortraitFrameProps) {
+  // Gör porträttbilden ännu större på mobil
   return (
     <motion.div
       whileHover={{ scale: 1.03, rotateZ: 1 }}
       transition={{ type: "spring", stiffness: 120, damping: 10 }}
-      className={`relative mt-2 ring-4 ring-brand-600 rounded-full shadow-xl mx-auto overflow-hidden${
+      className={`relative mt-8 ring-4 ring-brand-600 rounded-full shadow-xl mx-auto overflow-hidden w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96${
         className ? ` ${className}` : ""
       }`}
     >
@@ -25,7 +26,7 @@ export default function PortraitFrame({ className }: PortraitFrameProps) {
         src="/portrait.jpg"
         alt="Marcus"
         fill
-        sizes="(max-width: 768px) 100vw, 400px" // <-- Lägg till denna rad
+        sizes="(max-width: 640px) 256px, (max-width: 768px) 320px, 384px"
         className="object-cover rounded-full w-full h-full"
         priority
       />

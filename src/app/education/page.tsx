@@ -12,9 +12,9 @@ const texts = {
 export default function EducationPage() {
   const { lang } = useLang();
   return (
-    <section className="max-w-2xl mx-auto py-8 px-4">
-      <h2 className="text-2xl font-bold mb-8">{texts.title[lang]}</h2>
-      <ul className="space-y-6">
+    <section className="max-w-2xl mx-auto py-8 px-2 sm:px-4 flex flex-col items-center">
+      <h2 className="text-4xl font-extrabold leading-tight mb-8">{texts.title[lang]}</h2>
+      <ul className="space-y-6 mb-8 text-left w-full">
         {education.map((item: EducationItem) => (
           <li key={item.id || `${item.year}-${item.school}`}>
             <TimelineItem {...item} lang={lang} />
