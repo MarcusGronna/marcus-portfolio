@@ -1,7 +1,6 @@
 "use client";
 import { useLang } from "./LangProvider";
 
-// Enkel footer. social-länkar med aria-label, © {new Date().getFullYear()} Marcus Grönnå. Klassen 'mt-24 text-center text-sm text-brand-700'.
 export default function Footer() {
   const { lang } = useLang();
 
@@ -15,8 +14,8 @@ export default function Footer() {
   };
 
   return (
-    <footer className="mt-24 text-center text-sm text-ink-900 bg-brand-600/80 py-4 font-body">
-      <div className="flex justify-center gap-4 mb-2">
+    <footer className="text-center text-sm text-ink-900 bg-brand-600/80 py-4 font-body">
+      <div className="flex justify-center items-center gap-4 mb-2">
         <a
           href="https://github.com/MarcusGronna"
           target="_blank"

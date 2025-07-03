@@ -17,14 +17,16 @@ export default function PortfolioPage() {
   }, {});
 
   return (
-    <section className="max-w-4xl mx-auto py-8 px-4">
+    <section className="max-w-4xl mx-auto py-8 px-2 sm:px-4 flex flex-col items-center text-center">
       <h2 className="text-2xl font-bold mb-8">{texts.title[lang]}</h2>
       {Object.entries(projectsByYear)
         .sort(([a], [b]) => Number(b) - Number(a))
         .map(([year, yearProjects]) => (
-          <div key={year} className="mb-12">
+          <div key={year} className="mb-12 w-full">
             <h3 className="text-xl font-semibold mb-4">{year}</h3>
-            <ProjectShelf projects={yearProjects} />
+            <div className="w-full overflow-x-auto">
+              <ProjectShelf projects={yearProjects} />
+            </div>
           </div>
         ))}
     </section>

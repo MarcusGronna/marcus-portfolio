@@ -2,13 +2,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import WallLayout from "@/components/WallLayout";
 import PortraitFrame from "@/components/PortraitFrame";
 import ProjectShelf from "@/components/ProjectShelf";
 import { fadeUp } from "@/lib/framer-variants";
 import { projects } from "@/content/projects";
 import { education } from "@/content/education";
 import { useLang } from "@/components/LangProvider";
+import { dict } from "@/content/i18n";
 
 const texts = {
   aboutBtn: {
@@ -43,19 +43,19 @@ export default function Home() {
   }, {});
 
   return (
-    <WallLayout>
+    <>
       {/* HOME */}
       <section
         id="home"
-        className="lg:col-span-12 flex flex-col lg:flex-row items-center justify-center min-h-[60vh] gap-16 mb-16"
+        className="flex flex-col lg:flex-row items-center justify-center min-h-[60vh] gap-8 md:gap-16 mb-10 md:mb-16 px-2 sm:px-4"
       >
-        <div className="flex-1 flex flex-col items-center">
-          <PortraitFrame className="lg:sticky lg:top-36 w-48 md:w-80 xl:w-100 h-48 md:h-80 xl:h-100" />
+        <div className="flex-1 flex flex-col items-center justify-center">
+          <PortraitFrame className="lg:sticky lg:top-36 mt-10 md:mt-20 lg:mt-32 w-32 sm:w-48 md:w-80 xl:w-100 h-32 sm:h-48 md:h-80 xl:h-100" />
         </div>
-        <div className="flex-1 flex flex-col justify-center items-start max-w-xl">
+        <div className="flex-1 flex flex-col justify-center items-start max-w-xl w-full">
           <button
-            className="flex items-center gap-3 font-extrabold mb-10 underline underline-offset-[10px] transition hover:text-accent-400 cursor-pointer [text-decoration-thickness:5px] hover:[text-decoration-thickness:2px] [text-underline-position:from-font] hover:[text-decoration-color:theme(colors.accent-400)]"
-            style={{ fontSize: "3rem", lineHeight: 2 }}
+            className="flex items-center gap-3 font-extrabold mb-6 md:mb-10 underline underline-offset-[10px] transition hover:text-accent-400 cursor-pointer [text-decoration-thickness:5px] hover:[text-decoration-thickness:2px] [text-underline-position:from-font] hover:[text-decoration-color:theme(colors.accent-400)] text-left text-2xl md:text-4xl"
+            style={{ lineHeight: 2 }}
             onClick={() => setShowAbout((v) => !v)}
             aria-expanded={showAbout}
             aria-controls="about-me-text"
@@ -78,7 +78,7 @@ export default function Home() {
           >
             <motion.div
               id="about-me-text"
-              className="prose prose-neutral text-lg bg-surface-50 rounded-xl shadow-md border border-brand-600 p-6 overflow-y-auto"
+              className="prose prose-neutral text-lg bg-surface-50 rounded-xl shadow-md border border-brand-600 p-6 overflow-y-auto text-left"
               style={{
                 maxHeight: showAbout ? 320 : 0,
                 opacity: showAbout ? 1 : 0,
@@ -100,14 +100,14 @@ export default function Home() {
       </section>
 
       {/* PORTFOLIO */}
-      <section id="portfolio" className="lg:col-span-12 flex flex-col items-center">
+      <section id="portfolio" className="flex flex-col items-center justify-center text-center">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           className="w-full max-w-5xl mx-auto"
         >
-          <h2 className="text-2xl font-bold mb-8 text-center">Portfolio</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">{dict[lang].portfolio}</h2>
           {Object.entries(projectsByYear)
             .sort(([a], [b]) => Number(b) - Number(a))
             .map(([year, yearProjects]) => (
@@ -120,15 +120,15 @@ export default function Home() {
       </section>
 
       {/* EDUCATION */}
-      <section id="education" className="lg:col-span-7 flex flex-col items-center">
+      <section id="education" className="flex flex-col items-center justify-center">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           className="w-full max-w-2xl"
         >
-          <h2 className="text-2xl font-bold mb-8 text-center">Education</h2>
-          <ul className="space-y-6">
+          <h2 className="text-2xl font-bold mb-8">{dict[lang].education}</h2>
+          <ul className="space-y-8 text-left">
             {education.map((item) => (
               <li key={item.id || `${item.year}-${item.school}`}>
                 <div>
@@ -148,9 +148,9 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="lg:col-span-5 flex flex-col justify-center">
+      <section id="contact" className="flex flex-col justify-center items-center text-center">
         <motion.div variants={fadeUp} initial="hidden" animate="visible">
-          <h2 className="text-2xl font-bold mb-6">Contact</h2>
+          <h2 className="text-2xl font-bold mb-6">{dict[lang].contact}</h2>
           <p className="mb-4">
             <a
               href="mailto:hi@marcusgronna.com"
@@ -181,6 +181,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-    </WallLayout>
+    </>
   );
 }
