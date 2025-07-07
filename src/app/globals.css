@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@tailwind utilities;
+
+
 
 /* Font- och färgvariabler */
 :root {
