@@ -5,7 +5,6 @@ import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
   { href: "#home", label: { en: "Home", sv: "Hem" } },
-  { href: "#about", label: { en: "About Me", sv: "Om mig" } },
   { href: "#portfolio", label: { en: "Portfolio", sv: "Portfolio" } },
   { href: "#education", label: { en: "Education", sv: "Utbildning" } },
   { href: "#contact", label: { en: "Contact", sv: "Kontakt" } },
@@ -16,38 +15,37 @@ export default function ChalkNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav
-      className="relative bg-brand-600 text-surface-50 sticky top-0 z-50
-  backdrop-blur border-b border-brand-600/20
-  min-h-20 lg:min-h-24 py-4 lg:py-6 px-6 shadow-md"
-    >
-      <div className="max-w-6xl mx-auto flex flex-row items-center justify-between gap-4 h-full">
-        <span className="text-4xl font-bold tracking-widest select-none font-heading self-center">
-          Marcus <span className="block md:inline">Grönnå</span>
+    <nav className="relative sticky top-0 z-50 bg-brand-600/90 backdrop-blur border-b border-brand-600/20 text-surface-50 h-16 md:h-20 px-4 md:px-6 flex items-center shadow-md">
+      <div className="max-w-6xl w-full mx-auto flex items-center justify-between">
+        {/* Logo / namn */}
+        <span className="text-3xl md:text-4xl font-heading font-bold tracking-widest select-none">
+          Marcus <span className="hidden md:inline">Grönnå</span>
         </span>
+
         {/* Mobile menu button */}
         <button
-          className="lg:hidden absolute left-1/2 -translate-x-1/2
-    text-6xl p-2 focus:outline-none"
+          className="lg:hidden text-3xl p-2 cursor-pointer focus:outline-none"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Stäng meny" : "Öppna meny"}
         >
-          {open ? <FiX size={48} /> : <FiMenu size={48} />}
+          {open ? <FiX size={32} /> : <FiMenu size={32} />}
         </button>
+
         {/* Desktop menu */}
-        <ul className="hidden lg:flex gap-8 text-lg font-heading items-center h-full">
+        <ul className="hidden lg:flex items-center gap-6 text-base md:text-lg">
           {navLinks.map((link) => (
-            <li key={link.href} className="flex items-center h-full">
+            <li key={link.href}>
               <a
                 href={link.href}
-                className="relative transition-colors duration-200 text-surface-50 hover:text-accent-400 after:content-[''] after:block after:h-[2px] after:bg-accent-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200 after:origin-left"
-                style={{ paddingBottom: 2 }}
+                className="relative pb-0.5 transition-colors duration-200 hover:text-accent-400 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-accent-400 after:transition-transform after:duration-200 hover:after:scale-x-100"
               >
                 {link.label[lang]}
               </a>
             </li>
           ))}
-          <li className="pl-4 flex items-center h-full">
+
+          {/* Language toggle */}
+          <li>
             <button
               className="px-4 py-2.5 rounded-md bg-accent-400 text-ink-900 font-semibold hover:bg-accent-300 transition cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-600"
               onClick={() => setLang(lang === "en" ? "sv" : "en")}
@@ -59,26 +57,23 @@ export default function ChalkNav() {
           </li>
         </ul>
       </div>
+
       {/* Mobile menu dropdown */}
       {open && (
-        <ul
-          className="flex flex-col gap-4 mt-4 px-2 pb-4 lg:hidden
-  animate-fade-in bg-brand-600 rounded shadow-lg w-full"
-        >
-          {navLinks.map((link) => (
-            <li key={link.href} className="">
+        <ul className="lg:hidden absolute top-full left-0 w-full bg-brand-600/95 backdrop-blur-md border-t border-brand-600/20 shadow-lg animate-slide-down">
+          <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col space-y-4">
+            {navLinks.map((link) => (
               <a
+                key={link.href}
                 href={link.href}
-                className="block w-full py-2 px-4 text-lg font-heading text-surface-50 hover:text-accent-400 transition-colors"
                 onClick={() => setOpen(false)}
+                className="block text-lg font-heading text-surface-50 hover:text-accent-400 transition-colors"
               >
                 {link.label[lang]}
               </a>
-            </li>
-          ))}
-          <li className="flex items-center">
+            ))}
             <button
-              className="w-full px-4 py-2.5 rounded-md bg-accent-400 text-ink-900 font-semibold hover:bg-accent-300 transition cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-600"
+              className="self-start px-4 py-2.5 rounded-md bg-accent-400 text-ink-900 font-semibold hover:bg-accent-300 transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-600"
               onClick={() => {
                 setLang(lang === "en" ? "sv" : "en");
                 setOpen(false);
@@ -88,7 +83,7 @@ export default function ChalkNav() {
             >
               {lang === "en" ? "SV" : "EN"}
             </button>
-          </li>
+          </div>
         </ul>
       )}
     </nav>

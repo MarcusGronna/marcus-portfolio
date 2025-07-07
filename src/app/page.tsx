@@ -47,14 +47,14 @@ export default function Home() {
       {/* HOME */}
       <section
         id="home"
-        className="flex flex-col lg:flex-row items-center justify-center min-h-[60vh] gap-8 md:gap-16 mb-10 md:mb-16 px-2 sm:px-4"
+        className="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-16 mb-10 md:mb-16 px-2 sm:px-4 "
       >
         <div className="flex-1 flex flex-col items-center justify-center">
-          <PortraitFrame className="lg:sticky lg:top-36 mt-10 md:mt-20 lg:mt-32 w-32 sm:w-48 md:w-80 xl:w-100 h-32 sm:h-48 md:h-80 xl:h-100" />
+          <PortraitFrame className="lg:sticky lg:top-36 mt-6 lg:mt-4 w-32 sm:w-48 md:w-80 xl:w-100 h-32 sm:h-48 md:h-80 xl:h-100" />
         </div>
         <div className="flex-1 flex flex-col justify-center items-start max-w-xl w-full">
           <button
-            className="flex items-center gap-3 font-extrabold mb-6 md:mb-10 underline underline-offset-10 transition hover:text-accent-400 cursor-pointer decoration-[5px] hover:decoration-2 [text-underline-position:from-font] hover:[text-decoration-color:theme(colors.accent-400)] text-left text-2xl md:text-4xl"
+            className="flex items-center gap-3  mb-3 md:mb-5 underline underline-offset-10 transition hover:text-accent-300 cursor-pointer decoration-[5px] hover:decoration-2 [text-underline-position:from-font] hover:[text-decoration-color:theme(colors.accent-400)] text-left text-2xl md:text-4xl"
             style={{ lineHeight: 2 }}
             onClick={() => setShowAbout((v) => !v)}
             aria-expanded={showAbout}

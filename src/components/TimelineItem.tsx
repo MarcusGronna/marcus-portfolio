@@ -10,13 +10,13 @@ export default function TimelineItem({
   lang,
 }: TimelineItemProps) {
   return (
-    <div className="relative pl-6">
+    <div className="relative pl-6 mb-8">
       <div className="absolute left-0 top-2 w-3 h-3 bg-brand-600 rounded-full"></div>
-      <div>
-        <div className="text-lg font-bold">{school[lang]}</div>
-        <div className="text-base text-brand-800">{program[lang]}</div>
-        {description && <div className="text-sm text-brand-700 mt-1">{description[lang]}</div>}
-        <div className="text-sm text-brand-700 font-semibold mt-1">{year}</div>
+      <div className="space-y-1">
+        <div className="text-lg font-heading text-ink-900">{school[lang]}</div>
+        <div className="text-base text-brand-700">{program[lang]}</div>
+        {description && <div className="text-sm text-ink-900">{description[lang]}</div>}
+        <div className="text-sm text-ink-900 font-semibold">{year}</div>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="text-center text-sm text-ink-900 bg-brand-600/80 py-4 font-body">
+    <footer className="text-center text-sm text-surface-50 bg-brand-600/90 py-4">
       <div className="flex justify-center items-center gap-4 mb-2">
         <a
           href="https://github.com/MarcusGronna"
