@@ -24,7 +24,7 @@ export default function ProjectShelf({ projects, title }: ProjectShelfProps) {
         {projects.map((project) => (
           <div
             key={project.slug}
-            className="w-[340px] sm:w-[340px] md:w-auto flex-shrink-0 snap-start"
+            className="w-[340px] sm:w-[340px] md:w-auto shrink-0 snap-start"
           >
             <ProjectFrame project={project} />
           </div>

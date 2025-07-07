@@ -54,7 +54,7 @@ export default function Home() {
         </div>
         <div className="flex-1 flex flex-col justify-center items-start max-w-xl w-full">
           <button
-            className="flex items-center gap-3 font-extrabold mb-6 md:mb-10 underline underline-offset-[10px] transition hover:text-accent-400 cursor-pointer [text-decoration-thickness:5px] hover:[text-decoration-thickness:2px] [text-underline-position:from-font] hover:[text-decoration-color:theme(colors.accent-400)] text-left text-2xl md:text-4xl"
+            className="flex items-center gap-3 font-extrabold mb-6 md:mb-10 underline underline-offset-10 transition hover:text-accent-400 cursor-pointer decoration-[5px] hover:decoration-2 [text-underline-position:from-font] hover:[text-decoration-color:theme(colors.accent-400)] text-left text-2xl md:text-4xl"
             style={{ lineHeight: 2 }}
             onClick={() => setShowAbout((v) => !v)}
             aria-expanded={showAbout}

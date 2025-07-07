@@ -4,6 +4,7 @@ import "./globals.css";
 import LangProvider from "../components/LangProvider";
 import ChalkNav from "../components/ChalkNav";
 import Footer from "../components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const abel = Abel({
   variable: "--font-heading",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <main className="container mx-auto px-6 lg:px-8 flex flex-col">{children}</main>
           <Footer />
         </LangProvider>
+        <Analytics />
       </body>
     </html>
   );

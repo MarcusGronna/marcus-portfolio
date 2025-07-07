@@ -1,158 +1,56 @@
+/* --- Tailwind v4 base --------------------------------------- */
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@tailwind utilities;
 
-/* Font- och färgvariabler */
-:root {
-  --font-heading: 'Abel', Arial, Helvetica, sans-serif;
-  --font-body: 'Dosis', Arial, Helvetica, sans-serif;
-  --brand-600: #798777;   /* Primär grön */
-  --surface-50: #F8EDE3;  /* Ljus bakgrund */
-  --accent-400: #BDD2B6;  /* Sekundär grön */
-  --accent-300: #A2B29F;  /* Dämpad grön */
-  --ink-900:   #596358;   /* Mörk text */
-  --spacing: .3rem;
+/* --- Design-tokens med @theme ------------------------------- */
+@theme {
+  /* Färger */
+  --color-brand-600: #7d8678;
+  --color-brand-700: #6f786b;
+  --color-surface-50: #f5ede4;
+  --color-accent-400: #bdd2b6;
+  --color-accent-300: #a2b29f;
+  --color-ink-900:   #596358;
+
+  /* Typsnitt */
+  --font-heading: "Abel", Arial, Helvetica, sans-serif;
+  --font-body:    "Dosis", Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* --- Baslayout & typografi --------------------------------- */
 body {
-  font-family: var(--font-body);
-  color: var(--ink-900);
-  background-color: var(--surface-50);
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
+  @apply min-h-screen antialiased bg-surface-50 text-ink-900 font-body m-0 p-0;
 }
 
-/* Tailwind custom färger via CSS-variabler */
-@layer base {
-  .bg-brand-600 { background-color: var(--brand-600) !important; }
-  .bg-surface-50 { background-color: var(--surface-50) !important; }
-  .bg-accent-400 { background-color: var(--accent-400) !important; }
-  .bg-accent-300 { background-color: var(--accent-300) !important; }
-  .text-brand-600 { color: var(--brand-600) !important; }
-  .text-surface-50 { color: var(--surface-50) !important; }
-  .text-accent-400 { color: var(--accent-400) !important; }
-  .text-accent-300 { color: var(--accent-300) !important; }
-  .text-ink-900 { color: var(--ink-900) !important; }
-  .ring-brand-600 { --tw-ring-color: var(--brand-600) !important; }
-  .ring-accent-400 { --tw-ring-color: var(--accent-400) !important; }
-  .ring-accent-300 { --tw-ring-color: var(--accent-300) !important; }
-}
-
-/* Smooth anchor scroll och offset för sticky nav */
-html {
-  scroll-behavior: smooth;
-}
-section[id] {
-  scroll-margin-top: 5rem;
-}
-
-/* Anpassad scrollbar för hela sidan */
-::-webkit-scrollbar {
-  width: 12px;
-  background: var(--surface-50);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--brand-600);
-  border-radius: 6px;
-  border: 2px solid var(--surface-50);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-400);
-}
-
-::-webkit-scrollbar-corner {
-  background: var(--surface-50);
-}
-
-/* Firefox */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--brand-600) var(--surface-50);
-}
-
-.btn {
-  @apply px-4 py-2 rounded-md font-semibold;
-}
-
-
-
-
-section {
-  margin-bottom: 5rem;
-}
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  letter-spacing: .04em;
-  font-weight: bold;
-}
-h1 {
-  font-size: 3rem;
-  margin-bottom: 2rem;
-}
-h2 {
-  font-size: 2.25rem;
-  margin-bottom: 1.5rem;
-}
-h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
+  @apply font-bold tracking-wide;
 }
 
-footer {
-  margin-top: 1rem;
-  padding: 2rem 0;
-  text-align: center;
-  font-size: 1rem;
+h1 {@apply text-4xl mb-8;}
+h2 {@apply text-3xl mb-6;}
+h3 {@apply text-xl mb-3;}
+
+/* --- Sektioner & container --------------------------------- */
+section {@apply mb-20;}
+main   {@apply container mx-auto px-6 lg:px-8 flex flex-col;}
+
+/* --- Buttons exempel --------------------------------------- */
+.btn {
+  @apply px-4 py-2 rounded-md font-semibold bg-brand-600 text-surface-50 hover:bg-brand-700 transition-colors;
 }
 
-/* Extra mobilanpassning */
+/* --- Scrollbar (webkit) ------------------------------------ */
+::-webkit-scrollbar        { width: 12px;  background: var(--color-surface-50); }
+::-webkit-scrollbar-thumb  { background: var(--color-brand-600); border-radius: 6px; border: 2px solid var(--color-surface-50); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent-400); }
+html { scrollbar-width: thin; scrollbar-color: var(--color-brand-600) var(--color-surface-50); }
+
+/* --- Smooth anchor scroll ---------------------------------- */
+html       { scroll-behavior: smooth; }
+section[id]{ scroll-margin-top: 5rem; }
+
+/* --- Mobiljusteringar -------------------------------------- */
 @media (max-width: 640px) {
-  h1, h2, h3, h4 {
-    font-size: 1.25rem !important;
-    line-height: 1.4 !important;
-  }
-  section, main, .container {
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-  }
-  .text-4xl { font-size: 2rem !important; }
-  .text-2xl { font-size: 1.5rem !important; }
-  .text-xl { font-size: 1.25rem !important; }
+  h1, h2, h3, h4 {@apply text-xl leading-snug;}
+  main, section {@apply px-2;}
 }
-
-/* Anpassad scrollbar för hela sidan */
-::-webkit-scrollbar {
-  width: 12px;
-  background: var(--surface-50);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--brand-600);
-  border-radius: 6px;
-  border: 2px solid var(--surface-50);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-400);
-}
-
-::-webkit-scrollbar-corner {
-  background: var(--surface-50);
-}
-
-/* Firefox */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--brand-600) var(--surface-50);
-}
-
