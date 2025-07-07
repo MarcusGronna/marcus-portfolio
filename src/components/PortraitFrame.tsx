@@ -19,7 +19,7 @@ export default function PortraitFrame({ className }: PortraitFrameProps) {
       }`}
     >
       <span
-        className=" pointer-events-none absolute inset-0 z-10 before:absolute before:inset-0 before:bg-gradient-to-t before:from-black/20 before:to-transparent before:rounded-full"
+        className=" pointer-events-none absolute inset-0 z-10 before:absolute before:inset-0 before:bg-linear-to-t before:from-black/20 before:to-transparent before:rounded-full"
         aria-hidden="true"
       />
       <Image
