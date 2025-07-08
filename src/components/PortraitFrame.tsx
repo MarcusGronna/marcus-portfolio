@@ -20,10 +20,12 @@ export default function PortraitFrame({
 
   return (
     <motion.div
+      whileHover={{ scale: 1.05, rotateZ: 1 }}
+      transition={{ type: "spring", stiffness: 120, damping: 10 }}
       onClick={onToggle}
       className={`
-        relative aspect-square mx-auto overflow-hidden cursor-pointer
-        ring-4 ring-brand-600 rounded-full shadow-xl perspective-1000
+        relative aspect-square mb-6 mx-auto overflow-hidden cursor-pointer
+        ring-inset ring-4 ring-brand-600 rounded-full shadow-xl perspective-1000
         ${size} ${className}
       `}
     >
@@ -40,7 +42,7 @@ export default function PortraitFrame({
             alt="Marcus"
             fill
             sizes="(max-width: 768px) 50vw, 384px"
-            className="object-cover rounded-full"
+            className="object-cover rounded-full "
             priority
           />
         </div>
