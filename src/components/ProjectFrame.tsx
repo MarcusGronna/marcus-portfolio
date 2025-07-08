@@ -12,29 +12,47 @@ export default function ProjectFrame({ project }: { project: Project }) {
   const isExternal = project.url.startsWith("http");
 
   const content = (
-    <div className="text-left p-2">
-      <Image
-        src={project.image}
-        alt={project.title[lang]}
-        width={256}
-        height={144}
-        className="rounded mb-2 object-cover w-full h-36"
-      />
-      <h5 className="font-bold text-lg mb-1 text-center">{project.title[lang]}</h5>
-      <p className=" m-3">{project.summary[lang]}</p>
-      <div className="flex flex-wrap gap-2 mt-2">
-        {project.tech.map((label) => (
-          <SkillBadge key={label} label={label} />
-        ))}
+    <>
+      {/* ➊ Bildbehållare med padding */}
+      <div className="relative w-full aspect-video overflow-hidden rounded-lg p-2">
+        <Image
+          src={project.image}
+          alt={project.title[lang]}
+          fill
+          sizes="(max-width: 640px) 100vw, 480px"
+          className="object-cover rounded-md"
+          priority
+        />
       </div>
-    </div>
+
+      {/* ➋ Textinnehåll */}
+      <div className="p-4 flex-1 flex flex-col">
+        <h5 className="font-bold text-lg mb-1 text-center">{project.title[lang]}</h5>
+        <p className="flex-1 my-3 text-sm">{project.summary[lang]}</p>
+        <div className="flex flex-wrap gap-2 mt-2">
+          {project.tech.map((label) => (
+            <SkillBadge key={label} label={label} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
       variants={fadeUp}
-      className="rounded-xl bg-brand-600/10 p-6 shadow-lg hover:shadow-xl transition cursor-pointer min-w-[280px] md:min-w-0 flex flex-col mb-6"
+      className="
+        w-60 md:w-72            /* Smalare kort */
+        aspect-[4/5]            /* Rektangulär enhetlig form */
+        flex flex-col mb-2 md:mb-6 
+        border border-brand-600 
+        rounded-xl
+        shadow-lg hover:shadow-xl
+        transition
+        cursor-pointer
+        overflow-hidden
+      "
     >
       {isExternal ? (
         <a href={project.url} target="_blank" rel="noopener noreferrer">
