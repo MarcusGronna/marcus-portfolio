@@ -68,3 +68,8 @@ section[id] { scroll-margin-top: 5rem; }
   h1, h2, h3, h4 { font-size: 1.25rem; line-height: 1.4; }
   main, section { padding-left: .5rem; padding-right: .5rem; }
 }
+
+/* --- Utilities för 3D-flip --------------------------------- */
+.perspective-1000 { perspective: 1000px; }
+.backface-hidden  { backface-visibility: hidden; }
+.rotateY-180      { transform: rotateY(180deg); }

@@ -15,7 +15,7 @@ export default function ChalkNav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="relative sticky top-0 z-50 bg-brand-600/90 backdrop-blur border-b border-brand-600/20 text-surface-50 h-16 md:h-20 px-4 md:px-6 flex items-center shadow-md">
+    <nav className=" sticky top-0 z-50 bg-brand-600/90 backdrop-blur border-b border-brand-600/20 text-surface-50 h-16 md:h-20 px-4 md:px-6 flex items-center shadow-md mb-8">
       <div className="max-w-6xl w-full mx-auto flex items-center justify-between">
         {/* Logo / namn */}
         <span className="text-3xl md:text-4xl font-heading font-bold tracking-widest select-none">
