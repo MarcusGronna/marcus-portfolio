@@ -14,6 +14,21 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "livia-portfolio",
+    title: {
+      en: "Livia Portfolio",
+      sv: "Livia Portfolio",
+    },
+    summary: {
+      en: "Personal portfolio site for a friend (videographer/photographer) built in Next.js, styled with Tailwind and deployed via Vercel.",
+      sv: "Personlig portfolio­sajt åt en vän (videograf / fotograf) byggd i Next.js, stylad med Tailwind och distribuerad via Vercel.",
+    },
+    image: "/livia-portfolio.png",
+    tech: ["Next.js", "React", "Tailwind", "Vercel"],
+    year: 2025,
+    url: "https://livia-portfolio-three.vercel.app/",
+  },
+  {
     slug: "e-shop-react",
     title: {
       en: "E-Shop",
@@ -57,20 +72,5 @@ export const projects: Project[] = [
     tech: ["HTML", "CSS", "SEO-best-practices"],
     year: 2025,
     url: "https://birgitta-klensmed.com/",
-  },
-  {
-    slug: "livia-portfolio",
-    title: {
-      en: "Livia Portfolio",
-      sv: "Livia Portfolio",
-    },
-    summary: {
-      en: "Personal portfolio site for a friend (videographer/photographer) built in Next.js, styled with Tailwind and deployed via Vercel.",
-      sv: "Personlig portfolio­sajt åt en vän (videograf / fotograf) byggd i Next.js, stylad med Tailwind och distribuerad via Vercel.",
-    },
-    image: "/livia-portfolio.png",
-    tech: ["Next.js", "React", "Tailwind", "Vercel"],
-    year: 2025,
-    url: "https://livia-portfolio-three.vercel.app/",
   },
 ];
