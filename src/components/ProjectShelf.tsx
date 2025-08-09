@@ -24,9 +24,9 @@ export default function ProjectShelf({ projects, title }: ProjectShelfProps) {
         initial="hidden"
         animate="visible"
       >
-        {projects.map((project) => (
+        {projects.map((project, i) => (
           <div key={project.slug} className="w-[340px] sm:w-[340px] md:w-auto shrink-0 snap-start">
-            <ProjectFrame project={project} />
+            <ProjectFrame project={project} priority={i < 2} /> {/* endast de två första */}
           </div>
         ))}
       </motion.div>

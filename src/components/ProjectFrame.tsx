@@ -7,7 +7,13 @@ import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/framer-variants";
 import { useLang } from "@/components/LangProvider";
 
-export default function ProjectFrame({ project }: { project: Project }) {
+export default function ProjectFrame({
+  project,
+  priority = false,
+}: {
+  project: Project;
+  priority?: boolean;
+}) {
   const { lang } = useLang();
   const isExternal = project.url.startsWith("http");
 
@@ -21,7 +27,7 @@ export default function ProjectFrame({ project }: { project: Project }) {
           fill
           sizes="(max-width: 640px) 100vw, 480px"
           className="object-cover rounded-md"
-          priority
+          priority={priority} // ← ändrat från alltid-on
         />
       </div>
 

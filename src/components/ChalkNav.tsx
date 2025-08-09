@@ -13,6 +13,7 @@ const navLinks = [
 export default function ChalkNav() {
   const { lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
+  const menuId = "primary-mobile-menu";
 
   return (
     <nav className=" sticky top-0 z-50 bg-brand-600/90 backdrop-blur border-b border-brand-600/20 text-surface-50 h-16 md:h-20 px-4 md:px-6 flex items-center shadow-md mb-8">
@@ -73,16 +74,20 @@ export default function ChalkNav() {
               </a>
             ))}
             <button
-              className="self-start px-4 py-2.5 rounded-md bg-accent-400 text-ink-900 font-semibold hover:bg-accent-300 transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-brand-600"
-              onClick={() => {
-                setLang(lang === "en" ? "sv" : "en");
-                setOpen(false);
-              }}
-              aria-label="Toggle language"
-              type="button"
-            >
-              {lang === "en" ? "SV" : "EN"}
-            </button>
+              className="lg:hidden text-3xl p-2 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand-700"
+              onClick={() => setOpen((v) => !v)}
+              aria-controls={menuId}
+              aria-expanded={open}
+              aria-label={
+                open
+                  ? lang === "sv"
+                    ? "Stäng meny"
+                    : "Close menu"
+                  : lang === "sv"
+                  ? "Öppna meny"
+                  : "Open menu"
+              }
+            />
           </div>
         </ul>
       )}
