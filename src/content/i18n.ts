@@ -4,6 +4,8 @@ export const dict = {
     about: "About Me",
     portfolio: "Portfolio",
     education: "Education",
+    experience: "Experience",
+    skills: "Skills",
     contact: "Contact",
     contactSubtitle:
       "Want to get in touch? Reach me directly or visit the full contact page.",
@@ -14,6 +16,8 @@ export const dict = {
     about: "Om mig",
     portfolio: "Portfolio",
     education: "Utbildning",
+    experience: "Erfarenhet",
+    skills: "Kompetenser",
     contact: "Kontakt",
     contactSubtitle:
       "Vill du komma i kontakt? Nå mig direkt eller besök kontaktsidan.",

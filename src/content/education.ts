@@ -13,19 +13,35 @@ export interface EducationItem {
 
 export const education: EducationItem[] = [
   {
+    id: "soat-fullstack-net",
+    school: {
+      en: "School of Applied Technology",
+      sv: "School of Applied Technology",
+    },
+    program: {
+      en: "Fullstack C# .NET",
+      sv: "Fullstack C# .NET",
+    },
+    year: "01/2026",
+    description: {
+      en: "Intensive three-month programme in fullstack web development with a focus on TDD, mob programming, and hands-on applied learning.",
+      sv: "Intensivt, tre månader långt utbildningsprogram i fullstack webbutveckling med fokus på TDD, mob-programmering och praktiskt tillämpat lärande.",
+    },
+  },
+  {
     id: "hv-webmaster",
     school: {
       en: "University West",
       sv: "Högskolan Väst",
     },
     program: {
-      en: "Webmaster Programme, 120 ECTS - Higher Education Degree",
-      sv: "Webmasterprogrammet, 120 hp - Högskoleexamen",
+      en: "Webmaster, Higher Education Diploma, 120 ECTS",
+      sv: "Webmaster, Högskoleexamen, 120 hp",
     },
     year: "2023 – 2025",
     description: {
-      en: "Broad full-stack education in UX design, web programming, databases and server/cloud tech. Based on University West's AIL profile (work-integrated learning).",
-      sv: "Bred full-stack-inriktad utbildning i UX-design, webbprogrammering, databaser och server-/molnteknik. Utgår från Högskolan Västs AIL-profil (arbets­integrerat lärande).",
+      en: "Two-year programme covering frontend, backend, Linux administration, UI/UX, security, mobile web development, and project-based work. Based on University West's AIL profile (work-integrated learning).",
+      sv: "Tvåårigt program om 120 hp som kombinerar frontend, backend, Linuxadministration, UX/UI, säkerhet, mobil webbutveckling och projektbaserat arbete. Utgår från Högskolan Västs AIL-profil (arbets­integrerat lärande).",
     },
   },
   {
@@ -44,46 +60,46 @@ export const education: EducationItem[] = [
   {
     id: "fu-fullstack-yh",
     school: {
-      en: "Corporate University (Vocational College)",
+      en: "Företagsuniversitetet (Vocational College)",
       sv: "Företagsuniversitetet (Yrkeshögskolan)",
     },
     program: {
-      en: "Fullstack Developer, 400 YH-points (Ongoing)",
-      sv: "Fullstack-utvecklare, 400 YH-poäng (Pågående)",
+      en: "Fullstack Developer, Higher Vocational Education Programme",
+      sv: "Fullstack-utvecklare, YH-program",
     },
-    year: "2024 – 2026",
+    year: "2024 – 2025",
     description: {
-      en: "Vocational program covering both frontend and backend technologies, basic DevOps, and agile working methods – prepares for roles as a full-stack or backend developer.",
-      sv: "YH-program som täcker både frontend- och backend-tekniker, DevOps-grunder samt agila arbetssätt – förbereder för roller som full-stack- eller backend-utvecklare.",
+      en: "Studies in JavaScript, React, TypeScript, HTML5, CSS3, and agile ways of working for fullstack development.",
+      sv: "Studier i JavaScript, React, TypeScript, HTML5, CSS3 och agila arbetssätt för fullstackutveckling.",
     },
   },
   {
     id: "yh-lokforare",
-    school: { en: "Vocational School (TCC Rail Academy)", sv: "Yrkeshögskolan (TCC Rail Academy)" },
+    school: { en: "TCC ProTrain", sv: "TCC ProTrain" },
     program: {
-      en: "Locomotive Driver Education, 300 YH-points: Locomotive Driver Examination",
-      sv: "Lokförarutbildning, 300 YH-poäng: Lokförar­examen",
+      en: "Train Driver Education",
+      sv: "Lokförarutbildning",
     },
     year: "2010 – 2011",
     description: {
-      en: "Professional examination as a locomotive driver with full authorization to operate both high-speed and regional trains; included traffic safety, signaling systems, and vehicle technology.",
-      sv: "Yrkesexamen som lokförare med full behörighet att framföra både snabbtåg och regionaltåg; omfattade trafik­säkerhet, signalsystem och fordonsteknik.",
+      en: "Vocational training focused on safety, responsibility, regulations, and operational decision-making in complex environments. Laid the foundation for a methodical way of working, high precision, and the ability to act calmly and correctly under pressure.",
+      sv: "Yrkesutbildning med fokus på säkerhet, ansvar, regelverk och operativt beslutsfattande i komplexa miljöer. Lade grunden för ett metodiskt arbetssätt, hög precision och förmågan att agera lugnt och korrekt under press.",
     },
   },
   {
     id: "gih-idrott",
     school: {
-      en: "Swedish School of Sport and Health Sciences (GIH)",
+      en: "GIH – The Swedish School of Sport and Health Sciences",
       sv: "Gymnastik- och idrottshögskolan (GIH)",
     },
     program: {
-      en: "Bachelor's Degree in Sports Science, specialization in People and Health Education",
-      sv: "Kandidatexamen i Idrottsvetenskap, inriktning Folkhälsa och hälsopedagogik",
+      en: "Bachelor's Degree in Sports Science (Health Pedagogy)",
+      sv: "Kandidatexamen i idrottsvetenskap (hälsopedagogik)",
     },
-    year: "2020 – 2023: Bachelor's Degree in Sports Science",
+    year: "2020 – 2023",
     description: {
-      en: "Specialization in exercise physiology, health psychology, and coaching. The education forms the basis for your certification as a personal trainer and health educator.",
-      sv: "Fördjupning i träningslära, fysiologi, hälsopsykologi och coachning. Utbildningen ligger till grund för din legitimation som personlig tränare och hälsopedagog.",
+      en: "Education focused on health, behaviour change, pedagogy, and sustainable performance. Provided a strong foundation for understanding human development, motivation, and well-being, and how theory can be applied in practice. Forms the basis for certification as a personal trainer and health educator.",
+      sv: "Utbildning med fokus på hälsa, beteendeförändring, pedagogik och hållbar prestation. Gav en stark grund i att förstå människors utveckling, motivation och välmående, samt hur teori kan omsättas i praktiskt arbete. Ligger till grund för legitimation som personlig tränare och hälsopedagog.",
     },
   },
   {
