@@ -4,10 +4,10 @@ import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
-  { href: "#home", label: { en: "Home", sv: "Hem" } },
-  { href: "#portfolio", label: { en: "Portfolio", sv: "Portfolio" } },
-  { href: "#education", label: { en: "Education", sv: "Utbildning" } },
-  { href: "#contact", label: { en: "Contact", sv: "Kontakt" } },
+  { href: "/#home", label: { en: "Home", sv: "Hem" } },
+  { href: "/#portfolio", label: { en: "Portfolio", sv: "Portfolio" } },
+  { href: "/#education", label: { en: "Education", sv: "Utbildning" } },
+  { href: "/#contact", label: { en: "Contact", sv: "Kontakt" } },
 ];
 
 export default function ChalkNav() {
