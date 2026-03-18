@@ -8,6 +8,8 @@ import ProjectShelf from "@/components/ProjectShelf";
 import { fadeUp } from "@/lib/framer-variants";
 import { projects } from "@/content/projects";
 import { education } from "@/content/education";
+import { experience } from "@/content/experience";
+import { skillCategories } from "@/content/skills";
 import { useLang } from "@/components/LangProvider";
 import { dict } from "@/content/i18n";
 
@@ -146,6 +148,67 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </motion.div>
+      </section>
+
+      {/* EXPERIENCE */}
+      <section id="experience" className="flex flex-col items-center justify-center mt-16">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-2xl"
+        >
+          <h2 className="text-2xl font-bold mb-8">{dict[lang].experience}</h2>
+          <ul className="space-y-8 text-left">
+            {experience.map((item) => (
+              <li key={item.id}>
+                <div>
+                  <div className="text-lg font-bold">{item.title[lang]}</div>
+                  <div className="text-base text-brand-800">{item.employer[lang]}</div>
+                  <div className="text-sm text-brand-700 font-semibold mb-2">{item.period}</div>
+                  <ul className="list-disc list-outside ml-5 space-y-1">
+                    {item.bullets[lang].map((bullet, i) => (
+                      <li key={i} className="text-sm text-brand-700">
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </section>
+
+      {/* SKILLS */}
+      <section id="skills" className="flex flex-col items-center justify-center mt-16">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-2xl"
+        >
+          <h2 className="text-2xl font-bold mb-8">{dict[lang].skills}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
+            {skillCategories.map((cat) => (
+              <div key={cat.category.en}>
+                <h3 className="text-base font-bold text-brand-800 mb-3 uppercase tracking-wide">
+                  {cat.category[lang]}
+                </h3>
+                <ul className="flex flex-wrap gap-2">
+                  {cat.items.map((skill) => (
+                    <li
+                      key={skill}
+                      className="text-sm bg-surface-50 border border-brand-600/30 text-brand-800 rounded px-2.5 py-1"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </section>
 

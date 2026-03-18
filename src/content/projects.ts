@@ -71,6 +71,6 @@ export const projects: Project[] = [
     image: "/Klensmeden Birgitta.webp",
     tech: ["HTML", "CSS", "SEO-best-practices"],
     year: 2025,
-    url: "https://birgitta-klensmed.com/",
+    url: "https://remarkable-taffy-176adb.netlify.app/",
   },
 ];
