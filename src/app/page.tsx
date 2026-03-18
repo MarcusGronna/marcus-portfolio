@@ -1,7 +1,8 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { FiChevronDown, FiChevronUp, FiMail, FiLinkedin, FiGithub } from "react-icons/fi";
 import PortraitFrame from "@/components/PortraitFrame";
 import ProjectShelf from "@/components/ProjectShelf";
 import { fadeUp } from "@/lib/framer-variants";
@@ -61,13 +62,12 @@ export default function Home() {
         <div className="flex-1 flex flex-col justify-center items-center lg:items-start max-w-xl w-full">
           {/* Knappar ovanför rutan */}
           <div className="mb-4 flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={() => setFlipped((v) => !v)}
-              type="button"
+            <a
+              href="#contact"
               className="flex items-center gap-2 cursor-pointer underline underline-offset-8 decoration-[5px] hover:decoration-2 text-2xl transition hover:text-accent-300"
             >
               {texts.contactBtn[lang]}
-            </button>
+            </a>
 
             <button
               onClick={() => setShowAbout((v) => !v)}
@@ -144,6 +144,54 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </motion.div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="flex flex-col items-center justify-center text-center mt-16">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-lg"
+        >
+          <h2 className="text-2xl font-bold mb-2">{dict[lang].contact}</h2>
+          <p className="mb-8 text-brand-700 text-base sm:text-lg">
+            {dict[lang].contactSubtitle}
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-xl mb-8 w-full">
+            <a
+              href="mailto:hi@marcusgronna.com"
+              className="flex items-center justify-center gap-2 text-accent-700 hover:text-accent-800 underline"
+              aria-label="Email"
+            >
+              <FiMail /> hi@marcusgronna.com
+            </a>
+            <a
+              href="https://www.linkedin.com/in/marcus-gr%C3%B6nn%C3%A5-6a5006260/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="flex items-center justify-center gap-2 hover:text-accent-700"
+            >
+              <FiLinkedin /> LinkedIn
+            </a>
+            <a
+              href="https://github.com/MarcusGronna"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="flex items-center justify-center gap-2 hover:text-accent-700"
+            >
+              <FiGithub /> GitHub
+            </a>
+          </div>
+          <Link
+            href="/contact"
+            className="inline-block bg-accent-400 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-accent-300 transition"
+          >
+            {dict[lang].contactPage}
+          </Link>
         </motion.div>
       </section>
     </>

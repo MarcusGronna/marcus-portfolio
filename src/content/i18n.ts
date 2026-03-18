@@ -5,6 +5,9 @@ export const dict = {
     portfolio: "Portfolio",
     education: "Education",
     contact: "Contact",
+    contactSubtitle:
+      "Want to get in touch? Reach me directly or visit the full contact page.",
+    contactPage: "Open contact form",
   },
   sv: {
     home: "Hem",
@@ -12,6 +15,9 @@ export const dict = {
     portfolio: "Portfolio",
     education: "Utbildning",
     contact: "Kontakt",
+    contactSubtitle:
+      "Vill du komma i kontakt? Nå mig direkt eller besök kontaktsidan.",
+    contactPage: "Öppna kontaktformulär",
   },
 } as const;
 
