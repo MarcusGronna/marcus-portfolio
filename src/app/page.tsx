@@ -88,14 +88,16 @@ export default function Home() {
             initial={false}
             animate={showAbout ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="w-full max-h-[20rem] overflow-y-auto"
+            className="w-full overflow-hidden"
           >
-            <div className="prose prose-neutral text-lg bg-surface-50 rounded-xl shadow-md border border-brand-600 p-6 text-center lg:text-left">
-              {texts.about[lang].map((p, i) => (
-                <p key={i} className="mb-4 leading-relaxed">
-                  {p}
-                </p>
-              ))}
+            <div className="bg-surface-50 rounded-xl shadow-md border border-brand-600 text-center lg:text-left">
+              <div className="prose prose-neutral text-lg max-h-[20rem] overflow-y-auto p-6">
+                {texts.about[lang].map((p, i) => (
+                  <p key={i} className="mb-4 leading-relaxed">
+                    {p}
+                  </p>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
