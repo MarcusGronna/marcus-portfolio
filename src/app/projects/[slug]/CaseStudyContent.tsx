@@ -1,11 +1,13 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { FiExternalLink, FiGithub, FiArrowLeft, FiCheckCircle, FiArrowDown } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiArrowLeft, FiCheckCircle, FiArrowDown, FiZoomIn } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 import { useLang } from "@/components/LangProvider";
 import SkillBadge from "@/components/SkillBadge";
+import ImageModal from "@/components/ImageModal";
 import type { Project } from "@/content/projects";
 import { fadeUp } from "@/lib/framer-variants";
 
@@ -79,6 +81,8 @@ function ArchitectureFlow({ steps }: { steps: string[] }) {
 
 export default function CaseStudyContent({ project }: { project: Project }) {
   const { lang } = useLang();
+  const [modalSrc, setModalSrc] = useState<string | null>(null);
+  const [modalAlt, setModalAlt] = useState("");
 
   return (
     <article className="max-w-3xl mx-auto py-8 px-4 sm:px-6">
@@ -186,23 +190,38 @@ export default function CaseStudyContent({ project }: { project: Project }) {
         >
           <h2 className="mb-4">{texts.screenshots[lang]}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {project.images.slice(1).map((src, i) => (
-              <div
-                key={i}
-                className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md"
-              >
-                <Image
-                  src={src}
-                  alt={`${project.title[lang]} screenshot ${i + 2}`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 360px"
-                  className="object-cover"
-                />
-              </div>
-            ))}
+            {project.images.slice(1).map((src, i) => {
+              const alt = `${project.title[lang]} screenshot ${i + 2}`;
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => { setModalSrc(src); setModalAlt(alt); }}
+                  className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
+                  aria-label={`View full size: ${alt}`}
+                >
+                  <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 360px"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
+                    <FiZoomIn className="text-white drop-shadow" size={32} aria-hidden="true" />
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </motion.section>
       )}
+
+      <ImageModal
+        src={modalSrc}
+        alt={modalAlt}
+        onClose={() => setModalSrc(null)}
+      />
 
       {/* CTA block */}
       <motion.div

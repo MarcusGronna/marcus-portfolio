@@ -36,6 +36,29 @@ export default function ProjectFrame({
     track("project_source_click", { slug: project.slug });
   };
 
+  // Determine the card-level link destination: case study > url > github
+  const cardHref = project.caseStudy
+    ? `/projects/${project.slug}`
+    : project.url ?? project.github ?? null;
+  const cardIsExternal = !project.caseStudy && cardHref != null;
+
+  // Label for the stretched link
+  const cardAriaLabel = project.caseStudy
+    ? `${project.title[lang]} – ${ctaTexts.caseStudy[lang]}`
+    : project.url
+    ? `${project.title[lang]} – ${ctaTexts.liveDemo[lang]}`
+    : `${project.title[lang]} – ${ctaTexts.sourceCode[lang]}`;
+
+  const handleCardClick = () => {
+    if (project.caseStudy) {
+      track("case_study_open", { slug: project.slug });
+    } else if (project.url) {
+      track("project_live_click", { slug: project.slug });
+    } else if (project.github) {
+      track("project_source_click", { slug: project.slug });
+    }
+  };
+
   if (featured) {
     return (
       <motion.div
@@ -52,13 +75,15 @@ export default function ProjectFrame({
           group
         "
       >
-        {/* Stretched link – covers entire card for case-study navigation */}
-        {project.caseStudy && (
+        {/* Stretched link – covers entire card */}
+        {cardHref && (
           <Link
-            href={`/projects/${project.slug}`}
-            onClick={() => track("case_study_open", { slug: project.slug })}
+            href={cardHref}
+            onClick={handleCardClick}
+            target={cardIsExternal ? "_blank" : undefined}
+            rel={cardIsExternal ? "noopener noreferrer" : undefined}
             className="absolute inset-0 z-[1] rounded-xl focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-inset"
-            aria-label={`${project.title[lang]} – ${ctaTexts.caseStudy[lang]}`}
+            aria-label={cardAriaLabel}
           />
         )}
 
@@ -146,13 +171,15 @@ export default function ProjectFrame({
         group
       "
     >
-      {/* Stretched link – covers entire card for case-study navigation */}
-      {project.caseStudy && (
+      {/* Stretched link – covers entire card */}
+      {cardHref && (
         <Link
-          href={`/projects/${project.slug}`}
-          onClick={() => track("case_study_open", { slug: project.slug })}
+          href={cardHref}
+          onClick={handleCardClick}
+          target={cardIsExternal ? "_blank" : undefined}
+          rel={cardIsExternal ? "noopener noreferrer" : undefined}
           className="absolute inset-0 z-[1] rounded-xl focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-inset"
-          aria-label={`${project.title[lang]} – ${ctaTexts.caseStudy[lang]}`}
+          aria-label={cardAriaLabel}
         />
       )}
 
