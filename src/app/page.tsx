@@ -100,7 +100,7 @@ export default function Home() {
               {texts.contactBtn[lang]}
             </Link>
             <a
-              href="/marcus-gronna-cv.pdf"
+              href={lang === "sv" ? "/marcus-gronna-cv-sv.pdf" : "/marcus-gronna-cv-en.pdf"}
               download
               onClick={() => track("cv_download")}
               className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
@@ -301,7 +301,7 @@ export default function Home() {
               {dict[lang].contactPage}
             </Link>
             <a
-              href="/marcus-gronna-cv.pdf"
+              href={lang === "sv" ? "/marcus-gronna-cv-sv.pdf" : "/marcus-gronna-cv-en.pdf"}
               download
               onClick={() => track("cv_download")}
               className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
