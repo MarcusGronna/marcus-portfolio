@@ -99,9 +99,13 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
                 <div className="space-y-1.5">
                     {sorted.map((entry) => {
                         const isEdu = entry.type === "education";
-                        const startPct = toPct(entry.startYear);
+                        // startFraction: (month-1)/12 → start of that month (Jan=0, Oct=9/12)
+                        // endFraction:   month/12    → end of that month = start of next (Jan=1/12, Dec=1)
+                        const startFraction = ((entry.startMonth ?? 1) - 1) / 12;
+                        const startPct = toPct(entry.startYear + startFraction);
                         const endYear = entry.endYear ?? GANTT_END - 1;
-                        const endPct = toPct(endYear + 1);
+                        const endFraction = (entry.endMonth ?? 12) / 12;
+                        const endPct = toPct(endYear + endFraction);
                         const widthPct = Math.max(endPct - startPct, GANTT_MIN_BAR_PCT);
 
                         return (
