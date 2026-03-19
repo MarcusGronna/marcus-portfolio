@@ -1,46 +1,60 @@
 // src/content/skills.ts
 // --------------------------------------------------
-// Categorised skills matching the CV
+// Curated skills organised into meaningful buckets
 
 export interface SkillCategory {
   category: { en: string; sv: string };
+  /** bucket key used for styling, maps to skillsCoreStack / skillsAlsoWorked / skillsCurrentFocus / skillsLanguages */
+  bucket: "core" | "also" | "focus" | "languages";
   items: string[];
 }
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: { en: "Backend", sv: "Backend" },
+    category: { en: "Core Stack", sv: "Kärnstack" },
+    bucket: "core",
     items: [
-      "C# .NET", "ASP.NET Core", "REST API", "Minimal API", "Worker Service",
-      "AI Integration", "Azure OpenAI", "EF Core", "PostgreSQL", "SQL Server",
-      "JWT Authentication", "ASP.NET Identity", "Roslyn", "HttpClient",
-      "Node.js", "Express", "Python",
+      "C# / .NET",
+      "ASP.NET Core",
+      "React",
+      "TypeScript",
+      "EF Core",
+      "PostgreSQL / SQL Server",
+      "REST API",
+      "Git / GitHub / GitHub Actions",
     ],
   },
   {
-    category: { en: "Frontend", sv: "Frontend" },
+    category: { en: "Also Worked With", sv: "Har också arbetat med" },
+    bucket: "also",
     items: [
-      "JavaScript", "TypeScript", "React.js", "React Native", "Angular", "Vite",
-      "Tailwind CSS", "Framer Motion", "Monaco Editor", "TanStack React Query",
-      "TanStack Router", "Clerk", "HTML5", "CSS3",
+      "Angular",
+      "React Native",
+      "Azure OpenAI",
+      "Roslyn",
+      "Monaco Editor",
+      "Clerk",
+      "Pulumi / IaC",
+      "AWS SQS",
+      "Docker Compose",
+      "Node.js / Express",
+      "WinForms",
     ],
   },
   {
-    category: { en: "Cloud / Infrastructure", sv: "Moln / Infrastruktur" },
+    category: { en: "Current Focus", sv: "Nuvarande fokus" },
+    bucket: "focus",
     items: [
-      "Azure", "Azure Static Web Apps", "Azure Web App", "GitHub Actions",
-      "Docker Compose", "AWS", "AWS SQS", "IaC / Pulumi",
-    ],
-  },
-  {
-    category: { en: "Tools & Practices", sv: "Verktyg & Metodik" },
-    items: [
-      "Git", "GitHub", "Visual Studio Code", "Visual Studio", "WinForms",
-      "xUnit", "TDD", "Figma", "Krita", "Unity",
+      "AI integration",
+      "Fullstack product development",
+      "Architecture thinking",
+      "Cloud / deployment workflows",
+      "Modern API design",
     ],
   },
   {
     category: { en: "Languages", sv: "Språk" },
+    bucket: "languages",
     items: ["Swedish (native)", "English (C2 / fluent)"],
   },
 ];

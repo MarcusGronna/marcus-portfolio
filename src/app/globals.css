@@ -6,21 +6,26 @@
   /* Färger */
   --color-brand-600: #7d8678;
   --color-brand-700: #6f786b;
+  --color-brand-800: #4a524a;
   --color-surface-50: #f5ede4;
   --color-accent-400: #bdd2b6;
   --color-accent-300: #a2b29f;
-  --color-ink-900:   #596358;
+  --color-accent-700: #4a6b44;
+  --color-ink-900:   #2e3430;
 
-  /* Typsnitt */
-  --font-heading: "Abel", Arial, Helvetica, sans-serif;
+  /* Typsnitt – Dosis for all text */
+  --font-heading: "Dosis", Arial, Helvetica, sans-serif;
   --font-body:    "Dosis", Arial, Helvetica, sans-serif;
+
+  /* CSS custom properties injected by next/font */
+  --font-sans: var(--font-sans, "Dosis", Arial, sans-serif);
 }
 
 /* --- Baslayout & typografi --------------------------------- */
 body {
   min-height: 100vh;
-  font-family: var(--font-body);
-  font-size: 1.125rem; /* 18px base for clear desktop readability */
+  font-family: var(--font-sans, var(--font-body));
+  font-size: 1.0625rem; /* 17px – clear and readable */
   line-height: 1.75;
   color: var(--color-ink-900);
   background: var(--color-surface-50);
@@ -32,15 +37,16 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-sans, var(--font-heading));
   font-weight: 700;
-  letter-spacing: .025em;
+  letter-spacing: .015em;
   line-height: 1.2;
+  color: var(--color-ink-900);
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 3.25rem); margin-bottom: 1.5rem; }
-h2 { font-size: clamp(1.875rem, 3.25vw, 2.5rem); margin-bottom: 1.5rem; }
-h3 { font-size: clamp(1.2rem, 2.25vw, 1.5rem); margin-bottom: .75rem; }
+h1 { font-size: clamp(2.25rem, 5vw, 3rem); margin-bottom: 1.25rem; }
+h2 { font-size: clamp(1.75rem, 3.25vw, 2.25rem); margin-bottom: 1.25rem; }
+h3 { font-size: clamp(1.125rem, 2.25vw, 1.375rem); margin-bottom: .75rem; }
 
 /* --- Sektioner & container --------------------------------- */
 section { margin-bottom: 2rem; }
@@ -72,7 +78,7 @@ section[id] { scroll-margin-top: 5rem; }
 @media (max-width: 640px) {
   h1 { font-size: 1.875rem; }
   h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.2rem; }
+  h3 { font-size: 1.125rem; }
   main, section { padding-left: .5rem; padding-right: .5rem; }
 }
 

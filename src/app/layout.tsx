@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Abel, Dosis } from "next/font/google";
+import { Dosis } from "next/font/google";
 import "./globals.css";
 import LangProvider from "../components/LangProvider";
 import ChalkNav from "../components/ChalkNav";
@@ -8,14 +8,10 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { personJsonLd } from "@/lib/seo";
 
-const abel = Abel({
-  variable: "--font-heading",
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
+// Dosis: used for both headings and body – supports weight 400–800
 const dosis = Dosis({
-  variable: "--font-body",
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
@@ -50,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
         />
       </head>
-      <body className={`${abel.variable} ${dosis.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${dosis.variable} antialiased min-h-screen flex flex-col`}>
         {/* Skip link för A11y */}
         <a
           href="#main"
