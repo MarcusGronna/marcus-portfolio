@@ -6,6 +6,7 @@ import { FiChevronDown, FiChevronUp, FiMail, FiLinkedin, FiGithub, FiDownload } 
 import { track } from "@vercel/analytics";
 import PortraitFrame from "@/components/PortraitFrame";
 import ProjectShelf from "@/components/ProjectShelf";
+import ProjectFrame from "@/components/ProjectFrame";
 import JourneyTimeline from "@/components/JourneyTimeline";
 import { fadeUp } from "@/lib/framer-variants";
 import { projects } from "@/content/projects";
@@ -36,13 +37,6 @@ export default function Home() {
   const { lang } = useLang();
   const [showAbout, setShowAbout] = useState(false);
   const [flipped, setFlipped] = useState(false);
-
-  // gruppera projekt efter år
-  const projectsByYear = projects.reduce<Record<string, typeof projects>>((acc, p) => {
-    const year = p.year || "Unknown";
-    (acc[year] ??= []).push(p);
-    return acc;
-  }, {});
 
   return (
     <>
@@ -149,7 +143,31 @@ export default function Home() {
           className="w-full max-w-5xl mx-auto"
         >
           <h2 className="text-2xl font-bold mb-8">{dict[lang].portfolio}</h2>
-          {Object.entries(projectsByYear)
+
+          {/* Flagship project */}
+          {(() => {
+            const flagship = projects.find((p) => p.featured);
+            if (!flagship) return null;
+            return (
+              <div className="mb-12 text-left">
+                <p className="text-xs font-bold uppercase tracking-widest text-accent-700 mb-2">
+                  {lang === "sv" ? "Flaggskeppsprojekt" : "Flagship Project"}
+                </p>
+                <ProjectFrame project={flagship} priority featured />
+              </div>
+            );
+          })()}
+
+          {/* All other projects grouped by year */}
+          {Object.entries(
+            projects
+              .filter((p) => !p.featured)
+              .reduce<Record<string, typeof projects>>((acc, p) => {
+                const year = p.year || "Unknown";
+                (acc[year] ??= []).push(p);
+                return acc;
+              }, {})
+          )
             .sort(([a], [b]) => Number(b) - Number(a))
             .map(([year, yearProjects]) => (
               <div key={year} className="mb-12">

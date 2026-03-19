@@ -19,6 +19,8 @@ export interface Project {
   highlights?: { en: string[]; sv: string[] };
   /** Set true to enable the /projects/[slug] case-study page */
   caseStudy?: boolean;
+  /** Mark as the flagship/featured project – rendered prominently above the regular grid */
+  featured?: boolean;
   // ---- case-study fields (all optional) ----
   role?: { en: string; sv: string };
   problem?: { en: string; sv: string };
@@ -51,12 +53,14 @@ export const projects: Project[] = [
       "/Merchant-Full-Image.png",
     ],
     tech: [
-      "C#", ".NET 10", "ASP.NET Core", "React", "TypeScript", "Vite",
-      "Tailwind CSS", "PostgreSQL", "EF Core", "Azure OpenAI", "JWT",
-      "Roslyn", "Monaco Editor", "React Query", "GitHub Actions", "Azure",
+      "C#", ".NET 10", "ASP.NET Core", "React 19", "TypeScript", "Vite",
+      "Tailwind CSS v4", "PostgreSQL", "EF Core", "Azure OpenAI", "JWT",
+      "ASP.NET Identity", "Roslyn", "Monaco Editor", "TanStack React Query",
+      "Framer Motion", "Docker Compose", "GitHub Actions", "Azure Static Web Apps", "Azure Web App",
     ],
     year: 2025,
     caseStudy: true,
+    featured: true,
     highlights: {
       en: [
         "Dynamic chapter-based story generation with Azure OpenAI",
@@ -562,6 +566,370 @@ export const projects: Project[] = [
         "Lägg till en bloggsektion för content marketing och long-tail SEO",
         "Integrera Google Analytics för organisk trafikövervakning",
         "Lägg till ett boknings-/kontaktformulär med e-postbackend",
+      ],
+    },
+  },
+
+  // -------------------------------------------------------
+  // TrainMateX Vision
+  // -------------------------------------------------------
+  {
+    slug: "trainmatex-vision",
+    title: {
+      en: "TrainMateX Vision",
+      sv: "TrainMateX Vision",
+    },
+    summary: {
+      en: "Fullstack training platform where users can manage training programs, workouts, and exercises through a modern web application with authentication, protected APIs, and a clearly layered backend architecture.",
+      sv: "Fullstack träningsplattform där användare kan hantera träningsprogram, pass och övningar genom en modern webbapplikation med autentisering, skyddade API-endpoints och tydlig lagerindelad backend-arkitektur.",
+    },
+    image: "/TrainMateX-Welcome-Page.png",
+    images: [
+      "/TrainMateX-Welcome-Page.png",
+      "/TrainMateX2.png",
+    ],
+    tech: [
+      "React 19", "TypeScript", "Vite", "Tailwind CSS v4", "TanStack Router",
+      "TanStack React Query", "Clerk", "C#", ".NET 9", "ASP.NET Core",
+      "EF Core", "SQL Server", "JWT", "GitHub Actions",
+    ],
+    year: 2025,
+    caseStudy: true,
+    highlights: {
+      en: [
+        "Modern React frontend with TanStack Router and React Query",
+        "Clerk auth + JWT-protected ASP.NET Core API",
+        "Clean layered backend: Application / Domain / Infrastructure",
+        "EF Core + SQL Server persistence with full CRUD flows",
+        "Protected API endpoints with CORS policy",
+        "GitHub Actions deployment workflow",
+      ],
+      sv: [
+        "Modern React-frontend med TanStack Router och React Query",
+        "Clerk-autentisering + JWT-skyddat ASP.NET Core API",
+        "Ren lagerindelad backend: Application / Domain / Infrastructure",
+        "EF Core + SQL Server-persistens med fullständiga CRUD-flöden",
+        "Skyddade API-endpoints med CORS-policy",
+        "GitHub Actions deploy-flöde",
+      ],
+    },
+    role: {
+      en: "Solo Developer – fullstack design and implementation",
+      sv: "Ensam utvecklare – fullstack design och implementation",
+    },
+    problem: {
+      en: "The goal was to build a complete, production-relevant fullstack application that demonstrates modern frontend architecture, a protected REST API, and a clearly structured backend — all integrated with real authentication. TrainMateX Vision covers the full flow from user login to managing training programs, workouts, and exercises.",
+      sv: "Målet var att bygga en komplett, produktionsrelevant fullstack-applikation som demonstrerar modern frontend-arkitektur, ett skyddat REST API och en tydligt strukturerad backend — allt integrerat med riktig autentisering. TrainMateX Vision täcker hela flödet från inloggning till hantering av träningsprogram, pass och övningar.",
+    },
+    solution: {
+      en: "The frontend was built with React 19, TypeScript, Vite, Tailwind CSS v4, TanStack Router for type-safe routing, and TanStack React Query for server state management. Clerk handles authentication, issuing JWTs consumed by the backend. The backend is an ASP.NET Core Web API built with C# / .NET 9, EF Core, and SQL Server, organized into API, Application, Domain, and Infrastructure layers. All endpoints are JWT-protected with a CORS policy, and the API exposes training programs, workouts, workout exercises, an exercise catalog, and user profile management.",
+      sv: "Frontend byggdes med React 19, TypeScript, Vite, Tailwind CSS v4, TanStack Router för typsäker routing och TanStack React Query för server-state-hantering. Clerk hanterar autentisering och utfärdar JWTs som konsumeras av backend. Backend är ett ASP.NET Core Web API byggt med C# / .NET 9, EF Core och SQL Server, organiserat i lager: API, Application, Domain och Infrastructure. Alla endpoints är JWT-skyddade med en CORS-policy, och API:et exponerar träningsprogram, pass, övningar i pass, ett övningskatalog och användarprofilhantering.",
+    },
+    goals: {
+      en: [
+        "Build a production-relevant fullstack app demonstrating layered backend architecture",
+        "Integrate Clerk authentication with a JWT-protected ASP.NET Core API",
+        "Implement CRUD flows for training programs, workouts, and exercises",
+        "Use TanStack Router and React Query for a modern, type-safe frontend",
+        "Deploy with GitHub Actions for automated CI/CD",
+      ],
+      sv: [
+        "Bygga en produktionsrelevant fullstack-app som demonstrerar lagerindelad backend-arkitektur",
+        "Integrera Clerk-autentisering med ett JWT-skyddat ASP.NET Core API",
+        "Implementera CRUD-flöden för träningsprogram, pass och övningar",
+        "Använda TanStack Router och React Query för en modern, typsäker frontend",
+        "Deploya med GitHub Actions för automatiserad CI/CD",
+      ],
+    },
+    challenges: {
+      en: [
+        "Wiring Clerk JWT tokens from the frontend into the ASP.NET Core middleware pipeline",
+        "Designing a clean domain model for training programs, workouts, and exercises with proper relationships",
+        "Keeping the Application and Domain layers free of infrastructure concerns",
+        "Configuring CORS correctly for a cross-origin frontend/backend setup",
+      ],
+      sv: [
+        "Koppla Clerk JWT-tokens från frontend in i ASP.NET Core middleware-pipeline",
+        "Designa en ren domänmodell för träningsprogram, pass och övningar med korrekta relationer",
+        "Hålla Application- och Domain-lagren fria från infrastrukturbekymmer",
+        "Konfigurera CORS korrekt för en cross-origin frontend/backend-uppsättning",
+      ],
+    },
+    keyDecisions: {
+      en: [
+        "Clerk for authentication – battle-tested auth provider with straightforward JWT integration",
+        "TanStack Router for type-safe, file-based routing in React",
+        "Layered backend architecture (API / Application / Domain / Infrastructure) for maintainability",
+        "EF Core + SQL Server for familiar, robust .NET persistence",
+        "GitHub Actions for automatic CI/CD deployment",
+      ],
+      sv: [
+        "Clerk för autentisering – vältestad auth-leverantör med enkel JWT-integration",
+        "TanStack Router för typsäker, filbaserad routing i React",
+        "Lagerindelad backend-arkitektur (API / Application / Domain / Infrastructure) för underhållbarhet",
+        "EF Core + SQL Server för bekant, robust .NET-persistens",
+        "GitHub Actions för automatisk CI/CD-deployment",
+      ],
+    },
+    results: {
+      en: [
+        "A complete fullstack app with Clerk auth, protected API endpoints, and full CRUD for workouts and training programs",
+        "Demonstrated end-to-end integration: React frontend → Clerk JWT → ASP.NET Core API → SQL Server",
+        "Clean layered backend architecture ready for further expansion",
+        "Hands-on experience with TanStack Router and TanStack React Query in a real product",
+      ],
+      sv: [
+        "En komplett fullstack-app med Clerk-auth, skyddade API-endpoints och full CRUD för träningspass och program",
+        "Demonstrerad end-to-end-integration: React-frontend → Clerk JWT → ASP.NET Core API → SQL Server",
+        "Ren lagerindelad backend-arkitektur redo för vidare expansion",
+        "Praktisk erfarenhet av TanStack Router och TanStack React Query i en riktig produkt",
+      ],
+    },
+    nextSteps: {
+      en: [
+        "Add workout logging and progress tracking over time",
+        "Build a dashboard with visualized training statistics",
+        "Extend to a mobile app using React Native",
+      ],
+      sv: [
+        "Lägg till träningsloggning och framstegsspårning över tid",
+        "Bygg en dashboard med visualiserad träningsstatistik",
+        "Utöka till en mobilapp med React Native",
+      ],
+    },
+  },
+
+  // -------------------------------------------------------
+  // SQS Mini – event-driven pipeline
+  // -------------------------------------------------------
+  {
+    slug: "sqs-mini",
+    title: {
+      en: "sqs-mini – Event-Driven Pipeline",
+      sv: "sqs-mini – Eventdriven Pipeline",
+    },
+    summary: {
+      en: "A small but realistic backend project that demonstrates an event-driven pipeline with AWS SQS, .NET, and Pulumi. It shows queue publishing, worker consumption, idempotency, retries, and DLQ handling in a way that is relevant to modern distributed systems.",
+      sv: "sqs-mini är ett litet men realistiskt backendprojekt som visar en eventdriven pipeline med AWS SQS, .NET och Pulumi. Projektet demonstrerar köpublicering, worker-konsumtion, idempotens, retries och DLQ-hantering på ett sätt som är relevant för moderna distribuerade system.",
+    },
+    image: "/SqsPipeline1.png",
+    images: [
+      "/SqsPipeline1.png",
+      "/SqsPipeline2.png",
+    ],
+    tech: [
+      "C#", ".NET", "AWS SQS", "Pulumi", "Minimal API", "Worker Service", "SQLite",
+    ],
+    year: 2025,
+    caseStudy: true,
+    highlights: {
+      en: [
+        "Producer → Queue → Consumer flow with AWS SQS Standard Queue + DLQ",
+        "Pulumi Infrastructure as Code in C#",
+        "BillingWorker with long polling and at-least-once delivery",
+        "Idempotent message processing with SQLite store",
+        "Clear demonstration of retries and dead-letter queue behavior",
+        "Clean separation between infrastructure and application code",
+      ],
+      sv: [
+        "Producer → Queue → Consumer-flöde med AWS SQS Standard Queue + DLQ",
+        "Pulumi Infrastructure as Code i C#",
+        "BillingWorker med long polling och at-least-once delivery",
+        "Idempotent meddelandebehandling med SQLite-lagring",
+        "Tydlig demonstration av retries och dead-letter queue-beteende",
+        "Tydlig separation mellan infrastruktur- och applikationskod",
+      ],
+    },
+    role: {
+      en: "Solo Developer – backend and infrastructure design",
+      sv: "Ensam utvecklare – backend och infrastrukturdesign",
+    },
+    problem: {
+      en: "Event-driven architecture, message queues, and idempotent processing are patterns that appear in most production distributed systems. sqs-mini is a focused project to demonstrate these patterns concretely: a producer that publishes messages to an SQS queue, a worker service that consumes them with long polling, handles retries, avoids duplicate processing, and routes failed messages to a dead-letter queue.",
+      sv: "Eventdriven arkitektur, meddelandeköer och idempotent behandling är mönster som återkommer i de flesta produktion-distribuerade system. sqs-mini är ett fokuserat projekt för att demonstrera dessa mönster konkret: en producer som publicerar meddelanden till en SQS-kö, en worker-tjänst som konsumerar dem med long polling, hanterar retries, undviker dubbelbehandling och routar felaktiga meddelanden till en dead-letter queue.",
+    },
+    solution: {
+      en: "The project is composed of two .NET applications: a Minimal API (`SessionApi`) acting as the message producer, and a Worker Service (`BillingWorker`) acting as the consumer. The infrastructure – an SQS Standard Queue and its DLQ – is provisioned using Pulumi in C#. The worker uses long polling to efficiently receive messages, processes them idempotently using a SQLite store to track already-handled message IDs, and lets SQS handle retries and DLQ routing for unprocessable messages. Runtime configuration is environment-based to keep credentials and queue URLs out of source code.",
+      sv: "Projektet består av två .NET-applikationer: ett Minimal API (`SessionApi`) som fungerar som meddelandeproducer och en Worker Service (`BillingWorker`) som fungerar som konsument. Infrastrukturen – en SQS Standard Queue och dess DLQ – provisioneras med Pulumi i C#. Workern använder long polling för effektiv meddelandeemottagning, behandlar meddelanden idempotent med en SQLite-lagring för att spåra redan hanterade meddelande-ID:n, och låter SQS hantera retries och DLQ-routing för obehandlingsbara meddelanden. Runtimekonfiguration är miljöbaserad för att hålla kredentialer och kö-URL:er utanför källkoden.",
+    },
+    goals: {
+      en: [
+        "Demonstrate a realistic producer → queue → consumer flow",
+        "Provision AWS infrastructure declaratively with Pulumi IaC in C#",
+        "Implement long polling in a .NET Worker Service",
+        "Handle idempotency with a SQLite-backed message ID store",
+        "Show retries and dead-letter queue behavior clearly",
+      ],
+      sv: [
+        "Demonstrera ett realistiskt producer → queue → consumer-flöde",
+        "Provisionera AWS-infrastruktur deklarativt med Pulumi IaC i C#",
+        "Implementera long polling i en .NET Worker Service",
+        "Hantera idempotens med en SQLite-baserad meddelande-ID-lagring",
+        "Visa retries och dead-letter queue-beteende tydligt",
+      ],
+    },
+    challenges: {
+      en: [
+        "Designing an idempotency store that is lightweight but reliable for the demo use case",
+        "Configuring Pulumi to provision SQS queues with the correct DLQ linkage and retry policies",
+        "Handling environment-based config cleanly without leaking secrets into source code",
+      ],
+      sv: [
+        "Designa ett idempotenslagring som är lättviktigt men tillförlitligt för demoändamålet",
+        "Konfigurera Pulumi för att provisionera SQS-köer med korrekt DLQ-koppling och retry-policy",
+        "Hantera miljöbaserad konfiguration rent utan att läcka hemligheter i källkoden",
+      ],
+    },
+    keyDecisions: {
+      en: [
+        "Pulumi in C# for IaC – keeps the entire stack in one language the team knows",
+        "SQLite for the idempotency store – zero infrastructure cost for a demo, easy to swap for Redis or DynamoDB in production",
+        "Worker Service pattern – the idiomatic .NET approach for long-running background consumers",
+        "Minimal API for the producer – lightweight and fast to stand up",
+      ],
+      sv: [
+        "Pulumi i C# för IaC – håller hela stacken i ett språk som teamet känner till",
+        "SQLite för idempotenslagring – noll infrastrukturkostnad för demo, enkel att byta mot Redis eller DynamoDB i produktion",
+        "Worker Service-mönster – det idiomatiska .NET-sättet för långvariga bakgrundskonsumenter",
+        "Minimal API för producer – lättviktigt och snabbt att sätta upp",
+      ],
+    },
+    results: {
+      en: [
+        "A working end-to-end event-driven pipeline: API publishes → SQS delivers → Worker consumes → DLQ catches failures",
+        "Infrastructure fully reproducible with a single Pulumi command",
+        "Demonstrated understanding of distributed systems patterns: idempotency, retries, DLQ, at-least-once delivery",
+      ],
+      sv: [
+        "En fungerande end-to-end eventdriven pipeline: API publicerar → SQS levererar → Worker konsumerar → DLQ fångar fel",
+        "Infrastruktur fullt reproducerbar med ett enda Pulumi-kommando",
+        "Demonstrerad förståelse för distribuerade systemmönster: idempotens, retries, DLQ, at-least-once delivery",
+      ],
+    },
+    nextSteps: {
+      en: [
+        "Replace SQLite idempotency store with DynamoDB for a fully cloud-native solution",
+        "Add structured logging and observability with CloudWatch",
+        "Extend to FIFO queue for strict ordering guarantees",
+      ],
+      sv: [
+        "Ersätt SQLite-idempotenslagring med DynamoDB för en fullt molnbaserad lösning",
+        "Lägg till strukturerad loggning och observability med CloudWatch",
+        "Utöka till FIFO-kö för strikta ordningsgarantier",
+      ],
+    },
+  },
+
+  // -------------------------------------------------------
+  // Postman Clone – learning/tooling project
+  // -------------------------------------------------------
+  {
+    slug: "postman-clone",
+    title: {
+      en: "Postman Clone",
+      sv: "Postman Clone",
+    },
+    summary: {
+      en: "A desktop tooling project built with C# and WinForms for making HTTP requests and viewing JSON responses. Created as a learning project to explore desktop development, API calls, and the workflow behind API testing tools.",
+      sv: "Postman Clone är ett desktop-baserat verktygsprojekt i C# och WinForms för att skicka HTTP-anrop och visa JSON-svar. Projektet byggdes som ett lärandeprojekt för att utforska desktoputveckling, API-anrop och arbetsflödet bakom verktyg för API-testning.",
+    },
+    image: "/PostmanClone1.png",
+    images: [
+      "/PostmanClone1.png",
+      "/PostmanClone2.png",
+      "/PostmanClone3.png",
+    ],
+    tech: ["C#", ".NET 10", "WinForms", "HttpClient"],
+    year: 2025,
+    caseStudy: true,
+    highlights: {
+      en: [
+        "Desktop UI built with WinForms for sending HTTP requests",
+        "HTTP request handling with HttpClient",
+        "JSON response viewing with formatted output",
+        "Supports multiple HTTP methods (GET, POST, PUT, DELETE)",
+        "Learning project exploring desktop development and API testing workflows",
+      ],
+      sv: [
+        "Desktop-UI byggt med WinForms för att skicka HTTP-anrop",
+        "HTTP-anropshantering med HttpClient",
+        "JSON-svarsvisning med formaterad output",
+        "Stöder flera HTTP-metoder (GET, POST, PUT, DELETE)",
+        "Lärandeprojekt som utforskar desktoputveckling och API-testningsflöden",
+      ],
+    },
+    role: {
+      en: "Solo Developer – learning project",
+      sv: "Ensam utvecklare – lärandeprojekt",
+    },
+    problem: {
+      en: "As a web-focused developer, I wanted to explore WinForms desktop development and deepen my understanding of how HTTP clients work under the hood. Building a simplified Postman-style tool was a practical way to combine both: building a desktop UI and understanding the workflow behind API testing tools. This project was inspired by a tutorial and built as a learning exercise.",
+      sv: "Som webbutvecklare ville jag utforska WinForms desktop-utveckling och fördjupa min förståelse för hur HTTP-klienter fungerar under huven. Att bygga ett förenklat Postman-liknande verktyg var ett praktiskt sätt att kombinera båda: bygga ett desktop-UI och förstå arbetsflödet bakom API-testningsverktyg. Projektet byggdes inspirerat av en tutorial och som ett lärandeövning.",
+    },
+    solution: {
+      en: "The application is a WinForms desktop app built in C# / .NET 10. It provides a UI for selecting the HTTP method (GET, POST, PUT, DELETE), entering a URL, optionally providing a request body, and viewing the formatted JSON response. HttpClient handles the actual HTTP communication. The focus was on understanding desktop UI patterns, event-driven WinForms programming, and correct use of HttpClient for API calls.",
+      sv: "Applikationen är en WinForms desktop-app byggd i C# / .NET 10. Den erbjuder ett UI för att välja HTTP-metod (GET, POST, PUT, DELETE), ange en URL, valfritt ange en request-body och visa det formaterade JSON-svaret. HttpClient hanterar den faktiska HTTP-kommunikationen. Fokus låg på att förstå desktop-UI-mönster, eventdriven WinForms-programmering och korrekt användning av HttpClient för API-anrop.",
+    },
+    goals: {
+      en: [
+        "Explore WinForms desktop development as a contrast to web-based UIs",
+        "Understand how HttpClient works for making HTTP requests in C#",
+        "Build a functional tool for sending HTTP requests and viewing responses",
+        "Practice event-driven desktop UI programming",
+      ],
+      sv: [
+        "Utforska WinForms desktop-utveckling som kontrast till webbaserade UIs",
+        "Förstå hur HttpClient fungerar för HTTP-anrop i C#",
+        "Bygga ett funktionellt verktyg för att skicka HTTP-anrop och visa svar",
+        "Träna eventdriven desktop-UI-programmering",
+      ],
+    },
+    challenges: {
+      en: [
+        "Learning WinForms layout and event model coming from a web background",
+        "Handling async HTTP calls correctly in a WinForms event-driven context",
+        "Displaying and formatting JSON responses in a readable way",
+      ],
+      sv: [
+        "Lära sig WinForms layout och event-modell med bakgrund inom webbutveckling",
+        "Hantera asynkrona HTTP-anrop korrekt i ett eventdrivet WinForms-sammanhang",
+        "Visa och formatera JSON-svar på ett läsbart sätt",
+      ],
+    },
+    keyDecisions: {
+      en: [
+        "WinForms for a lightweight desktop UI without needing WPF or MAUI overhead",
+        "HttpClient for HTTP communication – the standard .NET approach",
+        "Kept scope intentionally small – the value is the learning, not a production tool",
+      ],
+      sv: [
+        "WinForms för ett lättviktigt desktop-UI utan behov av WPF eller MAUI",
+        "HttpClient för HTTP-kommunikation – standardmetoden i .NET",
+        "Medvetet liten scope – värdet är lärandet, inte ett produktionsverktyg",
+      ],
+    },
+    results: {
+      en: [
+        "A working desktop tool for sending HTTP requests and viewing JSON responses",
+        "Hands-on experience with WinForms, desktop event handling, and HttpClient",
+        "Better understanding of how API testing tools work under the hood",
+      ],
+      sv: [
+        "Ett fungerande desktop-verktyg för att skicka HTTP-anrop och visa JSON-svar",
+        "Praktisk erfarenhet av WinForms, desktop-event-hantering och HttpClient",
+        "Bättre förståelse för hur API-testningsverktyg fungerar under huven",
+      ],
+    },
+    nextSteps: {
+      en: [
+        "Add request history and saved collections",
+        "Support custom headers and authentication flows",
+        "Explore migrating the UI to .NET MAUI for cross-platform support",
+      ],
+      sv: [
+        "Lägg till request-historik och sparade samlingar",
+        "Stöd anpassade headers och autentiseringsflöden",
+        "Utforska att migrera UI:t till .NET MAUI för cross-platform-stöd",
       ],
     },
   },
