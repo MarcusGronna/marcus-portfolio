@@ -12,7 +12,9 @@ export interface TimelineEntry {
   organization: { en: string; sv: string };
   period: string;
   startYear: number;
+  startMonth?: number; // 1–12; defaults to 1 (January) when absent
   endYear: number | null; // null = current / ongoing
+  endMonth?: number; // 1–12; defaults to 12 (December) when absent
   summary: { en: string; sv: string };
 }
 
@@ -99,9 +101,11 @@ export const timelineEntries: TimelineEntry[] = [
       en: "School of Applied Technology",
       sv: "School of Applied Technology",
     },
-    period: "01/2026",
-    startYear: 2026,
+    period: "10/2025 – 01/2026",
+    startYear: 2025,
+    startMonth: 10,
     endYear: 2026,
+    endMonth: 1,
     summary: {
       en: "Intensive three-month programme in fullstack web development with a focus on TDD, mob programming, and hands-on applied learning.",
       sv: "Intensivt tre månader långt program i fullstack webbutveckling med fokus på TDD, mob-programmering och praktiskt tillämpat lärande.",
