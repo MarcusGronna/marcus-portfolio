@@ -28,10 +28,17 @@ export interface Project {
   solution?: { en: string; sv: string };
   /** AI integration explanation (paragraph) */
   aiIntegration?: { en: string; sv: string };
+  /**
+   * Ordered steps describing the end-to-end architecture / request flow.
+   * Rendered as a visual step-flow diagram on the case-study page.
+   */
+  architectureFlow?: { en: string[]; sv: string[] };
   goals?: { en: string[]; sv: string[] };
   challenges?: { en: string[]; sv: string[] };
   keyDecisions?: { en: string[]; sv: string[] };
   results?: { en: string[]; sv: string[] };
+  /** Paragraph describing key takeaways / what was learned building this project. */
+  whatILearned?: { en: string; sv: string };
   nextSteps?: { en: string[]; sv: string[] };
 }
 
@@ -168,6 +175,28 @@ export const projects: Project[] = [
         "Utöka språkstödet bortom C# till andra programmeringsspråk",
         "Driftsätt till en publik molnendpoint med automatiserad CI/CD",
       ],
+    },
+    architectureFlow: {
+      en: [
+        "User writes C# code in the Monaco Editor (browser-based IDE)",
+        "Solution is submitted to the backend ASP.NET Core Web API endpoint",
+        "Roslyn (Microsoft.CodeAnalysis) compiles and executes the code server-side in a sandboxed context",
+        "Evaluation result (pass / fail + output) is persisted in PostgreSQL via EF Core",
+        "Azure OpenAI receives the previous chapter's narrative context plus the pass/fail result and generates the next chapter as structured JSON",
+        "Frontend fetches the new scenario via TanStack React Query and renders the updated challenge — story adapts based on the player's performance",
+      ],
+      sv: [
+        "Användaren skriver C#-kod i Monaco Editor (webbläsarbaserad IDE)",
+        "Lösningen skickas till backend-API:ets endpoint (ASP.NET Core Web API)",
+        "Roslyn (Microsoft.CodeAnalysis) kompilerar och kör koden server-side i ett sandboxat sammanhang",
+        "Bedömningsresultatet (godkänd/underkänd + output) sparas i PostgreSQL via EF Core",
+        "Azure OpenAI tar emot föregående kapitels narrativa kontext plus godkänd/underkänd-resultat och genererar nästa kapitel som strukturerad JSON",
+        "Frontend hämtar det nya scenariot via TanStack React Query och renderar den uppdaterade utmaningen — storyn anpassas utifrån spelarens prestation",
+      ],
+    },
+    whatILearned: {
+      en: "Building CodeQuest gave me hands-on experience combining several complex systems in a single product: AI-generated content pipelines, server-side code execution with Roslyn, session-based state management, and a modern in-browser IDE experience with Monaco Editor. I deepened my understanding of prompt engineering for structured JSON outputs, layered backend architecture in .NET, and the practical challenges of creating a truly adaptive user experience where backend remains the single source of truth.",
+      sv: "Att bygga CodeQuest gav mig praktisk erfarenhet av att kombinera flera komplexa system i en och samma produkt: AI-genererade innehållspipelines, server-side kodexekvering med Roslyn, sessionsbaserad tillståndshantering och en modern IDE-upplevelse i webbläsaren med Monaco Editor. Jag fördjupade min förståelse av prompt engineering för strukturerade JSON-utdata, lagerindelad backendarkitektur i .NET och de praktiska utmaningarna med att skapa en genuint adaptiv användarupplevelse där backend förblir den enda källan till sanning.",
     },
   },
   {

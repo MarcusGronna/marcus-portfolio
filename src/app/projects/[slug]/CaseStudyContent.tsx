@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FiExternalLink, FiGithub, FiArrowLeft, FiCheckCircle } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiArrowLeft, FiCheckCircle, FiArrowDown } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 import { useLang } from "@/components/LangProvider";
 import SkillBadge from "@/components/SkillBadge";
@@ -15,10 +15,12 @@ const texts = {
   problem: { en: "Problem / Context", sv: "Problem / Kontext" },
   aiIntegration: { en: "AI Integration", sv: "AI-integration" },
   solution: { en: "Solution / Architecture", sv: "Lösning / Arkitektur" },
+  architectureFlow: { en: "How It Works – Architecture Flow", sv: "Så fungerar det – Arkitekturflöde" },
   goals: { en: "Goals", sv: "Mål" },
   challenges: { en: "Challenges", sv: "Utmaningar" },
   keyDecisions: { en: "Key Technical Decisions", sv: "Viktiga tekniska beslut" },
   results: { en: "Results / Impact", sv: "Resultat / Effekt" },
+  whatILearned: { en: "What I Learned", sv: "Vad jag lärde mig" },
   nextSteps: { en: "What I Would Improve Next", sv: "Vad jag skulle förbättra härnäst" },
   liveDemo: { en: "Live Demo", sv: "Live Demo" },
   sourceCode: { en: "Source Code", sv: "Källkod" },
@@ -31,18 +33,49 @@ interface Section {
   key: keyof Project;
   label: { en: string; sv: string };
   isArray?: boolean;
+  variant?: "flow" | "paragraph" | "list";
 }
 
 const sections: Section[] = [
   { key: "problem", label: texts.problem },
   { key: "aiIntegration", label: texts.aiIntegration },
   { key: "solution", label: texts.solution },
+  { key: "architectureFlow", label: texts.architectureFlow, isArray: true, variant: "flow" },
   { key: "goals", label: texts.goals, isArray: true },
   { key: "challenges", label: texts.challenges, isArray: true },
   { key: "keyDecisions", label: texts.keyDecisions, isArray: true },
   { key: "results", label: texts.results, isArray: true },
+  { key: "whatILearned", label: texts.whatILearned },
   { key: "nextSteps", label: texts.nextSteps, isArray: true },
 ];
+
+// ── Architecture flow diagram ─────────────────────────────────────────────
+
+function ArchitectureFlow({ steps }: { steps: string[] }) {
+  return (
+    <ol className="not-prose space-y-0">
+      {steps.map((step, i) => (
+        <li key={i} className="flex flex-col items-center">
+          {/* Step box */}
+          <div className="w-full flex items-start gap-3 rounded-xl border border-brand-600/30 bg-surface-50 shadow-sm px-4 py-3">
+            <span className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-accent-400/30 text-ink-900 text-sm font-bold flex items-center justify-center">
+              {i + 1}
+            </span>
+            <span className="text-base leading-relaxed text-brand-700">{step}</span>
+          </div>
+          {/* Connector arrow between steps */}
+          {i < steps.length - 1 && (
+            <FiArrowDown
+              className="my-1.5 text-brand-600/50 shrink-0"
+              size={20}
+              aria-hidden="true"
+            />
+          )}
+        </li>
+      ))}
+    </ol>
+  );
+}
 
 export default function CaseStudyContent({ project }: { project: Project }) {
   const { lang } = useLang();
@@ -52,7 +85,7 @@ export default function CaseStudyContent({ project }: { project: Project }) {
       {/* Back link */}
       <Link
         href="/#portfolio"
-        className="inline-flex items-center gap-2 text-sm text-brand-700 hover:text-accent-700 mb-8 transition-colors focus-visible:ring-2 focus-visible:ring-accent-400 rounded"
+        className="inline-flex items-center gap-2 text-base text-brand-700 hover:text-accent-700 mb-8 transition-colors focus-visible:ring-2 focus-visible:ring-accent-400 rounded"
       >
         <FiArrowLeft aria-hidden="true" />
         {texts.back[lang]}
@@ -76,7 +109,7 @@ export default function CaseStudyContent({ project }: { project: Project }) {
         <p className="text-lg text-brand-700 leading-relaxed mb-6">{project.summary[lang]}</p>
 
         {/* Meta row */}
-        <div className="flex flex-wrap gap-6 mb-6 text-sm text-brand-700 border-y border-brand-600/20 py-4">
+        <div className="flex flex-wrap gap-6 mb-6 text-base text-brand-700 border-y border-brand-600/20 py-4">
           {project.role && (
             <div>
               <span className="font-semibold text-ink-900">{texts.role[lang]}: </span>
@@ -103,7 +136,7 @@ export default function CaseStudyContent({ project }: { project: Project }) {
 
       {/* Case study sections */}
       <div className="space-y-10">
-        {sections.map(({ key, label, isArray }) => {
+        {sections.map(({ key, label, isArray, variant }) => {
           const value = project[key] as
             | { en: string; sv: string }
             | { en: string[]; sv: string[] }
@@ -118,11 +151,14 @@ export default function CaseStudyContent({ project }: { project: Project }) {
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
             >
-              <h2 className="mb-3">{label[lang]}</h2>
-              {isArray ? (
+              <h2 className="mb-4">{label[lang]}</h2>
+
+              {variant === "flow" ? (
+                <ArchitectureFlow steps={value[lang] as string[]} />
+              ) : isArray ? (
                 <ul className="space-y-2">
                   {(value[lang] as string[]).map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-brand-700 leading-relaxed">
+                    <li key={i} className="flex items-start gap-3 text-base text-brand-700 leading-relaxed">
                       <FiCheckCircle
                         className="mt-0.5 shrink-0 text-accent-700"
                         aria-hidden="true"
@@ -132,7 +168,7 @@ export default function CaseStudyContent({ project }: { project: Project }) {
                   ))}
                 </ul>
               ) : (
-                <p className="text-brand-700 leading-relaxed">{value[lang] as string}</p>
+                <p className="text-base text-brand-700 leading-relaxed">{value[lang] as string}</p>
               )}
             </motion.section>
           );

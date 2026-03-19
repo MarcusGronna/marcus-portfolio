@@ -171,7 +171,7 @@ export default function Home() {
             .sort(([a], [b]) => Number(b) - Number(a))
             .map(([year, yearProjects]) => (
               <div key={year} className="mb-12">
-                <h3 className="text-2xl font-semibold mb-4">{year}</h3>
+                <h3 className="text-3xl font-semibold mb-6">{year}</h3>
                 <ProjectShelf projects={yearProjects} />
               </div>
             ))}
@@ -203,14 +203,14 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
             {skillCategories.map((cat) => (
               <div key={cat.category.en}>
-                <h3 className="text-base font-bold text-brand-800 mb-3 uppercase tracking-wide">
+                <h3 className="text-lg font-bold text-brand-800 mb-3 uppercase tracking-wide">
                   {cat.category[lang]}
                 </h3>
                 <ul className="flex flex-wrap gap-2">
                   {cat.items.map((skill) => (
                     <li
                       key={skill}
-                      className="text-sm bg-surface-50 border border-brand-600/30 text-brand-800 rounded px-2.5 py-1"
+                      className="text-base bg-surface-50 border border-brand-600/30 text-brand-800 rounded px-3 py-1.5"
                     >
                       {skill}
                     </li>
