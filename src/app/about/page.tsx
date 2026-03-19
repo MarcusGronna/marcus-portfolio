@@ -28,16 +28,6 @@ const bucketStyles: Record<string, { badge: string; label: string }> = {
 
 const texts = {
   title: { en: "About Me", sv: "Om mig" },
-  summary: {
-    en: [
-      "I am a Stockholm-based Fullstack .NET Developer currently consulting through School of Applied Technology. My stack is centred on C# / .NET backends, React frontends, and AI-integrated products — built with a genuine architecture mindset and a drive to ship things that actually work.",
-      "My background is deliberately broad: a degree in sports science, a decade as a train driver, and now a transition into software through parallel education programmes and real projects. That combination gives me something most developers don't have — a calm, methodical approach to complex problems, strong communication skills, and a relentless focus on reliability.",
-    ],
-    sv: [
-      "Jag är en Stockholm-baserad Fullstack .NET Developer som för närvarande konsulterar via School of Applied Technology. Min stack är centrerad kring C# / .NET-backends, React-frontends och AI-integrerade produkter — byggda med ett genuint arkitekturperspektiv och en drivkraft att leverera saker som faktiskt fungerar.",
-      "Min bakgrund är medvetet bred: en examen i idrottsvetenskap, ett decennium som lokförare och nu en övergång till mjukvaruutveckling via parallella utbildningsprogram och riktiga projekt. Den kombinationen ger mig något de flesta utvecklare inte har — ett lugnt, metodiskt sätt att hantera komplexa problem, stark kommunikationsförmåga och ett orubbligt fokus på tillförlitlighet.",
-    ],
-  },
   ctaCV: { en: "Download CV", sv: "Ladda ner CV" },
   ctaContact: { en: "Get in touch", sv: "Kontakta mig" },
   backHome: { en: "← Back to homepage", sv: "← Tillbaka till startsidan" },
@@ -51,7 +41,7 @@ export default function AboutPage() {
         <PortraitFrame small flipped={false} onToggle={() => {}} />
         <div className="flex-1">
           <h1 className="mb-3">{texts.title[lang]}</h1>
-          {texts.summary[lang].map((p, i) => (
+          {dict[lang].aboutParagraphs.map((p, i) => (
             <p key={i} className="text-base leading-relaxed mb-4 text-brand-800">
               {p}
             </p>

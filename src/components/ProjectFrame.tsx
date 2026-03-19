@@ -203,8 +203,8 @@ export default function ProjectFrame({
         {/* Highlights */}
         {project.highlights && (
           <ul className="space-y-1.5 mb-3" aria-label="Project highlights">
-            {project.highlights[lang].map((h, i) => (
-              <li key={i} className="flex items-start gap-2 text-base text-brand-700 leading-snug">
+            {project.highlights[lang].slice(0, 3).map((h, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-brand-700 leading-snug">
                 <FiCheckCircle
                   className="mt-0.5 shrink-0 text-accent-700"
                   aria-hidden="true"

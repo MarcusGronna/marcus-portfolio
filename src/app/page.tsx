@@ -17,20 +17,6 @@ import { dict } from "@/content/i18n";
 const texts = {
   aboutBtn: { en: "About Me", sv: "Om Mig" },
   contactBtn: { en: "Contact", sv: "Kontakt" },
-  about: {
-    en: [
-      "Hi! I'm Marcus Grönnå, a Stockholm-based Fullstack .NET Developer with a strong drive to learn new technologies and build reliable, user-focused solutions. Through School of Applied Technology, one year of JavaScript studies focused on React and TypeScript at Företagsuniversitetet, and a Higher Education Diploma from the Webmaster programme at University West, I have built a broad foundation in backend, frontend, UI/UX, and web administration.",
-      "My background in sports and health science has strengthened my ability to work with people, long-term development, and sustainable performance. At the same time, more than a decade as a train driver has given me a calm and methodical way of working, a strong sense of responsibility, and the ability to make well-considered decisions under pressure.",
-      "I thrive on learning fast and solving real problems. Whether it's crafting React components that feel effortless, building robust APIs in C# .NET, or designing interfaces that invite interaction, I love the challenge of making tech both powerful and approachable.",
-      "Right now, I'm working as a fullstack .NET consultant at School of Applied Technology, and launching projects you can explore here. If you have an idea you want to bring to life, feel free to reach out—let's build something great together!",
-    ],
-    sv: [
-      "Hej! Jag heter Marcus Grönnå, en Stockholm-baserad Fullstack .NET Developer med stark drivkraft att lära mig nya tekniker och bygga pålitliga, användarfokuserade lösningar. Genom School of Applied Technology, ett års studier i JavaScript med fokus på React och TypeScript vid Företagsuniversitetet samt en högskoleexamen från Webmasterprogrammet vid Högskolan Väst har jag byggt en bred grund inom backend, frontend, UI/UX och webbadministration.",
-      "Min bakgrund inom idrotts- och hälsovetenskap har stärkt min förmåga att arbeta med människor, långsiktig utveckling och hållbar prestation. Mer än ett decennium som lokförare har samtidigt gett mig ett lugnt och metodiskt arbetssätt, hög ansvarskänsla och vana att fatta genomtänkta beslut även under press.",
-      "Jag trivs med att lära mig snabbt och lösa verkliga problem. Oavsett om det handlar om att skapa React-komponenter som känns enkla, bygga robusta API:er i C# .NET eller designa gränssnitt som bjuder in till interaktion, älskar jag utmaningen att göra tekniken både kraftfull och lättillgänglig.",
-      "Just nu arbetar jag som fullstack .NET-konsult via School of Applied Technology och lanserar projekt som du kan utforska här. Har du en idé du vill förverkliga? Tveka inte att höra av dig—låt oss bygga något fantastiskt tillsammans!",
-    ],
-  },
 };
 
 // Skill bucket styling
@@ -170,7 +156,7 @@ export default function Home() {
           >
             <div className="bg-surface-50 rounded-xl shadow-md border border-brand-600 text-center lg:text-left">
               <div className="prose prose-neutral text-base max-h-[20rem] overflow-y-auto p-6">
-                {texts.about[lang].map((p, i) => (
+                {dict[lang].aboutParagraphs.map((p, i) => (
                   <p key={i} className="mb-4 leading-relaxed">
                     {p}
                   </p>

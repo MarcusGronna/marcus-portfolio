@@ -7,8 +7,8 @@ import Link from "next/link";
 const texts = {
   title: { en: "Contact", sv: "Kontakt" },
   subtitle: {
-    en: "The fastest way to reach me is by email or LinkedIn. I read everything and reply within a day or two.",
-    sv: "Snabbaste sättet att nå mig är via e-post eller LinkedIn. Jag läser allt och svarar inom en till två dagar.",
+    en: "I'm open to fullstack .NET roles, consulting projects, and technical conversations. Email is the fastest route — I reply within a day or two.",
+    sv: "Jag är öppen för fullstack .NET-roller, konsultuppdrag och tekniska samtal. E-post är snabbaste vägen — jag svarar inom en till två dagar.",
   },
   emailCta: {
     en: "Send me an email",

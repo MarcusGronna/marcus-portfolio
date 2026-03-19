@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   description: "Portfölj för rekryterare och kunder. React/Angular/Node/.NET.",
   alternates: {
     canonical: "/",
-    languages: { "sv-SE": "/", "en-US": "/?lang=en" }, // enkel variant utan routes
+    languages: { "sv-SE": "/", "en-US": "/?lang=en" }, // query-param i18n, no separate routes
   },
   openGraph: {
     type: "website",

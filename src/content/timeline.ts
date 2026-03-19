@@ -30,6 +30,7 @@ export const timelineEntries: TimelineEntry[] = [
     },
     period: "02/2026 – present",
     startYear: 2026,
+    startMonth: 2,
     endYear: null,
     summary: {
       en: "Working as a fullstack .NET consultant delivering end-to-end solutions in agile teams, with a strong focus on code quality, structure, and long-term maintainability.",
@@ -43,7 +44,9 @@ export const timelineEntries: TimelineEntry[] = [
     organization: { en: "Friskis & Svettis", sv: "Friskis & Svettis" },
     period: "03/2024 – 01/2026",
     startYear: 2024,
+    startMonth: 3,
     endYear: 2026,
+    endMonth: 1,
     summary: {
       en: "Designed individualised training programmes and coached clients in strength, conditioning, and health. Built strong communication skills and the ability to create trust and long-term commitment.",
       sv: "Utformade individanpassade träningsupplägg och coachade klienter inom styrka, kondition och hälsa. Byggde stark kommunikativ förmåga och vana att skapa förtroende och långsiktighet.",
@@ -59,7 +62,9 @@ export const timelineEntries: TimelineEntry[] = [
     },
     period: "03/2018 – 10/2025",
     startYear: 2018,
+    startMonth: 3,
     endYear: 2025,
+    endMonth: 10,
     summary: {
       en: "Safety-critical environment demanding precision, responsibility, and sound decision-making. Handled complex operational situations with calmness, accuracy, and an unwavering focus on safety.",
       sv: "Säkerhetskritisk miljö med höga krav på precision, ansvar och beslutsfattande. Hanterade komplexa driftsituationer med lugn, noggrannhet och starkt fokus på säkerhet.",
@@ -72,7 +77,9 @@ export const timelineEntries: TimelineEntry[] = [
     organization: { en: "SJ AB", sv: "SJ AB" },
     period: "04/2013 – 02/2018",
     startYear: 2013,
+    startMonth: 4,
     endYear: 2018,
+    endMonth: 2,
     summary: {
       en: "Combined operational train driving with responsibility for supervising and training new drivers. Developed clear communication, mentoring ability, and a strong sense of responsibility for quality.",
       sv: "Kombinerade operativt arbete som lokförare med ansvar för handledning och utbildning av nya förare. Utvecklade tydlig kommunikation, mentorförmåga och ansvar för kvalitet i genomförandet.",
@@ -85,7 +92,9 @@ export const timelineEntries: TimelineEntry[] = [
     organization: { en: "ProTrain Bemanning AB", sv: "ProTrain Bemanning AB" },
     period: "06/2011 – 04/2013",
     startYear: 2011,
+    startMonth: 6,
     endYear: 2013,
+    endMonth: 4,
     summary: {
       en: "Worked as a consultant across several operators, adapting quickly to new environments and ways of working. Built strong flexibility, professionalism, and reliability in varied contexts.",
       sv: "Arbetade som konsult hos flera operatörer och anpassade mig snabbt till nya miljöer och arbetssätt. Byggde flexibilitet, professionalism och förmåga att leverera tryggt i nya sammanhang.",

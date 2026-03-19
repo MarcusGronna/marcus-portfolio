@@ -654,6 +654,30 @@ export const projects: Project[] = [
       en: "The frontend was built with React 19, TypeScript, Vite, Tailwind CSS v4, TanStack Router for type-safe routing, and TanStack React Query for server state management. Clerk handles authentication, issuing JWTs consumed by the backend. The backend is an ASP.NET Core Web API built with C# / .NET 9, EF Core, and SQL Server, organized into API, Application, Domain, and Infrastructure layers. All endpoints are JWT-protected with a CORS policy, and the API exposes training programs, workouts, workout exercises, an exercise catalog, and user profile management.",
       sv: "Frontend byggdes med React 19, TypeScript, Vite, Tailwind CSS v4, TanStack Router för typsäker routing och TanStack React Query för server-state-hantering. Clerk hanterar autentisering och utfärdar JWTs som konsumeras av backend. Backend är ett ASP.NET Core Web API byggt med C# / .NET 9, EF Core och SQL Server, organiserat i lager: API, Application, Domain och Infrastructure. Alla endpoints är JWT-skyddade med en CORS-policy, och API:et exponerar träningsprogram, pass, övningar i pass, ett övningskatalog och användarprofilhantering.",
     },
+    architectureFlow: {
+      en: [
+        "User navigates to the React frontend (Vite + TanStack Router)",
+        "Clerk handles authentication — user logs in and receives a signed JWT",
+        "TanStack React Query sends requests to the ASP.NET Core API with the JWT as a Bearer token",
+        "ASP.NET Core middleware validates the JWT — unauthorized requests are rejected early",
+        "The Application layer processes the request and calls Domain logic",
+        "The Infrastructure layer (EF Core) reads or writes to SQL Server",
+        "The API returns a JSON response — React Query caches the result and updates the UI",
+      ],
+      sv: [
+        "Användaren navigerar till React-frontendet (Vite + TanStack Router)",
+        "Clerk hanterar autentisering — användaren loggar in och tar emot ett signerat JWT",
+        "TanStack React Query skickar förfrågningar till ASP.NET Core API:et med JWT som Bearer-token",
+        "ASP.NET Core-middleware validerar JWT — otillåtna förfrågningar avvisas tidigt",
+        "Application-lagret behandlar förfrågan och anropar Domain-logik",
+        "Infrastructure-lagret (EF Core) läser eller skriver till SQL Server",
+        "API:et returnerar ett JSON-svar — React Query cachar resultatet och uppdaterar UI",
+      ],
+    },
+    whatILearned: {
+      en: "Wiring Clerk JWT tokens into the ASP.NET Core middleware pipeline looked simple on paper but required careful configuration around CORS and token validation. The layered architecture paid off quickly — keeping Application and Domain free of infrastructure concerns made it easy to extend the feature set without touching existing logic. TanStack Router and React Query together give the frontend a level of structure that plain React with useEffect doesn't.",
+      sv: "Att koppla Clerk JWT-tokens till ASP.NET Core-middleware verkade enkelt på papper men krävde noggrann konfiguration kring CORS och tokenvalidering. Den lagerindelade arkitekturen lönade sig snabbt — att hålla Application och Domain fria från infrastrukturbekymmer gjorde det enkelt att utöka funktioner utan att röra befintlig logik. TanStack Router och React Query tillsammans ger frontendet en struktur som plain React med useEffect inte ger.",
+    },
     goals: {
       en: [
         "Build a production-relevant fullstack app demonstrating layered backend architecture",
