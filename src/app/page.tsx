@@ -171,7 +171,7 @@ export default function Home() {
             .sort(([a], [b]) => Number(b) - Number(a))
             .map(([year, yearProjects]) => (
               <div key={year} className="mb-12">
-                <h3 className="text-xl font-semibold mb-4">{year}</h3>
+                <h3 className="text-2xl font-semibold mb-4">{year}</h3>
                 <ProjectShelf projects={yearProjects} />
               </div>
             ))}
