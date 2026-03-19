@@ -5,6 +5,7 @@ export const dict = {
     portfolio: "Portfolio",
     education: "Education",
     experience: "Experience",
+    journey: "Journey",
     skills: "Skills",
     contact: "Contact",
     contactSubtitle:
@@ -23,6 +24,7 @@ export const dict = {
     portfolio: "Portfolio",
     education: "Utbildning",
     experience: "Erfarenhet",
+    journey: "Resa",
     skills: "Kompetenser",
     contact: "Kontakt",
     contactSubtitle:
