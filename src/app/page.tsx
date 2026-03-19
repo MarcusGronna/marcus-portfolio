@@ -2,7 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FiChevronDown, FiChevronUp, FiMail, FiLinkedin, FiGithub } from "react-icons/fi";
+import { FiChevronDown, FiChevronUp, FiMail, FiLinkedin, FiGithub, FiDownload } from "react-icons/fi";
+import { track } from "@vercel/analytics";
 import PortraitFrame from "@/components/PortraitFrame";
 import ProjectShelf from "@/components/ProjectShelf";
 import { fadeUp } from "@/lib/framer-variants";
@@ -18,10 +19,10 @@ const texts = {
   contactBtn: { en: "Contact", sv: "Kontakt" },
   about: {
     en: [
-      "Hi! I’m Marcus Grönnå, a Stockholm-based Fullstack .NET Developer with a strong drive to learn new technologies and build reliable, user-focused solutions. Through School of Applied Technology, one year of JavaScript studies focused on React and TypeScript at Företagsuniversitetet, and a Higher Education Diploma from the Webmaster programme at University West, I have built a broad foundation in backend, frontend, UI/UX, and web administration.",
+      "Hi! I'm Marcus Grönnå, a Stockholm-based Fullstack .NET Developer with a strong drive to learn new technologies and build reliable, user-focused solutions. Through School of Applied Technology, one year of JavaScript studies focused on React and TypeScript at Företagsuniversitetet, and a Higher Education Diploma from the Webmaster programme at University West, I have built a broad foundation in backend, frontend, UI/UX, and web administration.",
       "My background in sports and health science has strengthened my ability to work with people, long-term development, and sustainable performance. At the same time, more than a decade as a train driver has given me a calm and methodical way of working, a strong sense of responsibility, and the ability to make well-considered decisions under pressure.",
-      "I thrive on learning fast and solving real problems. Whether it’s crafting React components that feel effortless, building robust APIs in C# .NET, or designing interfaces that invite interaction, I love the challenge of making tech both powerful and approachable.",
-      "Right now, I’m working as a fullstack .NET consultant at School of Applied Technology, and launching projects you can explore here. If you have an idea you want to bring to life, feel free to reach out—let’s build something great together!",
+      "I thrive on learning fast and solving real problems. Whether it's crafting React components that feel effortless, building robust APIs in C# .NET, or designing interfaces that invite interaction, I love the challenge of making tech both powerful and approachable.",
+      "Right now, I'm working as a fullstack .NET consultant at School of Applied Technology, and launching projects you can explore here. If you have an idea you want to bring to life, feel free to reach out—let's build something great together!",
     ],
     sv: [
       "Hej! Jag heter Marcus Grönnå, en Stockholm-baserad Fullstack .NET Developer med stark drivkraft att lära mig nya tekniker och bygga pålitliga, användarfokuserade lösningar. Genom School of Applied Technology, ett års studier i JavaScript med fokus på React och TypeScript vid Företagsuniversitetet samt en högskoleexamen från Webmasterprogrammet vid Högskolan Väst har jag byggt en bred grund inom backend, frontend, UI/UX och webbadministration.",
@@ -51,7 +52,7 @@ export default function Home() {
         id="home"
         className="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-16 mb-10 md:mb-16 px-2 sm:px-4"
       >
-        {/* Bild */}
+        {/* Portrait */}
         <div className="flex-1 flex flex-col items-center justify-center">
           <PortraitFrame
             flipped={flipped}
@@ -60,32 +61,70 @@ export default function Home() {
           />
         </div>
 
-        {/* Textkolumn – knappar + About-ruta */}
+        {/* Text column */}
         <div className="flex-1 flex flex-col justify-center items-center lg:items-start max-w-xl w-full">
-          {/* Knappar ovanför rutan */}
-          <div className="mb-4 flex flex-col sm:flex-row gap-4">
-            <a
-              href="#contact"
-              className="flex items-center gap-2 cursor-pointer underline underline-offset-8 decoration-[5px] hover:decoration-2 text-2xl transition hover:text-accent-300"
+          {/* Hero headline */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="mb-6 text-center lg:text-left"
+          >
+            <h1 className="mb-1 text-4xl sm:text-5xl">Marcus Grönnå</h1>
+            <p className="text-lg sm:text-xl font-semibold text-brand-700 mb-1">
+              {dict[lang].heroRole}
+            </p>
+            <p className="text-sm text-brand-600 mb-4">{dict[lang].heroLocation}</p>
+            <p className="text-base sm:text-lg text-brand-700 leading-relaxed max-w-md">
+              {dict[lang].heroTagline}
+            </p>
+          </motion.div>
+
+          {/* Primary CTAs */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="mb-4 flex flex-wrap gap-3 justify-center lg:justify-start"
+          >
+            <Link
+              href="/#portfolio"
+              className="inline-flex items-center gap-2 bg-accent-400 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
+            >
+              {dict[lang].viewProjects}
+            </Link>
+            <Link
+              href="/#contact"
+              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
             >
               {texts.contactBtn[lang]}
-            </a>
-
-            <button
-              onClick={() => setShowAbout((v) => !v)}
-              type="button"
-              className="flex items-center gap-2 cursor-pointer underline underline-offset-8 decoration-[5px] hover:decoration-2 text-2xl transition hover:text-accent-300"
+            </Link>
+            <a
+              href="/marcus-gronna-cv.pdf"
+              download
+              onClick={() => track("cv_download")}
+              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
             >
-              {texts.aboutBtn[lang]}
-              {showAbout ? (
-                <FiChevronUp className="text-3xl" />
-              ) : (
-                <FiChevronDown className="text-3xl" />
-              )}
-            </button>
-          </div>
+              <FiDownload aria-hidden="true" size={16} />
+              {dict[lang].downloadCV}
+            </a>
+          </motion.div>
 
-          {/* Fällbar About-ruta */}
+          {/* About Me toggle */}
+          <button
+            onClick={() => setShowAbout((v) => !v)}
+            type="button"
+            className="flex items-center gap-2 cursor-pointer underline underline-offset-8 decoration-[5px] hover:decoration-2 text-xl transition hover:text-accent-300 mb-4"
+          >
+            {texts.aboutBtn[lang]}
+            {showAbout ? (
+              <FiChevronUp className="text-2xl" aria-hidden="true" />
+            ) : (
+              <FiChevronDown className="text-2xl" aria-hidden="true" />
+            )}
+          </button>
+
+          {/* Collapsible About */}
           <motion.div
             initial={false}
             animate={showAbout ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
@@ -224,41 +263,56 @@ export default function Home() {
           <p className="mb-8 text-brand-700 text-base sm:text-lg">
             {dict[lang].contactSubtitle}
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 text-xl mb-8 w-full">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-xl mb-6 w-full">
             <a
               href="mailto:hi@marcusgronna.com"
+              onClick={() => track("email_click")}
               className="flex items-center justify-center gap-2 text-accent-700 hover:text-accent-800 underline"
               aria-label="Email"
             >
-              <FiMail /> hi@marcusgronna.com
+              <FiMail aria-hidden="true" /> hi@marcusgronna.com
             </a>
             <a
               href="https://www.linkedin.com/in/marcus-gr%C3%B6nn%C3%A5-6a5006260/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track("linkedin_click")}
               aria-label="LinkedIn"
               className="flex items-center justify-center gap-2 hover:text-accent-700"
             >
-              <FiLinkedin /> LinkedIn
+              <FiLinkedin aria-hidden="true" /> LinkedIn
             </a>
             <a
               href="https://github.com/MarcusGronna"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => track("github_click")}
               aria-label="GitHub"
               className="flex items-center justify-center gap-2 hover:text-accent-700"
             >
-              <FiGithub /> GitHub
+              <FiGithub aria-hidden="true" /> GitHub
             </a>
           </div>
-          <Link
-            href="/contact"
-            className="inline-block bg-accent-400 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-accent-300 transition"
-          >
-            {dict[lang].contactPage}
-          </Link>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              href="/contact"
+              className="inline-block bg-accent-400 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
+            >
+              {dict[lang].contactPage}
+            </Link>
+            <a
+              href="/marcus-gronna-cv.pdf"
+              download
+              onClick={() => track("cv_download")}
+              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
+            >
+              <FiDownload aria-hidden="true" size={16} />
+              {dict[lang].downloadCV}
+            </a>
+          </div>
         </motion.div>
       </section>
     </>
   );
 }
+
