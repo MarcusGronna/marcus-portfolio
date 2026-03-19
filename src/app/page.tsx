@@ -33,10 +33,41 @@ const texts = {
   },
 };
 
+// Skill bucket styling
+const bucketStyles: Record<string, { wrapper: string; badge: string; label: string }> = {
+  core: {
+    wrapper: "mb-10",
+    badge: "bg-accent-400/25 border border-accent-400/50 text-ink-900 font-semibold",
+    label: "text-ink-900 font-bold",
+  },
+  also: {
+    wrapper: "mb-10",
+    badge: "bg-surface-50 border border-brand-600/30 text-brand-800",
+    label: "text-brand-700 font-semibold",
+  },
+  focus: {
+    wrapper: "mb-10",
+    badge: "bg-brand-600/10 border border-brand-600/20 text-brand-800 italic",
+    label: "text-brand-700 font-semibold",
+  },
+  languages: {
+    wrapper: "",
+    badge: "bg-surface-50 border border-brand-600/20 text-brand-700",
+    label: "text-brand-700 font-semibold",
+  },
+};
+
 export default function Home() {
   const { lang } = useLang();
   const [showAbout, setShowAbout] = useState(false);
   const [flipped, setFlipped] = useState(false);
+
+  const proofBadges = [
+    dict[lang].proofStack,
+    dict[lang].proofAI,
+    dict[lang].proofMindset,
+    dict[lang].proofLocation,
+  ];
 
   return (
     <>
@@ -61,11 +92,24 @@ export default function Home() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mb-6 text-center lg:text-left"
+            className="mb-5 text-center lg:text-left w-full"
           >
             <h1 className="mb-1">{dict[lang].heroRole}</h1>
-            <p className="text-base text-brand-600 mb-4">{dict[lang].heroLocation}</p>
-            <p className="text-lg text-brand-700 leading-relaxed max-w-md">
+            <p className="text-base font-semibold text-brand-700 mb-3">{dict[lang].heroLocation}</p>
+
+            {/* Proof badges row */}
+            <div className="flex flex-wrap gap-2 mb-4 justify-center lg:justify-start">
+              {proofBadges.map((badge) => (
+                <span
+                  key={badge}
+                  className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-accent-400/20 border border-accent-400/40 text-ink-900"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+
+            <p className="text-base text-brand-800 leading-relaxed max-w-md">
               {dict[lang].heroTagline}
             </p>
           </motion.div>
@@ -79,32 +123,34 @@ export default function Home() {
           >
             <Link
               href="/#portfolio"
-              className="inline-flex items-center gap-2 bg-accent-400 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
+              className="inline-flex items-center gap-2 bg-accent-400 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-accent-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900"
             >
               {dict[lang].viewProjects}
-            </Link>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
-            >
-              {texts.contactBtn[lang]}
             </Link>
             <a
               href={lang === "sv" ? "/marcus-gronna-cv-sv.pdf" : "/marcus-gronna-cv-en.pdf"}
               download
               onClick={() => track("cv_download")}
-              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
+              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
             >
               <FiDownload aria-hidden="true" size={16} />
               {dict[lang].downloadCV}
             </a>
+            <Link
+              href="/#contact"
+              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
+            >
+              {texts.contactBtn[lang]}
+            </Link>
           </motion.div>
 
           {/* About Me toggle */}
           <button
             onClick={() => setShowAbout((v) => !v)}
             type="button"
-            className="flex items-center gap-2 cursor-pointer underline underline-offset-8 decoration-[5px] hover:decoration-2 text-xl transition hover:text-accent-300 mb-4"
+            aria-expanded={showAbout}
+            aria-controls="about-panel"
+            className="flex items-center gap-2 cursor-pointer underline underline-offset-8 decoration-[5px] hover:decoration-2 text-xl transition hover:text-accent-300 mb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
           >
             {texts.aboutBtn[lang]}
             {showAbout ? (
@@ -116,13 +162,14 @@ export default function Home() {
 
           {/* Collapsible About */}
           <motion.div
+            id="about-panel"
             initial={false}
             animate={showAbout ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="w-full overflow-hidden"
           >
             <div className="bg-surface-50 rounded-xl shadow-md border border-brand-600 text-center lg:text-left">
-              <div className="prose prose-neutral text-lg max-h-[20rem] overflow-y-auto p-6">
+              <div className="prose prose-neutral text-base max-h-[20rem] overflow-y-auto p-6">
                 {texts.about[lang].map((p, i) => (
                   <p key={i} className="mb-4 leading-relaxed">
                     {p}
@@ -197,27 +244,30 @@ export default function Home() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="w-full max-w-2xl"
+          className="w-full max-w-3xl"
         >
           <h2 className="text-2xl font-bold mb-8">{dict[lang].skills}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
-            {skillCategories.map((cat) => (
-              <div key={cat.category.en}>
-                <h3 className="text-lg font-bold text-brand-800 mb-3 uppercase tracking-wide">
-                  {cat.category[lang]}
-                </h3>
-                <ul className="flex flex-wrap gap-2">
-                  {cat.items.map((skill) => (
-                    <li
-                      key={skill}
-                      className="text-base bg-surface-50 border border-brand-600/30 text-brand-800 rounded px-3 py-1.5"
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="space-y-0">
+            {skillCategories.map((cat) => {
+              const style = bucketStyles[cat.bucket] ?? bucketStyles.also;
+              return (
+                <div key={cat.bucket} className={style.wrapper}>
+                  <h3 className={`text-xs uppercase tracking-widest mb-3 ${style.label}`}>
+                    {cat.category[lang]}
+                  </h3>
+                  <ul className="flex flex-wrap gap-2">
+                    {cat.items.map((skill) => (
+                      <li
+                        key={skill}
+                        className={`text-sm rounded-full px-3 py-1.5 ${style.badge}`}
+                      >
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </motion.div>
       </section>
@@ -231,14 +281,14 @@ export default function Home() {
           className="w-full max-w-lg"
         >
           <h2 className="text-2xl font-bold mb-2">{dict[lang].contact}</h2>
-          <p className="mb-8 text-brand-700 text-base sm:text-lg">
+          <p className="mb-8 text-brand-800 text-base sm:text-lg leading-relaxed">
             {dict[lang].contactSubtitle}
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 text-xl mb-6 w-full">
             <a
               href="mailto:hi@marcusgronna.com"
               onClick={() => track("email_click")}
-              className="flex items-center justify-center gap-2 text-accent-700 hover:text-accent-800 underline"
+              className="flex items-center justify-center gap-2 text-accent-700 hover:text-accent-400 underline font-semibold"
               aria-label="Email"
             >
               <FiMail aria-hidden="true" /> hi@marcusgronna.com
@@ -267,7 +317,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/contact"
-              className="inline-block bg-accent-400 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
+              className="inline-block bg-accent-400 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-accent-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900"
             >
               {dict[lang].contactPage}
             </Link>
@@ -275,7 +325,7 @@ export default function Home() {
               href={lang === "sv" ? "/marcus-gronna-cv-sv.pdf" : "/marcus-gronna-cv-en.pdf"}
               download
               onClick={() => track("cv_download")}
-              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
+              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-brand-600/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
             >
               <FiDownload aria-hidden="true" size={16} />
               {dict[lang].downloadCV}
@@ -286,4 +336,3 @@ export default function Home() {
     </>
   );
 }
-

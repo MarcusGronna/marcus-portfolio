@@ -8,14 +8,18 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { personJsonLd } from "@/lib/seo";
 
+// Abel: used for the logo/brand name only (display/decorative)
 const abel = Abel({
-  variable: "--font-heading",
+  variable: "--font-display",
   weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
+
+// Dosis: used for both headings and body – supports weight 400–800
 const dosis = Dosis({
-  variable: "--font-body",
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
