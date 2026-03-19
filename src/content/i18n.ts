@@ -9,7 +9,8 @@ export const dict = {
     skills: "Skills",
     contact: "Contact",
     contactSubtitle:
-      "Want to get in touch? Reach me directly or visit the full contact page.",
+      // "Want to get in touch? Reach me directly or visit the full contact page.",
+      "",
     contactPage: "Open contact form",
     downloadCV: "Download CV",
     viewProjects: "View Projects",
@@ -28,7 +29,8 @@ export const dict = {
     skills: "Kompetenser",
     contact: "Kontakt",
     contactSubtitle:
-      "Vill du komma i kontakt? Nå mig direkt eller besök kontaktsidan.",
+      // "Vill du komma i kontakt? Nå mig direkt eller besök kontaktsidan.",
+      "",
     contactPage: "Öppna kontaktformulär",
     downloadCV: "Ladda ner CV",
     viewProjects: "Se projekt",
