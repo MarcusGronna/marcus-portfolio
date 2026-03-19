@@ -54,13 +54,13 @@ export default function ProjectFrame({
 
         {/* Content */}
         <div className="p-5 flex-1 flex flex-col">
-          <h4 className="font-bold text-xl mb-2">{project.title[lang]}</h4>
-          <p className="text-sm text-brand-700 mb-4 leading-relaxed">{project.summary[lang]}</p>
+          <h4 className="font-bold text-2xl mb-2">{project.title[lang]}</h4>
+          <p className="text-base text-brand-700 mb-4 leading-relaxed">{project.summary[lang]}</p>
 
           {project.highlights && (
             <ul className="space-y-1 mb-4" aria-label="Project highlights">
               {project.highlights[lang].slice(0, 4).map((h, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs text-brand-700 leading-snug">
+                <li key={i} className="flex items-start gap-2 text-sm text-brand-700 leading-snug">
                   <FiCheckCircle className="mt-0.5 shrink-0 text-accent-700" aria-hidden="true" />
                   <span>{h}</span>
                 </li>
@@ -81,7 +81,7 @@ export default function ProjectFrame({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track("project_live_click", { slug: project.slug })}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold bg-accent-400 text-ink-900 rounded px-3 py-1.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold bg-accent-400 text-ink-900 rounded px-3 py-1.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
               >
                 <FiExternalLink aria-hidden="true" size={12} />
                 {ctaTexts.liveDemo[lang]}
@@ -93,7 +93,7 @@ export default function ProjectFrame({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => track("project_source_click", { slug: project.slug })}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold border border-brand-600 text-ink-900 rounded px-3 py-1.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold border border-brand-600 text-ink-900 rounded px-3 py-1.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
               >
                 <FiGithub aria-hidden="true" size={12} />
                 {ctaTexts.sourceCode[lang]}
@@ -103,7 +103,7 @@ export default function ProjectFrame({
               <Link
                 href={`/projects/${project.slug}`}
                 onClick={() => track("case_study_open", { slug: project.slug })}
-                className="inline-flex items-center gap-1.5 text-xs font-semibold bg-ink-900 text-surface-50 rounded px-3 py-1.5 hover:opacity-80 transition focus-visible:ring-2 focus-visible:ring-accent-400"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold bg-ink-900 text-surface-50 rounded px-3 py-1.5 hover:opacity-80 transition focus-visible:ring-2 focus-visible:ring-accent-400"
               >
                 <FiBookOpen aria-hidden="true" size={12} />
                 {ctaTexts.caseStudy[lang]}
@@ -169,14 +169,14 @@ export default function ProjectFrame({
 
       {/* Text content */}
       <div className="p-4 flex-1 flex flex-col">
-        <h5 className="font-bold text-lg mb-1 text-center">{project.title[lang]}</h5>
-        <p className="text-sm text-brand-700 mb-3 leading-relaxed">{project.summary[lang]}</p>
+        <h5 className="font-bold text-xl mb-1 text-center">{project.title[lang]}</h5>
+        <p className="text-base text-brand-700 mb-3 leading-relaxed">{project.summary[lang]}</p>
 
         {/* Highlights */}
         {project.highlights && (
           <ul className="space-y-1 mb-3" aria-label="Project highlights">
             {project.highlights[lang].map((h, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-brand-700 leading-snug">
+              <li key={i} className="flex items-start gap-2 text-sm text-brand-700 leading-snug">
                 <FiCheckCircle
                   className="mt-0.5 shrink-0 text-accent-700"
                   aria-hidden="true"
@@ -202,7 +202,7 @@ export default function ProjectFrame({
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => track("project_live_click", { slug: project.slug })}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold bg-accent-400 text-ink-900 rounded px-3 py-1.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold bg-accent-400 text-ink-900 rounded px-3 py-1.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
             >
               <FiExternalLink aria-hidden="true" size={12} />
               {ctaTexts.liveDemo[lang]}
@@ -214,7 +214,7 @@ export default function ProjectFrame({
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => track("project_source_click", { slug: project.slug })}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold border border-brand-600 text-ink-900 rounded px-3 py-1.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold border border-brand-600 text-ink-900 rounded px-3 py-1.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
             >
               <FiGithub aria-hidden="true" size={12} />
               {ctaTexts.sourceCode[lang]}
@@ -224,7 +224,7 @@ export default function ProjectFrame({
             <Link
               href={`/projects/${project.slug}`}
               onClick={() => track("case_study_open", { slug: project.slug })}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold border border-brand-600 text-ink-900 rounded px-3 py-1.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold border border-brand-600 text-ink-900 rounded px-3 py-1.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
             >
               <FiBookOpen aria-hidden="true" size={12} />
               {ctaTexts.caseStudy[lang]}
