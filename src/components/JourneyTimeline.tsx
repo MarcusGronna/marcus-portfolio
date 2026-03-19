@@ -67,10 +67,10 @@ export default function JourneyTimeline() {
     const allSorted = [...timelineEntries].sort(byRecency);
 
     // Count entries active any time during 2024–2025
-    const peakCount = timelineEntries.filter(e => {
-        const end = e.endYear ?? 9999;
-        return e.startYear <= 2025 && end >= 2024;
-    }).length;
+    // const peakCount = timelineEntries.filter(e => {
+    //     const end = e.endYear ?? 9999;
+    //     return e.startYear <= 2025 && end >= 2024;
+    // }).length;
 
     return (
         <div className="w-full max-w-4xl mx-auto">
