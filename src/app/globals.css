@@ -13,8 +13,7 @@
   --color-accent-700: #4a6b44;
   --color-ink-900:   #2e3430;
 
-  /* Typsnitt – Dosis for all text, Abel display-only (logo) */
-  --font-display: "Abel", Arial, Helvetica, sans-serif;
+  /* Typsnitt – Dosis for all text */
   --font-heading: "Dosis", Arial, Helvetica, sans-serif;
   --font-body:    "Dosis", Arial, Helvetica, sans-serif;
 
@@ -87,6 +86,3 @@ section[id] { scroll-margin-top: 5rem; }
 .perspective-1000 { perspective: 1000px; }
 .backface-hidden  { backface-visibility: hidden; }
 .rotateY-180      { transform: rotateY(180deg); }
-
-/* --- Abel font – logo / brand name only -------------------- */
-.font-display { font-family: var(--font-display); }

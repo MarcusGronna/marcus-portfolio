@@ -2,6 +2,7 @@
 import { useLang } from "./LangProvider";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import Link from "next/link";
 
 const navLinks = [
   { href: "/#home", section: "home", label: { en: "Home", sv: "Hem" } },
@@ -45,14 +46,13 @@ export default function ChalkNav() {
   return (
     <nav className="sticky top-0 z-50 bg-brand-600/90 backdrop-blur border-b border-brand-600/20 text-surface-50 h-16 md:h-20 px-4 md:px-6 flex items-center shadow-md mb-8">
       <div className="max-w-6xl w-full mx-auto flex items-center justify-between">
-        {/* Logo / name – Abel display font */}
-        <a
+        {/* Logo / name */}
+        <Link
           href="/#home"
-          className="font-display text-3xl md:text-4xl font-bold tracking-widest select-none hover:text-accent-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 rounded"
-          style={{ fontFamily: "var(--font-display, 'Abel', sans-serif)" }}
+          className="text-3xl md:text-4xl font-bold tracking-widest select-none hover:text-accent-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 rounded"
         >
           Marcus <span className="hidden md:inline">Grönnå</span>
-        </a>
+        </Link>
 
         {/* Mobile menu button */}
         <button
