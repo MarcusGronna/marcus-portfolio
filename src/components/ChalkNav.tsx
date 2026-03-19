@@ -1,6 +1,7 @@
 "use client";
 import { useLang } from "./LangProvider";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 import Link from "next/link";
 
@@ -17,9 +18,12 @@ export default function ChalkNav() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const menuId = "primary-mobile-menu";
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
-  // Active section detection via IntersectionObserver
+  // Active section detection via IntersectionObserver (homepage only)
   useEffect(() => {
+    if (!isHomePage) return;
     const sectionIds = navLinks.map((l) => l.section);
     const observers: IntersectionObserver[] = [];
 
@@ -41,7 +45,7 @@ export default function ChalkNav() {
     });
 
     return () => observers.forEach((obs) => obs.disconnect());
-  }, []);
+  }, [isHomePage]);
 
   return (
     <nav className="sticky top-0 z-50 bg-brand-600/90 backdrop-blur border-b border-brand-600/20 text-surface-50 h-16 md:h-20 px-4 md:px-6 flex items-center shadow-md mb-8">
@@ -72,7 +76,7 @@ export default function ChalkNav() {
         {/* Desktop menu */}
         <ul className="hidden lg:flex items-center gap-6 text-base md:text-lg" role="list">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.section;
+            const isActive = isHomePage && activeSection === link.section;
             return (
               <li key={link.href}>
                 <a
@@ -115,7 +119,7 @@ export default function ChalkNav() {
         >
           <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col space-y-4">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.section;
+              const isActive = isHomePage && activeSection === link.section;
               return (
                 <a
                   key={link.href}
