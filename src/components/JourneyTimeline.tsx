@@ -42,9 +42,9 @@ function EntryCard({ entry, lang }: { entry: TimelineEntry; lang: "en" | "sv" })
 // ── Concurrent-period callout ────────────────────────────────────────────────
 
 const parallelNote = {
-    en: (count: number) =>
+    en: () =>
         `During 2024–2025, 4 activities ran concurrently — two study programmes alongside two jobs. An unusually intensive period of simultaneous growth.`,
-    sv: (count: number) =>
+    sv: () =>
         `Under 2024–2025 pågick 4 aktiviteter parallellt — två studieprogram vid sidan av två anställningar. En ovanligt intensiv period av lärande och arbete på samma gång.`,
 };
 
@@ -79,7 +79,7 @@ export default function JourneyTimeline() {
                 <p className="font-bold text-lg mb-1 text-ink-900">
                     {lang === "en" ? "⚡ Parallel Period: 2024–2025" : "⚡ Parallellperiod: 2024–2025"}
                 </p>
-                <p className="text-base leading-relaxed text-brand-700">{parallelNote[lang](peakCount)}</p>
+                <p className="text-base leading-relaxed text-brand-700">{parallelNote[lang]()}</p>
             </div>
 
             {/* ── Desktop: two-column layout ───────────────────────────────────── */}
