@@ -7,9 +7,12 @@ export interface Project {
   title: { en: string; sv: string };
   summary: { en: string; sv: string };
   image: string;
+  /** Additional screenshots shown as a gallery on the case-study page */
+  images?: string[];
   tech: string[];
   year: number;
-  url: string;
+  /** Live demo URL – omit if no public deployment exists yet */
+  url?: string;
   /** Direct GitHub / source URL */
   github?: string;
   /** 2–3 short recruiter-facing highlights shown on the project card */
@@ -19,6 +22,10 @@ export interface Project {
   // ---- case-study fields (all optional) ----
   role?: { en: string; sv: string };
   problem?: { en: string; sv: string };
+  /** Solution / architecture overview (paragraph) */
+  solution?: { en: string; sv: string };
+  /** AI integration explanation (paragraph) */
+  aiIntegration?: { en: string; sv: string };
   goals?: { en: string[]; sv: string[] };
   challenges?: { en: string[]; sv: string[] };
   keyDecisions?: { en: string[]; sv: string[] };
@@ -27,6 +34,138 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: "codequest",
+    title: {
+      en: "CodeQuest",
+      sv: "CodeQuest",
+    },
+    summary: {
+      en: "AI-driven story-based coding platform where users learn C# through adaptive chapters, dynamic narrative generation, and objective server-side code validation.",
+      sv: "AI-driven story-based coding platform där användaren lär sig C# genom ett adaptivt äventyr med dynamiskt genererade kapitel, objektiv kodvalidering och tydlig progression.",
+    },
+    image: "/CodeQuest-Login.png",
+    images: [
+      "/CodeQuest-Login.png",
+      "/UnderWaterVillage-CodeEditor.png",
+      "/Merchant-Full-Image.png",
+    ],
+    tech: [
+      "C#", ".NET 10", "ASP.NET Core", "React", "TypeScript", "Vite",
+      "Tailwind CSS", "PostgreSQL", "EF Core", "Azure OpenAI", "JWT",
+      "Roslyn", "Monaco Editor", "React Query", "GitHub Actions", "Azure",
+    ],
+    year: 2025,
+    caseStudy: true,
+    highlights: {
+      en: [
+        "Dynamic chapter-based story generation with Azure OpenAI",
+        "Server-side code validation using Roslyn for objective evaluation",
+        "JWT-based authentication and session handling",
+        "PostgreSQL + EF Core for persistence of sessions and scenarios",
+        "React + Monaco Editor for an interactive coding experience",
+        "Delivery pipelines via GitHub Actions and Azure",
+      ],
+      sv: [
+        "Dynamisk kapitelbaserad storygenerering med Azure OpenAI",
+        "Server-side kodvalidering med Roslyn för objektiv bedömning",
+        "JWT-baserad autentisering och sessionshantering",
+        "PostgreSQL + EF Core för persistens av sessioner och scenarion",
+        "React + Monaco Editor för interaktiv code-editor-upplevelse",
+        "Deploy-flöden via GitHub Actions och Azure",
+      ],
+    },
+    role: {
+      en: "Solo Developer – fullstack design and implementation",
+      sv: "Ensam utvecklare – fullstack design och implementation",
+    },
+    problem: {
+      en: "CodeQuest is a web-based learning platform where code is the gameplay mechanic and story is the motivational layer. The user solves C# challenges to progress through the experience, while the backend validates solutions objectively. The platform combines AI-generated narrative progression with server-side code execution and evaluation.",
+      sv: "CodeQuest är en webbaserad lärplattform där kod är spelmekaniken och berättelsen är drivkraften. Användaren löser C#-uppgifter för att föra storyn framåt, medan backend ansvarar för objektiv validering av lösningarna. Plattformen kombinerar AI-genererad narrativ progression med server-side exekvering och bedömning av användarens kod.",
+    },
+    aiIntegration: {
+      en: "The project is AI-integrated in the sense that each new chapter is generated dynamically with Azure OpenAI. The story continues based on the narrative context from the previous chapter and is influenced by whether the player answered correctly or incorrectly in the previous step. This makes the experience adaptive and more engaging than a static exercise flow.",
+      sv: "Projektet är AI-integrerat på så vis att varje nytt kapitel genereras dynamiskt med Azure OpenAI. Storyn fortsätter utifrån sammanhanget från föregående kapitel och påverkas av om användaren svarade rätt eller fel i föregående steg. Det gör att upplevelsen blir adaptiv och mer levande än en statisk uppgiftssamling.",
+    },
+    solution: {
+      en: "The frontend was built with React 19, TypeScript, and Vite, using Monaco Editor for code input and React Query for data fetching. The backend was built with .NET 10, ASP.NET Core Web API, EF Core, and PostgreSQL. AI-driven scenario generation is handled through Azure OpenAI, while Roslyn is used to compile and execute user-submitted C# code on the server side. The backend follows a layered architecture with separate API, Application, and Domain layers.",
+      sv: "Frontend byggdes i React 19, TypeScript och Vite med Monaco Editor för kodskrivning och React Query för datahämtning. Backend byggdes i .NET 10 med ASP.NET Core Web API, EF Core och PostgreSQL. AI-genereringen hanteras via Azure OpenAI, medan Roslyn används för att kompilera och köra användarens C#-kod server-side. Projektet använder en tydlig lagerindelning mellan API, Application och Domain.",
+    },
+    goals: {
+      en: [
+        "Build a coding learning platform where narrative and gameplay are intertwined",
+        "Generate dynamic story chapters with Azure OpenAI based on prior chapter context and player outcome",
+        "Validate user-submitted C# code objectively on the server using Roslyn",
+        "Persist sessions and scenarios reliably with PostgreSQL and EF Core",
+        "Provide a modern code-editor experience in the browser with Monaco Editor",
+      ],
+      sv: [
+        "Bygga en kodinlärningsplattform där berättelse och spelmekanik är sammanvävda",
+        "Generera dynamiska kapitel med Azure OpenAI baserat på föregående kapitlets kontext och spelarens utfall",
+        "Validera C#-kod från användaren objektivt på servern med Roslyn",
+        "Persista sessioner och scenarion tillförlitligt med PostgreSQL och EF Core",
+        "Erbjuda en modern code-editor-upplevelse i webbläsaren med Monaco Editor",
+      ],
+    },
+    challenges: {
+      en: [
+        "Designing a narrative generation prompt that produces consistent, structured chapter content suitable for rendering in the UI",
+        "Ensuring secure and sandboxed execution of user-submitted C# code on the server with Roslyn",
+        "Managing session and scenario state coherently across frontend and backend",
+        "Implementing branching story progression based on whether the player answered correctly or incorrectly",
+      ],
+      sv: [
+        "Designa en narrativ genereringsprompt som producerar konsekvent, strukturerat kapitelinnehåll lämpat för rendering i UI",
+        "Säkerställa säker och sandboxad exekvering av C#-kod inlämnad av användaren på servern med Roslyn",
+        "Hantera sessions- och scenariotillstånd sammanhängande mellan frontend och backend",
+        "Implementera förgrenad storyprogression beroende på om spelaren svarade rätt eller fel",
+      ],
+    },
+    keyDecisions: {
+      en: [
+        "Azure OpenAI for structured scenario generation – prompted to return JSON for reliable frontend consumption",
+        "Roslyn (Microsoft.CodeAnalysis) for server-side C# compilation and execution, keeping evaluation objective and backend-controlled",
+        "JWT authentication with ASP.NET Identity for secure, stateless session management",
+        "Layered backend architecture (API / Application / Domain) for maintainability and separation of concerns",
+        "EF Core + PostgreSQL for relational persistence of user sessions and generated scenarios",
+        "Docker Compose for local development environment setup",
+      ],
+      sv: [
+        "Azure OpenAI för strukturerad scenariogenerering – promptad att returnera JSON för tillförlitlig frontend-konsumtion",
+        "Roslyn (Microsoft.CodeAnalysis) för server-side C#-kompilering och exekvering för att hålla bedömningen objektiv och backend-kontrollerad",
+        "JWT-autentisering med ASP.NET Identity för säker, stateless sessionshantering",
+        "Lagerindelad backendarkitektur (API / Application / Domain) för underhållbarhet och separation av ansvar",
+        "EF Core + PostgreSQL för relationell persistens av användarsessioner och genererade scenarion",
+        "Docker Compose för lokal utvecklingsmiljöinställning",
+      ],
+    },
+    results: {
+      en: [
+        "A functioning adaptive coding platform where each session produces a unique AI-generated story arc",
+        "Demonstrated end-to-end integration: AI generation → frontend render → code submission → server-side evaluation → narrative branching",
+        "Hands-on experience combining AI integration, authentication, server-side code execution, database modelling, and modern frontend UX in one product",
+        "Demonstrates fullstack breadth and the ability to build a more advanced and concept-driven application",
+      ],
+      sv: [
+        "En fungerande adaptiv kodplattform där varje session producerar ett unikt AI-genererat handlingsförlopp",
+        "Demonstrerad end-to-end-integration: AI-generering → frontend-rendering → kodinlämning → server-side-bedömning → narrativ förgrening",
+        "Praktisk erfarenhet av att kombinera AI-integration, autentisering, server-side kodexekvering, databasmodellering och modern frontend-UX i en och samma produkt",
+        "Visar fullstackbredd och förmåga att bygga en mer avancerad och idédriven applikation",
+      ],
+    },
+    nextSteps: {
+      en: [
+        "Add leaderboards and progress tracking for a more gamified experience",
+        "Expand language support beyond C# to other programming languages",
+        "Deploy to a public cloud endpoint with automated CI/CD",
+      ],
+      sv: [
+        "Lägg till poängtavlor och framstegsspårning för en mer gamifierad upplevelse",
+        "Utöka språkstödet bortom C# till andra programmeringsspråk",
+        "Driftsätt till en publik molnendpoint med automatiserad CI/CD",
+      ],
+    },
+  },
   {
     slug: "livia-portfolio",
     title: {

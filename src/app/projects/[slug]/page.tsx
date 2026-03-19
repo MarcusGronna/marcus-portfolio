@@ -54,7 +54,7 @@ export default async function ProjectCaseStudyPage({ params }: { params: Params 
 
   const jsonLd = projectJsonLd({
     name: project.title.en,
-    url: project.url,
+    ...(project.url ? { url: project.url } : {}),
     about: project.summary.en,
   });
 

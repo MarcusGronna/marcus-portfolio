@@ -18,12 +18,12 @@ export function personJsonLd() {
   };
 }
 
-export function projectJsonLd({ name, url, about }: { name: string; url: string; about: string }) {
+export function projectJsonLd({ name, url, about }: { name: string; url?: string; about: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name,
-    url,
+    ...(url ? { url } : {}),
     about,
     creator: { "@type": "Person", name: site.name },
   };

@@ -10,15 +10,15 @@ export interface SkillCategory {
 export const skillCategories: SkillCategory[] = [
   {
     category: { en: "Backend", sv: "Backend" },
-    items: ["C# .NET", "ASP.NET Core", "REST API", "Minimal API", "AI Integration", "Node.js", "Express", "Python"],
+    items: ["C# .NET", "ASP.NET Core", "REST API", "Minimal API", "AI Integration", "Azure OpenAI", "EF Core", "PostgreSQL", "JWT Authentication", "ASP.NET Identity", "Roslyn", "Node.js", "Express", "Python"],
   },
   {
     category: { en: "Frontend", sv: "Frontend" },
-    items: ["JavaScript", "TypeScript", "React.js", "React Native", "Angular", "HTML5", "CSS3"],
+    items: ["JavaScript", "TypeScript", "React.js", "React Native", "Angular", "Vite", "Tailwind CSS", "Framer Motion", "Monaco Editor", "React Query", "HTML5", "CSS3"],
   },
   {
     category: { en: "Cloud / Infrastructure", sv: "Moln / Infrastruktur" },
-    items: ["Azure", "AWS", "IaC / Pulumi"],
+    items: ["Azure", "GitHub Actions", "Docker Compose", "AWS", "IaC / Pulumi"],
   },
   {
     category: { en: "Tools & Practices", sv: "Verktyg & Metodik" },
