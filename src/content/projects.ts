@@ -420,7 +420,7 @@ export const projects: Project[] = [
         "Add a booking/contact form with email backend",
       ],
       sv: [
-        "Lägg till ett bloggsektions för content marketing och long-tail SEO",
+        "Lägg till en bloggsektion för content marketing och long-tail SEO",
         "Integrera Google Analytics för organisk trafikövervakning",
         "Lägg till ett boknings-/kontaktformulär med e-postbackend",
       ],
