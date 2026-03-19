@@ -39,19 +39,32 @@ export default function ProjectFrame({
       "
     >
       {/* Clickable image → live demo */}
-      <a
-        href={project.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => track("project_live_click", { slug: project.slug })}
-        aria-label={`${project.title[lang]} – Live Demo`}
-        className="block focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-inset"
-      >
-        <motion.div
-          whileHover={{ scale: 1.03 }}
-          transition={{ type: "spring", stiffness: 200, damping: 20 }}
-          className="relative w-full aspect-video overflow-hidden"
+      {project.url ? (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => track("project_live_click", { slug: project.slug })}
+          aria-label={`${project.title[lang]} – Live Demo`}
+          className="block focus-visible:ring-2 focus-visible:ring-accent-400 focus-visible:ring-inset"
         >
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            className="relative w-full aspect-video overflow-hidden"
+          >
+            <Image
+              src={project.image}
+              alt={project.title[lang]}
+              fill
+              sizes="(max-width: 640px) 100vw, 480px"
+              className="object-cover"
+              priority={priority}
+            />
+          </motion.div>
+        </a>
+      ) : (
+        <div className="relative w-full aspect-video overflow-hidden">
           <Image
             src={project.image}
             alt={project.title[lang]}
@@ -60,8 +73,8 @@ export default function ProjectFrame({
             className="object-cover"
             priority={priority}
           />
-        </motion.div>
-      </a>
+        </div>
+      )}
 
       {/* Text content */}
       <div className="p-4 flex-1 flex flex-col">
@@ -92,16 +105,18 @@ export default function ProjectFrame({
 
         {/* CTAs */}
         <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t border-brand-600/20">
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track("project_live_click", { slug: project.slug })}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold bg-accent-400 text-ink-900 rounded px-3 py-1.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
-          >
-            <FiExternalLink aria-hidden="true" size={12} />
-            {ctaTexts.liveDemo[lang]}
-          </a>
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("project_live_click", { slug: project.slug })}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold bg-accent-400 text-ink-900 rounded px-3 py-1.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
+            >
+              <FiExternalLink aria-hidden="true" size={12} />
+              {ctaTexts.liveDemo[lang]}
+            </a>
+          )}
           {project.github && (
             <a
               href={project.github}

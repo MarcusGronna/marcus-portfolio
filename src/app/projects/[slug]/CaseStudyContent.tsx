@@ -13,6 +13,8 @@ const texts = {
   back: { en: "Back to Portfolio", sv: "Tillbaka till Portfolio" },
   role: { en: "My Role", sv: "Min roll" },
   problem: { en: "Problem / Context", sv: "Problem / Kontext" },
+  aiIntegration: { en: "AI Integration", sv: "AI-integration" },
+  solution: { en: "Solution / Architecture", sv: "Lösning / Arkitektur" },
   goals: { en: "Goals", sv: "Mål" },
   challenges: { en: "Challenges", sv: "Utmaningar" },
   keyDecisions: { en: "Key Technical Decisions", sv: "Viktiga tekniska beslut" },
@@ -22,6 +24,7 @@ const texts = {
   sourceCode: { en: "Source Code", sv: "Källkod" },
   ctaTitle: { en: "Explore this project", sv: "Utforska det här projektet" },
   stack: { en: "Tech Stack", sv: "Teknikstack" },
+  screenshots: { en: "Screenshots", sv: "Skärmdumpar" },
 };
 
 interface Section {
@@ -32,6 +35,8 @@ interface Section {
 
 const sections: Section[] = [
   { key: "problem", label: texts.problem },
+  { key: "aiIntegration", label: texts.aiIntegration },
+  { key: "solution", label: texts.solution },
   { key: "goals", label: texts.goals, isArray: true },
   { key: "challenges", label: texts.challenges, isArray: true },
   { key: "keyDecisions", label: texts.keyDecisions, isArray: true },
@@ -134,6 +139,35 @@ export default function CaseStudyContent({ project }: { project: Project }) {
         })}
       </div>
 
+      {/* Screenshot gallery */}
+      {project.images && project.images.length > 1 && (
+        <motion.section
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="mt-10"
+        >
+          <h2 className="mb-4">{texts.screenshots[lang]}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {project.images.slice(1).map((src, i) => (
+              <div
+                key={i}
+                className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md"
+              >
+                <Image
+                  src={src}
+                  alt={`${project.title[lang]} screenshot ${i + 2}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 360px"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </motion.section>
+      )}
+
       {/* CTA block */}
       <motion.div
         variants={fadeUp}
@@ -144,16 +178,18 @@ export default function CaseStudyContent({ project }: { project: Project }) {
       >
         <h2 className="mb-4 text-xl">{texts.ctaTitle[lang]}</h2>
         <div className="flex flex-wrap gap-4">
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => track("project_live_click", { slug: project.slug })}
-            className="inline-flex items-center gap-2 bg-accent-400 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
-          >
-            <FiExternalLink aria-hidden="true" />
-            {texts.liveDemo[lang]}
-          </a>
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("project_live_click", { slug: project.slug })}
+              className="inline-flex items-center gap-2 bg-accent-400 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-accent-300 transition focus-visible:ring-2 focus-visible:ring-ink-900"
+            >
+              <FiExternalLink aria-hidden="true" />
+              {texts.liveDemo[lang]}
+            </a>
+          )}
           {project.github && (
             <a
               href={project.github}
