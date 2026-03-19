@@ -65,7 +65,7 @@ export const projects: Project[] = [
       "ASP.NET Identity", "Roslyn", "Monaco Editor", "TanStack React Query",
       "Framer Motion", "Docker Compose", "GitHub Actions", "Azure Static Web Apps", "Azure Web App",
     ],
-    year: 2025,
+    year: 2026,
     caseStudy: true,
     featured: true,
     highlights: {
@@ -87,8 +87,8 @@ export const projects: Project[] = [
       ],
     },
     role: {
-      en: "Solo Developer – fullstack design and implementation",
-      sv: "Ensam utvecklare – fullstack design och implementation",
+      en: "Team of 3 – primary focus on AI integration with Azure OpenAI",
+      sv: "Grupp om 3 – primärt fokus på AI-integration med Azure OpenAI",
     },
     problem: {
       en: "CodeQuest is a web-based learning platform where code is the gameplay mechanic and story is the motivational layer. The user solves C# challenges to progress through the experience, while the backend validates solutions objectively. The platform combines AI-generated narrative progression with server-side code execution and evaluation.",
