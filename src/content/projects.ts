@@ -609,8 +609,8 @@ export const projects: Project[] = [
       sv: "TrainMateX Vision",
     },
     summary: {
-      en: "Fullstack training platform where users can manage training programs, workouts, and exercises through a modern web application with authentication, protected APIs, and a clearly layered backend architecture.",
-      sv: "Fullstack träningsplattform där användare kan hantera träningsprogram, pass och övningar genom en modern webbapplikation med autentisering, skyddade API-endpoints och tydlig lagerindelad backend-arkitektur.",
+      en: "Fullstack training app built with React 19 + TanStack Router on the front and ASP.NET Core / .NET 9 on the back. Clerk handles auth; every API endpoint is JWT-protected. The backend follows a clean four-layer architecture (API / Application / Domain / Infrastructure) with full CRUD for training programs, workouts, and exercises.",
+      sv: "Fullstack-träningsapp med React 19 + TanStack Router i fronten och ASP.NET Core / .NET 9 i backen. Clerk hanterar autentisering och varje API-endpoint skyddas med JWT. Backend följer en ren fyrlagerarkitektur (API / Application / Domain / Infrastructure) med full CRUD för träningsprogram, pass och övningar.",
     },
     image: "/TrainMateX-Welcome-Page.png",
     images: [
@@ -647,8 +647,8 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – fullstack design och implementation",
     },
     problem: {
-      en: "The goal was to build a complete, production-relevant fullstack application that demonstrates modern frontend architecture, a protected REST API, and a clearly structured backend — all integrated with real authentication. TrainMateX Vision covers the full flow from user login to managing training programs, workouts, and exercises.",
-      sv: "Målet var att bygga en komplett, produktionsrelevant fullstack-applikation som demonstrerar modern frontend-arkitektur, ett skyddat REST API och en tydligt strukturerad backend — allt integrerat med riktig autentisering. TrainMateX Vision täcker hela flödet från inloggning till hantering av träningsprogram, pass och övningar.",
+      en: "I wanted to build something that demonstrated the full stack from Clerk auth through to a properly layered .NET API — not a toy project, but something close to how a real feature would be structured. TrainMateX Vision covers the complete flow: user registers and logs in via Clerk, receives a JWT, and that token gates every backend endpoint. The domain is workout management — programs, sessions, and exercises — because it's concrete enough to make the data model meaningful.",
+      sv: "Jag ville bygga något som demonstrerade hela stacken från Clerk-auth till ett ordentligt lagerindelat .NET API — inte ett lekprojekt, utan något nära hur en riktig feature skulle struktureras. TrainMateX Vision täcker hela flödet: användaren registrerar sig och loggar in via Clerk, får ett JWT och det tokenet låser varje backend-endpoint. Domänen är träningshantering — program, pass och övningar — för att det är konkret nog att göra datamodellen meningsfull.",
     },
     solution: {
       en: "The frontend was built with React 19, TypeScript, Vite, Tailwind CSS v4, TanStack Router for type-safe routing, and TanStack React Query for server state management. Clerk handles authentication, issuing JWTs consumed by the backend. The backend is an ASP.NET Core Web API built with C# / .NET 9, EF Core, and SQL Server, organized into API, Application, Domain, and Infrastructure layers. All endpoints are JWT-protected with a CORS policy, and the API exposes training programs, workouts, workout exercises, an exercise catalog, and user profile management.",
@@ -762,8 +762,8 @@ export const projects: Project[] = [
       sv: "sqs-mini – Eventdriven Pipeline",
     },
     summary: {
-      en: "A small but realistic backend project that demonstrates an event-driven pipeline with AWS SQS, .NET, and Pulumi. It shows queue publishing, worker consumption, idempotency, retries, and DLQ handling in a way that is relevant to modern distributed systems.",
-      sv: "sqs-mini är ett litet men realistiskt backendprojekt som visar en eventdriven pipeline med AWS SQS, .NET och Pulumi. Projektet demonstrerar köpublicering, worker-konsumtion, idempotens, retries och DLQ-hantering på ett sätt som är relevant för moderna distribuerade system.",
+      en: "Backend project demonstrating an event-driven pipeline: a Minimal API publishes messages to an AWS SQS queue; a .NET Worker Service consumes them with long polling, processes them idempotently, and routes failures to a DLQ. Infrastructure is provisioned in C# via Pulumi.",
+      sv: "Backend-projekt som demonstrerar en eventdriven pipeline: ett Minimal API publicerar meddelanden till en AWS SQS-kö; en .NET Worker Service konsumerar dem med long polling, behandlar dem idempotent och routar fel till en DLQ. Infrastrukturen provisioneras i C# via Pulumi.",
     },
     image: "/SqsPipeline1.png",
     images: [
@@ -798,8 +798,8 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – backend och infrastrukturdesign",
     },
     problem: {
-      en: "Event-driven architecture, message queues, and idempotent processing are patterns that appear in most production distributed systems. sqs-mini is a focused project to demonstrate these patterns concretely: a producer that publishes messages to an SQS queue, a worker service that consumes them with long polling, handles retries, avoids duplicate processing, and routes failed messages to a dead-letter queue.",
-      sv: "Eventdriven arkitektur, meddelandeköer och idempotent behandling är mönster som återkommer i de flesta produktion-distribuerade system. sqs-mini är ett fokuserat projekt för att demonstrera dessa mönster konkret: en producer som publicerar meddelanden till en SQS-kö, en worker-tjänst som konsumerar dem med long polling, hanterar retries, undviker dubbelbehandling och routar felaktiga meddelanden till en dead-letter queue.",
+      en: "Message queues, retries, and idempotent consumers are patterns I kept seeing in backend architecture discussions but hadn't built from scratch. sqs-mini is my working implementation of the full flow: a Minimal API publishes a message to SQS, a Worker Service picks it up, processes it once (SQLite keeps track of seen message IDs), and anything that fails enough times lands in the DLQ. Pulumi provisions the whole AWS setup in C# — same language as the rest of the project.",
+      sv: "Meddelandeköer, retries och idempotenta konsumenter är mönster jag stötte på gång på gång i backend-arkitekturdiskussioner men aldrig byggt från grunden. sqs-mini är min fungerande implementation av hela flödet: ett Minimal API publicerar ett meddelande till SQS, en Worker Service hämtar det, behandlar det en gång (SQLite håller koll på redan sedda meddelande-ID:n) och allt som misslyckas tillräckligt många gånger hamnar i DLQ:n. Pulumi provisionerar hela AWS-uppsättningen i C# — samma språk som resten av projektet.",
     },
     solution: {
       en: "The project is composed of two .NET applications: a Minimal API (`SessionApi`) acting as the message producer, and a Worker Service (`BillingWorker`) acting as the consumer. The infrastructure – an SQS Standard Queue and its DLQ – is provisioned using Pulumi in C#. The worker uses long polling to efficiently receive messages, processes them idempotently using a SQLite store to track already-handled message IDs, and lets SQS handle retries and DLQ routing for unprocessable messages. Runtime configuration is environment-based to keep credentials and queue URLs out of source code.",

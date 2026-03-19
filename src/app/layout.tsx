@@ -8,18 +8,20 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { personJsonLd } from "@/lib/seo";
 
-// Dosis: used for both headings and body – supports weight 400–800
+// Dosis: used for both headings and body – supports weight 200–800
 const dosis = Dosis({
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   subsets: ["latin"],
   display: "swap",
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://marcusgronna.com"),
-  title: "Marcus Grönnå – Fullstackutvecklare",
-  description: "Portfölj för rekryterare och kunder. React/Angular/Node/.NET.",
+  title: "Marcus Grönnå – Fullstack .NET Developer",
+  description:
+    "Portfolio for Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
   alternates: {
     canonical: "/",
     languages: { "sv-SE": "/", "en-US": "/?lang=en" }, // query-param i18n, no separate routes
@@ -28,8 +30,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "sv_SE",
     url: "https://marcusgronna.com/",
-    title: "Marcus Grönnå – Fullstackutvecklare",
-    description: "Portfölj för rekryterare och kunder.",
+    title: "Marcus Grönnå – Fullstack .NET Developer",
+    description:
+      "Portfolio for Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
     siteName: "marcusgronna.com",
   },
   robots: { index: true, follow: true },

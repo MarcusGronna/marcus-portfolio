@@ -1,15 +1,11 @@
 "use client";
 import { useLang } from "@/components/LangProvider";
+import { dict } from "@/content/i18n";
 import { FiMail, FiLinkedin, FiGithub, FiDownload, FiArrowRight } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 import Link from "next/link";
 
 const texts = {
-  title: { en: "Contact", sv: "Kontakt" },
-  subtitle: {
-    en: "I'm open to fullstack .NET roles, consulting projects, and technical conversations. Email is the fastest route — I reply within a day or two.",
-    sv: "Jag är öppen för fullstack .NET-roller, konsultuppdrag och tekniska samtal. E-post är snabbaste vägen — jag svarar inom en till två dagar.",
-  },
   emailCta: {
     en: "Send me an email",
     sv: "Skicka ett e-postmeddelande",
@@ -20,8 +16,6 @@ const texts = {
   },
   linkedInCta: { en: "Connect on LinkedIn", sv: "Connecta på LinkedIn" },
   githubCta: { en: "View my GitHub", sv: "Se mitt GitHub" },
-  downloadCV: { en: "Download CV", sv: "Ladda ner CV" },
-  backHome: { en: "Back to homepage", sv: "Tillbaka till startsidan" },
   orLabel: { en: "or", sv: "eller" },
 };
 
@@ -30,9 +24,9 @@ export default function ContactPage() {
 
   return (
     <section className="max-w-2xl mx-auto py-10 px-4 sm:px-6 flex flex-col items-center">
-      <h1 className="mb-3 text-center">{texts.title[lang]}</h1>
+      <h1 className="mb-3 text-center">{dict[lang].contact}</h1>
       <p className="mb-10 text-brand-800 text-base sm:text-lg leading-relaxed text-center max-w-md">
-        {texts.subtitle[lang]}
+        {dict[lang].contactSubtitle}
       </p>
 
       {/* Primary CTA – Email */}
@@ -92,7 +86,7 @@ export default function ContactPage() {
         className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded-xl px-6 py-3 hover:bg-brand-600/10 transition mb-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900"
       >
         <FiDownload aria-hidden="true" size={18} />
-        {texts.downloadCV[lang]}
+        {dict[lang].downloadCV}
       </a>
 
       {/* Back link */}
@@ -100,7 +94,7 @@ export default function ContactPage() {
         href="/#home"
         className="text-brand-700 hover:text-accent-700 underline text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
       >
-        ← {texts.backHome[lang]}
+        {dict[lang].backToHome}
       </Link>
     </section>
   );
