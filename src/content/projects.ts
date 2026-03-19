@@ -481,7 +481,7 @@ export const projects: Project[] = [
     },
     image: "/Klensmeden Birgitta.webp",
     tech: ["HTML", "CSS", "SEO-best-practices"],
-    year: 2025,
+    year: 2024,
     url: "https://remarkable-taffy-176adb.netlify.app/",
     caseStudy: true,
     highlights: {
@@ -593,7 +593,7 @@ export const projects: Project[] = [
       "TanStack React Query", "Clerk", "C#", ".NET 9", "ASP.NET Core",
       "EF Core", "SQL Server", "JWT", "GitHub Actions",
     ],
-    year: 2025,
+    year: 2026,
     caseStudy: true,
     highlights: {
       en: [
@@ -720,7 +720,7 @@ export const projects: Project[] = [
     tech: [
       "C#", ".NET", "AWS SQS", "Pulumi", "Minimal API", "Worker Service", "SQLite",
     ],
-    year: 2025,
+    year: 2026,
     caseStudy: true,
     highlights: {
       en: [
@@ -840,7 +840,7 @@ export const projects: Project[] = [
       "/PostmanClone3.png",
     ],
     tech: ["C#", ".NET 10", "WinForms", "HttpClient"],
-    year: 2025,
+    year: 2026,
     caseStudy: true,
     highlights: {
       en: [

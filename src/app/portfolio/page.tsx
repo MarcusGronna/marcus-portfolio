@@ -23,7 +23,7 @@ export default function PortfolioPage() {
         .sort(([a], [b]) => Number(b) - Number(a))
         .map(([year, yearProjects]) => (
           <div key={year} className="mb-12 w-full">
-            <h3 className="text-xl font-semibold mb-4">{year}</h3>
+            <h3 className="text-2xl font-semibold mb-4">{year}</h3>
             <div className="w-full overflow-x-auto">
               <ProjectShelf projects={yearProjects} />
             </div>
