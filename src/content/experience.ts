@@ -54,10 +54,29 @@ export const experience: ExperienceItem[] = [
     id: "sj-stockholmstag",
     title: { en: "Train Engineer", sv: "Lokförare" },
     employer: {
-      en: "SJ Stockholmståg (previously MTR Pendeltågen)",
-      sv: "SJ Stockholmståg (tidigare MTR Pendeltågen)",
+      en: "SJ Stockholmståg",
+      sv: "SJ Stockholmståg",
     },
-    period: "03/2018 – 10/2025",
+    period: "12/2023 – 10/2025",
+    bullets: {
+      en: [
+        "Worked in a safety-critical environment with high demands for precision, responsibility, and decision-making.",
+        "Handled complex situations with calmness, accuracy, and a strong focus on safety and punctuality.",
+      ],
+      sv: [
+        "Arbetade i en säkerhetskritisk miljö med höga krav på precision, ansvar och beslutsfattande.",
+        "Hanterade komplexa situationer med lugn, noggrannhet och stort fokus på säkerhet och punktlighet.",
+      ],
+    },
+  },
+  {
+    id: "mtr-pendeltagen",
+    title: { en: "Train Engineer", sv: "Lokförare" },
+    employer: {
+      en: "MTR Pendeltågen",
+      sv: "MTR Pendeltågen",
+    },
+    period: "03/2018 – 12/2023",
     bullets: {
       en: [
         "Worked in a safety-critical environment with high demands for precision, responsibility, and decision-making.",
