@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 // Self-hosted Dosis via @fontsource – avoids runtime fetch from Google Fonts
 import "@fontsource/dosis/400.css";
@@ -6,10 +7,6 @@ import "@fontsource/dosis/500.css";
 import "@fontsource/dosis/600.css";
 import "@fontsource/dosis/700.css";
 import "@fontsource/dosis/800.css";
-import LangProvider from "../components/LangProvider";
-import ChalkNav from "../components/ChalkNav";
-import Footer from "../components/Footer";
-import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { personJsonLd } from "@/lib/seo";
 
@@ -22,11 +19,17 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure. Building backends, frontends, and AI-integrated systems.",
   alternates: {
-    canonical: "/",
+    canonical: "https://marcusgronna.com/sv",
+    languages: {
+      sv: "https://marcusgronna.com/sv",
+      en: "https://marcusgronna.com/en",
+      "x-default": "https://marcusgronna.com/sv",
+    },
   },
   openGraph: {
     type: "website",
     locale: "sv_SE",
+    alternateLocale: "en_US",
     url: "https://marcusgronna.com/",
     title: "Marcus Grönnå – Fullstack .NET Developer",
     description:
@@ -42,9 +45,15 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+// The root layout reads the current locale from the x-lang header injected by
+// middleware so that <html lang> is always server-rendered correctly without
+// having direct access to the [lang] route parameter.
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headersList = await headers();
+  const lang = (headersList.get("x-lang") as "en" | "sv") ?? "sv";
+
   return (
-    <html lang="sv">
+    <html lang={lang}>
       <head>
         <link rel="icon" href="/favicon.webp" type="image/webp" />
         <Script
@@ -61,14 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <LangProvider>
-          <ChalkNav />
-          <main id="main" className="container mx-auto px-6 lg:px-8 flex flex-col house-bg">
-            {children}
-          </main>
-          <Footer />
-        </LangProvider>
-        <Analytics />
+        {children}
       </body>
     </html>
   );
