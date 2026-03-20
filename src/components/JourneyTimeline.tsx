@@ -227,19 +227,10 @@ export default function JourneyTimeline() {
 
                     {sortedYears.map((year) => {
                         const group = yearGroupMap.get(year)!;
-                        const hasOverlap = group.edu.length > 0 && group.exp.length > 0;
                         return (
                             <div
                                 key={year}
-                                className={[
-                                    "grid grid-cols-[1fr_72px_1fr] gap-x-6 mb-8",
-                                    hasOverlap ? "relative" : "",
-                                ].join(" ")}>
-                                {/* Overlap highlight band */}
-                                {hasOverlap && (
-                                    <div className="col-span-3 absolute inset-0 -mx-2 rounded-xl bg-accent-400/5 border border-accent-400/20 pointer-events-none" />
-                                )}
-
+                                className="grid grid-cols-[1fr_72px_1fr] gap-x-6 mb-8">
                                 {/* Education column */}
                                 <div className="space-y-4 relative">
                                     {group.edu.map((entry) => (
