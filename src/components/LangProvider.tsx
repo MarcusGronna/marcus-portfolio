@@ -1,8 +1,11 @@
 // src/components/LangProvider.tsx
+// Language context — initialised from the URL route param (passed as `initialLang`
+// by the [lang]/layout.tsx server component). No localStorage needed; the URL
+// is the single source of truth for the selected language.
 "use client";
 import { createContext, useContext, useState, useCallback } from "react";
 
-type Lang = "en" | "sv";
+export type Lang = "en" | "sv";
 type LangContextType = { lang: Lang; setLang: (lang: Lang) => void };
 
 const LangContext = createContext<LangContextType>({ lang: "sv", setLang: () => {} });
@@ -11,19 +14,17 @@ export function useLang() {
   return useContext(LangContext);
 }
 
-function getInitialLang(): Lang {
-  if (typeof window === "undefined") return "sv";
-  const stored = localStorage.getItem("lang");
-  if (stored === "en" || stored === "sv") return stored;
-  return "sv";
-}
-
-export default function LangProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(getInitialLang);
+export default function LangProvider({
+  children,
+  initialLang = "sv",
+}: {
+  children: React.ReactNode;
+  initialLang?: Lang;
+}) {
+  const [lang, setLangState] = useState<Lang>(initialLang);
 
   const setLang = useCallback((l: Lang) => {
     setLangState(l);
-    if (typeof window !== "undefined") localStorage.setItem("lang", l);
   }, []);
 
   return <LangContext.Provider value={{ lang, setLang }}>{children}</LangContext.Provider>;
