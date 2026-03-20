@@ -14,11 +14,6 @@ import { skillCategories } from "@/content/skills";
 import { useLang } from "@/components/LangProvider";
 import { dict } from "@/content/i18n";
 
-const texts = {
-  aboutBtn: { en: "About Me", sv: "Om Mig" },
-  contactBtn: { en: "Contact", sv: "Kontakt" },
-};
-
 // Skill bucket styling
 const bucketStyles: Record<string, { wrapper: string; badge: string; label: string }> = {
   core: {
@@ -126,7 +121,7 @@ export default function Home() {
               href="/#contact"
               className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
             >
-              {texts.contactBtn[lang]}
+              {dict[lang].contact}
             </Link>
           </motion.div>
 
@@ -138,7 +133,7 @@ export default function Home() {
             aria-controls="about-panel"
             className="flex items-center gap-2 cursor-pointer underline underline-offset-8 decoration-[5px] hover:decoration-2 text-xl transition hover:text-accent-300 mb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
           >
-            {texts.aboutBtn[lang]}
+            {dict[lang].about}
             {showAbout ? (
               <FiChevronUp className="text-2xl" aria-hidden="true" />
             ) : (
@@ -184,7 +179,7 @@ export default function Home() {
             return (
               <div className="mb-12 text-left">
                 <p className="text-xs font-bold uppercase tracking-widest text-accent-700 mb-2">
-                  {lang === "sv" ? "Flaggskeppsprojekt" : "Flagship Project"}
+                  {dict[lang].portfolioFlagship}
                 </p>
                 <ProjectFrame project={flagship} priority featured />
               </div>
