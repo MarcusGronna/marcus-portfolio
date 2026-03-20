@@ -14,7 +14,7 @@ const navSections = [
 ];
 
 export default function ChalkNav() {
-  const { lang } = useLang();
+  const { lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const menuId = "primary-mobile-menu";
@@ -55,14 +55,24 @@ export default function ChalkNav() {
 
   // Language toggle: swap the locale prefix in the current URL.
   // e.g. /sv/about → /en/about  |  /sv → /en
+  // Uses router.replace with scroll:false so the page doesn't jump to the top,
+  // and calls setLang immediately so translated content updates without waiting
+  // for navigation. The current hash anchor (#section) is also preserved.
   const toggleLang = () => {
     const newLang = lang === "sv" ? "en" : "sv";
     // Replace the leading /sv or /en segment with /newLang.
     // If the pattern doesn't match for any reason, fall back to the new lang home.
     const localePattern = /^\/(en|sv)(\/.*)?$/;
     const match = pathname.match(localePattern);
-    const newPath = match ? `/${newLang}${match[2] ?? ""}` : `/${newLang}`;
-    router.push(newPath);
+    const pathSuffix = match ? (match[2] ?? "") : "";
+    // Preserve any hash anchor the user is currently on (usePathname() strips hashes).
+    const hash = window.location.hash;
+    const newPath = `/${newLang}${pathSuffix}${hash}`;
+    // Update the context immediately — no need to wait for the navigation round-trip.
+    setLang(newLang);
+    // Replace (not push) history so the language switch doesn't pollute the back stack.
+    // scroll:false prevents Next.js from scrolling to the top after the route change.
+    router.replace(newPath, { scroll: false });
   };
 
   return (
