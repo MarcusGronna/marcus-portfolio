@@ -31,10 +31,11 @@ export const dict = {
     skillsLanguages: "Languages",
     // About me paragraphs (homepage + about page)
     aboutParagraphs: [
-      "Hi, I'm Marcus. I'm a fullstack .NET developer based in Stockholm, currently consulting through School of Applied Technology. My background is a mix of web development, health science, and fourteen years as a train driver — which sounds like a stretch, but the thread is: I've always been drawn to systems where getting it wrong actually matters.",
-      "On the technical side, I focus on C# / .NET backends, React frontends, and building things that integrate AI where it genuinely helps. I've worked with PostgreSQL, EF Core, Azure, AWS SQS, and Pulumi, and I care about clean architecture — not for its own sake, but because it makes the product easier to change and harder to break.",
-      "Before I switched to development, I drove trains for fourteen years — commuter lines in Stockholm first, then as an instructor. That work shaped how I think about precision, calm under pressure, and responsibility. I try to carry those habits into the code I write.",
-      "If you want to talk about a role or project, email is the fastest way to reach me. I'm most interested in .NET consulting, fullstack product work, and teams that actually care about quality.",
+      "Hi, I'm Marcus — a fullstack .NET developer based in Stockholm, currently consulting through School of Applied Technology. I build web products where backend structure, frontend usability, and long-term maintainability matter just as much as shipping quickly.",
+      "My work is centered around C#/.NET, React, databases, cloud services, and AI integrations that solve real problems rather than just adding novelty. I'm at my best when I get to think across the whole system: domain modeling, APIs, data flow, architecture, UX, and the trade-offs that make a product easier to evolve over time. I care about clean architecture, but only when it creates clarity, reliability, and flexibility in practice.",
+      "Before moving into tech, I spent fourteen years working as a train driver at ProTrain, SJ AB, MTR Pendeltågen, and SJ Stockholmståg. That background shaped the way I work: calm under pressure, precise in execution, and highly aware that details matter when the system around you has to keep working. It also taught me responsibility, consistency, and the importance of earning trust through discipline rather than talk.",
+      "I also have a background in health science, which strengthened my interest in learning, coaching, and long-term development — both for myself and for others. Taken together, these experiences have made me a developer who values structure, clarity, and quality not as abstract ideals, but as practical tools for building better products and working well in strong teams.",
+      "I'm especially interested in .NET consulting, fullstack product development, and teams that care about ownership, thoughtful engineering, and building things the right way.",
     ] as readonly string[],
     // Secondary page copy
     aboutPageTitle: "About Me",
@@ -85,10 +86,11 @@ export const dict = {
     skillsLanguages: "Språk",
     // About me paragraphs (homepage + about page)
     aboutParagraphs: [
-      "Hej, jag heter Marcus. Jag är en fullstack .NET-utvecklare baserad i Stockholm och konsulterar för närvarande via School of Applied Technology. Min bakgrund är en blandning av webbutveckling, hälsovetenskap och fjorton år som lokförare — vilket låter konstigt, men tråden är: jag har alltid dragits till system där det faktiskt spelar roll om det går fel.",
-      "På tekniksidan fokuserar jag på C# / .NET-backends, React-frontends och att bygga saker som integrerar AI där det faktiskt hjälper. Jag har arbetat med PostgreSQL, EF Core, Azure, AWS SQS och Pulumi, och jag bryr mig om ren arkitektur — inte för sakens skull, utan för att det gör produkten lättare att förändra och svårare att förstöra.",
-      "Innan jag bytte karriär till utveckling körde jag tåg i fjorton år — pendeltågen i Stockholm först, sedan som körlärare. Det arbetet formade hur jag tänker kring precision, lugn under press och ansvar. Jag försöker ta med de vanorna in i koden jag skriver.",
-      "Vill du prata om en roll eller ett projekt? E-post är snabbaste vägen. Jag är mest intresserad av .NET-konsulting, fullstack-produktarbete och team som verkligen bryr sig om kvalitet.",
+      "Hej, jag heter Marcus. Jag är en fullstack .NET-utvecklare i Stockholm och konsulterar just nu via School of Applied Technology. Jag bygger webbprodukter där backend-struktur, frontend-upplevelse och långsiktig hållbarhet är lika viktiga som att leverera snabbt.",
+      "Mitt fokus ligger på C#/.NET, React, databaser, molntjänster och AI-integrationer som löser riktiga problem i stället för att bara kännas moderna. Jag trivs bäst när jag får tänka över hela systemet: domänmodellering, API:er, dataflöden, arkitektur, UX och de trade-offs som gör en produkt lättare att vidareutveckla över tid. Jag bryr mig om clean architecture, men bara när den faktiskt skapar tydlighet, stabilitet och flexibilitet i praktiken.",
+      "Innan jag gick över till tech arbetade jag i fjorton år som lokförare på ProTrain, SJ AB, MTR Pendeltågen och SJ Stockholmståg. Den bakgrunden har präglat hur jag arbetar: lugn under press, precision i genomförandet och en stark känsla för att detaljer spelar roll när systemen runt omkring måste fungera. Den lärde mig också ansvar, konsekvens och att förtroende byggs genom disciplin och pålitlighet.",
+      "Jag har även en bakgrund inom hälsovetenskap, vilket har förstärkt mitt intresse för lärande, coaching och långsiktig utveckling — både för mig själv och för andra. Tillsammans har de här erfarenheterna gjort mig till en utvecklare som värderar struktur, tydlighet och kvalitet, inte som abstrakta ideal, utan som praktiska verktyg för att bygga bättre produkter och fungera väl i starka team.",
+      "Jag är särskilt intresserad av .NET-konsulting, fullstack-produktutveckling och team som bryr sig om ägarskap, genomtänkt engineering och att bygga saker ordentligt.",
     ] as readonly string[],
     // Secondary page copy
     aboutPageTitle: "Om mig",
