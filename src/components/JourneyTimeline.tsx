@@ -160,11 +160,6 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
                         <div className="w-4 h-3 rounded bg-brand-700/60" />
                         <span>{dict[lang].experience}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 ml-auto text-brand-600/60 italic">
-                        {lang === "en"
-                            ? "↑ Overlapping bars = concurrent activities"
-                            : "↑ Överlappande staplar = parallella aktiviteter"}
-                    </div>
                 </div>
             </div>
         </div>
@@ -212,18 +207,6 @@ export default function JourneyTimeline() {
                 <GanttChart lang={lang} />
             </div>
 
-            {/* ── Parallel period callout ────────────────────────────────────── */}
-            <div className="mb-10 rounded-xl border border-accent-400 bg-accent-400/10 p-5">
-                <p className="font-bold text-base mb-1 text-ink-900">
-                    {lang === "en" ? "⚡ Parallel Period: 2024–2025" : "⚡ Parallellperiod: 2024–2025"}
-                </p>
-                <p className="text-sm leading-relaxed text-brand-800">
-                    {lang === "en"
-                        ? "During 2024–2025, 4 activities ran concurrently — two study programmes alongside two jobs (Personal Trainer + Train Engineer). An unusually intensive period of simultaneous growth."
-                        : "Under 2024–2025 pågick 4 aktiviteter parallellt — två studieprogram vid sidan av två anställningar (personlig tränare + lokförare). En ovanligt intensiv period av lärande och arbete på samma gång."}
-                </p>
-            </div>
-
             {/* ── Desktop: year-grouped two-column layout ──────────────────────── */}
             <div className="hidden md:block">
                 {/* Column headers */}
@@ -269,11 +252,7 @@ export default function JourneyTimeline() {
                                     <div className="relative z-10 bg-surface-50 border border-brand-600/40 rounded-full px-2 py-1 text-xs font-bold text-brand-700 whitespace-nowrap shadow-sm">
                                         {year}
                                     </div>
-                                    {hasOverlap && (
-                                        <div className="mt-1.5 text-accent-700 text-xs font-bold" title={lang === "en" ? "Concurrent activities" : "Parallella aktiviteter"}>
-                                            ⇄
-                                        </div>
-                                    )}
+
                                 </div>
 
                                 {/* Experience column */}

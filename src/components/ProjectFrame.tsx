@@ -166,7 +166,7 @@ export default function ProjectFrame({
 
           {/* Case study click hint */}
           {project.caseStudy && (
-            <p className="mt-3 text-xs font-semibold text-accent-700 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+            <p className="mt-3 text-xs font-semibold text-accent-700 flex items-center gap-1">
               <FiArrowRight aria-hidden="true" size={12} />
               {ctaTexts.viewCase[lang]}
             </p>
@@ -280,7 +280,7 @@ export default function ProjectFrame({
 
         {/* Case study click hint */}
         {project.caseStudy && (
-          <p className="mt-2 text-xs font-semibold text-accent-700 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+          <p className="mt-2 text-xs font-semibold text-accent-700 flex items-center gap-1">
             <FiArrowRight aria-hidden="true" size={12} />
             {ctaTexts.viewCase[lang]}
           </p>
