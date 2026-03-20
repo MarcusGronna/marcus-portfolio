@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure. Building backends, frontends, and AI-integrated systems.",
   alternates: {
+    // Point canonical to the Swedish default; per-page metadata overrides this
     canonical: "https://marcusgronna.com/sv",
     languages: {
       sv: "https://marcusgronna.com/sv",
@@ -56,6 +57,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang={lang}>
       <head>
         <link rel="icon" href="/favicon.webp" type="image/webp" />
+        {/* hreflang: both language versions are declared from the root */}
+        <link rel="alternate" hrefLang="sv" href="https://marcusgronna.com/sv" />
+        <link rel="alternate" hrefLang="en" href="https://marcusgronna.com/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://marcusgronna.com/sv" />
         <Script
           id="jsonld-person"
           type="application/ld+json"

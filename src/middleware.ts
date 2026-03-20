@@ -13,8 +13,7 @@ export const DEFAULT_LOCALE: Locale = "sv";
 /** Detect preferred locale from Accept-Language header. */
 function detectLocale(request: NextRequest): Locale {
   const acceptLang = request.headers.get("accept-language") ?? "";
-  // Prefer Swedish if the browser advertises it; otherwise default to Swedish
-  // (primary audience is Swedish-speaking). Return English only if explicitly preferred.
+  // Return English only if it is explicitly preferred and Swedish is absent.
   if (/\ben\b/.test(acceptLang) && !/\bsv\b/.test(acceptLang)) return "en";
   return DEFAULT_LOCALE;
 }
@@ -48,6 +47,6 @@ export const config = {
   matcher: [
     // Run on all paths EXCEPT static files, Next.js internals, and well-known
     // paths that should never be locale-prefixed.
-    "/((?!_next/static|_next/image|favicon|sitemap|robots|.*\\.(?:png|jpg|jpeg|webp|avif|gif|svg|ico|pdf|woff|woff2|ttf|otf)).*)",
+    "/((?!_next/static|_next/image|favicon|sitemap|robots|.*\\.(?:png|jpg|jpeg|webp|avif|gif|svg|ico|pdf|txt|woff|woff2|ttf|otf)).*)",
   ],
 };

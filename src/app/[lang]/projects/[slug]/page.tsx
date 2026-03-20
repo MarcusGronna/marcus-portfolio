@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const project = projects.find((p) => p.slug === slug && p.caseStudy);
   if (!project) return {};
 
-  const title = `${project.title[lang]} – ${lang === "sv" ? "Fallstudie" : "Case Study"} | Marcus Grönnå`;
+  const title = `${project.title[lang]} – ${lang === "sv" ? "Fallstudie" : "Case Study"}`;
   const description = project.summary[lang];
   const url = `${site.url}/${lang}/projects/${slug}`;
 

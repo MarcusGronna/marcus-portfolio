@@ -57,9 +57,12 @@ export default function ChalkNav() {
   // e.g. /sv/about → /en/about  |  /sv → /en
   const toggleLang = () => {
     const newLang = lang === "sv" ? "en" : "sv";
-    // Replace the leading /sv or /en with /newLang
-    const newPath = pathname.replace(/^\/(en|sv)(\/|$)/, `/${newLang}$2`);
-    router.push(newPath || `/${newLang}`);
+    // Replace the leading /sv or /en segment with /newLang.
+    // If the pattern doesn't match for any reason, fall back to the new lang home.
+    const localePattern = /^\/(en|sv)(\/.*)?$/;
+    const match = pathname.match(localePattern);
+    const newPath = match ? `/${newLang}${match[2] ?? ""}` : `/${newLang}`;
+    router.push(newPath);
   };
 
   return (
