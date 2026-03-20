@@ -164,12 +164,16 @@ export default function ProjectFrame({
             </div>
           )}
 
-          {/* Case study click hint */}
+          {/* Case study link */}
           {project.caseStudy && (
-            <p className="mt-3 text-xs font-semibold text-accent-700 flex items-center gap-1">
+            <Link
+              href={`/projects/${project.slug}`}
+              onClick={(e) => e.stopPropagation()}
+              className="relative z-[2] mt-3 w-fit inline-flex items-center gap-1.5 text-xs font-semibold text-accent-700 border border-accent-700 rounded px-3 py-1.5 transition hover:bg-accent-700 hover:text-surface-50 focus-visible:ring-2 focus-visible:ring-accent-700"
+            >
               <FiArrowRight aria-hidden="true" size={12} />
               {ctaTexts.viewCase[lang]}
-            </p>
+            </Link>
           )}
         </div>
       </motion.div>
@@ -278,12 +282,16 @@ export default function ProjectFrame({
           </div>
         )}
 
-        {/* Case study click hint */}
+        {/* Case study link */}
         {project.caseStudy && (
-          <p className="mt-2 text-xs font-semibold text-accent-700 flex items-center gap-1">
+          <Link
+            href={`/projects/${project.slug}`}
+            onClick={(e) => e.stopPropagation()}
+            className="relative z-[2] mt-2 w-fit inline-flex items-center gap-1.5 text-xs font-semibold text-accent-700 border border-accent-700 rounded px-3 py-1.5 transition hover:bg-accent-700 hover:text-surface-50 focus-visible:ring-2 focus-visible:ring-accent-700"
+          >
             <FiArrowRight aria-hidden="true" size={12} />
             {ctaTexts.viewCase[lang]}
-          </p>
+          </Link>
         )}
       </div>
     </motion.div>
