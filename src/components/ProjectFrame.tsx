@@ -6,7 +6,7 @@ import type { Project } from "@/content/projects";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/framer-variants";
 import { useLang } from "@/components/LangProvider";
-import { FiExternalLink, FiGithub, FiCheckCircle, FiArrowRight } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiCheckCircle } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 
 // Max tech badges shown on card surface (rest hidden to keep cards scannable)
@@ -16,7 +16,6 @@ const ctaTexts = {
   liveDemo: { en: "Live Demo", sv: "Live Demo" },
   sourceCode: { en: "Source Code", sv: "Källkod" },
   caseStudy: { en: "Case Study", sv: "Fallstudie" },
-  viewCase: { en: "View case study", sv: "Se fallstudie" },
 };
 
 export default function ProjectFrame({
@@ -76,7 +75,9 @@ export default function ProjectFrame({
           flex flex-col md:flex-row
           border-2 border-accent-400
           rounded-xl
-          shadow-xl
+          shadow-xl hover:shadow-2xl
+          hover:-translate-y-1
+          transition-[transform,box-shadow] duration-300 ease-out
           overflow-hidden
           bg-surface-50
           mb-2 md:mb-6
@@ -102,7 +103,7 @@ export default function ProjectFrame({
             alt={project.title[lang]}
             fill
             sizes="(max-width: 768px) 100vw, 480px"
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+            className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
             priority={priority}
           />
         </div>
@@ -164,17 +165,6 @@ export default function ProjectFrame({
             </div>
           )}
 
-          {/* Case study link */}
-          {project.caseStudy && (
-            <Link
-              href={`/projects/${project.slug}`}
-              onClick={(e) => e.stopPropagation()}
-              className="relative z-[2] mt-3 w-fit inline-flex items-center gap-1.5 text-xs font-semibold text-accent-700 border border-accent-700 rounded px-3 py-1.5 transition hover:bg-accent-700 hover:text-surface-50 focus-visible:ring-2 focus-visible:ring-accent-700"
-            >
-              <FiArrowRight aria-hidden="true" size={12} />
-              {ctaTexts.viewCase[lang]}
-            </Link>
-          )}
         </div>
       </motion.div>
     );
@@ -189,8 +179,9 @@ export default function ProjectFrame({
         flex flex-col mb-2 md:mb-6
         border border-brand-600
         rounded-xl
-        shadow-lg hover:shadow-xl
-        transition-shadow
+        shadow-md hover:shadow-xl
+        hover:-translate-y-1
+        transition-[transform,box-shadow] duration-300 ease-out
         overflow-hidden
         bg-surface-50
         group
@@ -215,7 +206,7 @@ export default function ProjectFrame({
           alt={project.title[lang]}
           fill
           sizes="(max-width: 640px) 100vw, 480px"
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
           priority={priority}
         />
       </div>
@@ -282,17 +273,6 @@ export default function ProjectFrame({
           </div>
         )}
 
-        {/* Case study link */}
-        {project.caseStudy && (
-          <Link
-            href={`/projects/${project.slug}`}
-            onClick={(e) => e.stopPropagation()}
-            className="relative z-[2] mt-2 w-fit inline-flex items-center gap-1.5 text-xs font-semibold text-accent-700 border border-accent-700 rounded px-3 py-1.5 transition hover:bg-accent-700 hover:text-surface-50 focus-visible:ring-2 focus-visible:ring-accent-700"
-          >
-            <FiArrowRight aria-hidden="true" size={12} />
-            {ctaTexts.viewCase[lang]}
-          </Link>
-        )}
       </div>
     </motion.div>
   );
