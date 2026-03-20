@@ -89,7 +89,7 @@ export default function CaseStudyContent({ project }: { project: Project }) {
       {/* Back link */}
       <Link
         href="/#portfolio"
-        className="inline-flex items-center gap-2 text-base text-brand-700 hover:text-accent-700 mb-8 transition-colors focus-visible:ring-2 focus-visible:ring-accent-400 rounded"
+        className="inline-flex items-center gap-2 text-base text-brand-700 hover:text-accent-700 hover:bg-accent-400/10 mb-8 transition-colors px-3 py-2 rounded focus-visible:ring-2 focus-visible:ring-accent-400"
       >
         <FiArrowLeft aria-hidden="true" />
         {texts.back[lang]}
