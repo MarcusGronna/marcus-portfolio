@@ -39,7 +39,7 @@ export default function PortraitFrame({
         <div className="absolute inset-0 backface-hidden">
           <Image
             src="/portrait.jpg"
-            alt="Marcus"
+            alt="Marcus Grönnå – profile photo"
             fill
             sizes="(max-width: 768px) 50vw, 384px"
             className="object-cover rounded-full "

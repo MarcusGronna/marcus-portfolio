@@ -76,22 +76,26 @@ export default function Home() {
             className="mb-5 text-center lg:text-left w-full"
           >
             <h1 className="mb-1">{dict[lang].heroRole}</h1>
-            <p className="text-base font-semibold text-brand-700 mb-3">{dict[lang].heroLocation}</p>
+            <p className="text-base font-semibold text-brand-700 mb-1">{dict[lang].heroSubtitle}</p>
+            <p className="text-sm text-brand-700 mb-3">{dict[lang].heroLocation}</p>
 
             {/* Proof badges row */}
-            <div className="flex flex-wrap gap-2 mb-4 justify-center lg:justify-start">
+            <ul className="flex flex-wrap gap-2 mb-4 justify-center lg:justify-start list-none p-0 m-0" aria-label="Technical profile highlights">
               {proofBadges.map((badge) => (
-                <span
+                <li
                   key={badge}
                   className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-accent-400/20 border border-accent-400/40 text-ink-900"
                 >
                   {badge}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
 
-            <p className="text-base text-brand-800 leading-relaxed max-w-md">
+            <p className="text-base text-brand-800 leading-relaxed max-w-md mb-2">
               {dict[lang].heroTagline}
+            </p>
+            <p className="text-sm font-semibold text-accent-700 max-w-md">
+              {dict[lang].heroValueProp}
             </p>
           </motion.div>
 
@@ -104,6 +108,7 @@ export default function Home() {
           >
             <Link
               href="/#portfolio"
+              onClick={() => track("hero_cta_click", { cta: "view_projects" })}
               className="inline-flex items-center gap-2 bg-accent-400 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-accent-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900"
             >
               {dict[lang].viewProjects}
@@ -119,6 +124,7 @@ export default function Home() {
             </a>
             <Link
               href="/#contact"
+              onClick={() => track("hero_cta_click", { cta: "contact" })}
               className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
             >
               {dict[lang].contact}

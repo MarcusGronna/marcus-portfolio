@@ -13,18 +13,16 @@
   --color-accent-700: #4a6b44;
   --color-ink-900:   #2e3430;
 
-  /* Typsnitt – Dosis for all text */
+  /* Typsnitt – Dosis (self-hosted via @fontsource/dosis) */
   --font-heading: "Dosis", Arial, Helvetica, sans-serif;
   --font-body:    "Dosis", Arial, Helvetica, sans-serif;
-
-  /* CSS custom properties injected by next/font */
-  --font-sans: var(--font-sans, "Dosis", Arial, sans-serif);
+  --font-sans:    "Dosis", Arial, Helvetica, sans-serif;
 }
 
 /* --- Baslayout & typografi --------------------------------- */
 body {
   min-height: 100vh;
-  font-family: var(--font-sans, var(--font-body));
+  font-family: var(--font-sans);
   font-size: 1.0625rem; /* 17px – clear and readable */
   line-height: 1.75;
   color: var(--color-ink-900);
@@ -37,7 +35,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans, var(--font-heading));
+  font-family: var(--font-sans);
   font-weight: 700;
   letter-spacing: .02em;
   line-height: 1.2;
@@ -73,6 +71,16 @@ html { scrollbar-width: thin; scrollbar-color: var(--color-brand-600) var(--colo
 /* --- Smooth anchor scroll ---------------------------------- */
 html        { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 5rem; }
+
+/* --- Respect prefers-reduced-motion ----------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 
 /* --- Mobiljusteringar -------------------------------------- */
 @media (max-width: 640px) {

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX } from "react-icons/fi";
@@ -11,6 +11,8 @@ interface ImageModalProps {
 }
 
 export default function ImageModal({ src, alt, onClose }: ImageModalProps) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -21,6 +23,8 @@ export default function ImageModal({ src, alt, onClose }: ImageModalProps) {
   useEffect(() => {
     if (!src) return;
     document.addEventListener("keydown", handleKeyDown);
+    // Move focus to close button when modal opens
+    closeButtonRef.current?.focus();
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [src, handleKeyDown]);
 
@@ -47,6 +51,7 @@ export default function ImageModal({ src, alt, onClose }: ImageModalProps) {
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              ref={closeButtonRef}
               onClick={onClose}
               className="absolute -top-9 right-0 text-white hover:text-accent-400 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 rounded"
               aria-label="Close image"
@@ -54,7 +59,6 @@ export default function ImageModal({ src, alt, onClose }: ImageModalProps) {
               <FiX size={24} aria-hidden="true" />
             </button>
             <div className="relative w-full rounded-xl overflow-hidden shadow-2xl bg-black">
-              {/* Use next/image with unoptimized sizes for best quality in modal */}
               <Image
                 src={src}
                 alt={alt}
