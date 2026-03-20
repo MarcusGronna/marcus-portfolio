@@ -3,13 +3,8 @@ import { projects } from "@/content/projects";
 import ProjectShelf from "@/components/ProjectShelf";
 import ProjectFrame from "@/components/ProjectFrame";
 import { useLang } from "@/components/LangProvider";
+import { dict } from "@/content/i18n";
 import Link from "next/link";
-
-const texts = {
-  title: { en: "Portfolio", sv: "Portfolio" },
-  flagship: { en: "Flagship Project", sv: "Flaggskeppsprojekt" },
-  backHome: { en: "← Back to homepage", sv: "← Tillbaka till startsidan" },
-};
 
 export default function PortfolioPage() {
   const { lang } = useLang();
@@ -26,13 +21,13 @@ export default function PortfolioPage() {
 
   return (
     <section className="max-w-5xl mx-auto py-8 px-2 sm:px-4 flex flex-col">
-      <h1 className="mb-8">{texts.title[lang]}</h1>
+      <h1 className="mb-8">{dict[lang].portfolioPageTitle}</h1>
 
       {/* Flagship */}
       {flagship && (
         <div className="mb-14 text-left">
           <p className="text-xs font-bold uppercase tracking-widest text-accent-700 mb-2">
-            {texts.flagship[lang]}
+            {dict[lang].portfolioFlagship}
           </p>
           <ProjectFrame project={flagship} priority featured />
         </div>
@@ -53,7 +48,7 @@ export default function PortfolioPage() {
           href="/#portfolio"
           className="text-brand-700 hover:text-accent-700 underline text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
         >
-          {texts.backHome[lang]}
+          {dict[lang].backToHome}
         </Link>
       </div>
     </section>
