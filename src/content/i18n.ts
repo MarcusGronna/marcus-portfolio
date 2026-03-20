@@ -14,9 +14,11 @@ export const dict = {
     downloadCV: "Download CV",
     viewProjects: "View Projects",
     heroRole: "Fullstack .NET Developer",
+    heroSubtitle: "C# · .NET · React · Azure",
     heroLocation: "Stockholm, Sweden",
     heroTagline:
-      "C# / .NET backends, React frontends, cloud infrastructure. Currently consulting through School of Applied Technology.",
+      "I build backends that hold up, frontends that make sense, and systems that integrate AI where it actually helps — currently consulting through School of Applied Technology.",
+    heroValueProp: "Clean architecture. Readable code. Production-ready delivery.",
     // Hero proof badges
     proofStack: "C# / .NET / React",
     proofAI: "AI-integrated apps",
@@ -66,9 +68,11 @@ export const dict = {
     downloadCV: "Ladda ner CV",
     viewProjects: "Se projekt",
     heroRole: "Fullstack .NET-utvecklare",
+    heroSubtitle: "C# · .NET · React · Azure",
     heroLocation: "Stockholm, Sverige",
     heroTagline:
-      "C# / .NET-backends, React-frontends, molninfrastruktur. Just nu konsulterar jag via School of Applied Technology.",
+      "Jag bygger backends som håller, frontends som är logiska och system som integrerar AI där det faktiskt hjälper — konsulterar via School of Applied Technology.",
+    heroValueProp: "Ren arkitektur. Läsbar kod. Leverans redo för produktion.",
     // Hero proof badges
     proofStack: "C# / .NET / React",
     proofAI: "AI-integrerade appar",

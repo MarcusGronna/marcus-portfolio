@@ -1,14 +1,22 @@
-// Exportera const fadeUp = { hidden:{opacity:0, y:40}, visible:{opacity:1,y:0,transition:{duration:0.5}} }; // Exportera staggerContainer.
+import { type Variants } from "framer-motion";
 
-export const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+// Motion variants for Framer Motion.
+// The CSS layer in globals.css enforces prefers-reduced-motion at the browser level.
+// These variants keep y-offset modest so the CSS override produces no visible shift.
+
+export const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
 };
 
-export const staggerContainer = {
+export const staggerContainer: Variants = {
   visible: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.12,
     },
   },
 };

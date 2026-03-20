@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { Dosis } from "next/font/google";
 import "./globals.css";
+// Self-hosted Dosis via @fontsource – avoids runtime fetch from Google Fonts
+import "@fontsource/dosis/400.css";
+import "@fontsource/dosis/500.css";
+import "@fontsource/dosis/600.css";
+import "@fontsource/dosis/700.css";
+import "@fontsource/dosis/800.css";
 import LangProvider from "../components/LangProvider";
 import ChalkNav from "../components/ChalkNav";
 import Footer from "../components/Footer";
@@ -8,23 +13,16 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { personJsonLd } from "@/lib/seo";
 
-// Dosis: used for both headings and body – supports weight 200–800
-const dosis = Dosis({
-  variable: "--font-sans",
-  weight: ["400", "500", "600", "700", "800"],
-  subsets: ["latin"],
-  display: "swap",
-  adjustFontFallback: true,
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://marcusgronna.com"),
-  title: "Marcus Grönnå – Fullstack .NET Developer",
+  title: {
+    default: "Marcus Grönnå – Fullstack .NET Developer",
+    template: "%s | Marcus Grönnå",
+  },
   description:
-    "Portfolio for Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
+    "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure. Building backends, frontends, and AI-integrated systems.",
   alternates: {
     canonical: "/",
-    languages: { "sv-SE": "/", "en-US": "/?lang=en" }, // query-param i18n, no separate routes
   },
   openGraph: {
     type: "website",
@@ -32,8 +30,14 @@ export const metadata: Metadata = {
     url: "https://marcusgronna.com/",
     title: "Marcus Grönnå – Fullstack .NET Developer",
     description:
-      "Portfolio for Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
+      "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
     siteName: "marcusgronna.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marcus Grönnå – Fullstack .NET Developer",
+    description:
+      "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
   },
   robots: { index: true, follow: true },
 };
@@ -49,13 +53,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
         />
       </head>
-      <body className={`${dosis.variable} antialiased min-h-screen flex flex-col`}>
-        {/* Skip link för A11y */}
+      <body className="antialiased min-h-screen flex flex-col">
+        {/* Skip-to-content link – visible on focus for keyboard users */}
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white/90 px-3 py-2 rounded"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] bg-ink-900 text-surface-50 font-semibold px-4 py-2 rounded shadow-lg transition-all"
         >
-          Hoppa till innehåll
+          Skip to content
         </a>
         <LangProvider>
           <ChalkNav />
