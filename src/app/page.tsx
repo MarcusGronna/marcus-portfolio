@@ -80,17 +80,16 @@ export default function Home() {
             <p className="text-sm text-brand-700 mb-3">{dict[lang].heroLocation}</p>
 
             {/* Proof badges row */}
-            <div className="flex flex-wrap gap-2 mb-4 justify-center lg:justify-start" role="list" aria-label="Technical skills">
+            <ul className="flex flex-wrap gap-2 mb-4 justify-center lg:justify-start list-none p-0 m-0" aria-label="Technical profile highlights">
               {proofBadges.map((badge) => (
-                <span
+                <li
                   key={badge}
-                  role="listitem"
                   className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-accent-400/20 border border-accent-400/40 text-ink-900"
                 >
                   {badge}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
 
             <p className="text-base text-brand-800 leading-relaxed max-w-md mb-2">
               {dict[lang].heroTagline}
