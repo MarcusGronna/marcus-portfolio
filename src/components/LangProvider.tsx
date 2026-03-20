@@ -3,7 +3,7 @@
 // by the [lang]/layout.tsx server component). No localStorage needed; the URL
 // is the single source of truth for the selected language.
 "use client";
-import { createContext, useContext, useState, useCallback, useEffect } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, useMemo } from "react";
 
 export type Lang = "en" | "sv";
 type LangContextType = { lang: Lang; setLang: (lang: Lang) => void };
@@ -34,5 +34,7 @@ export default function LangProvider({
     setLangState(l);
   }, []);
 
-  return <LangContext.Provider value={{ lang, setLang }}>{children}</LangContext.Provider>;
+  const value = useMemo(() => ({ lang, setLang }), [lang, setLang]);
+
+  return <LangContext.Provider value={value}>{children}</LangContext.Provider>;
 }

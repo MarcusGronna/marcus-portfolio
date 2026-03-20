@@ -1,7 +1,7 @@
 "use client";
 import { useLang } from "./LangProvider";
 import { useState, useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 import Link from "next/link";
 
@@ -19,7 +19,6 @@ export default function ChalkNav() {
   const [activeSection, setActiveSection] = useState<string>("home");
   const menuId = "primary-mobile-menu";
   const pathname = usePathname();
-  const router = useRouter();
 
   // Detect if we are on the home page for the current locale (e.g. /sv or /en)
   const isHomePage = pathname === `/${lang}` || pathname === `/${lang}/`;
@@ -55,9 +54,10 @@ export default function ChalkNav() {
 
   // Language toggle: swap the locale prefix in the current URL.
   // e.g. /sv/about → /en/about  |  /sv → /en
-  // Uses router.replace with scroll:false so the page doesn't jump to the top,
-  // and calls setLang immediately so translated content updates without waiting
-  // for navigation. The current hash anchor (#section) is also preserved.
+  // Updates context immediately so translated content changes without waiting
+  // for a navigation round-trip. The URL is updated via replaceState (no Next.js
+  // navigation), so the page is never remounted and animations never replay.
+  // The current hash anchor (#section) is also preserved.
   const toggleLang = () => {
     const newLang = lang === "sv" ? "en" : "sv";
     // Replace the leading /sv or /en segment with /newLang.
@@ -68,11 +68,12 @@ export default function ChalkNav() {
     // Preserve any hash anchor the user is currently on (usePathname() strips hashes).
     const hash = window.location.hash;
     const newPath = `/${newLang}${pathSuffix}${hash}`;
-    // Update the context immediately — no need to wait for the navigation round-trip.
+    // Update the context immediately — translated content updates without any navigation.
     setLang(newLang);
-    // Replace (not push) history so the language switch doesn't pollute the back stack.
-    // scroll:false prevents Next.js from scrolling to the top after the route change.
-    router.replace(newPath, { scroll: false });
+    // Update the URL bar without triggering a Next.js navigation. This prevents the
+    // page component from remounting (and Framer Motion animations from replaying)
+    // while still keeping the URL in sync for bookmarking/sharing.
+    window.history.replaceState(null, "", newPath);
   };
 
   return (
