@@ -70,14 +70,22 @@ export default function ProjectFrame({
     return (
       <motion.div
         variants={fadeUp}
+        whileHover={{
+          y: -4,
+          scale: 1.02,
+          boxShadow: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+        }}
+        transition={{
+          y: { type: "spring", stiffness: 120, damping: 10 },
+          scale: { type: "spring", stiffness: 120, damping: 10 },
+          boxShadow: { duration: 0.3 },
+        }}
         className="
           relative
           flex flex-col md:flex-row
           border-2 border-accent-400
           rounded-xl
-          shadow-md hover:shadow-lg
-          hover:-translate-y-1
-          transition-[transform,box-shadow] duration-500 ease-out
+          shadow-md
           overflow-hidden
           bg-surface-50
           mb-2 md:mb-6
@@ -173,15 +181,23 @@ export default function ProjectFrame({
   return (
     <motion.div
       variants={fadeUp}
+      whileHover={{
+        y: -4,
+        scale: 1.02,
+        boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+      }}
+      transition={{
+        y: { type: "spring", stiffness: 120, damping: 10 },
+        scale: { type: "spring", stiffness: 120, damping: 10 },
+        boxShadow: { duration: 0.3 },
+      }}
       className="
         relative
         w-[300px] sm:w-[320px] md:w-auto
         flex flex-col mb-2 md:mb-6
         border border-brand-600
         rounded-xl
-        shadow-sm hover:shadow-md
-        hover:-translate-y-1
-        transition-[transform,box-shadow] duration-500 ease-out
+        shadow-sm
         overflow-hidden
         bg-surface-50
         group
