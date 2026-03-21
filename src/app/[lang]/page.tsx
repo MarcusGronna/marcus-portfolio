@@ -131,7 +131,12 @@ export default function Home() {
             </Link>
           </motion.div>
 
-          {/* About Me toggle */}
+        </div>
+      </section>
+
+      {/* ABOUT ME */}
+      <section id="about" className="flex flex-col items-center justify-center px-2 sm:px-4 mt-10 md:mt-12 mb-10 md:mb-12">
+        <div className="w-full max-w-xl">
           <button
             onClick={() => setShowAbout((v) => !v)}
             type="button"
@@ -155,7 +160,7 @@ export default function Home() {
             transition={{ duration: 0.3 }}
             className="w-full overflow-hidden"
           >
-            <div className="bg-surface-50 rounded-xl shadow-md border border-brand-600 text-center lg:text-left">
+            <div className="bg-surface-50 rounded-xl shadow-md border border-brand-600">
               <div className="prose prose-neutral text-base max-h-[20rem] overflow-y-auto p-6">
                 {dict[lang].aboutParagraphs.map((p, i) => (
                   <p key={i} className="mb-4 leading-relaxed">
