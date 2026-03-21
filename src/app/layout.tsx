@@ -1,71 +1,81 @@
 import type { Metadata } from "next";
-import { Abel, Dosis } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
-import LangProvider from "../components/LangProvider";
-import ChalkNav from "../components/ChalkNav";
-import Footer from "../components/Footer";
-import { Analytics } from "@vercel/analytics/next";
+// Self-hosted Dosis via @fontsource – avoids runtime fetch from Google Fonts
+import "@fontsource/dosis/400.css";
+import "@fontsource/dosis/500.css";
+import "@fontsource/dosis/600.css";
+import "@fontsource/dosis/700.css";
+import "@fontsource/dosis/800.css";
 import Script from "next/script";
 import { personJsonLd } from "@/lib/seo";
 
-const abel = Abel({
-  variable: "--font-heading",
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
-const dosis = Dosis({
-  variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://marcusgronna.com"),
-  title: "Marcus Grönnå – Fullstackutvecklare",
-  description: "Portfölj för rekryterare och kunder. React/Angular/Node/.NET.",
+  title: {
+    default: "Marcus Grönnå – Fullstack .NET Developer",
+    template: "%s | Marcus Grönnå",
+  },
+  description:
+    "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure. Building backends, frontends, and AI-integrated systems.",
   alternates: {
-    canonical: "/",
-    languages: { "sv-SE": "/", "en-US": "/?lang=en" }, // enkel variant utan routes
+    // Point canonical to the Swedish default; per-page metadata overrides this
+    canonical: "https://marcusgronna.com/sv",
+    languages: {
+      sv: "https://marcusgronna.com/sv",
+      en: "https://marcusgronna.com/en",
+      "x-default": "https://marcusgronna.com/sv",
+    },
   },
   openGraph: {
     type: "website",
     locale: "sv_SE",
+    alternateLocale: "en_US",
     url: "https://marcusgronna.com/",
-    title: "Marcus Grönnå – Fullstackutvecklare",
-    description: "Portfölj för rekryterare och kunder.",
+    title: "Marcus Grönnå – Fullstack .NET Developer",
+    description:
+      "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
     siteName: "marcusgronna.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marcus Grönnå – Fullstack .NET Developer",
+    description:
+      "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
   },
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+// The root layout reads the current locale from the x-lang header injected by
+// middleware so that <html lang> is always server-rendered correctly without
+// having direct access to the [lang] route parameter.
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headersList = await headers();
+  const lang = (headersList.get("x-lang") as "en" | "sv") ?? "sv";
+
   return (
-    <html lang="sv">
+    <html lang={lang}>
       <head>
         <link rel="icon" href="/favicon.webp" type="image/webp" />
+        {/* hreflang: both language versions are declared from the root */}
+        <link rel="alternate" hrefLang="sv" href="https://marcusgronna.com/sv" />
+        <link rel="alternate" hrefLang="en" href="https://marcusgronna.com/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://marcusgronna.com/sv" />
         <Script
           id="jsonld-person"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd()) }}
         />
       </head>
-      <body className={`${abel.variable} ${dosis.variable} antialiased min-h-screen flex flex-col`}>
-        {/* Skip link för A11y */}
+      <body className="antialiased min-h-screen flex flex-col">
+        {/* Skip-to-content link – visible on focus for keyboard users */}
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white/90 px-3 py-2 rounded"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] bg-ink-900 text-surface-50 font-semibold px-4 py-2 rounded shadow-lg transition-all"
         >
-          Hoppa till innehåll
+          Skip to content
         </a>
-        <LangProvider>
-          <ChalkNav />
-          <main id="main" className="container mx-auto px-6 lg:px-8 flex flex-col house-bg">
-            {children}
-          </main>
-          <Footer />
-        </LangProvider>
-        <Analytics />
+        {children}
       </body>
     </html>
   );

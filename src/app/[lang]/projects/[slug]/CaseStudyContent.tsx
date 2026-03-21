@@ -29,6 +29,7 @@ const texts = {
   ctaTitle: { en: "Explore this project", sv: "Utforska det här projektet" },
   stack: { en: "Tech Stack", sv: "Teknikstack" },
   screenshots: { en: "Screenshots", sv: "Skärmdumpar" },
+  contactMe: { en: "Contact Me", sv: "Kontakta mig" },
 };
 
 interface Section {
@@ -58,14 +59,12 @@ function ArchitectureFlow({ steps }: { steps: string[] }) {
     <ol className="not-prose space-y-0">
       {steps.map((step, i) => (
         <li key={i} className="flex flex-col items-center">
-          {/* Step box */}
           <div className="w-full flex items-start gap-3 rounded-xl border border-brand-600/30 bg-surface-50 shadow-sm px-4 py-3">
             <span className="mt-0.5 shrink-0 w-7 h-7 rounded-full bg-accent-400/30 text-ink-900 text-sm font-bold flex items-center justify-center">
               {i + 1}
             </span>
             <span className="text-base leading-relaxed text-brand-700">{step}</span>
           </div>
-          {/* Connector arrow between steps */}
           {i < steps.length - 1 && (
             <FiArrowDown
               className="my-1.5 text-brand-600/50 shrink-0"
@@ -88,7 +87,7 @@ export default function CaseStudyContent({ project }: { project: Project }) {
     <article className="max-w-3xl mx-auto py-8 px-4 sm:px-6">
       {/* Back link */}
       <Link
-        href="/#portfolio"
+        href={`/${lang}#portfolio`}
         className="inline-flex items-center gap-2 text-base text-brand-700 hover:text-accent-700 hover:bg-accent-400/10 mb-8 transition-colors px-3 py-2 rounded focus-visible:ring-2 focus-visible:ring-accent-400"
       >
         <FiArrowLeft aria-hidden="true" />
@@ -196,7 +195,10 @@ export default function CaseStudyContent({ project }: { project: Project }) {
                 <button
                   key={i}
                   type="button"
-                  onClick={() => { setModalSrc(src); setModalAlt(alt); }}
+                  onClick={() => {
+                    setModalSrc(src);
+                    setModalAlt(alt);
+                  }}
                   className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
                   aria-label={`View full size: ${alt}`}
                 >
@@ -217,11 +219,7 @@ export default function CaseStudyContent({ project }: { project: Project }) {
         </motion.section>
       )}
 
-      <ImageModal
-        src={modalSrc}
-        alt={modalAlt}
-        onClose={() => setModalSrc(null)}
-      />
+      <ImageModal src={modalSrc} alt={modalAlt} onClose={() => setModalSrc(null)} />
 
       {/* CTA block */}
       <motion.div
@@ -258,10 +256,10 @@ export default function CaseStudyContent({ project }: { project: Project }) {
             </a>
           )}
           <Link
-            href="/#contact"
+            href={`/${lang}#contact`}
             className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:ring-2 focus-visible:ring-brand-600"
           >
-            {lang === "sv" ? "Kontakta mig" : "Contact Me"}
+            {texts.contactMe[lang]}
           </Link>
         </div>
       </motion.div>

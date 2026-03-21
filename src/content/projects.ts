@@ -28,10 +28,17 @@ export interface Project {
   solution?: { en: string; sv: string };
   /** AI integration explanation (paragraph) */
   aiIntegration?: { en: string; sv: string };
+  /**
+   * Ordered steps describing the end-to-end architecture / request flow.
+   * Rendered as a visual step-flow diagram on the case-study page.
+   */
+  architectureFlow?: { en: string[]; sv: string[] };
   goals?: { en: string[]; sv: string[] };
   challenges?: { en: string[]; sv: string[] };
   keyDecisions?: { en: string[]; sv: string[] };
   results?: { en: string[]; sv: string[] };
+  /** Paragraph describing key takeaways / what was learned building this project. */
+  whatILearned?: { en: string; sv: string };
   nextSteps?: { en: string[]; sv: string[] };
 }
 
@@ -58,7 +65,7 @@ export const projects: Project[] = [
       "ASP.NET Identity", "Roslyn", "Monaco Editor", "TanStack React Query",
       "Framer Motion", "Docker Compose", "GitHub Actions", "Azure Static Web Apps", "Azure Web App",
     ],
-    year: 2025,
+    year: 2026,
     caseStudy: true,
     featured: true,
     highlights: {
@@ -80,8 +87,8 @@ export const projects: Project[] = [
       ],
     },
     role: {
-      en: "Solo Developer – fullstack design and implementation",
-      sv: "Ensam utvecklare – fullstack design och implementation",
+      en: "Team of 3 – primary focus on AI integration with Azure OpenAI",
+      sv: "Grupp om 3 – primärt fokus på AI-integration med Azure OpenAI",
     },
     problem: {
       en: "CodeQuest is a web-based learning platform where code is the gameplay mechanic and story is the motivational layer. The user solves C# challenges to progress through the experience, while the backend validates solutions objectively. The platform combines AI-generated narrative progression with server-side code execution and evaluation.",
@@ -168,6 +175,28 @@ export const projects: Project[] = [
         "Utöka språkstödet bortom C# till andra programmeringsspråk",
         "Driftsätt till en publik molnendpoint med automatiserad CI/CD",
       ],
+    },
+    architectureFlow: {
+      en: [
+        "User writes C# code in the Monaco Editor (browser-based IDE)",
+        "Solution is submitted to the backend ASP.NET Core Web API endpoint",
+        "Roslyn (Microsoft.CodeAnalysis) compiles and executes the code server-side in a sandboxed context",
+        "Evaluation result (pass / fail + output) is persisted in PostgreSQL via EF Core",
+        "Azure OpenAI receives the previous chapter's narrative context plus the pass/fail result and generates the next chapter as structured JSON",
+        "Frontend fetches the new scenario via TanStack React Query and renders the updated challenge — story adapts based on the player's performance",
+      ],
+      sv: [
+        "Användaren skriver C#-kod i Monaco Editor (webbläsarbaserad IDE)",
+        "Lösningen skickas till backend-API:ets endpoint (ASP.NET Core Web API)",
+        "Roslyn (Microsoft.CodeAnalysis) kompilerar och kör koden server-side i ett sandboxat sammanhang",
+        "Bedömningsresultatet (godkänd/underkänd + output) sparas i PostgreSQL via EF Core",
+        "Azure OpenAI tar emot föregående kapitels narrativa kontext plus godkänd/underkänd-resultat och genererar nästa kapitel som strukturerad JSON",
+        "Frontend hämtar det nya scenariot via TanStack React Query och renderar den uppdaterade utmaningen — storyn anpassas utifrån spelarens prestation",
+      ],
+    },
+    whatILearned: {
+      en: "Building CodeQuest gave me hands-on experience combining several complex systems in a single product: AI-generated content pipelines, server-side code execution with Roslyn, session-based state management, and a modern in-browser IDE experience with Monaco Editor. I deepened my understanding of prompt engineering for structured JSON outputs, layered backend architecture in .NET, and the practical challenges of creating a truly adaptive user experience where backend remains the single source of truth.",
+      sv: "Att bygga CodeQuest gav mig praktisk erfarenhet av att kombinera flera komplexa system i en och samma produkt: AI-genererade innehållspipelines, server-side kodexekvering med Roslyn, sessionsbaserad tillståndshantering och en modern IDE-upplevelse i webbläsaren med Monaco Editor. Jag fördjupade min förståelse av prompt engineering för strukturerade JSON-utdata, lagerindelad backendarkitektur i .NET och de praktiska utmaningarna med att skapa en genuint adaptiv användarupplevelse där backend förblir den enda källan till sanning.",
     },
   },
   {
@@ -580,8 +609,8 @@ export const projects: Project[] = [
       sv: "TrainMateX Vision",
     },
     summary: {
-      en: "Fullstack training platform where users can manage training programs, workouts, and exercises through a modern web application with authentication, protected APIs, and a clearly layered backend architecture.",
-      sv: "Fullstack träningsplattform där användare kan hantera träningsprogram, pass och övningar genom en modern webbapplikation med autentisering, skyddade API-endpoints och tydlig lagerindelad backend-arkitektur.",
+      en: "Fullstack training app built with React 19 + TanStack Router on the front and ASP.NET Core / .NET 9 on the back. Clerk handles auth; every API endpoint is JWT-protected. The backend follows a clean four-layer architecture (API / Application / Domain / Infrastructure) with full CRUD for training programs, workouts, and exercises.",
+      sv: "Fullstack-träningsapp med React 19 + TanStack Router i fronten och ASP.NET Core / .NET 9 i backen. Clerk hanterar autentisering och varje API-endpoint skyddas med JWT. Backend följer en ren fyrlagerarkitektur (API / Application / Domain / Infrastructure) med full CRUD för träningsprogram, pass och övningar.",
     },
     image: "/TrainMateX-Welcome-Page.png",
     images: [
@@ -618,12 +647,36 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – fullstack design och implementation",
     },
     problem: {
-      en: "The goal was to build a complete, production-relevant fullstack application that demonstrates modern frontend architecture, a protected REST API, and a clearly structured backend — all integrated with real authentication. TrainMateX Vision covers the full flow from user login to managing training programs, workouts, and exercises.",
-      sv: "Målet var att bygga en komplett, produktionsrelevant fullstack-applikation som demonstrerar modern frontend-arkitektur, ett skyddat REST API och en tydligt strukturerad backend — allt integrerat med riktig autentisering. TrainMateX Vision täcker hela flödet från inloggning till hantering av träningsprogram, pass och övningar.",
+      en: "I wanted to build something that demonstrated the full stack from Clerk auth through to a properly layered .NET API — not a toy project, but something close to how a real feature would be structured. TrainMateX Vision covers the complete flow: user registers and logs in via Clerk, receives a JWT, and that token gates every backend endpoint. The domain is workout management — programs, sessions, and exercises — because it's concrete enough to make the data model meaningful.",
+      sv: "Jag ville bygga något som demonstrerade hela stacken från Clerk-auth till ett ordentligt lagerindelat .NET API — inte ett lekprojekt, utan något nära hur en riktig feature skulle struktureras. TrainMateX Vision täcker hela flödet: användaren registrerar sig och loggar in via Clerk, får ett JWT och det tokenet låser varje backend-endpoint. Domänen är träningshantering — program, pass och övningar — för att det är konkret nog att göra datamodellen meningsfull.",
     },
     solution: {
       en: "The frontend was built with React 19, TypeScript, Vite, Tailwind CSS v4, TanStack Router for type-safe routing, and TanStack React Query for server state management. Clerk handles authentication, issuing JWTs consumed by the backend. The backend is an ASP.NET Core Web API built with C# / .NET 9, EF Core, and SQL Server, organized into API, Application, Domain, and Infrastructure layers. All endpoints are JWT-protected with a CORS policy, and the API exposes training programs, workouts, workout exercises, an exercise catalog, and user profile management.",
       sv: "Frontend byggdes med React 19, TypeScript, Vite, Tailwind CSS v4, TanStack Router för typsäker routing och TanStack React Query för server-state-hantering. Clerk hanterar autentisering och utfärdar JWTs som konsumeras av backend. Backend är ett ASP.NET Core Web API byggt med C# / .NET 9, EF Core och SQL Server, organiserat i lager: API, Application, Domain och Infrastructure. Alla endpoints är JWT-skyddade med en CORS-policy, och API:et exponerar träningsprogram, pass, övningar i pass, ett övningskatalog och användarprofilhantering.",
+    },
+    architectureFlow: {
+      en: [
+        "User navigates to the React frontend (Vite + TanStack Router)",
+        "Clerk handles authentication — user logs in and receives a signed JWT",
+        "TanStack React Query sends requests to the ASP.NET Core API with the JWT as a Bearer token",
+        "ASP.NET Core middleware validates the JWT — unauthorized requests are rejected early",
+        "The Application layer processes the request and calls Domain logic",
+        "The Infrastructure layer (EF Core) reads or writes to SQL Server",
+        "The API returns a JSON response — React Query caches the result and updates the UI",
+      ],
+      sv: [
+        "Användaren navigerar till React-frontendet (Vite + TanStack Router)",
+        "Clerk hanterar autentisering — användaren loggar in och tar emot ett signerat JWT",
+        "TanStack React Query skickar förfrågningar till ASP.NET Core API:et med JWT som Bearer-token",
+        "ASP.NET Core-middleware validerar JWT — otillåtna förfrågningar avvisas tidigt",
+        "Application-lagret behandlar förfrågan och anropar Domain-logik",
+        "Infrastructure-lagret (EF Core) läser eller skriver till SQL Server",
+        "API:et returnerar ett JSON-svar — React Query cachar resultatet och uppdaterar UI",
+      ],
+    },
+    whatILearned: {
+      en: "Wiring Clerk JWT tokens into the ASP.NET Core middleware pipeline looked simple on paper but required careful configuration around CORS and token validation. The layered architecture paid off quickly — keeping Application and Domain free of infrastructure concerns made it easy to extend the feature set without touching existing logic. TanStack Router and React Query together give the frontend a level of structure that plain React with useEffect doesn't.",
+      sv: "Att koppla Clerk JWT-tokens till ASP.NET Core-middleware verkade enkelt på papper men krävde noggrann konfiguration kring CORS och tokenvalidering. Den lagerindelade arkitekturen lönade sig snabbt — att hålla Application och Domain fria från infrastrukturbekymmer gjorde det enkelt att utöka funktioner utan att röra befintlig logik. TanStack Router och React Query tillsammans ger frontendet en struktur som plain React med useEffect inte ger.",
     },
     goals: {
       en: [
@@ -709,8 +762,8 @@ export const projects: Project[] = [
       sv: "sqs-mini – Eventdriven Pipeline",
     },
     summary: {
-      en: "A small but realistic backend project that demonstrates an event-driven pipeline with AWS SQS, .NET, and Pulumi. It shows queue publishing, worker consumption, idempotency, retries, and DLQ handling in a way that is relevant to modern distributed systems.",
-      sv: "sqs-mini är ett litet men realistiskt backendprojekt som visar en eventdriven pipeline med AWS SQS, .NET och Pulumi. Projektet demonstrerar köpublicering, worker-konsumtion, idempotens, retries och DLQ-hantering på ett sätt som är relevant för moderna distribuerade system.",
+      en: "Backend project demonstrating an event-driven pipeline: a Minimal API publishes messages to an AWS SQS queue; a .NET Worker Service consumes them with long polling, processes them idempotently, and routes failures to a DLQ. Infrastructure is provisioned in C# via Pulumi.",
+      sv: "Backend-projekt som demonstrerar en eventdriven pipeline: ett Minimal API publicerar meddelanden till en AWS SQS-kö; en .NET Worker Service konsumerar dem med long polling, behandlar dem idempotent och routar fel till en DLQ. Infrastrukturen provisioneras i C# via Pulumi.",
     },
     image: "/SqsPipeline1.png",
     images: [
@@ -745,8 +798,8 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – backend och infrastrukturdesign",
     },
     problem: {
-      en: "Event-driven architecture, message queues, and idempotent processing are patterns that appear in most production distributed systems. sqs-mini is a focused project to demonstrate these patterns concretely: a producer that publishes messages to an SQS queue, a worker service that consumes them with long polling, handles retries, avoids duplicate processing, and routes failed messages to a dead-letter queue.",
-      sv: "Eventdriven arkitektur, meddelandeköer och idempotent behandling är mönster som återkommer i de flesta produktion-distribuerade system. sqs-mini är ett fokuserat projekt för att demonstrera dessa mönster konkret: en producer som publicerar meddelanden till en SQS-kö, en worker-tjänst som konsumerar dem med long polling, hanterar retries, undviker dubbelbehandling och routar felaktiga meddelanden till en dead-letter queue.",
+      en: "Message queues, retries, and idempotent consumers are patterns I kept seeing in backend architecture discussions but hadn't built from scratch. sqs-mini is my working implementation of the full flow: a Minimal API publishes a message to SQS, a Worker Service picks it up, processes it once (SQLite keeps track of seen message IDs), and anything that fails enough times lands in the DLQ. Pulumi provisions the whole AWS setup in C# — same language as the rest of the project.",
+      sv: "Meddelandeköer, retries och idempotenta konsumenter är mönster jag stötte på gång på gång i backend-arkitekturdiskussioner men aldrig byggt från grunden. sqs-mini är min fungerande implementation av hela flödet: ett Minimal API publicerar ett meddelande till SQS, en Worker Service hämtar det, behandlar det en gång (SQLite håller koll på redan sedda meddelande-ID:n) och allt som misslyckas tillräckligt många gånger hamnar i DLQ:n. Pulumi provisionerar hela AWS-uppsättningen i C# — samma språk som resten av projektet.",
     },
     solution: {
       en: "The project is composed of two .NET applications: a Minimal API (`SessionApi`) acting as the message producer, and a Worker Service (`BillingWorker`) acting as the consumer. The infrastructure – an SQS Standard Queue and its DLQ – is provisioned using Pulumi in C#. The worker uses long polling to efficiently receive messages, processes them idempotently using a SQLite store to track already-handled message IDs, and lets SQS handle retries and DLQ routing for unprocessable messages. Runtime configuration is environment-based to keep credentials and queue URLs out of source code.",
