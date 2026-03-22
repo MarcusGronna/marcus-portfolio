@@ -53,6 +53,9 @@ export const dict = {
     portfolioFlagship: "Flagship Project",
     backToHome: "← Back to homepage",
     backToPortfolio: "← Back to portfolio",
+    aboutTeaser:
+      "Before tech, I spent fourteen years as a train driver — a background that shaped how I work: precise execution, calm under pressure, and deep respect for systems that must not fail.",
+    readMoreAbout: "More about me →",
   },
   sv: {
     home: "Hem",
@@ -108,6 +111,9 @@ export const dict = {
     portfolioFlagship: "Flaggskeppsprojekt",
     backToHome: "← Tillbaka till startsidan",
     backToPortfolio: "← Tillbaka till portfolio",
+    aboutTeaser:
+      "Innan tech arbetade jag i fjorton år som lokförare — en bakgrund som format hur jag arbetar: precision i genomförandet, lugn under press och respekt för system som måste fungera.",
+    readMoreAbout: "Läs mer om mig →",
   },
 } as const;
 
