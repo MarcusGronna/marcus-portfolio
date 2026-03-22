@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { FiChevronDown, FiChevronUp, FiMail, FiLinkedin, FiGithub, FiDownload } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { FiMail, FiLinkedin, FiGithub, FiDownload } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 import PortraitFrame from "@/components/PortraitFrame";
 import ProjectShelf from "@/components/ProjectShelf";
@@ -40,7 +40,6 @@ const bucketStyles: Record<string, { wrapper: string; badge: string; label: stri
 
 export default function Home() {
   const { lang } = useLang();
-  const [showAbout, setShowAbout] = useState(false);
   const [flipped, setFlipped] = useState(false);
 
   const proofBadges = [
@@ -131,51 +130,24 @@ export default function Home() {
             </Link>
           </motion.div>
 
-        </div>
-      </section>
-
-      {/* ABOUT ME */}
-      <section id="about" className="flex flex-col items-center justify-center px-2 sm:px-4 mt-10 md:mt-12 mb-10 md:mb-12">
-        <div className="w-full max-w-xl flex flex-col items-center">
-          <button
-            onClick={() => setShowAbout((v) => !v)}
-            type="button"
-            aria-expanded={showAbout}
-            aria-controls="about-panel"
-            className="flex items-center gap-2 cursor-pointer underline underline-offset-8 decoration-[5px] hover:decoration-2 text-xl transition hover:text-accent-300 mb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
+          {/* About teaser */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="mt-4 pt-4 border-t border-brand-600/20 max-w-md text-center lg:text-left"
           >
-            {dict[lang].about}
-            {showAbout ? (
-              <FiChevronUp className="text-2xl" aria-hidden="true" />
-            ) : (
-              <FiChevronDown className="text-2xl" aria-hidden="true" />
-            )}
-          </button>
+            <p className="text-sm text-brand-700 leading-relaxed">
+              {dict[lang].aboutTeaser}
+            </p>
+            <Link
+              href={`/${lang}/about`}
+              className="inline-block mt-2 text-sm font-semibold text-accent-700 hover:text-accent-400 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
+            >
+              {dict[lang].readMoreAbout}
+            </Link>
+          </motion.div>
 
-          {/* Collapsible About */}
-          <AnimatePresence initial={false}>
-            {showAbout && (
-              <motion.div
-                id="about-panel"
-                key="about-panel"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="w-full overflow-hidden"
-              >
-                <div className="bg-surface-50 rounded-xl shadow-md border border-brand-600">
-                  <div className="prose prose-neutral text-base max-h-[20rem] overflow-y-auto p-6">
-                    {dict[lang].aboutParagraphs.map((p, i) => (
-                      <p key={i} className="mb-4 leading-relaxed">
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </section>
 
