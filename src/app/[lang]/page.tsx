@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronDown, FiChevronUp, FiMail, FiLinkedin, FiGithub, FiDownload } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 import PortraitFrame from "@/components/PortraitFrame";
@@ -136,7 +136,7 @@ export default function Home() {
 
       {/* ABOUT ME */}
       <section id="about" className="flex flex-col items-center justify-center px-2 sm:px-4 mt-10 md:mt-12 mb-10 md:mb-12">
-        <div className="w-full max-w-xl">
+        <div className="w-full max-w-xl flex flex-col items-center">
           <button
             onClick={() => setShowAbout((v) => !v)}
             type="button"
@@ -153,23 +153,29 @@ export default function Home() {
           </button>
 
           {/* Collapsible About */}
-          <motion.div
-            id="about-panel"
-            initial={false}
-            animate={showAbout ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="w-full overflow-hidden"
-          >
-            <div className="bg-surface-50 rounded-xl shadow-md border border-brand-600">
-              <div className="prose prose-neutral text-base max-h-[20rem] overflow-y-auto p-6">
-                {dict[lang].aboutParagraphs.map((p, i) => (
-                  <p key={i} className="mb-4 leading-relaxed">
-                    {p}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+          <AnimatePresence initial={false}>
+            {showAbout && (
+              <motion.div
+                id="about-panel"
+                key="about-panel"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-full overflow-hidden"
+              >
+                <div className="bg-surface-50 rounded-xl shadow-md border border-brand-600">
+                  <div className="prose prose-neutral text-base max-h-[20rem] overflow-y-auto p-6">
+                    {dict[lang].aboutParagraphs.map((p, i) => (
+                      <p key={i} className="mb-4 leading-relaxed">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
