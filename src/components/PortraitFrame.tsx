@@ -21,7 +21,7 @@ export default function PortraitFrame({
   return (
     <motion.div
       whileHover={{ scale: 1.05, rotateZ: 1 }}
-      transition={{ type: "spring", stiffness: 120, damping: 10 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
       onClick={onToggle}
       className={`
         relative aspect-square mb-6 mx-auto overflow-hidden cursor-pointer
