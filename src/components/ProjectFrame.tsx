@@ -41,7 +41,7 @@ export default function ProjectFrame({
 
   // Determine the card-level link destination: case study > url > github
   const cardHref = project.caseStudy
-    ? `/projects/${project.slug}`
+    ? `/${lang}/projects/${project.slug}`
     : project.url ?? project.github ?? null;
   const cardIsExternal = !project.caseStudy && cardHref != null;
 
@@ -111,7 +111,7 @@ export default function ProjectFrame({
             alt={project.title[lang]}
             fill
             sizes="(max-width: 768px) 100vw, 480px"
-            className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+            className="object-cover"
             priority={priority}
           />
         </div>
@@ -222,7 +222,7 @@ export default function ProjectFrame({
           alt={project.title[lang]}
           fill
           sizes="(max-width: 640px) 100vw, 480px"
-          className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+          className="object-cover"
           priority={priority}
         />
       </div>
