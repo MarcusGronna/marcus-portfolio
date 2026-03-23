@@ -46,7 +46,6 @@ export default function Home() {
     dict[lang].proofStack,
     dict[lang].proofAI,
     dict[lang].proofMindset,
-    dict[lang].proofLocation,
   ];
 
   return (
@@ -61,7 +60,7 @@ export default function Home() {
           <PortraitFrame
             flipped={flipped}
             onToggle={() => setFlipped((v) => !v)}
-            className="lg:sticky lg:top-36 mt-6 lg:mt-4 w-32 sm:w-48 md:w-80 xl:w-100 h-32 sm:h-48 md:h-80 xl:h-100"
+            className="lg:sticky lg:top-36 mt-6 lg:mt-4 w-32 sm:w-48 md:w-80 xl:w-88 h-32 sm:h-48 md:h-80 xl:h-88"
           />
         </div>
 
@@ -103,7 +102,7 @@ export default function Home() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mb-4 flex flex-wrap gap-3 justify-center lg:justify-start"
+            className="mb-4 flex flex-wrap items-center gap-3 justify-center lg:justify-start"
           >
             <Link
               href={`/${lang}#portfolio`}
@@ -112,15 +111,6 @@ export default function Home() {
             >
               {dict[lang].viewProjects}
             </Link>
-            <a
-              href={lang === "sv" ? "/marcus-gronna-cv-sv.pdf" : "/marcus-gronna-cv-en.pdf"}
-              download
-              onClick={() => track("cv_download")}
-              className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-5 py-2.5 hover:bg-brand-600/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"
-            >
-              <FiDownload aria-hidden="true" size={16} />
-              {dict[lang].downloadCV}
-            </a>
             <Link
               href={`/${lang}#contact`}
               onClick={() => track("hero_cta_click", { cta: "contact" })}
@@ -128,6 +118,15 @@ export default function Home() {
             >
               {dict[lang].contact}
             </Link>
+            <a
+              href={lang === "sv" ? "/marcus-gronna-cv-sv.pdf" : "/marcus-gronna-cv-en.pdf"}
+              download
+              onClick={() => track("cv_download")}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 hover:text-ink-900 underline underline-offset-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
+            >
+              <FiDownload aria-hidden="true" size={13} />
+              {dict[lang].downloadCV}
+            </a>
           </motion.div>
 
           {/* About teaser */}
@@ -135,7 +134,7 @@ export default function Home() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-4 pt-4 border-t border-brand-600/20 max-w-md text-center lg:text-left"
+            className="mt-6 max-w-md text-center lg:text-left"
           >
             <p className="text-sm text-brand-700 leading-relaxed">
               {dict[lang].aboutTeaser}
@@ -188,7 +187,7 @@ export default function Home() {
             .sort(([a], [b]) => Number(b) - Number(a))
             .map(([year, yearProjects]) => (
               <div key={year} className="mb-12">
-                <h3 className="text-3xl font-semibold mb-6">{year}</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest text-brand-700 mb-6">{year}</h3>
                 <ProjectShelf projects={yearProjects} />
               </div>
             ))}
