@@ -36,6 +36,7 @@ export const skillCategories: SkillCategory[] = [
       "Clerk",
       "Pulumi / IaC",
       "AWS SQS",
+      "Apache Kafka",
       "Docker Compose",
       "Node.js / Express",
       "WinForms",

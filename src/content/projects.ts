@@ -66,6 +66,7 @@ export const projects: Project[] = [
       "Framer Motion", "Docker Compose", "GitHub Actions", "Azure Static Web Apps", "Azure Web App",
     ],
     year: 2026,
+    github: "https://github.com/salt-community/CodeQuest",
     caseStudy: true,
     featured: true,
     highlights: {
@@ -312,7 +313,7 @@ export const projects: Project[] = [
     tech: ["React", "Vite", "Tailwind", "Netlify"],
     year: 2025,
     url: "https://marcus-e-shop.netlify.app/",
-    github: "https://github.com/MarcusGronna/e-shop-react",
+    github: "https://github.com/MarcusGronna/e-shop",
     caseStudy: true,
     highlights: {
       en: [
@@ -413,7 +414,7 @@ export const projects: Project[] = [
     tech: ["Angular", "TypeScript", "LocalStorage", "Netlify"],
     year: 2025,
     url: "https://marcus-task-manager.netlify.app",
-    github: "https://github.com/MarcusGronna/task-manager-angular",
+    github: "https://github.com/MarcusGronna/task-manager",
     caseStudy: true,
     highlights: {
       en: [
@@ -512,6 +513,7 @@ export const projects: Project[] = [
     tech: ["HTML", "CSS", "SEO-best-practices"],
     year: 2024,
     url: "https://remarkable-taffy-176adb.netlify.app/",
+    github: "https://github.com/MarcusGronna/birgitta-klensmed",
     caseStudy: true,
     highlights: {
       en: [
@@ -774,6 +776,7 @@ export const projects: Project[] = [
       "C#", ".NET", "AWS SQS", "Pulumi", "Minimal API", "Worker Service", "SQLite",
     ],
     year: 2026,
+    github: "https://github.com/MarcusGronna/SqsPipeline",
     caseStudy: true,
     highlights: {
       en: [
@@ -894,6 +897,7 @@ export const projects: Project[] = [
     ],
     tech: ["C#", ".NET 10", "WinForms", "HttpClient"],
     year: 2026,
+    github: "https://github.com/MarcusGronna/postman-clone-app",
     caseStudy: true,
     highlights: {
       en: [
