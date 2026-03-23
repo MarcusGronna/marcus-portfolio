@@ -133,7 +133,7 @@ export default function ChalkNav() {
           {/* Language toggle */}
           <li>
             <button
-              className="px-4 py-2.5 rounded-md bg-accent-400 text-ink-900 font-semibold hover:bg-accent-300 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900"
+              className="px-3 py-1.5 rounded border border-surface-50/30 text-surface-50/70 text-sm font-medium hover:text-surface-50 hover:border-surface-50/60 transition cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
               onClick={toggleLang}
               aria-label={lang === "en" ? "Switch to Swedish" : "Switch to English"}
               type="button"
