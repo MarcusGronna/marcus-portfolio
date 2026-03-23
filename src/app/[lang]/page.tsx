@@ -23,7 +23,7 @@ const bucketStyles: Record<string, { wrapper: string; badge: string; label: stri
   },
   also: {
     wrapper: "mb-10",
-    badge: "bg-surface-50 border border-brand-600/30 text-brand-800",
+    badge: "",
     label: "text-brand-700 font-semibold",
   },
   focus: {
@@ -41,12 +41,6 @@ const bucketStyles: Record<string, { wrapper: string; badge: string; label: stri
 export default function Home() {
   const { lang } = useLang();
   const [flipped, setFlipped] = useState(false);
-
-  const proofBadges = [
-    dict[lang].proofStack,
-    dict[lang].proofAI,
-    dict[lang].proofMindset,
-  ];
 
   return (
     <>
@@ -73,27 +67,13 @@ export default function Home() {
             animate="visible"
             className="mb-5 text-center lg:text-left w-full"
           >
-            <h1 className="mb-1">{dict[lang].heroRole}</h1>
-            <p className="text-base font-semibold text-brand-700 mb-1">{dict[lang].heroSubtitle}</p>
-            <p className="text-sm text-brand-700 mb-3">{dict[lang].heroLocation}</p>
-
-            {/* Proof badges row */}
-            <ul className="flex flex-wrap gap-2 mb-4 justify-center lg:justify-start list-none p-0 m-0" aria-label="Technical profile highlights">
-              {proofBadges.map((badge) => (
-                <li
-                  key={badge}
-                  className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold bg-accent-400/20 border border-accent-400/40 text-ink-900"
-                >
-                  {badge}
-                </li>
-              ))}
-            </ul>
-
-            <p className="text-base text-brand-800 leading-relaxed max-w-md mb-2">
-              {dict[lang].heroTagline}
+            <h1 className="mb-2">{dict[lang].heroRole}</h1>
+            <p className="text-sm text-brand-700 mb-5">
+              {dict[lang].heroSubtitle} · {dict[lang].heroLocation}
             </p>
-            <p className="text-sm font-semibold text-accent-700 max-w-md">
-              {dict[lang].heroValueProp}
+
+            <p className="text-base text-brand-800 leading-relaxed max-w-md mb-0">
+              {dict[lang].heroTagline}
             </p>
           </motion.div>
 
@@ -129,19 +109,16 @@ export default function Home() {
             </a>
           </motion.div>
 
-          {/* About teaser */}
+          {/* About link */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-6 max-w-md text-center lg:text-left"
+            className="mt-4 text-center lg:text-left"
           >
-            <p className="text-sm text-brand-700 leading-relaxed">
-              {dict[lang].aboutTeaser}
-            </p>
             <Link
               href={`/${lang}/about`}
-              className="inline-block mt-2 text-sm font-semibold text-accent-700 hover:text-accent-400 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
+              className="text-sm text-brand-700 hover:text-ink-900 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
             >
               {dict[lang].readMoreAbout}
             </Link>
@@ -217,23 +194,31 @@ export default function Home() {
         >
           <h2 className="text-2xl font-bold mb-8">{dict[lang].skills}</h2>
           <div className="space-y-0">
-            {skillCategories.map((cat) => {
+            {skillCategories
+              .filter((cat) => cat.bucket !== "languages")
+              .map((cat) => {
               const style = bucketStyles[cat.bucket] ?? bucketStyles.also;
               return (
                 <div key={cat.bucket} className={style.wrapper}>
                   <h3 className={`text-xs uppercase tracking-widest mb-3 ${style.label}`}>
                     {cat.category[lang]}
                   </h3>
-                  <ul className="flex flex-wrap gap-2">
-                    {cat.items.map((skill) => (
-                      <li
-                        key={skill}
-                        className={`text-sm rounded-full px-3 py-1.5 ${style.badge}`}
-                      >
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
+                  {cat.bucket === "also" ? (
+                    <p className="text-sm text-brand-700 leading-relaxed">
+                      {cat.items.join(" · ")}
+                    </p>
+                  ) : (
+                    <ul className="flex flex-wrap gap-2">
+                      {cat.items.map((skill) => (
+                        <li
+                          key={skill}
+                          className={`text-sm rounded-full px-3 py-1.5 ${style.badge}`}
+                        >
+                          {skill}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               );
             })}
