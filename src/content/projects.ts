@@ -625,6 +625,7 @@ export const projects: Project[] = [
       "EF Core", "SQL Server", "JWT", "GitHub Actions",
     ],
     year: 2026,
+    github: "https://github.com/MarcusGronna/TrainMateX-Vision",
     caseStudy: true,
     highlights: {
       en: [
