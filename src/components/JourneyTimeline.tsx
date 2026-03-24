@@ -1,7 +1,7 @@
 "use client";
-import { useLang } from "@/components/LangProvider";
 import { timelineEntries, type TimelineEntry } from "@/content/timeline";
 import { dict } from "@/content/i18n";
+import type { Locale } from "@/middleware";
 
 /** Short month abbreviation */
 const MONTH_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -21,7 +21,7 @@ function periodLabel(entry: TimelineEntry): string {
 
 // ── Entry card ──────────────────────────────────────────────────────────────
 
-function EntryCard({ entry, lang }: { entry: TimelineEntry; lang: "en" | "sv" }) {
+function EntryCard({ entry, lang }: { entry: TimelineEntry; lang: Locale }) {
     const isEdu = entry.type === "education";
     const period = periodLabel(entry);
     return (
@@ -49,9 +49,7 @@ function EntryCard({ entry, lang }: { entry: TimelineEntry; lang: "en" | "sv" })
 
 // ── Main component ───────────────────────────────────────────────────────────
 
-export default function JourneyTimeline() {
-    const { lang } = useLang();
-
+export default function JourneyTimeline({ lang }: { lang: Locale }) {
     // ── Group entries by startYear ──────────────────────────────────────────
     const yearGroupMap = new Map<number, { edu: TimelineEntry[]; exp: TimelineEntry[] }>();
     for (const entry of timelineEntries) {

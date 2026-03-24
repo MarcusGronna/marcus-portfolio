@@ -1,6 +1,5 @@
-"use client";
-import { useLang } from "./LangProvider";
-import { track } from "@vercel/analytics";
+import { track } from "@vercel/analytics/react";
+import type { Locale } from "@/middleware";
 
 const texts = {
   github: { en: "GitHub", sv: "GitHub" },
@@ -12,9 +11,7 @@ const texts = {
   },
 };
 
-export default function Footer() {
-  const { lang } = useLang();
-
+export default function Footer({ lang }: { lang: Locale }) {
   return (
     <footer className="text-center text-sm text-surface-50 bg-brand-600/90 py-5" role="contentinfo">
       <nav aria-label={lang === "en" ? "Social links" : "Sociala länkar"}>
