@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import type { Project } from "@/content/projects";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/framer-variants";
@@ -24,6 +25,8 @@ export default function ProjectFrame({
   featured?: boolean;
   lang: "en" | "sv";
 }) {
+  const router = useRouter();
+
   // Determine the card-level link destination: case study > url > github
   const cardHref = project.caseStudy
     ? `/${lang}/projects/${project.slug}`
@@ -38,13 +41,12 @@ export default function ProjectFrame({
 
     if (project.caseStudy) {
       track("case_study_open", { slug: project.slug });
+      router.push(cardHref);
     } else if (project.url) {
       track("project_live_click", { slug: project.slug });
+      window.open(cardHref, "_blank", "noopener,noreferrer");
     } else if (project.github) {
       track("project_source_click", { slug: project.slug });
-    }
-
-    if (cardIsExternal) {
       window.open(cardHref, "_blank", "noopener,noreferrer");
     }
   };
