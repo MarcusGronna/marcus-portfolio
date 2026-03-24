@@ -8,6 +8,7 @@ import PortraitFrame from "@/components/PortraitFrame";
 import ProjectShelf from "@/components/ProjectShelf";
 import ProjectFrame from "@/components/ProjectFrame";
 import JourneyTimeline from "@/components/JourneyTimeline";
+import ExperienceOverview from "@/components/ExperienceOverview";
 import { fadeUp } from "@/lib/framer-variants";
 import { projects } from "@/content/projects";
 import { skillCategories } from "@/content/skills";
@@ -45,7 +46,7 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
       {/* HOME */}
       <section
         id="home"
-        className="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-16 mb-10 md:mb-16 px-2 sm:px-4"
+        className="flex flex-col lg:flex-row items-center justify-center gap-8 md:gap-16 py-8 md:py-16 px-2 sm:px-4"
       >
         {/* Portrait */}
         <div className="flex-1 flex flex-col items-center justify-center">
@@ -126,7 +127,7 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
       </section>
 
       {/* PORTFOLIO */}
-      <section id="portfolio" className="flex flex-col items-center justify-center text-center">
+      <section id="portfolio" className="flex flex-col items-center justify-center text-center py-12 md:py-16">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -169,21 +170,24 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
         </motion.div>
       </section>
 
-      {/* JOURNEY — education + experience combined timeline */}
-      <section id="journey" className="flex flex-col items-center justify-center mt-16">
+      {/* JOURNEY — career overview + education/experience timeline */}
+      <section id="journey" className="flex flex-col items-center justify-center py-12 md:py-16">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate="visible"
           className="w-full"
         >
-          <h2 className="text-center mb-10">{dict[lang].journey}</h2>
-          <JourneyTimeline lang={lang} />
+          <h2 className="text-center mb-8">{dict[lang].journey}</h2>
+          <ExperienceOverview lang={lang} />
+          <div className="mt-12">
+            <JourneyTimeline lang={lang} />
+          </div>
         </motion.div>
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="flex flex-col items-center justify-center mt-16">
+      <section id="skills" className="flex flex-col items-center justify-center py-12 md:py-16">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -225,7 +229,7 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="flex flex-col items-center justify-center text-center mt-16">
+      <section id="contact" className="flex flex-col items-center justify-center text-center py-12 md:py-16">
         <motion.div
           variants={fadeUp}
           initial="hidden"
