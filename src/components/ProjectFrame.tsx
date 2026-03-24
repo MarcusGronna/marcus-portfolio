@@ -1,16 +1,12 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import SkillBadge from "./SkillBadge";
 import type { Project } from "@/content/projects";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/framer-variants";
 import { useLang } from "@/components/LangProvider";
 import { FiExternalLink, FiGithub, FiCheckCircle } from "react-icons/fi";
 import { track } from "@vercel/analytics";
-
-// Max tech badges shown on card surface (rest hidden to keep cards scannable)
-const MAX_CARD_TECH = 5;
 
 const ctaTexts = {
   liveDemo: { en: "Live Demo", sv: "Live Demo" },
@@ -61,10 +57,6 @@ export default function ProjectFrame({
       track("project_source_click", { slug: project.slug });
     }
   };
-
-  // Limit tech badges shown on card
-  const visibleTech = project.tech.slice(0, MAX_CARD_TECH);
-  const extraTechCount = project.tech.length - MAX_CARD_TECH;
 
   if (featured) {
     return (
@@ -123,8 +115,8 @@ export default function ProjectFrame({
 
           {project.highlights && (
             <ul className="space-y-1.5 mb-4" aria-label="Project highlights">
-              {project.highlights[lang].slice(0, 4).map((h, i) => (
-                <li key={i} className="flex items-start gap-2 text-base text-brand-700 leading-snug">
+              {project.highlights[lang].slice(0, 3).map((h, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-brand-700 leading-snug">
                   <FiCheckCircle className="mt-0.5 shrink-0 text-accent-700" aria-hidden="true" />
                   <span>{h}</span>
                 </li>
@@ -132,20 +124,9 @@ export default function ProjectFrame({
             </ul>
           )}
 
-          <div className="flex flex-wrap gap-2 mb-4">
-            {visibleTech.map((label) => (
-              <SkillBadge key={label} label={label} />
-            ))}
-            {extraTechCount > 0 && (
-              <span className="text-xs font-semibold text-brand-700 self-center">
-                +{extraTechCount} more
-              </span>
-            )}
-          </div>
-
           {/* External CTAs – positioned above the stretched link */}
           {(project.url || project.github) && (
-            <div className="relative z-[2] flex flex-wrap gap-2 mt-auto pt-2 border-t border-brand-600/20">
+            <div className="relative z-[2] flex flex-wrap gap-2 mt-auto pt-3">
               {project.url && (
                 <a
                   href={project.url}
@@ -195,7 +176,7 @@ export default function ProjectFrame({
         relative
         w-[300px] sm:w-[320px] md:w-auto
         flex flex-col mb-2 md:mb-6
-        border border-brand-600
+        border border-brand-600/25
         rounded-xl
         shadow-sm
         overflow-hidden
@@ -229,39 +210,12 @@ export default function ProjectFrame({
 
       {/* Text content */}
       <div className="relative z-[2] p-4 flex-1 flex flex-col">
-        <h5 className="font-bold text-xl mb-1.5 text-center">{project.title[lang]}</h5>
-        <p className="text-sm text-brand-700 mb-3 leading-relaxed">{project.summary[lang]}</p>
-
-        {/* Highlights – max 2 to keep cards tight */}
-        {project.highlights && (
-          <ul className="space-y-1.5 mb-3" aria-label="Project highlights">
-            {project.highlights[lang].slice(0, 2).map((h, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-brand-700 leading-snug">
-                <FiCheckCircle
-                  className="mt-0.5 shrink-0 text-accent-700"
-                  aria-hidden="true"
-                />
-                <span>{h}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-
-        {/* Tech badges – limited */}
-        <div className="flex flex-wrap gap-2 mb-3">
-          {visibleTech.map((label) => (
-            <SkillBadge key={label} label={label} />
-          ))}
-          {extraTechCount > 0 && (
-            <span className="text-xs font-semibold text-brand-700 self-center">
-              +{extraTechCount} more
-            </span>
-          )}
-        </div>
+        <h5 className="font-bold text-xl mb-2">{project.title[lang]}</h5>
+        <p className="text-sm text-brand-700 leading-relaxed">{project.summary[lang]}</p>
 
         {/* External CTAs – positioned above the stretched link */}
         {(project.url || project.github) && (
-          <div className="relative z-[2] flex flex-wrap gap-2 mt-auto pt-2 border-t border-brand-600/20">
+          <div className="relative z-[2] flex flex-wrap gap-2 mt-auto pt-3">
             {project.url && (
               <a
                 href={project.url}
