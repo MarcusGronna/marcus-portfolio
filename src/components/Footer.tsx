@@ -1,5 +1,4 @@
 "use client";
-import { useLang } from "./LangProvider";
 import { track } from "@vercel/analytics";
 
 const texts = {
@@ -12,8 +11,7 @@ const texts = {
   },
 };
 
-export default function Footer() {
-  const { lang } = useLang();
+export default function Footer({ lang }: { lang: "en" | "sv" }) {
 
   return (
     <footer className="text-center text-sm text-surface-50 bg-brand-600/90 py-5" role="contentinfo">

@@ -1,5 +1,4 @@
 "use client";
-import { useLang } from "@/components/LangProvider";
 import { dict } from "@/content/i18n";
 import { FiMail, FiLinkedin, FiGithub, FiDownload, FiArrowRight } from "react-icons/fi";
 import { track } from "@vercel/analytics";
@@ -19,8 +18,7 @@ const texts = {
   orLabel: { en: "or", sv: "eller" },
 };
 
-export default function ContactPageContent() {
-  const { lang } = useLang();
+export default function ContactPageContent({ lang }: { lang: "en" | "sv" }) {
 
   return (
     <section className="max-w-2xl mx-auto py-10 px-4 sm:px-6 flex flex-col items-center">

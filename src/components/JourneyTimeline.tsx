@@ -1,5 +1,4 @@
 "use client";
-import { useLang } from "@/components/LangProvider";
 import { timelineEntries, type TimelineEntry } from "@/content/timeline";
 import { dict } from "@/content/i18n";
 
@@ -49,8 +48,7 @@ function EntryCard({ entry, lang }: { entry: TimelineEntry; lang: "en" | "sv" })
 
 // ── Main component ───────────────────────────────────────────────────────────
 
-export default function JourneyTimeline() {
-    const { lang } = useLang();
+export default function JourneyTimeline({ lang }: { lang: "en" | "sv" }) {
 
     // ── Group entries by startYear ──────────────────────────────────────────
     const yearGroupMap = new Map<number, { edu: TimelineEntry[]; exp: TimelineEntry[] }>();

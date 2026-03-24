@@ -7,9 +7,10 @@ import { staggerContainer } from "@/lib/framer-variants";
 interface ProjectShelfProps {
   projects: Project[];
   title?: string;
+  lang: "en" | "sv";
 }
 
-export default function ProjectShelf({ projects, title }: ProjectShelfProps) {
+export default function ProjectShelf({ projects, title, lang }: ProjectShelfProps) {
   return (
     <section>
       {title && <h4 className="text-2xl font-bold mb-4">{title}</h4>}
@@ -26,7 +27,7 @@ export default function ProjectShelf({ projects, title }: ProjectShelfProps) {
       >
         {projects.map((project, i) => (
           <div key={project.slug} className="w-[340px] sm:w-[340px] md:w-auto shrink-0 snap-start">
-            <ProjectFrame project={project} priority={i < 2} /> {/* endast de två första */}
+            <ProjectFrame project={project} priority={i < 2} lang={lang} /> {/* endast de två första */}
           </div>
         ))}
       </motion.div>

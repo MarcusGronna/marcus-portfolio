@@ -1,7 +1,6 @@
 "use client";
-import { useLang } from "./LangProvider";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 import Link from "next/link";
 
@@ -14,11 +13,14 @@ const navSections = [
 ];
 
 export default function ChalkNav() {
-  const { lang, setLang } = useLang();
+  const pathname = usePathname();
+  const router = useRouter();
+  const langMatch = pathname.match(/^\/(en|sv)/);
+  const lang = (langMatch?.[1] as "en" | "sv") ?? "sv";
+
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const menuId = "primary-mobile-menu";
-  const pathname = usePathname();
 
   // Detect if we are on the home page for the current locale (e.g. /sv or /en)
   const isHomePage = pathname === `/${lang}` || pathname === `/${lang}/`;
@@ -52,28 +54,15 @@ export default function ChalkNav() {
     return () => observers.forEach((obs) => obs.disconnect());
   }, [isHomePage]);
 
-  // Language toggle: swap the locale prefix in the current URL.
-  // e.g. /sv/about → /en/about  |  /sv → /en
-  // Updates context immediately so translated content changes without waiting
-  // for a navigation round-trip. The URL is updated via replaceState (no Next.js
-  // navigation), so the page is never remounted and animations never replay.
-  // The current hash anchor (#section) is also preserved.
+  // Language toggle: swap the locale prefix and navigate via router.replace.
+  // Preserve any hash anchor the user is currently on (usePathname() strips hashes).
   const toggleLang = () => {
     const newLang = lang === "sv" ? "en" : "sv";
-    // Replace the leading /sv or /en segment with /newLang.
-    // If the pattern doesn't match for any reason, fall back to the new lang home.
     const localePattern = /^\/(en|sv)(\/.*)?$/;
     const match = pathname.match(localePattern);
     const pathSuffix = match ? (match[2] ?? "") : "";
-    // Preserve any hash anchor the user is currently on (usePathname() strips hashes).
-    const hash = window.location.hash;
-    const newPath = `/${newLang}${pathSuffix}${hash}`;
-    // Update the context immediately — translated content updates without any navigation.
-    setLang(newLang);
-    // Update the URL bar without triggering a Next.js navigation. This prevents the
-    // page component from remounting (and Framer Motion animations from replaying)
-    // while still keeping the URL in sync for bookmarking/sharing.
-    window.history.replaceState(null, "", newPath);
+    const hash = typeof window !== "undefined" ? window.location.hash : "";
+    router.replace(`/${newLang}${pathSuffix}${hash}`);
   };
 
   return (

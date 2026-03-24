@@ -4,7 +4,6 @@ import Image from "next/image";
 import type { Project } from "@/content/projects";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/framer-variants";
-import { useLang } from "@/components/LangProvider";
 import { FiExternalLink, FiGithub, FiCheckCircle } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 
@@ -18,12 +17,13 @@ export default function ProjectFrame({
   project,
   priority = false,
   featured = false,
+  lang,
 }: {
   project: Project;
   priority?: boolean;
   featured?: boolean;
+  lang: "en" | "sv";
 }) {
-  const { lang } = useLang();
 
   const handleLiveDemoClick = (e: React.MouseEvent) => {
     e.stopPropagation();
