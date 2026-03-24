@@ -2,16 +2,14 @@
 import { motion } from "framer-motion";
 import ProjectFrame from "./ProjectFrame";
 import type { Project } from "@/content/projects";
-import type { Locale } from "@/middleware";
 import { staggerContainer } from "@/lib/framer-variants";
 
 interface ProjectShelfProps {
   projects: Project[];
-  lang: Locale;
   title?: string;
 }
 
-export default function ProjectShelf({ projects, lang, title }: ProjectShelfProps) {
+export default function ProjectShelf({ projects, title }: ProjectShelfProps) {
   return (
     <section>
       {title && <h4 className="text-2xl font-bold mb-4">{title}</h4>}
@@ -28,7 +26,7 @@ export default function ProjectShelf({ projects, lang, title }: ProjectShelfProp
       >
         {projects.map((project, i) => (
           <div key={project.slug} className="w-[340px] sm:w-[340px] md:w-auto shrink-0 snap-start">
-            <ProjectFrame project={project} lang={lang} priority={i < 2} />
+            <ProjectFrame project={project} priority={i < 2} /> {/* endast de två första */}
           </div>
         ))}
       </motion.div>

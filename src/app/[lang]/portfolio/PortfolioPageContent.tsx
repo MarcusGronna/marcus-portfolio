@@ -2,11 +2,13 @@
 import { projects } from "@/content/projects";
 import ProjectShelf from "@/components/ProjectShelf";
 import ProjectFrame from "@/components/ProjectFrame";
+import { useLang } from "@/components/LangProvider";
 import { dict } from "@/content/i18n";
 import Link from "next/link";
-import type { Locale } from "@/middleware";
 
-export default function PortfolioPageContent({ lang }: { lang: Locale }) {
+export default function PortfolioPageContent() {
+  const { lang } = useLang();
+
   const flagship = projects.find((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
 
@@ -27,7 +29,7 @@ export default function PortfolioPageContent({ lang }: { lang: Locale }) {
           <p className="text-xs font-bold uppercase tracking-widest text-accent-700 mb-2">
             {dict[lang].portfolioFlagship}
           </p>
-          <ProjectFrame project={flagship} lang={lang} priority featured />
+          <ProjectFrame project={flagship} priority featured />
         </div>
       )}
 
@@ -37,7 +39,7 @@ export default function PortfolioPageContent({ lang }: { lang: Locale }) {
         .map(([year, yearProjects]) => (
           <div key={year} className="mb-12 w-full">
             <h2 className="text-2xl font-semibold mb-5">{year}</h2>
-            <ProjectShelf projects={yearProjects} lang={lang} />
+            <ProjectShelf projects={yearProjects} />
           </div>
         ))}
 
