@@ -66,6 +66,7 @@ export const projects: Project[] = [
       "Framer Motion", "Docker Compose", "GitHub Actions", "Azure Static Web Apps", "Azure Web App",
     ],
     year: 2026,
+    url: "https://salmon-beach-082105003.4.azurestaticapps.net/",
     github: "https://github.com/salt-community/CodeQuest",
     caseStudy: true,
     featured: true,
