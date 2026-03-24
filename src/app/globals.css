@@ -46,8 +46,6 @@ h1 { font-size: clamp(2.25rem, 5vw, 3rem); font-weight: 800; margin-bottom: 1rem
 h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 1rem; }
 h3 { font-size: clamp(1.05rem, 2vw, 1.25rem); margin-bottom: .625rem; }
 
-p { max-width: 68ch; }
-
 /* --- Sektioner & container --------------------------------- */
 section { margin-bottom: 4rem; }
 main    { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; display: flex; flex-direction: column; }

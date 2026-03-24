@@ -100,7 +100,7 @@ export default function ProjectFrame({
             )}
           </h4>
 
-          <p className="text-sm text-brand-700 mb-4 leading-relaxed">{project.summary[lang]}</p>
+          <p className="text-base text-brand-700 mb-4 leading-relaxed">{project.summary[lang]}</p>
 
           {project.highlights && (
             <ul className="space-y-1.5 mb-5" aria-label="Project highlights">
@@ -201,7 +201,7 @@ export default function ProjectFrame({
 
       {/* Text content */}
       <div className="p-4 flex-1 flex flex-col">
-        <h5 className="font-bold text-base mb-1.5 leading-snug">
+        <h5 className="font-bold text-lg mb-1.5 leading-snug">
           {primaryHref ? (
             <Link
               href={primaryHref}
