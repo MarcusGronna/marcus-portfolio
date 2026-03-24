@@ -1,9 +1,9 @@
 "use client";
-import { useLang } from "@/components/LangProvider";
 import { dict } from "@/content/i18n";
 import { FiMail, FiLinkedin, FiGithub, FiDownload, FiArrowRight } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 import Link from "next/link";
+import type { Locale } from "@/middleware";
 
 const texts = {
   emailCta: {
@@ -19,13 +19,11 @@ const texts = {
   orLabel: { en: "or", sv: "eller" },
 };
 
-export default function ContactPageContent() {
-  const { lang } = useLang();
-
+export default function ContactPageContent({ lang }: { lang: Locale }) {
   return (
     <section className="max-w-2xl mx-auto py-10 px-4 sm:px-6 flex flex-col items-center">
       <h1 className="mb-3 text-center">{dict[lang].contact}</h1>
-      <p className="mb-10 text-brand-800 text-base sm:text-lg leading-relaxed text-center max-w-md">
+      <p className="mb-10 text-brand-800 text-base leading-relaxed text-center max-w-md">
         {dict[lang].contactSubtitle}
       </p>
 
