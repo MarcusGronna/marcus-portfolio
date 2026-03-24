@@ -5,10 +5,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiExternalLink, FiGithub, FiArrowLeft, FiCheckCircle, FiArrowDown, FiZoomIn } from "react-icons/fi";
 import { track } from "@vercel/analytics";
+import { useLang } from "@/components/LangProvider";
 import SkillBadge from "@/components/SkillBadge";
 import ImageModal from "@/components/ImageModal";
 import type { Project } from "@/content/projects";
-import type { Locale } from "@/middleware";
 import { fadeUp } from "@/lib/framer-variants";
 
 const texts = {
@@ -78,7 +78,8 @@ function ArchitectureFlow({ steps }: { steps: string[] }) {
   );
 }
 
-export default function CaseStudyContent({ project, lang }: { project: Project; lang: Locale }) {
+export default function CaseStudyContent({ project }: { project: Project }) {
+  const { lang } = useLang();
   const [modalSrc, setModalSrc] = useState<string | null>(null);
   const [modalAlt, setModalAlt] = useState("");
 

@@ -76,7 +76,7 @@ export default async function ProjectCaseStudyPage({ params }: { params: Params 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <CaseStudyContent project={project} lang={lang} />
+      <CaseStudyContent project={project} />
     </>
   );
 }

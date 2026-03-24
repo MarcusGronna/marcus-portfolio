@@ -1,12 +1,13 @@
 "use client";
 import PortraitFrame from "@/components/PortraitFrame";
+import { useLang } from "@/components/LangProvider";
 import { dict } from "@/content/i18n";
 import Link from "next/link";
 import { FiDownload, FiMail, FiCheckCircle } from "react-icons/fi";
 import { track } from "@vercel/analytics";
-import type { Locale } from "@/middleware";
 
-export default function AboutPageContent({ lang }: { lang: Locale }) {
+export default function AboutPageContent() {
+  const { lang } = useLang();
   return (
     <section className="max-w-2xl mx-auto py-8 px-2 sm:px-4 mb-12">
       <div className="flex flex-col sm:flex-row items-start gap-8 mb-8">

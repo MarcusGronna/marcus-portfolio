@@ -43,8 +43,6 @@ export function generateStaticParams() {
   return LOCALES.map((lang) => ({ lang }));
 }
 
-export default async function AboutPage({ params }: { params: Params }) {
-  const { lang: rawLang } = await params;
-  const lang: Locale = LOCALES.includes(rawLang as Locale) ? (rawLang as Locale) : DEFAULT_LOCALE;
-  return <AboutPageContent lang={lang} />;
+export default function AboutPage() {
+  return <AboutPageContent />;
 }
