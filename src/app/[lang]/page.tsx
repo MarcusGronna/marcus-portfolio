@@ -8,6 +8,7 @@ import PortraitFrame from "@/components/PortraitFrame";
 import ProjectShelf from "@/components/ProjectShelf";
 import ProjectFrame from "@/components/ProjectFrame";
 import JourneyTimeline from "@/components/JourneyTimeline";
+import ExperienceOverview from "@/components/ExperienceOverview";
 import { fadeUp } from "@/lib/framer-variants";
 import { projects } from "@/content/projects";
 import { skillCategories } from "@/content/skills";
@@ -180,6 +181,8 @@ export default function Home() {
           className="w-full"
         >
           <h2 className="text-center mb-10">{dict[lang].journey}</h2>
+          <ExperienceOverview />
+          <div className="mt-12" />
           <JourneyTimeline />
         </motion.div>
       </section>

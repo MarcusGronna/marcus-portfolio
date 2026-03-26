@@ -1,6 +1,7 @@
 "use client";
 import { useLang } from "@/components/LangProvider";
 import JourneyTimeline from "@/components/JourneyTimeline";
+import ExperienceOverview from "@/components/ExperienceOverview";
 import { dict } from "@/content/i18n";
 import Link from "next/link";
 
@@ -12,6 +13,8 @@ export default function EducationPageContent() {
       <p className="text-brand-800 text-base leading-relaxed mb-8 max-w-xl">
         {dict[lang].educationPageSubtitle}
       </p>
+      <ExperienceOverview />
+      <div className="mt-12" />
       <JourneyTimeline />
       <div className="mt-10">
         <Link
