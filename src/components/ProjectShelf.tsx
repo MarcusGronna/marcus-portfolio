@@ -7,16 +7,17 @@ import { staggerContainer } from "@/lib/framer-variants";
 interface ProjectShelfProps {
   projects: Project[];
   title?: string;
+  lang: "en" | "sv";
 }
 
-export default function ProjectShelf({ projects, title }: ProjectShelfProps) {
+export default function ProjectShelf({ projects, title, lang }: ProjectShelfProps) {
   return (
-    <section>
+    <div>
       {title && <h4 className="text-2xl font-bold mb-4">{title}</h4>}
       <motion.div
         className="
           flex overflow-x-auto snap-x pb-4
-          md:grid md:grid-cols-3 md:gap-10 md:overflow-x-visible
+          md:grid md:grid-cols-3 md:gap-6 md:overflow-x-visible
           justify-start min-w-0
         "
         style={{ WebkitOverflowScrolling: "touch" }}
@@ -25,11 +26,11 @@ export default function ProjectShelf({ projects, title }: ProjectShelfProps) {
         animate="visible"
       >
         {projects.map((project, i) => (
-          <div key={project.slug} className="w-[340px] sm:w-[340px] md:w-auto shrink-0 snap-start">
-            <ProjectFrame project={project} priority={i < 2} /> {/* endast de två första */}
+          <div key={project.slug} className="w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start">
+            <ProjectFrame project={project} priority={i < 2} lang={lang} />
           </div>
         ))}
       </motion.div>
-    </section>
+    </div>
   );
 }

@@ -5,8 +5,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { FiExternalLink, FiGithub, FiArrowLeft, FiCheckCircle, FiArrowDown, FiZoomIn } from "react-icons/fi";
 import { track } from "@vercel/analytics";
-import { useLang } from "@/components/LangProvider";
-import SkillBadge from "@/components/SkillBadge";
 import ImageModal from "@/components/ImageModal";
 import type { Project } from "@/content/projects";
 import { fadeUp } from "@/lib/framer-variants";
@@ -78,8 +76,7 @@ function ArchitectureFlow({ steps }: { steps: string[] }) {
   );
 }
 
-export default function CaseStudyContent({ project }: { project: Project }) {
-  const { lang } = useLang();
+export default function CaseStudyContent({ project, lang }: { project: Project; lang: "en" | "sv" }) {
   const [modalSrc, setModalSrc] = useState<string | null>(null);
   const [modalAlt, setModalAlt] = useState("");
 
@@ -126,19 +123,17 @@ export default function CaseStudyContent({ project }: { project: Project }) {
 
         {/* Tech stack */}
         <div className="mb-8">
-          <h2 className="text-base font-semibold text-ink-900 uppercase tracking-wide mb-3">
+          <h3 className="text-xs font-semibold text-brand-700 uppercase tracking-widest mb-2">
             {texts.stack[lang]}
-          </h2>
-          <div className="flex flex-wrap gap-2">
-            {project.tech.map((t) => (
-              <SkillBadge key={t} label={t} />
-            ))}
-          </div>
+          </h3>
+          <p className="text-sm text-brand-700 leading-relaxed">
+            {project.tech.join(" · ")}
+          </p>
         </div>
       </motion.div>
 
       {/* Case study sections */}
-      <div className="space-y-10">
+      <div className="space-y-12">
         {sections.map(({ key, label, isArray, variant }) => {
           const value = project[key] as
             | { en: string; sv: string }

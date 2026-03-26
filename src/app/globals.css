@@ -13,18 +13,18 @@
   --color-accent-700: #4a6b44;
   --color-ink-900:   #2e3430;
 
-  /* Typsnitt – Dosis (self-hosted via @fontsource/dosis) */
+  /* Typography – Dosis for headings, system sans for body */
   --font-heading: "Dosis", Arial, Helvetica, sans-serif;
-  --font-body:    "Dosis", Arial, Helvetica, sans-serif;
-  --font-sans:    "Dosis", Arial, Helvetica, sans-serif;
+  --font-body:    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans:    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 /* --- Baslayout & typografi --------------------------------- */
 body {
   min-height: 100vh;
-  font-family: var(--font-sans);
-  font-size: 1.0625rem; /* 17px – clear and readable */
-  line-height: 1.75;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
   color: var(--color-ink-900);
   background: var(--color-surface-50);
   margin: 0;
@@ -35,10 +35,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-sans);
+  font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: .02em;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--color-ink-900);
 }
 
@@ -46,9 +46,10 @@ h1 { font-size: clamp(2.25rem, 5vw, 3rem); font-weight: 800; margin-bottom: 1.25
 h2 { font-size: clamp(1.75rem, 3.25vw, 2.25rem); margin-bottom: 1.25rem; }
 h3 { font-size: clamp(1.125rem, 2.25vw, 1.375rem); margin-bottom: .75rem; }
 
-/* --- Sektioner & container --------------------------------- */
-section { margin-bottom: 2rem; }
-main    { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; display: flex; flex-direction: column; }
+/* --- Sections & container --------------------------------- */
+section     { margin-bottom: 0; }
+section[id] { scroll-margin-top: 5rem; }
+main        { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; display: flex; flex-direction: column; }
 
 /* --- Buttons ------------------------------------------------ */
 .btn {
@@ -69,8 +70,7 @@ main    { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; display: flex; fl
 html { scrollbar-width: thin; scrollbar-color: var(--color-brand-600) var(--color-surface-50); }
 
 /* --- Smooth anchor scroll ---------------------------------- */
-html        { scroll-behavior: smooth; }
-section[id] { scroll-margin-top: 5rem; }
+html { scroll-behavior: smooth; }
 
 /* --- Respect prefers-reduced-motion ----------------------- */
 @media (prefers-reduced-motion: reduce) {
