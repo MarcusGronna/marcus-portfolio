@@ -10,6 +10,9 @@ import { dict } from "@/content/i18n";
  * making it easy to see which activities ran in parallel.
  */
 
+/** Minimum bar width (%) so very short entries remain visible and clickable */
+const MIN_BAR_WIDTH_PERCENT = 0.8;
+
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 /** Fractional year from entry start (e.g. Aug 2023 → 2023.583) */
@@ -76,7 +79,7 @@ export default function ExperienceOverview() {
     const end = toFractionalEnd(entry);
     const left = ((start - minYear) / span) * 100;
     const width = ((end - start) / span) * 100;
-    return { left: `${left}%`, width: `${Math.max(width, 0.8)}%` };
+    return { left: `${left}%`, width: `${Math.max(width, MIN_BAR_WIDTH_PERCENT)}%` };
   }
 
   // ── Render ──────────────────────────────────────────────────────────────
@@ -230,7 +233,7 @@ function GanttBar({
         style={barStyle}
         title={`${entry.title[lang]} — ${entry.organization[lang]}\n${periodLabel(entry, lang)}`}
       >
-        <span className="text-[10px] sm:text-[11px] font-semibold text-ink-900 truncate leading-none">
+        <span className="text-[11px] sm:text-xs font-semibold text-ink-900 truncate leading-none">
           {entry.title[lang]}
         </span>
       </div>
