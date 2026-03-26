@@ -3,6 +3,23 @@ import { useLang } from "@/components/LangProvider";
 import { timelineEntries, type TimelineEntry } from "@/content/timeline";
 import { dict } from "@/content/i18n";
 
+// ── Gantt constants ──────────────────────────────────────────────────────────
+
+const GANTT_MIN = 2010;
+const GANTT_END = 2027; // exclusive – bars can stretch to 100 %
+const GANTT_SPAN = GANTT_END - GANTT_MIN; // 17
+const GANTT_MIN_BAR_PCT = 1.5; // minimum bar width (%) so single-year entries stay visible
+
+// Year ticks – denser for recent years to show 2024-2025 overlap clearly
+const TICK_YEARS = [2010, 2013, 2016, 2018, 2020, 2022, 2024, 2025, 2026];
+
+/**
+ * Convert a calendar year+fraction to a percentage position (0–100) along the Gantt axis.
+ */
+function toPct(year: number) {
+    return ((year - GANTT_MIN) / GANTT_SPAN) * 100;
+}
+
 /** Short month abbreviation */
 const MONTH_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -47,6 +64,99 @@ function EntryCard({ entry, lang }: { entry: TimelineEntry; lang: "en" | "sv" })
     );
 }
 
+// ── Gantt overview chart (desktop only) ─────────────────────────────────────
+
+function GanttChart({ lang }: { lang: "en" | "sv" }) {
+    // Sort chronologically (oldest first)
+    const sorted = [...timelineEntries].sort((a, b) => {
+        if (a.startYear !== b.startYear) return a.startYear - b.startYear;
+        const aStart = ((a.startMonth ?? 1) - 1) / 12;
+        const bStart = ((b.startMonth ?? 1) - 1) / 12;
+        return aStart - bStart;
+    });
+
+    return (
+        <div className="mb-8 overflow-x-auto rounded-xl border border-brand-600/20 bg-brand-600/5 p-4">
+            <div className="min-w-[540px]">
+                {/* Year tick labels */}
+                <div className="relative h-5 ml-[160px] mb-1">
+                    {TICK_YEARS.map((year) => (
+                        <span
+                            key={year}
+                            className="absolute text-xs text-brand-700 font-semibold -translate-x-1/2 select-none"
+                            style={{ left: `${toPct(year)}%` }}>
+                            {year}
+                        </span>
+                    ))}
+                </div>
+
+                {/* Entry rows */}
+                <div className="space-y-1.5">
+                    {sorted.map((entry) => {
+                        const isEdu = entry.type === "education";
+                        const startFraction = ((entry.startMonth ?? 1) - 1) / 12;
+                        const startPct = toPct(entry.startYear + startFraction);
+                        const endYear = entry.endYear ?? GANTT_END - 1;
+                        const endFraction = (entry.endMonth ?? 12) / 12;
+                        const endPct = toPct(endYear + endFraction);
+                        const widthPct = Math.max(endPct - startPct, GANTT_MIN_BAR_PCT);
+
+                        return (
+                            <div key={entry.id} className="flex items-center gap-2">
+                                {/* Short label */}
+                                <div className="w-[160px] shrink-0 text-right pr-2">
+                                    <span className="text-xs text-brand-700 line-clamp-1 leading-tight">
+                                        {entry.title[lang]}
+                                    </span>
+                                </div>
+
+                                {/* Bar track */}
+                                <div className="relative flex-1 h-6 rounded-sm">
+                                    {/* Tick grid lines */}
+                                    {TICK_YEARS.map((year) => (
+                                        <div
+                                            key={year}
+                                            className={[
+                                                "absolute top-0 bottom-0 w-px",
+                                                year >= 2024 ? "bg-brand-600/20" : "bg-brand-600/10",
+                                            ].join(" ")}
+                                            style={{ left: `${toPct(year)}%` }}
+                                        />
+                                    ))}
+                                    {/* Bar */}
+                                    <div
+                                        className={[
+                                            "absolute top-1 bottom-1 rounded flex items-center",
+                                            isEdu ? "bg-accent-400/80" : "bg-brand-700/60",
+                                        ].join(" ")}
+                                        style={{
+                                            left: `${startPct}%`,
+                                            width: `${widthPct}%`,
+                                        }}
+                                        title={`${entry.title[lang]} (${periodLabel(entry)})`}
+                                    />
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {/* Legend */}
+                <div className="flex items-center gap-6 mt-4 ml-[160px] text-xs text-brand-700">
+                    <div className="flex items-center gap-1.5">
+                        <div className="w-4 h-3 rounded bg-accent-400/80" />
+                        <span>{dict[lang].education}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                        <div className="w-4 h-3 rounded bg-brand-700/60" />
+                        <span>{dict[lang].experience}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 // ── Main component ───────────────────────────────────────────────────────────
 
 export default function JourneyTimeline() {
@@ -79,6 +189,14 @@ export default function JourneyTimeline() {
 
     return (
         <div className="w-full max-w-4xl mx-auto">
+
+            {/* ── Gantt overview (desktop only) ──────────────────────────────── */}
+            <div className="hidden md:block">
+                <p className="text-xs font-bold uppercase tracking-widest text-brand-700 mb-3">
+                    {lang === "en" ? "Timeline Overview" : "Tidslinje – Översikt"}
+                </p>
+                <GanttChart lang={lang} />
+            </div>
 
             {/* ── Desktop: year-grouped two-column layout ──────────────────────── */}
             <div className="hidden md:block">
