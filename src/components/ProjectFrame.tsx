@@ -64,7 +64,7 @@ export default function ProjectFrame({
           overflow-hidden
           bg-surface-50
           cursor-pointer
-          transition-all duration-200
+          transition-[transform,box-shadow] duration-300 ease-in-out
           hover:-translate-y-1 hover:shadow-lg
           focus-within:ring-2 focus-within:ring-accent-400
           group
@@ -77,7 +77,7 @@ export default function ProjectFrame({
             alt={project.title[lang]}
             fill
             sizes="(max-width: 768px) 100vw, 540px"
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
             priority={priority}
           />
         </div>
@@ -166,7 +166,7 @@ export default function ProjectFrame({
         overflow-hidden
         bg-surface-50
         cursor-pointer
-        transition-all duration-200
+        transition-[transform,box-shadow] duration-300 ease-in-out
         hover:-translate-y-1 hover:shadow-md
         focus-within:ring-2 focus-within:ring-accent-400
         group
@@ -179,7 +179,7 @@ export default function ProjectFrame({
           alt={project.title[lang]}
           fill
           sizes="(max-width: 640px) 100vw, 360px"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
           priority={priority}
         />
       </div>
