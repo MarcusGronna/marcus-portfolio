@@ -8,6 +8,11 @@ import { fadeUp } from "@/lib/framer-variants";
 import { FiExternalLink, FiGithub, FiCheckCircle } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 
+const cardHover = {
+  y: -6,
+  transition: { type: "tween" as const, duration: 0.35, ease: [0.22, 1, 0.36, 1] as const },
+};
+
 const ctaTexts = {
   liveDemo: { en: "Live Demo", sv: "Live Demo" },
   sourceCode: { en: "Source Code", sv: "Källkod" },
@@ -55,6 +60,7 @@ export default function ProjectFrame({
     return (
       <motion.article
         variants={fadeUp}
+        whileHover={cardHover}
         onClick={handleCardClick}
         className="
           flex flex-col md:flex-row
@@ -64,9 +70,10 @@ export default function ProjectFrame({
           overflow-hidden
           bg-surface-50
           cursor-pointer
-          transition-[transform,box-shadow] duration-300 ease-in-out
-          hover:-translate-y-1 hover:shadow-lg
+          transition-shadow duration-300 ease-in-out
+          hover:shadow-lg
           focus-within:ring-2 focus-within:ring-accent-400
+          transform-gpu will-change-transform
           group
         "
       >
@@ -77,7 +84,7 @@ export default function ProjectFrame({
             alt={project.title[lang]}
             fill
             sizes="(max-width: 768px) 100vw, 540px"
-            className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+            className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.03] transform-gpu"
             priority={priority}
           />
         </div>
@@ -156,6 +163,7 @@ export default function ProjectFrame({
   return (
     <motion.article
       variants={fadeUp}
+      whileHover={cardHover}
       onClick={handleCardClick}
       className="
         w-[300px] sm:w-[320px] md:w-auto
@@ -166,9 +174,10 @@ export default function ProjectFrame({
         overflow-hidden
         bg-surface-50
         cursor-pointer
-        transition-[transform,box-shadow] duration-300 ease-in-out
-        hover:-translate-y-1 hover:shadow-md
+        transition-shadow duration-300 ease-in-out
+        hover:shadow-md
         focus-within:ring-2 focus-within:ring-accent-400
+        transform-gpu will-change-transform
         group
       "
     >
@@ -179,7 +188,7 @@ export default function ProjectFrame({
           alt={project.title[lang]}
           fill
           sizes="(max-width: 640px) 100vw, 360px"
-          className="object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+          className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.03] transform-gpu"
           priority={priority}
         />
       </div>
