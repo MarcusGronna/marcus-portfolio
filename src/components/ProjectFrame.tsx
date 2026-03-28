@@ -84,7 +84,7 @@ export default function ProjectFrame({
             alt={project.title[lang]}
             fill
             sizes="(max-width: 768px) 100vw, 540px"
-            className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.03] transform-gpu"
+            className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-[1.03] transform-gpu"
             priority={priority}
           />
         </div>
@@ -188,7 +188,7 @@ export default function ProjectFrame({
           alt={project.title[lang]}
           fill
           sizes="(max-width: 640px) 100vw, 360px"
-          className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-[1.03] transform-gpu"
+          className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-[1.03] transform-gpu"
           priority={priority}
         />
       </div>
