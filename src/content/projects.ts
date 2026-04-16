@@ -215,9 +215,9 @@ export const projects: Project[] = [
       en: "A self-hosted cloud-native style learning project focused on the delivery chain around a deliberately simple ASP.NET Core backend. The project demonstrates code → test → build → Docker → self-hosted deployment → Kubernetes runtime → Prometheus/Grafana observability.",
       sv: "Ett self-hosted cloud-native-inspirerat lärandeprojekt med fokus på leveranskedjan runt en medvetet enkel ASP.NET Core-backend. Projektet demonstrerar kod → test → build → Docker → self-hosted deployment → Kubernetes-runtime → observability med Prometheus och Grafana.",
     },
-    image: "/projects/deepdive-infra/hero.png",
+    image: "/projects/deepdive-infra/grafana-updated-dashboard-with-load.png",
     images: [
-      "/projects/deepdive-infra/hero.png",
+      "/projects/deepdive-infra/grafana-updated-dashboard-with-load.png",
       "https://github.com/user-attachments/assets/756e1dcb-3652-400a-a9ad-b51d7b0d5e9f",
       "https://github.com/user-attachments/assets/78d09012-0784-4beb-aecc-e2b88f820a9b",
       "https://github.com/user-attachments/assets/baea66ca-4cce-49c0-bad3-3f29f40ad0cb",
@@ -377,10 +377,10 @@ export const projects: Project[] = [
       en: "A collaborative learning project exploring event-driven microservices with Apache Kafka. This repository contains the bookings service and frontend, using ASP.NET Core, PostgreSQL, Kafka on Aiven, and Server-Sent Events to keep the UI updated in real time.",
       sv: "Ett kollaborativt lärandeprojekt som utforskar eventdrivna mikrotjänster med Apache Kafka. Det här repot innehåller bokningstjänsten och frontenddelen, med ASP.NET Core, PostgreSQL, Kafka på Aiven och Server-Sent Events för att hålla UI:t uppdaterat i realtid.",
     },
-    image: "/projects/mek-bookings/bookings-ui.png",
+    image: "/projects/mek-bookings/kafka-project-grafical.png",
     images: [
+      "/projects/mek-bookings/kafka-project-grafical.png",
       "/projects/mek-bookings/bookings-ui.png",
-      "/projects/mek-bookings/kafka-overview.png",
     ],
     tech: [
       "C#", ".NET 9", "ASP.NET Core", "Minimal API", "PostgreSQL", "EF Core",
