@@ -216,6 +216,12 @@ export const projects: Project[] = [
       sv: "Ett self-hosted cloud-native-inspirerat lärandeprojekt med fokus på leveranskedjan runt en medvetet enkel ASP.NET Core-backend. Projektet demonstrerar kod → test → build → Docker → self-hosted deployment → Kubernetes-runtime → observability med Prometheus och Grafana.",
     },
     image: "/projects/deepdive-infra/hero.png",
+    images: [
+      "/projects/deepdive-infra/hero.png",
+      "https://github.com/user-attachments/assets/756e1dcb-3652-400a-a9ad-b51d7b0d5e9f",
+      "https://github.com/user-attachments/assets/78d09012-0784-4beb-aecc-e2b88f820a9b",
+      "https://github.com/user-attachments/assets/baea66ca-4cce-49c0-bad3-3f29f40ad0cb",
+    ],
     tech: [
       "C#", ".NET 10", "ASP.NET Core", "Minimal API", "SQLite", "EF Core",
       "xUnit", "GitHub Actions", "Docker", "Kubernetes", "kind", "kubectl",
