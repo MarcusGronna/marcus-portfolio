@@ -201,6 +201,318 @@ export const projects: Project[] = [
       sv: "Att bygga CodeQuest gav mig praktisk erfarenhet av att kombinera flera komplexa system i en och samma produkt: AI-genererade innehållspipelines, server-side kodexekvering med Roslyn, sessionsbaserad tillståndshantering och en modern IDE-upplevelse i webbläsaren med Monaco Editor. Jag fördjupade min förståelse av prompt engineering för strukturerade JSON-utdata, lagerindelad backendarkitektur i .NET och de praktiska utmaningarna med att skapa en genuint adaptiv användarupplevelse där backend förblir den enda källan till sanning.",
     },
   },
+
+  // -------------------------------------------------------
+  // DeepDiveInfra – Self-Hosted CI/CD & Kubernetes Delivery Lab
+  // -------------------------------------------------------
+  {
+    slug: "deepdive-infra",
+    title: {
+      en: "DeepDiveInfra – Self-Hosted CI/CD & Kubernetes Delivery Lab",
+      sv: "DeepDiveInfra – Self-hosted CI/CD- och Kubernetes-labb",
+    },
+    summary: {
+      en: "A self-hosted cloud-native style learning project focused on the delivery chain around a deliberately simple ASP.NET Core backend. The project demonstrates code → test → build → Docker → self-hosted deployment → Kubernetes runtime → Prometheus/Grafana observability.",
+      sv: "Ett self-hosted cloud-native-inspirerat lärandeprojekt med fokus på leveranskedjan runt en medvetet enkel ASP.NET Core-backend. Projektet demonstrerar kod → test → build → Docker → self-hosted deployment → Kubernetes-runtime → observability med Prometheus och Grafana.",
+    },
+    image: "/projects/deepdive-infra/hero.png",
+    tech: [
+      "C#", ".NET 10", "ASP.NET Core", "Minimal API", "SQLite", "EF Core",
+      "xUnit", "GitHub Actions", "Docker", "Kubernetes", "kind", "kubectl",
+      "Linux", "WSL", "Prometheus", "Grafana", "Scalar / OpenAPI",
+    ],
+    year: 2026,
+    github: "https://github.com/MarcusGronna/DeepDive-Public",
+    caseStudy: true,
+    highlights: {
+      en: [
+        "Full CI/CD pipeline: GitHub Actions → Docker → self-hosted Kubernetes deployment",
+        "Prometheus + Grafana observability for cluster, pod, and app-level metrics",
+        "Self-hosted Linux deployment runner on Windows/WSL with kind",
+        "Intentionally simple backend to keep focus on infrastructure and delivery",
+      ],
+      sv: [
+        "Full CI/CD-pipeline: GitHub Actions → Docker → self-hosted Kubernetes-deployment",
+        "Prometheus + Grafana-observability för kluster-, pod- och applikationsnivå",
+        "Self-hosted Linux-deploymentrunner på Windows/WSL med kind",
+        "Medvetet enkel backend för att behålla fokus på infrastruktur och leverans",
+      ],
+    },
+    role: {
+      en: "Solo Developer – infrastructure-focused delivery and observability case",
+      sv: "Ensam utvecklare – leverans- och observability-fokuserat infrastrukturcase",
+    },
+    problem: {
+      en: "The main problem was not advanced domain logic. It was understanding what happens after code is written: how a backend moves from source code to a tested build, to a container, to a self-hosted deployment, to a Kubernetes runtime, to an observable workload. This project was built to close that gap by working through each layer hands-on.",
+      sv: "Huvudproblemet var inte avancerad domänlogik. Det handlade om att förstå vad som händer efter att koden är skriven: hur en backend går från källkod till testad build, till container, till self-hosted deployment, till Kubernetes-runtime, till en observerbar workload. Projektet byggdes för att täppa till det gapet genom att arbeta igenom varje lager praktiskt.",
+    },
+    solution: {
+      en: "The solution is a self-hosted local lab: a Windows host with WSL/Linux tooling, Docker Desktop, a kind cluster, GitHub Actions for build and test, a self-hosted runner for deployment, and Prometheus + Grafana for monitoring. The ASP.NET Core API uses SQLite and EF Core with automatic migrations on startup. The app itself remains intentionally small so the infrastructure and delivery chain stay in focus.",
+      sv: "Lösningen är ett self-hosted lokalt labb: en Windows-värd med WSL/Linux-verktyg, Docker Desktop, ett kind-kluster, GitHub Actions för build och test, en self-hosted runner för deployment och Prometheus + Grafana för övervakning. ASP.NET Core-API:t använder SQLite och EF Core med automatiska migreringar vid uppstart. Appen i sig hålls medvetet enkel så att infrastruktur och leveranskedja förblir i fokus.",
+    },
+    architectureFlow: {
+      en: [
+        "Build a simple ASP.NET Core API with SQLite and EF Core",
+        "Push changes to GitHub",
+        "GitHub Actions restores, builds, and tests the solution",
+        "A self-hosted Linux runner picks up the deployment job",
+        "Docker packages the API as a deployable image",
+        "The image is deployed to a local kind Kubernetes cluster",
+        "Kubernetes runs the workload as pods/services",
+        "Prometheus scrapes app and cluster metrics",
+        "Grafana visualizes system health and runtime behavior",
+      ],
+      sv: [
+        "Bygg en enkel ASP.NET Core-API med SQLite och EF Core",
+        "Pusha ändringar till GitHub",
+        "GitHub Actions återställer, bygger och testar lösningen",
+        "En self-hosted Linux-runner hämtar deployment-jobbet",
+        "Docker paketerar API:t som en deploybar image",
+        "Imagen deployas till ett lokalt kind-baserat Kubernetes-kluster",
+        "Kubernetes kör workloaden som pods/services",
+        "Prometheus scrapar applikations- och klustermetrics",
+        "Grafana visualiserar systemhälsa och runtime-beteende",
+      ],
+    },
+    goals: {
+      en: [
+        "Understand the full delivery chain end to end",
+        "Compare GitHub-hosted and self-hosted runners",
+        "Deploy a real containerized backend to Kubernetes",
+        "Add monitoring and make the system observable",
+        "Document architecture decisions and trade-offs",
+      ],
+      sv: [
+        "Förstå hela leveranskedjan från start till slut",
+        "Jämföra GitHub-hosted och self-hosted runners",
+        "Deploya en riktig containeriserad backend till Kubernetes",
+        "Lägga till övervakning och göra systemet observerbart",
+        "Dokumentera arkitekturbeslut och avvägningar",
+      ],
+    },
+    challenges: {
+      en: [
+        "Understanding the boundaries between development, build, deploy, and runtime environments",
+        "Configuring the self-hosted runner correctly on Linux/WSL",
+        "Handling the Windows + WSL + Docker Desktop + kind stack",
+        "Structuring Kubernetes manifests and deployment flow cleanly",
+        "Exposing useful Prometheus and Grafana metrics without overcomplicating the project",
+      ],
+      sv: [
+        "Förstå gränserna mellan utvecklings-, build-, deploy- och runtime-miljöer",
+        "Konfigurera self-hosted runnern korrekt på Linux/WSL",
+        "Hantera stacken Windows + WSL + Docker Desktop + kind",
+        "Strukturera Kubernetes-manifester och deployment-flödet rent",
+        "Exponera användbara Prometheus- och Grafana-metrikar utan att överkomplicera projektet",
+      ],
+    },
+    keyDecisions: {
+      en: [
+        "Keep the backend intentionally simple – the value is the delivery chain, not the domain",
+        "Use SQLite because the goal is delivery-chain learning, not distributed data design",
+        "Use kind for a local Kubernetes learning environment",
+        "Use Prometheus/Grafana for practical observability",
+        "Keep the project self-hosted and local instead of managed cloud",
+      ],
+      sv: [
+        "Hålla backend medvetet enkel – värdet ligger i leveranskedjan, inte domänen",
+        "Använda SQLite eftersom målet är att lära sig leveranskedjan, inte distribuerad datadesign",
+        "Använda kind för en lokal Kubernetes-lärmiljö",
+        "Använda Prometheus/Grafana för praktisk observability",
+        "Hålla projektet self-hosted och lokalt istället för hanterad molntjänst",
+      ],
+    },
+    results: {
+      en: [
+        "Working CI/CD flow from GitHub push to deployed Kubernetes workload",
+        "Self-hosted deployment runner in a Linux environment",
+        "Running ASP.NET Core API inside a kind Kubernetes cluster",
+        "Visible metrics in Prometheus and Grafana dashboards",
+        "A portfolio-ready infrastructure case showing delivery, deployment, and observability understanding",
+      ],
+      sv: [
+        "Fungerande CI/CD-flöde från GitHub-push till deployad Kubernetes-workload",
+        "Self-hosted deployment-runner i en Linux-miljö",
+        "Körande ASP.NET Core-API inuti ett kind Kubernetes-kluster",
+        "Synliga metrikar i Prometheus- och Grafana-dashboards",
+        "Ett portfolioklart infrastrukturcase som visar förståelse för leverans, deployment och observability",
+      ],
+    },
+    whatILearned: {
+      en: "This project clarified the difference between development, build, deploy, and runtime environments — and where problems happen between those layers. I learned why containers matter as deployable artifacts, what Kubernetes actually manages at the pod and service level, and how observability with Prometheus and Grafana makes even a simple system much easier to reason about. The biggest takeaway was that infrastructure understanding is a skill in itself, separate from writing application code.",
+      sv: "Det här projektet klargjorde skillnaden mellan utvecklings-, build-, deploy- och runtime-miljöer — och var problem uppstår mellan dessa lager. Jag lärde mig varför containrar spelar roll som deployerbara artefakter, vad Kubernetes faktiskt hanterar på pod- och tjänstnivå, och hur observability med Prometheus och Grafana gör även ett enkelt system mycket lättare att resonera kring. Den största insikten var att infrastrukturförståelse är en egen kompetens, skild från att skriva applikationskod.",
+    },
+    nextSteps: {
+      en: [
+        "Add CPU/memory usage metrics and alerting rules",
+        "Introduce ingress for external access to the cluster",
+        "Move from SQLite to a more production-like data setup",
+        "Package manifests more cleanly with Helm or a similar approach",
+      ],
+      sv: [
+        "Lägga till CPU-/minnesanvändningsmetrikar och alertregler",
+        "Introducera ingress för extern åtkomst till klustret",
+        "Gå från SQLite till en mer produktionslik datauppsättning",
+        "Paketera manifester renare med Helm eller liknande approach",
+      ],
+    },
+  },
+
+  // -------------------------------------------------------
+  // mek-bookings – Event-Driven Bookings Microservice
+  // -------------------------------------------------------
+  {
+    slug: "mek-bookings",
+    title: {
+      en: "mek-bookings – Event-Driven Bookings Microservice",
+      sv: "mek-bookings – Eventdriven bokningsmikrotjänst",
+    },
+    summary: {
+      en: "A collaborative learning project exploring event-driven microservices with Apache Kafka. This repository contains the bookings service and frontend, using ASP.NET Core, PostgreSQL, Kafka on Aiven, and Server-Sent Events to keep the UI updated in real time.",
+      sv: "Ett kollaborativt lärandeprojekt som utforskar eventdrivna mikrotjänster med Apache Kafka. Det här repot innehåller bokningstjänsten och frontenddelen, med ASP.NET Core, PostgreSQL, Kafka på Aiven och Server-Sent Events för att hålla UI:t uppdaterat i realtid.",
+    },
+    image: "/projects/mek-bookings/bookings-ui.png",
+    tech: [
+      "C#", ".NET 9", "ASP.NET Core", "Minimal API", "PostgreSQL", "EF Core",
+      "Apache Kafka", "Aiven", "Confluent.Kafka", "React", "Vite", "TypeScript",
+      "Tailwind CSS", "Server-Sent Events", "JSON", "REST API",
+    ],
+    year: 2026,
+    github: "https://github.com/MarcusGronna/mek-bookings",
+    caseStudy: true,
+    highlights: {
+      en: [
+        "Kafka-based async event publishing and consumption across service boundaries",
+        "Real-time UI updates via Server-Sent Events – no manual refresh needed",
+        "Collaborative microservice exercise across multiple teams with shared event contracts",
+        "PostgreSQL + EF Core persistence for booking data",
+      ],
+      sv: [
+        "Kafka-baserad asynkron eventpublicering och -konsumtion över tjänstgränser",
+        "Realtidsuppdateringar i UI via Server-Sent Events – ingen manuell uppdatering krävs",
+        "Kollaborativ mikrotjänstövning över flera team med delade eventkontrakt",
+        "PostgreSQL + EF Core-persistens för bokningsdata",
+      ],
+    },
+    role: {
+      en: "Team of 3 on the bookings service, collaborating with two other teams across shared Kafka event flows",
+      sv: "Grupp om 3 i bookings-tjänsten, i samarbete med två andra team över delade Kafka-eventflöden",
+    },
+    problem: {
+      en: "The point of the project was to learn how independent services communicate asynchronously through events instead of direct tight coupling. The bookings service needed to persist booking data, publish booking events, react to external events from other services, and keep the frontend updated in real time.",
+      sv: "Syftet med projektet var att lära sig hur oberoende tjänster kommunicerar asynkront genom events istället för direkt tight coupling. Bokningstjänsten behövde persistera bokningsdata, publicera boknings-events, reagera på externa events från andra tjänster och hålla frontendet uppdaterat i realtid.",
+    },
+    solution: {
+      en: "The bookings service stores data in PostgreSQL and publishes booking events to Kafka. Other services in the wider exercise react asynchronously. The service also consumes relevant external events and maps incoming changes back to booking state. An SSE endpoint pushes updates to connected frontend clients so the UI updates without manual refresh. The React + Vite + TypeScript frontend provides a practical UI for viewing and managing bookings.",
+      sv: "Bokningstjänsten lagrar data i PostgreSQL och publicerar boknings-events till Kafka. Andra tjänster i den bredare övningen reagerar asynkront. Tjänsten konsumerar även relevanta externa events och mappar inkommande förändringar tillbaka till bokningsstatus. En SSE-endpoint pushar uppdateringar till anslutna frontend-klienter så att UI:t uppdateras utan manuell omladdning. React + Vite + TypeScript-frontendet erbjuder ett praktiskt UI för att visa och hantera bokningar.",
+    },
+    architectureFlow: {
+      en: [
+        "A user creates or updates a booking through the frontend or API",
+        "The Bookings API stores the data in PostgreSQL",
+        "The service publishes booking events to Kafka",
+        "Other services in the wider system react asynchronously",
+        "The bookings service also consumes relevant external events",
+        "Incoming changes are mapped back to booking state",
+        "The SSE stream pushes updates to connected frontend clients",
+        "The UI updates without needing manual refresh",
+      ],
+      sv: [
+        "En användare skapar eller uppdaterar en bokning via frontend eller API",
+        "Bookings API persisterar datan i PostgreSQL",
+        "Tjänsten publicerar booking-events till Kafka",
+        "Andra tjänster i det bredare systemet reagerar asynkront",
+        "Bookings-tjänsten konsumerar även relevanta externa events",
+        "Inkommande förändringar mappas tillbaka till bokningsstatus",
+        "SSE-strömmen pushar uppdateringar till anslutna frontend-klienter",
+        "UI:t uppdateras utan manuell refresh",
+      ],
+    },
+    goals: {
+      en: [
+        "Learn event-driven service communication in practice",
+        "Build and consume Kafka events across service boundaries",
+        "Integrate a PostgreSQL-backed microservice with async event flows",
+        "Create a real-time frontend with Server-Sent Events",
+        "Understand cross-team contracts and async workflow design",
+      ],
+      sv: [
+        "Lära sig eventdriven tjänstkommunikation i praktiken",
+        "Bygga och konsumera Kafka-events över tjänstgränser",
+        "Integrera en PostgreSQL-backad mikrotjänst med asynkrona eventflöden",
+        "Skapa en realtidsfrontend med Server-Sent Events",
+        "Förstå cross-team-kontrakt och asynkron arbetsflödesdesign",
+      ],
+    },
+    challenges: {
+      en: [
+        "Aligning event contracts across teams working on different services",
+        "Configuring Kafka/Aiven connectivity and certificates",
+        "Keeping frontend state in sync with SSE events",
+        "Handling status mapping from external services",
+        "Avoiding duplicate processing and keeping consumers robust",
+      ],
+      sv: [
+        "Samordna eventkontrakt mellan team som jobbar på olika tjänster",
+        "Konfigurera Kafka/Aiven-anslutning och certifikat",
+        "Hålla frontend-state i synk med SSE-events",
+        "Hantera statusmappning från externa tjänster",
+        "Undvika dubbelbearbetning och hålla konsumenter robusta",
+      ],
+    },
+    keyDecisions: {
+      en: [
+        "Use Kafka for asynchronous service communication instead of synchronous REST calls",
+        "Use PostgreSQL + EF Core for persistent booking data",
+        "Use SSE instead of a heavier real-time solution for one-way server-to-client updates",
+        "Keep a dedicated frontend for making state changes visible",
+        "Structure the project as a realistic learning case rather than a perfect production system",
+      ],
+      sv: [
+        "Använda Kafka för asynkron tjänstkommunikation istället för synkrona REST-anrop",
+        "Använda PostgreSQL + EF Core för persistent bokningsdata",
+        "Använda SSE istället för en tyngre realtidslösning för enkelriktade server-till-klient-uppdateringar",
+        "Ha en dedikerad frontend för att göra tillståndsförändringar synliga",
+        "Strukturera projektet som ett realistiskt lärandecase snarare än ett perfekt produktionssystem",
+      ],
+    },
+    results: {
+      en: [
+        "A working bookings microservice with CRUD-oriented booking flow",
+        "Published and consumed Kafka events across service boundaries",
+        "Real-time UI updates through Server-Sent Events",
+        "Practical experience with async service communication",
+        "Hands-on collaboration across service boundaries and shared message contracts",
+      ],
+      sv: [
+        "En fungerande bokningsmikrotjänst med CRUD-orienterat bokningsflöde",
+        "Publicerade och konsumerade Kafka-events över tjänstgränser",
+        "Realtidsuppdateringar i UI genom Server-Sent Events",
+        "Praktisk erfarenhet av asynkron tjänstkommunikation",
+        "Praktiskt samarbete över tjänstgränser och delade meddelandekontrakt",
+      ],
+    },
+    whatILearned: {
+      en: "This project taught me how event-driven systems differ fundamentally from request/response thinking. I learned why contracts between services matter — especially when multiple teams need to agree on event schemas without tight coupling. I also saw firsthand how real-time UI updates can be driven directly from backend events via SSE, and how distributed systems introduce debugging and state-consistency challenges that don't exist in monolithic setups.",
+      sv: "Det här projektet lärde mig hur eventdrivna system skiljer sig fundamentalt från request/response-tänkande. Jag lärde mig varför kontrakt mellan tjänster spelar roll — särskilt när flera team behöver enas om event-scheman utan tight coupling. Jag fick också se på nära håll hur realtidsuppdateringar i UI kan drivas direkt från backend-events via SSE, och hur distribuerade system introducerar debugging- och tillståndskonsistensutmaningar som inte finns i monolitiska upplägg.",
+    },
+    nextSteps: {
+      en: [
+        "Strengthen idempotency and consumer reliability",
+        "Add more observability around event handling",
+        "Formalize contracts more clearly across services",
+        "Improve local development setup for multi-service testing",
+        "Extend automated tests around event flows and SSE behavior",
+      ],
+      sv: [
+        "Stärka idempotens och konsumenttillförlitlighet",
+        "Lägga till mer observability kring eventhantering",
+        "Formalisera kontrakt tydligare mellan tjänster",
+        "Förbättra lokal utvecklingsuppsättning för multi-service-testning",
+        "Utöka automatiserade tester kring eventflöden och SSE-beteende",
+      ],
+    },
+  },
   {
     slug: "livia-portfolio",
     title: {
