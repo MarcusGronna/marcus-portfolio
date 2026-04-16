@@ -372,13 +372,16 @@ export const projects: Project[] = [
       sv: "Ett kollaborativt lärandeprojekt som utforskar eventdrivna mikrotjänster med Apache Kafka. Det här repot innehåller bokningstjänsten och frontenddelen, med ASP.NET Core, PostgreSQL, Kafka på Aiven och Server-Sent Events för att hålla UI:t uppdaterat i realtid.",
     },
     image: "/projects/mek-bookings/bookings-ui.png",
+    images: [
+      "/projects/mek-bookings/bookings-ui.png",
+      "/projects/mek-bookings/kafka-overview.png",
+    ],
     tech: [
       "C#", ".NET 9", "ASP.NET Core", "Minimal API", "PostgreSQL", "EF Core",
       "Apache Kafka", "Aiven", "Confluent.Kafka", "React", "Vite", "TypeScript",
       "Tailwind CSS", "Server-Sent Events", "JSON", "REST API",
     ],
     year: 2026,
-    github: "https://github.com/MarcusGronna/mek-bookings",
     caseStudy: true,
     highlights: {
       en: [
