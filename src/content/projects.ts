@@ -218,9 +218,9 @@ export const projects: Project[] = [
     image: "/projects/deepdive-infra/grafana-updated-dashboard-with-load.png",
     images: [
       "/projects/deepdive-infra/grafana-updated-dashboard-with-load.png",
-      "https://github.com/user-attachments/assets/756e1dcb-3652-400a-a9ad-b51d7b0d5e9f",
-      "https://github.com/user-attachments/assets/78d09012-0784-4beb-aecc-e2b88f820a9b",
-      "https://github.com/user-attachments/assets/baea66ca-4cce-49c0-bad3-3f29f40ad0cb",
+      "/projects/deepdive-infra/ci-cd-workflow-action-github-actions.png",
+      "/projects/deepdive-infra/kubernetes-pods.png",
+      "/projects/deepdive-infra/endpoint-health-check.png",
     ],
     tech: [
       "C#", ".NET 10", "ASP.NET Core", "Minimal API", "SQLite", "EF Core",
