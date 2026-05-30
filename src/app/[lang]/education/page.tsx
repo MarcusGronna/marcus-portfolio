@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     ? "Utbildning & Erfarenhet – Marcus Grönnå"
     : "Education & Experience – Marcus Grönnå";
   const description = isSv
-    ? "Utbildning och professionell resa för Marcus Grönnå — fullstack .NET-utvecklare. Studier vid School of Applied Technology, tidigare karriär som lokförare och körlärare."
-    : "Education and professional journey of Marcus Grönnå — fullstack .NET developer. Study at School of Applied Technology, prior career as a train driver and instructor.";
+    ? "Utbildning och yrkesbakgrund för Marcus Grönnå. Fullstack .NET-utvecklare. Studier vid School of Applied Technology, fjorton år som lokförare och körlärare."
+    : "Education and professional background of Marcus Grönnå. Fullstack .NET developer. Study at School of Applied Technology, fourteen years as a train driver and instructor.";
   const url = `${site.url}/${lang}/education`;
 
   return {

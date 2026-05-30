@@ -50,8 +50,8 @@ export const projects: Project[] = [
       sv: "CodeQuest",
     },
     summary: {
-      en: "AI-driven story-based coding platform where users learn C# through adaptive chapters, dynamic narrative generation, and objective server-side code validation.",
-      sv: "AI-driven story-based coding platform där användaren lär sig C# genom ett adaptivt äventyr med dynamiskt genererade kapitel, objektiv kodvalidering och tydlig progression.",
+      en: "AI-driven coding platform where users learn C# by solving challenges inside a story that adapts based on their answers. The backend validates code with Roslyn and generates new chapters with Azure OpenAI.",
+      sv: "AI-driven kodplattform där användare lär sig C# genom att lösa utmaningar i en berättelse som anpassas efter deras svar. Backend validerar kod med Roslyn och genererar nya kapitel med Azure OpenAI.",
     },
     image: "/CodeQuest-Login.png",
     images: [
@@ -93,16 +93,16 @@ export const projects: Project[] = [
       sv: "Grupp om 3 – primärt fokus på AI-integration med Azure OpenAI",
     },
     problem: {
-      en: "CodeQuest is a web-based learning platform where code is the gameplay mechanic and story is the motivational layer. The user solves C# challenges to progress through the experience, while the backend validates solutions objectively. The platform combines AI-generated narrative progression with server-side code execution and evaluation.",
-      sv: "CodeQuest är en webbaserad lärplattform där kod är spelmekaniken och berättelsen är drivkraften. Användaren löser C#-uppgifter för att föra storyn framåt, medan backend ansvarar för objektiv validering av lösningarna. Plattformen kombinerar AI-genererad narrativ progression med server-side exekvering och bedömning av användarens kod.",
+      en: "CodeQuest is a web-based learning platform where code is the gameplay mechanic and story is what keeps the user engaged. The user solves C# challenges to progress, while the backend validates solutions objectively using Roslyn. Each chapter is generated dynamically by Azure OpenAI based on what happened in the previous step.",
+      sv: "CodeQuest är en webbaserad lärplattform där kod är spelmekaniken och berättelsen håller användaren engagerad. Användaren löser C#-uppgifter för att ta sig vidare, medan backend validerar lösningarna objektivt med Roslyn. Varje kapitel genereras dynamiskt av Azure OpenAI baserat på vad som hände i föregående steg.",
     },
     aiIntegration: {
       en: "The project is AI-integrated in the sense that each new chapter is generated dynamically with Azure OpenAI. The story continues based on the narrative context from the previous chapter and is influenced by whether the player answered correctly or incorrectly in the previous step. This makes the experience adaptive and more engaging than a static exercise flow.",
       sv: "Projektet är AI-integrerat på så vis att varje nytt kapitel genereras dynamiskt med Azure OpenAI. Storyn fortsätter utifrån sammanhanget från föregående kapitel och påverkas av om användaren svarade rätt eller fel i föregående steg. Det gör att upplevelsen blir adaptiv och mer levande än en statisk uppgiftssamling.",
     },
     solution: {
-      en: "The frontend was built with React 19, TypeScript, and Vite, using Monaco Editor for code input and React Query for data fetching. The backend was built with .NET 10, ASP.NET Core Web API, EF Core, and PostgreSQL. AI-driven scenario generation is handled through Azure OpenAI, while Roslyn is used to compile and execute user-submitted C# code on the server side. The backend follows a layered architecture with separate API, Application, and Domain layers.",
-      sv: "Frontend byggdes i React 19, TypeScript och Vite med Monaco Editor för kodskrivning och React Query för datahämtning. Backend byggdes i .NET 10 med ASP.NET Core Web API, EF Core och PostgreSQL. AI-genereringen hanteras via Azure OpenAI, medan Roslyn används för att kompilera och köra användarens C#-kod server-side. Projektet använder en tydlig lagerindelning mellan API, Application och Domain.",
+      en: "The frontend is React 19, TypeScript, and Vite with Monaco Editor for code input and React Query for data fetching. The backend is .NET 10, ASP.NET Core, EF Core, and PostgreSQL. Azure OpenAI generates scenarios as structured JSON, and Roslyn compiles and runs user-submitted C# code server-side. The backend is split into API, Application, and Domain layers.",
+      sv: "Frontend är React 19, TypeScript och Vite med Monaco Editor för kodinmatning och React Query för datahämtning. Backend är .NET 10, ASP.NET Core, EF Core och PostgreSQL. Azure OpenAI genererar scenarion som strukturerad JSON, och Roslyn kompilerar och kör användarens C#-kod server-side. Backend är uppdelad i API-, Application- och Domain-lager.",
     },
     goals: {
       en: [
@@ -154,16 +154,16 @@ export const projects: Project[] = [
     },
     results: {
       en: [
-        "A functioning adaptive coding platform where each session produces a unique AI-generated story arc",
-        "Demonstrated end-to-end integration: AI generation → frontend render → code submission → server-side evaluation → narrative branching",
-        "Hands-on experience combining AI integration, authentication, server-side code execution, database modelling, and modern frontend UX in one product",
-        "Demonstrates fullstack breadth and the ability to build a more advanced and concept-driven application",
+        "A working adaptive coding platform where each session produces a unique AI-generated story",
+        "Full integration from AI generation through frontend rendering to server-side code validation and narrative branching",
+        "Practical experience combining AI, authentication, Roslyn code execution, database modelling, and modern frontend in one product",
+        "The most technically complex project in my portfolio, showing fullstack breadth and the ability to connect multiple systems",
       ],
       sv: [
-        "En fungerande adaptiv kodplattform där varje session producerar ett unikt AI-genererat handlingsförlopp",
-        "Demonstrerad end-to-end-integration: AI-generering → frontend-rendering → kodinlämning → server-side-bedömning → narrativ förgrening",
-        "Praktisk erfarenhet av att kombinera AI-integration, autentisering, server-side kodexekvering, databasmodellering och modern frontend-UX i en och samma produkt",
-        "Visar fullstackbredd och förmåga att bygga en mer avancerad och idédriven applikation",
+        "En fungerande adaptiv kodplattform där varje session producerar en unik AI-genererad berättelse",
+        "Full integration från AI-generering genom frontend-rendering till server-side kodvalidering och narrativ förgrening",
+        "Praktisk erfarenhet av att kombinera AI, autentisering, Roslyn-kodexekvering, databasmodellering och modern frontend i en produkt",
+        "Det mest tekniskt komplexa projektet i min portfolio, som visar fullstackbredd och förmåga att koppla samman flera system",
       ],
     },
     nextSteps: {
@@ -197,8 +197,8 @@ export const projects: Project[] = [
       ],
     },
     whatILearned: {
-      en: "Building CodeQuest gave me hands-on experience combining several complex systems in a single product: AI-generated content pipelines, server-side code execution with Roslyn, session-based state management, and a modern in-browser IDE experience with Monaco Editor. I deepened my understanding of prompt engineering for structured JSON outputs, layered backend architecture in .NET, and the practical challenges of creating a truly adaptive user experience where backend remains the single source of truth.",
-      sv: "Att bygga CodeQuest gav mig praktisk erfarenhet av att kombinera flera komplexa system i en och samma produkt: AI-genererade innehållspipelines, server-side kodexekvering med Roslyn, sessionsbaserad tillståndshantering och en modern IDE-upplevelse i webbläsaren med Monaco Editor. Jag fördjupade min förståelse av prompt engineering för strukturerade JSON-utdata, lagerindelad backendarkitektur i .NET och de praktiska utmaningarna med att skapa en genuint adaptiv användarupplevelse där backend förblir den enda källan till sanning.",
+      en: "Building CodeQuest gave me hands-on experience connecting several complex systems in one product: AI content generation with structured JSON outputs, server-side code execution with Roslyn, session-based state management, and a browser-based IDE with Monaco Editor. I got a much better understanding of prompt engineering for predictable outputs, layered .NET architecture, and what it takes to make backend the single source of truth in an adaptive user experience.",
+      sv: "Att bygga CodeQuest gav mig praktisk erfarenhet av att koppla samman flera komplexa system i en produkt: AI-innehållsgenerering med strukturerade JSON-utdata, server-side kodexekvering med Roslyn, sessionsbaserad tillståndshantering och en webbläsarbaserad IDE med Monaco Editor. Jag fick mycket bättre förståelse för prompt engineering med förutsägbara utdata, lagerindelad .NET-arkitektur och vad som krävs för att göra backend till enda sanningskällan i en adaptiv användarupplevelse.",
     },
   },
 
@@ -212,8 +212,8 @@ export const projects: Project[] = [
       sv: "DeepDiveInfra – Self-hosted CI/CD- och Kubernetes-labb",
     },
     summary: {
-      en: "A self-hosted cloud-native style learning project focused on the delivery chain around a deliberately simple ASP.NET Core backend. The project demonstrates code → test → build → Docker → self-hosted deployment → Kubernetes runtime → Prometheus/Grafana observability.",
-      sv: "Ett self-hosted cloud-native-inspirerat lärandeprojekt med fokus på leveranskedjan runt en medvetet enkel ASP.NET Core-backend. Projektet demonstrerar kod → test → build → Docker → self-hosted deployment → Kubernetes-runtime → observability med Prometheus och Grafana.",
+      en: "A self-hosted infrastructure learning project. The application itself is a deliberately simple ASP.NET Core backend. The point is the delivery chain: CI/CD with GitHub Actions, Docker, a self-hosted runner, local Kubernetes with kind, and observability with Prometheus and Grafana.",
+      sv: "Ett self-hosted infrastrukturprojekt för lärande. Själva applikationen är en medvetet enkel ASP.NET Core-backend. Poängen är leveranskedjan: CI/CD med GitHub Actions, Docker, en self-hosted runner, lokal Kubernetes med kind, och observability med Prometheus och Grafana.",
     },
     image: "/projects/deepdive-infra/grafana-updated-dashboard-with-load.png",
     images: [
@@ -249,8 +249,8 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – leverans- och observability-fokuserat infrastrukturcase",
     },
     problem: {
-      en: "The main problem was not advanced domain logic. It was understanding what happens after code is written: how a backend moves from source code to a tested build, to a container, to a self-hosted deployment, to a Kubernetes runtime, to an observable workload. This project was built to close that gap by working through each layer hands-on.",
-      sv: "Huvudproblemet var inte avancerad domänlogik. Det handlade om att förstå vad som händer efter att koden är skriven: hur en backend går från källkod till testad build, till container, till self-hosted deployment, till Kubernetes-runtime, till en observerbar workload. Projektet byggdes för att täppa till det gapet genom att arbeta igenom varje lager praktiskt.",
+      en: "The problem I wanted to solve wasn't about domain logic. It was about understanding what happens after code is written: how a backend goes from source code to a tested build, to a container, to a deployed workload in Kubernetes, to something you can actually monitor. I built this project to work through each layer myself instead of just reading about it.",
+      sv: "Problemet jag ville lösa handlade inte om domänlogik. Det handlade om att förstå vad som händer efter att koden är skriven: hur en backend går från källkod till testad build, till container, till deployad workload i Kubernetes, till något man faktiskt kan övervaka. Jag byggde det här projektet för att arbeta igenom varje lager själv istället för att bara läsa om det.",
     },
     solution: {
       en: "The solution is a self-hosted local lab: a Windows host with WSL/Linux tooling, Docker Desktop, a kind cluster, GitHub Actions for build and test, a self-hosted runner for deployment, and Prometheus + Grafana for monitoring. The ASP.NET Core API uses SQLite and EF Core with automatic migrations on startup. The app itself remains intentionally small so the infrastructure and delivery chain stay in focus.",
@@ -330,23 +330,23 @@ export const projects: Project[] = [
     },
     results: {
       en: [
-        "Working CI/CD flow from GitHub push to deployed Kubernetes workload",
-        "Self-hosted deployment runner in a Linux environment",
-        "Running ASP.NET Core API inside a kind Kubernetes cluster",
-        "Visible metrics in Prometheus and Grafana dashboards",
-        "A portfolio-ready infrastructure case showing delivery, deployment, and observability understanding",
+        "Working CI/CD flow from GitHub push to deployed Kubernetes workload on my local machine",
+        "Self-hosted deployment runner configured in a Linux/WSL environment",
+        "ASP.NET Core API running inside a kind Kubernetes cluster",
+        "Metrics visible in Prometheus and Grafana dashboards",
+        "A concrete infrastructure case showing that I understand the delivery chain beyond just writing code",
       ],
       sv: [
-        "Fungerande CI/CD-flöde från GitHub-push till deployad Kubernetes-workload",
-        "Self-hosted deployment-runner i en Linux-miljö",
-        "Körande ASP.NET Core-API inuti ett kind Kubernetes-kluster",
-        "Synliga metrikar i Prometheus- och Grafana-dashboards",
-        "Ett portfolioklart infrastrukturcase som visar förståelse för leverans, deployment och observability",
+        "Fungerande CI/CD-flöde från GitHub-push till deployad Kubernetes-workload på min lokala maskin",
+        "Self-hosted deployment-runner konfigurerad i en Linux/WSL-miljö",
+        "ASP.NET Core-API körande inuti ett kind Kubernetes-kluster",
+        "Metrikar synliga i Prometheus- och Grafana-dashboards",
+        "Ett konkret infrastrukturcase som visar att jag förstår leveranskedjan bortom att bara skriva kod",
       ],
     },
     whatILearned: {
-      en: "This project clarified the difference between development, build, deploy, and runtime environments — and where problems happen between those layers. I learned why containers matter as deployable artifacts, what Kubernetes actually manages at the pod and service level, and how observability with Prometheus and Grafana makes even a simple system much easier to reason about. The biggest takeaway was that infrastructure understanding is a skill in itself, separate from writing application code.",
-      sv: "Det här projektet klargjorde skillnaden mellan utvecklings-, build-, deploy- och runtime-miljöer — och var problem uppstår mellan dessa lager. Jag lärde mig varför containrar spelar roll som deployerbara artefakter, vad Kubernetes faktiskt hanterar på pod- och tjänstnivå, och hur observability med Prometheus och Grafana gör även ett enkelt system mycket lättare att resonera kring. Den största insikten var att infrastrukturförståelse är en egen kompetens, skild från att skriva applikationskod.",
+      en: "This project made the difference between development, build, deploy, and runtime environments concrete for me. I learned why containers matter as deployment artifacts, what Kubernetes actually manages at the pod and service level, and how Prometheus and Grafana make even a simple system easier to understand. The biggest takeaway: infrastructure understanding is its own skill, separate from writing application code.",
+      sv: "Det här projektet gjorde skillnaden mellan utvecklings-, build-, deploy- och runtime-miljöer konkret för mig. Jag lärde mig varför containrar spelar roll som deployment-artefakter, vad Kubernetes faktiskt hanterar på pod- och tjänstnivå, och hur Prometheus och Grafana gör även ett enkelt system lättare att förstå. Största insikten: infrastrukturförståelse är en egen kompetens, skild från att skriva applikationskod.",
     },
     nextSteps: {
       en: [
@@ -374,8 +374,8 @@ export const projects: Project[] = [
       sv: "mek-bookings – Eventdriven bokningsmikrotjänst",
     },
     summary: {
-      en: "A collaborative learning project exploring event-driven microservices with Apache Kafka. This repository contains the bookings service and frontend, using ASP.NET Core, PostgreSQL, Kafka on Aiven, and Server-Sent Events to keep the UI updated in real time.",
-      sv: "Ett kollaborativt lärandeprojekt som utforskar eventdrivna mikrotjänster med Apache Kafka. Det här repot innehåller bokningstjänsten och frontenddelen, med ASP.NET Core, PostgreSQL, Kafka på Aiven och Server-Sent Events för att hålla UI:t uppdaterat i realtid.",
+      en: "A collaborative learning project exploring event-driven microservices with Apache Kafka. This repo contains the bookings service and frontend: ASP.NET Core, PostgreSQL, Kafka on Aiven, and Server-Sent Events for real-time UI updates.",
+      sv: "Ett kollaborativt lärandeprojekt som utforskar eventdrivna mikrotjänster med Apache Kafka. Det här repot innehåller bokningstjänsten och frontend: ASP.NET Core, PostgreSQL, Kafka på Aiven och Server-Sent Events för realtidsuppdateringar i UI.",
     },
     image: "/projects/mek-bookings/kafka-project-grafical.png",
     images: [
@@ -408,8 +408,8 @@ export const projects: Project[] = [
       sv: "Grupp om 3 i bookings-tjänsten, i samarbete med två andra team över delade Kafka-eventflöden",
     },
     problem: {
-      en: "The point of the project was to learn how independent services communicate asynchronously through events instead of direct tight coupling. The bookings service needed to persist booking data, publish booking events, react to external events from other services, and keep the frontend updated in real time.",
-      sv: "Syftet med projektet var att lära sig hur oberoende tjänster kommunicerar asynkront genom events istället för direkt tight coupling. Bokningstjänsten behövde persistera bokningsdata, publicera boknings-events, reagera på externa events från andra tjänster och hålla frontendet uppdaterat i realtid.",
+      en: "The goal was to learn how independent services communicate asynchronously through events instead of direct calls. The bookings service needed to store bookings, publish events to Kafka, react to events from other team's services, and push updates to the frontend in real time.",
+      sv: "Målet var att lära sig hur oberoende tjänster kommunicerar asynkront genom events istället för direktanrop. Bokningstjänsten behövde lagra bokningar, publicera events till Kafka, reagera på events från andra teams tjänster och pusha uppdateringar till frontend i realtid.",
     },
     solution: {
       en: "The bookings service stores data in PostgreSQL and publishes booking events to Kafka. Other services in the wider exercise react asynchronously. The service also consumes relevant external events and maps incoming changes back to booking state. An SSE endpoint pushes updates to connected frontend clients so the UI updates without manual refresh. The React + Vite + TypeScript frontend provides a practical UI for viewing and managing bookings.",
@@ -459,7 +459,7 @@ export const projects: Project[] = [
         "Configuring Kafka/Aiven connectivity and certificates",
         "Keeping frontend state in sync with SSE events",
         "Handling status mapping from external services",
-        "Avoiding duplicate processing and keeping consumers robust",
+        "Avoiding duplicate processing and keeping consumers reliable",
       ],
       sv: [
         "Samordna eventkontrakt mellan team som jobbar på olika tjänster",
@@ -502,8 +502,8 @@ export const projects: Project[] = [
       ],
     },
     whatILearned: {
-      en: "This project taught me how event-driven systems differ fundamentally from request/response thinking. I learned why contracts between services matter — especially when multiple teams need to agree on event schemas without tight coupling. I also saw firsthand how real-time UI updates can be driven directly from backend events via SSE, and how distributed systems introduce debugging and state-consistency challenges that don't exist in monolithic setups.",
-      sv: "Det här projektet lärde mig hur eventdrivna system skiljer sig fundamentalt från request/response-tänkande. Jag lärde mig varför kontrakt mellan tjänster spelar roll — särskilt när flera team behöver enas om event-scheman utan tight coupling. Jag fick också se på nära håll hur realtidsuppdateringar i UI kan drivas direkt från backend-events via SSE, och hur distribuerade system introducerar debugging- och tillståndskonsistensutmaningar som inte finns i monolitiska upplägg.",
+      en: "This project taught me how event-driven systems differ from request/response thinking. I learned why contracts between services matter, especially when multiple teams need to agree on event schemas without tight coupling. I also saw how real-time UI updates can be driven from backend events via SSE, and how distributed systems introduce state-consistency challenges that don't exist in a monolith.",
+      sv: "Det här projektet lärde mig hur eventdrivna system skiljer sig från request/response-tänkande. Jag lärde mig varför kontrakt mellan tjänster spelar roll, särskilt när flera team behöver enas om event-scheman utan tight coupling. Jag fick också se hur realtidsuppdateringar i UI kan drivas från backend-events via SSE, och hur distribuerade system introducerar tillståndskonsistensutmaningar som inte finns i en monolit.",
     },
     nextSteps: {
       en: [
@@ -555,18 +555,18 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – design, utveckling och driftsättning",
     },
     problem: {
-      en: "A friend needed a clean, fast portfolio site to showcase videography and photography work to potential clients. The site had to look professional, load quickly, and be easy to update.",
-      sv: "En vän behövde en snygg och snabb portfolio­sajt för att visa upp videografi och fotografi­arbeten för potentiella kunder. Sajten måste se professionell ut, ladda snabbt och vara enkel att uppdatera.",
+      en: "A friend needed a clean, fast portfolio site to show videography and photography work to potential clients. It had to look good, load fast, and be easy to update later.",
+      sv: "En vän behövde en snygg och snabb portfoliosajt för att visa upp videografi och fotografi för potentiella kunder. Den behövde se bra ut, ladda snabbt och vara enkel att uppdatera senare.",
     },
     goals: {
       en: [
-        "Ship a production-ready portfolio in a short timeframe",
+        "Ship a working portfolio site in a short timeframe",
         "Achieve good Core Web Vitals (LCP, CLS, FID)",
         "Make images and media feel crisp and fast on all devices",
         "Keep the codebase maintainable for future updates",
       ],
       sv: [
-        "Lansera en produktionsklar portfolio inom kort tid",
+        "Lansera en fungerande portfoliosajt inom kort tid",
         "Uppnå goda Core Web Vitals (LCP, CLS, FID)",
         "Se till att bilder och media känns snabba och skarpa på alla enheter",
         "Hålla kodbasen underhållbar för framtida uppdateringar",
@@ -854,8 +854,8 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – universitetskursprojekt på Högskolan Väst",
     },
     problem: {
-      en: "A small craft business had no online presence. The university course required building a site with strong SEO fundamentals to drive organic discovery.",
-      sv: "Ett litet hantverksföretag hade ingen online-närvaro. Universitetskursen krävde att bygga en webbplats med starka SEO-grunder för att driva organisk synlighet.",
+      en: "Course assignment: build a site for a small craft business with strong SEO fundamentals. The business had no online presence, and the goal was to practice technical SEO and semantic HTML.",
+      sv: "Kursuppgift: bygga en sajt åt ett litet hantverksföretag med starka SEO-grunder. Företaget hade ingen online-närvaro, och målet var att öva teknisk SEO och semantisk HTML.",
     },
     goals: {
       en: [
@@ -933,8 +933,8 @@ export const projects: Project[] = [
       sv: "TrainMateX Vision",
     },
     summary: {
-      en: "Fullstack training app built with React 19 + TanStack Router on the front and ASP.NET Core / .NET 9 on the back. Clerk handles auth; every API endpoint is JWT-protected. The backend follows a clean four-layer architecture (API / Application / Domain / Infrastructure) with full CRUD for training programs, workouts, and exercises.",
-      sv: "Fullstack-träningsapp med React 19 + TanStack Router i fronten och ASP.NET Core / .NET 9 i backen. Clerk hanterar autentisering och varje API-endpoint skyddas med JWT. Backend följer en ren fyrlagerarkitektur (API / Application / Domain / Infrastructure) med full CRUD för träningsprogram, pass och övningar.",
+      en: "Fullstack training app with React 19 + TanStack Router on the front and ASP.NET Core / .NET 9 on the back. Clerk handles auth, every API endpoint is JWT-protected. The backend uses a four-layer architecture with full CRUD for training programs, workouts, and exercises.",
+      sv: "Fullstack-träningsapp med React 19 + TanStack Router i fronten och ASP.NET Core / .NET 9 i backen. Clerk hanterar autentisering och varje API-endpoint skyddas med JWT. Backend använder en fyrlagerarkitektur med full CRUD för träningsprogram, pass och övningar.",
     },
     image: "/TrainMateX-Welcome-Page.png",
     images: [
@@ -973,8 +973,8 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – fullstack design och implementation",
     },
     problem: {
-      en: "I wanted to build something that demonstrated the full stack from Clerk auth through to a properly layered .NET API — not a toy project, but something close to how a real feature would be structured. TrainMateX Vision covers the complete flow: user registers and logs in via Clerk, receives a JWT, and that token gates every backend endpoint. The domain is workout management — programs, sessions, and exercises — because it's concrete enough to make the data model meaningful.",
-      sv: "Jag ville bygga något som demonstrerade hela stacken från Clerk-auth till ett ordentligt lagerindelat .NET API — inte ett lekprojekt, utan något nära hur en riktig feature skulle struktureras. TrainMateX Vision täcker hela flödet: användaren registrerar sig och loggar in via Clerk, får ett JWT och det tokenet låser varje backend-endpoint. Domänen är träningshantering — program, pass och övningar — för att det är konkret nog att göra datamodellen meningsfull.",
+      en: "I wanted to build something that demonstrated the full stack from auth to database, not a toy project but something structured the way a real feature would be. TrainMateX Vision covers the complete flow: user registers via Clerk, gets a JWT, and that token protects every backend endpoint. The domain is workout management (programs, sessions, exercises) because it's concrete enough to make the data model meaningful.",
+      sv: "Jag ville bygga något som visade hela stacken från autentisering till databas, inte ett lekprojekt utan något strukturerat som en riktig feature. TrainMateX Vision täcker hela flödet: användaren registrerar sig via Clerk, får ett JWT, och det tokenet skyddar varje backend-endpoint. Domänen är träningshantering (program, pass, övningar) för att det är tillräckligt konkret för att göra datamodellen meningsfull.",
     },
     solution: {
       en: "The frontend was built with React 19, TypeScript, Vite, Tailwind CSS v4, TanStack Router for type-safe routing, and TanStack React Query for server state management. Clerk handles authentication, issuing JWTs consumed by the backend. The backend is an ASP.NET Core Web API built with C# / .NET 9, EF Core, and SQL Server, organized into API, Application, Domain, and Infrastructure layers. All endpoints are JWT-protected with a CORS policy, and the API exposes training programs, workouts, workout exercises, an exercise catalog, and user profile management.",
@@ -1001,19 +1001,19 @@ export const projects: Project[] = [
       ],
     },
     whatILearned: {
-      en: "Wiring Clerk JWT tokens into the ASP.NET Core middleware pipeline looked simple on paper but required careful configuration around CORS and token validation. The layered architecture paid off quickly — keeping Application and Domain free of infrastructure concerns made it easy to extend the feature set without touching existing logic. TanStack Router and React Query together give the frontend a level of structure that plain React with useEffect doesn't.",
-      sv: "Att koppla Clerk JWT-tokens till ASP.NET Core-middleware verkade enkelt på papper men krävde noggrann konfiguration kring CORS och tokenvalidering. Den lagerindelade arkitekturen lönade sig snabbt — att hålla Application och Domain fria från infrastrukturbekymmer gjorde det enkelt att utöka funktioner utan att röra befintlig logik. TanStack Router och React Query tillsammans ger frontendet en struktur som plain React med useEffect inte ger.",
+      en: "Wiring Clerk JWT tokens into the ASP.NET Core middleware looked simple on paper but required careful configuration around CORS and token validation. The layered architecture paid off quickly: keeping Application and Domain free of infrastructure concerns made it easy to add features without touching existing logic. TanStack Router and React Query together give the frontend a level of structure that plain React with useEffect doesn't provide.",
+      sv: "Att koppla Clerk JWT-tokens till ASP.NET Core-middleware såg enkelt ut på papper men krävde noggrann konfiguration kring CORS och tokenvalidering. Den lagerindelade arkitekturen lönade sig snabbt: att hålla Application och Domain fria från infrastruktur gjorde det enkelt att lägga till funktioner utan att röra befintlig logik. TanStack Router och React Query tillsammans ger frontend en struktur som plain React med useEffect inte ger.",
     },
     goals: {
       en: [
-        "Build a production-relevant fullstack app demonstrating layered backend architecture",
+        "Build a fullstack app that demonstrates layered backend architecture in practice",
         "Integrate Clerk authentication with a JWT-protected ASP.NET Core API",
         "Implement CRUD flows for training programs, workouts, and exercises",
         "Use TanStack Router and React Query for a modern, type-safe frontend",
         "Deploy with GitHub Actions for automated CI/CD",
       ],
       sv: [
-        "Bygga en produktionsrelevant fullstack-app som demonstrerar lagerindelad backend-arkitektur",
+        "Bygga en fullstack-app som visar lagerindelad backend-arkitektur i praktiken",
         "Integrera Clerk-autentisering med ett JWT-skyddat ASP.NET Core API",
         "Implementera CRUD-flöden för träningsprogram, pass och övningar",
         "Använda TanStack Router och React Query för en modern, typsäker frontend",
@@ -1036,10 +1036,10 @@ export const projects: Project[] = [
     },
     keyDecisions: {
       en: [
-        "Clerk for authentication – battle-tested auth provider with straightforward JWT integration",
+        "Clerk for authentication – well-established auth provider with straightforward JWT integration",
         "TanStack Router for type-safe, file-based routing in React",
         "Layered backend architecture (API / Application / Domain / Infrastructure) for maintainability",
-        "EF Core + SQL Server for familiar, robust .NET persistence",
+        "EF Core + SQL Server for familiar, well-supported .NET persistence",
         "GitHub Actions for automatic CI/CD deployment",
       ],
       sv: [
@@ -1053,15 +1053,15 @@ export const projects: Project[] = [
     results: {
       en: [
         "A complete fullstack app with Clerk auth, protected API endpoints, and full CRUD for workouts and training programs",
-        "Demonstrated end-to-end integration: React frontend → Clerk JWT → ASP.NET Core API → SQL Server",
-        "Clean layered backend architecture ready for further expansion",
-        "Hands-on experience with TanStack Router and TanStack React Query in a real product",
+        "Working integration across all layers: React frontend, Clerk JWT, ASP.NET Core API, SQL Server",
+        "Clean layered backend architecture that's easy to extend",
+        "Practical experience with TanStack Router and TanStack React Query in a real project",
       ],
       sv: [
         "En komplett fullstack-app med Clerk-auth, skyddade API-endpoints och full CRUD för träningspass och program",
-        "Demonstrerad end-to-end-integration: React-frontend → Clerk JWT → ASP.NET Core API → SQL Server",
-        "Ren lagerindelad backend-arkitektur redo för vidare expansion",
-        "Praktisk erfarenhet av TanStack Router och TanStack React Query i en riktig produkt",
+        "Fungerande integration över alla lager: React-frontend, Clerk JWT, ASP.NET Core API, SQL Server",
+        "Ren lagerindelad backend-arkitektur som är enkel att bygga vidare på",
+        "Praktisk erfarenhet av TanStack Router och TanStack React Query i ett riktigt projekt",
       ],
     },
     nextSteps: {
@@ -1088,8 +1088,8 @@ export const projects: Project[] = [
       sv: "sqs-mini – Eventdriven Pipeline",
     },
     summary: {
-      en: "Backend project demonstrating an event-driven pipeline: a Minimal API publishes messages to an AWS SQS queue; a .NET Worker Service consumes them with long polling, processes them idempotently, and routes failures to a DLQ. Infrastructure is provisioned in C# via Pulumi.",
-      sv: "Backend-projekt som demonstrerar en eventdriven pipeline: ett Minimal API publicerar meddelanden till en AWS SQS-kö; en .NET Worker Service konsumerar dem med long polling, behandlar dem idempotent och routar fel till en DLQ. Infrastrukturen provisioneras i C# via Pulumi.",
+      en: "Backend project showing an event-driven pipeline: a Minimal API publishes messages to AWS SQS, a .NET Worker Service consumes them with long polling and idempotent processing, and failures route to a DLQ. Infrastructure is provisioned in C# via Pulumi.",
+      sv: "Backend-projekt som visar en eventdriven pipeline: ett Minimal API publicerar meddelanden till AWS SQS, en .NET Worker Service konsumerar dem med long polling och idempotent bearbetning, och misslyckanden routas till en DLQ. Infrastrukturen provisioneras i C# via Pulumi.",
     },
     image: "/SqsPipeline1.png",
     images: [
@@ -1125,8 +1125,8 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – backend och infrastrukturdesign",
     },
     problem: {
-      en: "Message queues, retries, and idempotent consumers are patterns I kept seeing in backend architecture discussions but hadn't built from scratch. sqs-mini is my working implementation of the full flow: a Minimal API publishes a message to SQS, a Worker Service picks it up, processes it once (SQLite keeps track of seen message IDs), and anything that fails enough times lands in the DLQ. Pulumi provisions the whole AWS setup in C# — same language as the rest of the project.",
-      sv: "Meddelandeköer, retries och idempotenta konsumenter är mönster jag stötte på gång på gång i backend-arkitekturdiskussioner men aldrig byggt från grunden. sqs-mini är min fungerande implementation av hela flödet: ett Minimal API publicerar ett meddelande till SQS, en Worker Service hämtar det, behandlar det en gång (SQLite håller koll på redan sedda meddelande-ID:n) och allt som misslyckas tillräckligt många gånger hamnar i DLQ:n. Pulumi provisionerar hela AWS-uppsättningen i C# — samma språk som resten av projektet.",
+      en: "Message queues, retries, and idempotent consumers are patterns I kept seeing in backend discussions but hadn't built from scratch. sqs-mini is my working implementation of the full flow: a Minimal API publishes to SQS, a Worker Service picks it up, processes it once (SQLite tracks seen message IDs), and anything that fails enough times goes to the DLQ. Pulumi provisions the AWS setup in C#, the same language as the rest of the project.",
+      sv: "Meddelandeköer, retries och idempotenta konsumenter är mönster jag stötte på gång på gång i backend-diskussioner men aldrig byggt själv. sqs-mini är min fungerande implementation av hela flödet: ett Minimal API publicerar till SQS, en Worker Service hämtar det, bearbetar det en gång (SQLite håller koll på sedda meddelande-ID:n), och allt som misslyckas tillräckligt många gånger hamnar i DLQ. Pulumi provisionerar AWS-uppsättningen i C#, samma språk som resten av projektet.",
     },
     solution: {
       en: "The project is composed of two .NET applications: a Minimal API (`SessionApi`) acting as the message producer, and a Worker Service (`BillingWorker`) acting as the consumer. The infrastructure – an SQS Standard Queue and its DLQ – is provisioned using Pulumi in C#. The worker uses long polling to efficiently receive messages, processes them idempotently using a SQLite store to track already-handled message IDs, and lets SQS handle retries and DLQ routing for unprocessable messages. Runtime configuration is environment-based to keep credentials and queue URLs out of source code.",
@@ -1176,14 +1176,14 @@ export const projects: Project[] = [
     },
     results: {
       en: [
-        "A working end-to-end event-driven pipeline: API publishes → SQS delivers → Worker consumes → DLQ catches failures",
+        "A working event-driven pipeline: API publishes to SQS, Worker consumes, DLQ catches failures",
         "Infrastructure fully reproducible with a single Pulumi command",
-        "Demonstrated understanding of distributed systems patterns: idempotency, retries, DLQ, at-least-once delivery",
+        "Practical understanding of distributed systems patterns: idempotency, retries, DLQ, at-least-once delivery",
       ],
       sv: [
-        "En fungerande end-to-end eventdriven pipeline: API publicerar → SQS levererar → Worker konsumerar → DLQ fångar fel",
+        "En fungerande eventdriven pipeline: API publicerar till SQS, Worker konsumerar, DLQ fångar fel",
         "Infrastruktur fullt reproducerbar med ett enda Pulumi-kommando",
-        "Demonstrerad förståelse för distribuerade systemmönster: idempotens, retries, DLQ, at-least-once delivery",
+        "Praktisk förståelse för distribuerade systemmönster: idempotens, retries, DLQ, at-least-once delivery",
       ],
     },
     nextSteps: {
@@ -1210,8 +1210,8 @@ export const projects: Project[] = [
       sv: "Postman Clone",
     },
     summary: {
-      en: "A desktop tooling project built with C# and WinForms for making HTTP requests and viewing JSON responses. Created as a learning project to explore desktop development, API calls, and the workflow behind API testing tools.",
-      sv: "Postman Clone är ett desktop-baserat verktygsprojekt i C# och WinForms för att skicka HTTP-anrop och visa JSON-svar. Projektet byggdes som ett lärandeprojekt för att utforska desktoputveckling, API-anrop och arbetsflödet bakom verktyg för API-testning.",
+      en: "A desktop tool built with C# and WinForms for sending HTTP requests and viewing JSON responses. Built as a learning project to explore desktop development and understand how API testing tools work under the hood.",
+      sv: "Ett desktop-verktyg byggt med C# och WinForms för att skicka HTTP-anrop och visa JSON-svar. Byggt som ett lärandeprojekt för att utforska desktoputveckling och förstå hur API-testverktyg fungerar under huven.",
     },
     image: "/PostmanClone1.png",
     images: [
@@ -1244,8 +1244,8 @@ export const projects: Project[] = [
       sv: "Ensam utvecklare – lärandeprojekt",
     },
     problem: {
-      en: "As a web-focused developer, I wanted to explore WinForms desktop development and deepen my understanding of how HTTP clients work under the hood. Building a simplified Postman-style tool was a practical way to combine both: building a desktop UI and understanding the workflow behind API testing tools. This project was inspired by a tutorial and built as a learning exercise.",
-      sv: "Som webbutvecklare ville jag utforska WinForms desktop-utveckling och fördjupa min förståelse för hur HTTP-klienter fungerar under huven. Att bygga ett förenklat Postman-liknande verktyg var ett praktiskt sätt att kombinera båda: bygga ett desktop-UI och förstå arbetsflödet bakom API-testningsverktyg. Projektet byggdes inspirerat av en tutorial och som ett lärandeövning.",
+      en: "As a web-focused developer, I wanted to try WinForms desktop development and understand how HTTP clients work at a lower level. Building a simplified Postman-style tool was a practical way to do both: build a desktop UI and understand the mechanics behind API testing tools. This project was inspired by a tutorial and built as a learning exercise.",
+      sv: "Som webbutvecklare ville jag testa WinForms desktoputveckling och förstå hur HTTP-klienter fungerar på en lägre nivå. Att bygga ett förenklat Postman-liknande verktyg var ett praktiskt sätt att göra båda sakerna: bygga ett desktop-UI och förstå mekaniken bakom API-testverktyg. Projektet inspirerades av en tutorial och byggdes som en lärandeövning.",
     },
     solution: {
       en: "The application is a WinForms desktop app built in C# / .NET 10. It provides a UI for selecting the HTTP method (GET, POST, PUT, DELETE), entering a URL, optionally providing a request body, and viewing the formatted JSON response. HttpClient handles the actual HTTP communication. The focus was on understanding desktop UI patterns, event-driven WinForms programming, and correct use of HttpClient for API calls.",

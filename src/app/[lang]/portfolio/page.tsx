@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     ? "Portfolio – Marcus Grönnå | Fullstack .NET-utvecklare"
     : "Portfolio – Marcus Grönnå | Fullstack .NET Developer";
   const description = isSv
-    ? "Projekt och fallstudier av Marcus Grönnå — C# / .NET / React / Azure. Inkluderar AI-integrerade appar, fullstack-webprodukter och molninfrastrukturarbete."
-    : "Projects and case studies by Marcus Grönnå — C# / .NET / React / Azure. Includes AI-integrated apps, fullstack web products, and cloud infrastructure work.";
+    ? "Projekt och fallstudier av Marcus Grönnå. C#, .NET, React, Azure. AI-integrerade appar, fullstack-webbprodukter och infrastrukturarbete."
+    : "Projects and case studies by Marcus Grönnå. C#, .NET, React, Azure. AI-integrated apps, fullstack web products, and infrastructure work.";
   const url = `${site.url}/${lang}/portfolio`;
 
   return {

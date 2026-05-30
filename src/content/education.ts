@@ -24,8 +24,8 @@ export const education: EducationItem[] = [
     },
     year: "01/2026",
     description: {
-      en: "Intensive three-month programme in fullstack web development with a focus on TDD, mob programming, and hands-on applied learning.",
-      sv: "Intensivt, tre månader långt utbildningsprogram i fullstack webbutveckling med fokus på TDD, mob-programmering och praktiskt tillämpat lärande.",
+      en: "Intensive three-month programme in fullstack web development. Focus on TDD, mob programming, and building real applications from day one.",
+      sv: "Intensivt tremånadersprogram i fullstack webbutveckling. Fokus på TDD, mob-programmering och att bygga riktiga applikationer från dag ett.",
     },
   },
   {
@@ -41,7 +41,7 @@ export const education: EducationItem[] = [
     year: "2023 – 2025",
     description: {
       en: "Two-year programme covering frontend, backend, Linux administration, UI/UX, security, mobile web development, and project-based work. Based on University West's AIL profile (work-integrated learning).",
-      sv: "Tvåårigt program om 120 hp som kombinerar frontend, backend, Linuxadministration, UX/UI, säkerhet, mobil webbutveckling och projektbaserat arbete. Utgår från Högskolan Västs AIL-profil (arbets­integrerat lärande).",
+      sv: "Tvåårigt program som kombinerar frontend, backend, Linuxadministration, UX/UI, säkerhet, mobil webbutveckling och projektbaserat arbete. Utgår från Högskolan Västs AIL-profil (arbetsintegrerat lärande).",
     },
   },
   {
@@ -54,7 +54,7 @@ export const education: EducationItem[] = [
     year: "2025",
     description: {
       en: "Qualitative study on how dark design patterns affect user experience and trust on the web.",
-      sv: "Kvalitativ studie av hur mörka designmönster påverkar användar­upplevelse och förtroende på webben.",
+      sv: "Kvalitativ studie av hur mörka designmönster påverkar användarupplevelse och förtroende på webben.",
     },
   },
   {
@@ -82,8 +82,8 @@ export const education: EducationItem[] = [
     },
     year: "2010 – 2011",
     description: {
-      en: "Vocational training focused on safety, responsibility, regulations, and operational decision-making in complex environments. Laid the foundation for a methodical way of working, high precision, and the ability to act calmly and correctly under pressure.",
-      sv: "Yrkesutbildning med fokus på säkerhet, ansvar, regelverk och operativt beslutsfattande i komplexa miljöer. Lade grunden för ett metodiskt arbetssätt, hög precision och förmågan att agera lugnt och korrekt under press.",
+      en: "Vocational training in safety, regulations, and operational decision-making. Foundation for working methodically and staying calm under pressure.",
+      sv: "Yrkesutbildning i säkerhet, regelverk och operativt beslutsfattande. Grund för att arbeta metodiskt och hålla lugnet under press.",
     },
   },
   {
@@ -98,8 +98,8 @@ export const education: EducationItem[] = [
     },
     year: "2020 – 2023",
     description: {
-      en: "Education focused on health, behaviour change, pedagogy, and sustainable performance. Provided a strong foundation for understanding human development, motivation, and well-being, and how theory can be applied in practice. Forms the basis for certification as a personal trainer and health educator.",
-      sv: "Utbildning med fokus på hälsa, beteendeförändring, pedagogik och hållbar prestation. Gav en stark grund i att förstå människors utveckling, motivation och välmående, samt hur teori kan omsättas i praktiskt arbete. Ligger till grund för legitimation som personlig tränare och hälsopedagog.",
+      en: "Three-year degree focused on health, behaviour change, pedagogy, and human performance. Gave me a foundation in coaching, motivation, and applying theory in practice. Basis for certification as a personal trainer.",
+      sv: "Treårig examen med fokus på hälsa, beteendeförändring, pedagogik och mänsklig prestation. Gav mig en grund i coachning, motivation och att omsätta teori i praktik. Grund för legitimation som personlig tränare.",
     },
   },
   {
@@ -121,8 +121,8 @@ export const education: EducationItem[] = [
     program: { en: "National PT License", sv: "Nationell PT-licens" },
     year: "2023",
     description: {
-      en: "License confirming professional competence according to the Active Sweden standard and enhances employability as a personal trainer.",
-      sv: "Licens som bekräftar professionell kompetens enligt Active Sweden-standarden och stärker anställningsbarheten som personlig tränare.",
+      en: "Professional certification according to the Active Sweden standard for personal trainers.",
+      sv: "Professionell certifiering enligt Active Sweden-standarden för personliga tränare.",
     },
   },
 ];

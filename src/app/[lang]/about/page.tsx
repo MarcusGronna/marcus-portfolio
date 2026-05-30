@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     ? "Om Marcus Grönnå – Fullstack .NET-utvecklare"
     : "About Marcus Grönnå – Fullstack .NET Developer";
   const description = isSv
-    ? "Lär känna Marcus Grönnå — fullstack .NET-utvecklare i Stockholm. C# / .NET / React / Azure, med 12 år i säkerhetskritisk verksamhet."
-    : "Learn about Marcus Grönnå — fullstack .NET developer in Stockholm. Background in C# / .NET / React / Azure, with 12 years in safety-critical operations.";
+    ? "Lär känna Marcus Grönnå. Fullstack .NET-utvecklare i Stockholm. C#, .NET, React, Azure, med 14 år i säkerhetskritisk verksamhet."
+    : "Learn about Marcus Grönnå. Fullstack .NET developer in Stockholm. C#, .NET, React, Azure, with 14 years in safety-critical operations.";
   const url = `${site.url}/${lang}/about`;
 
   return {

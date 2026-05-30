@@ -15,7 +15,7 @@ export function personJsonLd() {
     email: site.email,
     jobTitle: "Fullstack .NET Developer",
     description:
-      "Fullstack .NET developer in Stockholm — C# / .NET / React / Azure. Building backends, frontends, and AI-integrated systems.",
+      "Fullstack .NET developer in Stockholm. C#, .NET, React, TypeScript, Azure. Builds web applications with a focus on clear architecture and practical AI integration.",
     address: { "@type": "PostalAddress", addressLocality: "Stockholm", addressCountry: "SE" },
     sameAs: [
       "https://github.com/MarcusGronna",

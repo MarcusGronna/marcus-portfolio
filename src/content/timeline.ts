@@ -33,8 +33,8 @@ export const timelineEntries: TimelineEntry[] = [
     startMonth: 2,
     endYear: null,
     summary: {
-      en: "Working as a fullstack .NET consultant delivering end-to-end solutions in agile teams, with a strong focus on code quality, structure, and long-term maintainability.",
-      sv: "Arbetar som fullstack .NET-konsult och levererar end-to-end-lösningar i agila team med stark betoning på kodkvalitet, struktur och hållbara lösningar.",
+      en: "Building fullstack .NET applications in agile teams. Working across backend, frontend, and deployment with a focus on readable code and clear architecture.",
+      sv: "Bygger fullstack .NET-applikationer i agila team. Jobbar över backend, frontend och deployment med fokus på läsbar kod och tydlig arkitektur.",
     },
   },
   {
@@ -48,8 +48,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2026,
     endMonth: 1,
     summary: {
-      en: "Designed individualised training programmes and coached clients in strength, conditioning, and health. Built strong communication skills and the ability to create trust and long-term commitment.",
-      sv: "Utformade individanpassade träningsupplägg och coachade klienter inom styrka, kondition och hälsa. Byggde stark kommunikativ förmåga och vana att skapa förtroende och långsiktighet.",
+      en: "Designed training programs and coached clients in strength and health. Built experience in clear communication, trust, and supporting long-term behaviour change.",
+      sv: "Utformade träningsprogram och coachade klienter inom styrka och hälsa. Fick erfarenhet av tydlig kommunikation, förtroende och att stödja långsiktig beteendeförändring.",
     },
   },
   {
@@ -66,8 +66,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2025,
     endMonth: 10,
     summary: {
-      en: "Safety-critical environment demanding precision, responsibility, and sound decision-making. Handled complex operational situations with calmness, accuracy, and an unwavering focus on safety.",
-      sv: "Säkerhetskritisk miljö med höga krav på precision, ansvar och beslutsfattande. Hanterade komplexa driftsituationer med lugn, noggrannhet och starkt fokus på säkerhet.",
+      en: "Operated commuter trains in Stockholm with strict safety requirements. Made real-time decisions under time pressure with direct consequences for passengers and traffic.",
+      sv: "Körde pendeltåg i Stockholm med strikta säkerhetskrav. Fattade realtidsbeslut under tidspress med direkta konsekvenser för passagerare och trafik.",
     },
   },
   {
@@ -84,8 +84,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2023,
     endMonth: 12,
     summary: {
-      en: "Safety-critical environment demanding precision, responsibility, and sound decision-making. Handled complex operational situations with calmness, accuracy, and an unwavering focus on safety.",
-      sv: "Säkerhetskritisk miljö med höga krav på precision, ansvar och beslutsfattande. Hanterade komplexa driftsituationer med lugn, noggrannhet och starkt fokus på säkerhet.",
+      en: "Over five years on the Stockholm commuter rail network, handling daily operations in a high-frequency system. Developed routines for sustained focus and correct decision-making in safety-critical conditions.",
+      sv: "Över fem år på Stockholms pendeltågsnät med daglig drift i ett högfrekvent system. Utvecklade rutiner för uthålligt fokus och korrekt beslutsfattande i säkerhetskritiska förhållanden.",
     },
   },
   {
@@ -99,8 +99,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2018,
     endMonth: 2,
     summary: {
-      en: "Combined operational train driving with responsibility for supervising and training new drivers. Developed clear communication, mentoring ability, and a strong sense of responsibility for quality.",
-      sv: "Kombinerade operativt arbete som lokförare med ansvar för handledning och utbildning av nya förare. Utvecklade tydlig kommunikation, mentorförmåga och ansvar för kvalitet i genomförandet.",
+      en: "Combined daily train operations with training and supervising new drivers. Learned to explain procedures clearly and take responsibility for someone else's learning.",
+      sv: "Kombinerade daglig tågkörning med utbildning och handledning av nya förare. Lärde mig att förklara procedurer tydligt och ta ansvar för andras lärande.",
     },
   },
   {
@@ -114,8 +114,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2013,
     endMonth: 4,
     summary: {
-      en: "Worked as a consultant across several operators, adapting quickly to new environments and ways of working. Built strong flexibility, professionalism, and reliability in varied contexts.",
-      sv: "Arbetade som konsult hos flera operatörer och anpassade mig snabbt till nya miljöer och arbetssätt. Byggde flexibilitet, professionalism och förmåga att leverera tryggt i nya sammanhang.",
+      en: "Consulting train driver across multiple operators. Adapted quickly to different systems and procedures, and learned early how to be reliable in unfamiliar environments.",
+      sv: "Konsultlokförare hos flera operatörer. Anpassade mig snabbt till olika system och rutiner, och lärde mig tidigt att vara pålitlig i okända miljöer.",
     },
   },
 
@@ -134,8 +134,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2026,
     endMonth: 1,
     summary: {
-      en: "Intensive three-month programme in fullstack web development with a focus on TDD, mob programming, and hands-on applied learning.",
-      sv: "Intensivt tre månader långt program i fullstack webbutveckling med fokus på TDD, mob-programmering och praktiskt tillämpat lärande.",
+      en: "Intensive three-month programme in fullstack web development. Focus on TDD, mob programming, and building real applications from day one.",
+      sv: "Intensivt tremånadersprogram i fullstack webbutveckling. Fokus på TDD, mob-programmering och att bygga riktiga applikationer från dag ett.",
     },
   },
   {
@@ -191,8 +191,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2025,
     endMonth: 6,
     summary: {
-      en: "Two-year programme covering frontend, backend, Linux administration, UI/UX, security, mobile web development, and project-based work (AIL – work-integrated learning).",
-      sv: "Tvåårigt program om 120 hp med frontend, backend, Linuxadministration, UX/UI, säkerhet, mobil webbutveckling och projektbaserat arbete (AIL – arbetsintegrerat lärande).",
+      en: "Two-year programme covering frontend, backend, Linux administration, UI/UX, security, mobile web development, and project-based work (AIL profile).",
+      sv: "Tvåårigt program med frontend, backend, Linuxadministration, UX/UI, säkerhet, mobil webbutveckling och projektbaserat arbete (AIL-profil).",
     },
   },
   {
@@ -227,8 +227,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2023,
     endMonth: 5,
     summary: {
-      en: "License confirming professional competence according to the Active Sweden standard, strengthening employability as a personal trainer.",
-      sv: "Licens som bekräftar professionell kompetens enligt Active Sweden-standarden och stärker anställningsbarheten som personlig tränare.",
+      en: "Professional certification according to the Active Sweden standard for personal trainers.",
+      sv: "Professionell certifiering enligt Active Sweden-standarden för personliga tränare.",
     },
   },
   {
@@ -248,8 +248,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2023,
     endMonth: 6,
     summary: {
-      en: "Education focused on health, behaviour change, pedagogy, and sustainable performance. Provided a strong foundation for understanding human development, motivation, and well-being.",
-      sv: "Utbildning med fokus på hälsa, beteendeförändring, pedagogik och hållbar prestation. Gav en stark grund i att förstå människors utveckling, motivation och välmående.",
+      en: "Three-year degree focused on health, behaviour change, pedagogy, and human performance. Gave me a strong foundation in coaching, motivation, and applying theory in practice.",
+      sv: "Treårig examen med fokus på hälsa, beteendeförändring, pedagogik och mänsklig prestation. Gav en stark grund i coachning, motivation och att omsätta teori i praktik.",
     },
   },
   {
@@ -261,8 +261,8 @@ export const timelineEntries: TimelineEntry[] = [
     startYear: 2010,
     endYear: 2011,
     summary: {
-      en: "Vocational training focused on safety, responsibility, regulations, and operational decision-making in complex environments. Foundation for a methodical, high-precision way of working.",
-      sv: "Yrkesutbildning med fokus på säkerhet, ansvar, regelverk och operativt beslutsfattande i komplexa miljöer. Grund för ett metodiskt, precisionsinriktat arbetssätt.",
+      en: "Vocational training in safety, regulations, and operational decision-making. Foundation for a methodical way of working under pressure.",
+      sv: "Yrkesutbildning i säkerhet, regelverk och operativt beslutsfattande. Grund för ett metodiskt arbetssätt under press.",
     },
   },
 ];

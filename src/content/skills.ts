@@ -51,7 +51,7 @@ export const skillCategories: SkillCategory[] = [
     items: [
       "AI integration",
       "Fullstack product development",
-      "Architecture thinking",
+      "System design and architecture",
       "Cloud / deployment workflows",
       "Modern API design",
     ],
