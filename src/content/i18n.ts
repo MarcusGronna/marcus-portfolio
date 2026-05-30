@@ -9,7 +9,7 @@ export const dict = {
     skills: "Skills",
     contact: "Contact",
     contactSubtitle:
-      "If you have a .NET role, a consulting project, or just want to talk tech — email is the fastest way to reach me. I reply within a day or two.",
+      "If you have a .NET role, a consulting project, or just want to talk tech, email is the fastest way to reach me. I usually reply within a day or two.",
     contactPage: "Contact page",
     downloadCV: "Download CV",
     viewProjects: "View Projects",
@@ -17,12 +17,12 @@ export const dict = {
     heroSubtitle: "C# · .NET · React · Azure",
     heroLocation: "Stockholm, Sweden",
     heroTagline:
-      "I build backends that hold up, frontends that make sense, and systems that integrate AI where it actually helps — currently consulting through School of Applied Technology.",
-    heroValueProp: "Clean architecture. Readable code. Production-ready delivery.",
+      "I write C#/.NET backends, build React frontends, and use AI where it solves a real problem. Currently consulting through School of Applied Technology.",
+    heroValueProp: "Readable code. Clear structure. Thoughtful trade-offs.",
     // Hero proof badges
     proofStack: "C# / .NET / React",
     proofAI: "AI-integrated apps",
-    proofMindset: "Fullstack + architecture",
+    proofMindset: "Fullstack + systems thinking",
     proofLocation: "Stockholm",
     // Skills section headers
     skillsCoreStack: "Core Stack",
@@ -31,30 +31,30 @@ export const dict = {
     skillsLanguages: "Languages",
     // About me paragraphs (homepage + about page)
     aboutParagraphs: [
-      "Hi, I'm Marcus — a fullstack .NET developer based in Stockholm, currently consulting through School of Applied Technology. I build web products where backend structure, frontend usability, and long-term maintainability matter just as much as shipping quickly.",
-      "My work is centered around C#/.NET, React, databases, cloud services, and AI integrations that solve real problems rather than just adding novelty. I'm at my best when I get to think across the whole system: domain modeling, APIs, data flow, architecture, UX, and the trade-offs that make a product easier to evolve over time. I care about clean architecture, but only when it creates clarity, reliability, and flexibility in practice.",
-      "Before moving into tech, I spent fourteen years working as a train driver at ProTrain, SJ AB, MTR Pendeltågen, and SJ Stockholmståg. That background shaped the way I work: calm under pressure, precise in execution, and highly aware that details matter when the system around you has to keep working. It also taught me responsibility, consistency, and the importance of earning trust through discipline rather than talk.",
-      "I also have a background in health science, which strengthened my interest in learning, coaching, and long-term development — both for myself and for others. Taken together, these experiences have made me a developer who values structure, clarity, and quality not as abstract ideals, but as practical tools for building better products and working well in strong teams.",
-      "I'm especially interested in .NET consulting, fullstack product development, and teams that care about ownership, thoughtful engineering, and building things the right way.",
+      "Hi, I'm Marcus. I'm a fullstack .NET developer in Stockholm, currently consulting through School of Applied Technology. I work across the stack, from database and API design to frontend and deployment, and I care about writing code that other people can read and maintain.",
+      "My main tools are C#/.NET, React, TypeScript, PostgreSQL, and Azure. I also integrate AI (Azure OpenAI) when it actually adds value, not just for the sake of it. I like thinking about how the whole system fits together: domain models, data flow, API contracts, and the trade-offs that decide whether something will be easy or painful to change six months from now.",
+      "Before switching to software, I worked fourteen years as a train driver at ProTrain, SJ AB, MTR Pendeltågen, and SJ Stockholmståg. That background taught me to stay calm when things go wrong, to take responsibility for my part of the system, and to care about the details that keep things running. I also spent several years as an instructor, training new drivers.",
+      "I have a bachelor's degree in sports science and health pedagogy from GIH, and I worked as a personal trainer before moving into development. That gave me experience in coaching, explaining complex things simply, and helping people change behaviour over time.",
+      "I'm looking for .NET consulting, fullstack product work, or a team that values clear thinking, ownership, and building things properly.",
     ] as readonly string[],
     // Secondary page copy
     aboutPageTitle: "About Me",
     aboutPageApproach: "How I approach the work",
     aboutPageApproachItems: [
-      "I prefer systems that are simple to reason about over systems that are clever. Clean architecture usually wins over clever architecture.",
-      "I take precision seriously — from naming things clearly to writing tests that actually catch regressions.",
-      "Fourteen years in safety-critical operations left me with a habit of thinking about edge cases before they become incidents.",
-      "I communicate clearly with teammates and clients. Good code and a good explanation of it are both part of doing the job.",
+      "I prefer systems that are simple to reason about. Clean architecture matters, but only when it makes the code easier to work with, not harder.",
+      "I take naming, testing, and structure seriously. Small things add up.",
+      "Fourteen years in safety-critical operations gave me a habit of thinking about edge cases before they become incidents.",
+      "I communicate directly with teammates and clients. Good code and a clear explanation of it are both part of doing the job well.",
     ] as readonly string[],
     educationPageTitle: "Education & Experience",
     educationPageSubtitle:
-      "Two years of parallel study and work — my path into development wasn't linear, but that's part of what shaped how I think.",
+      "My path into development included parallel studies and work. It wasn't linear, but the different backgrounds shape how I think about problems.",
     portfolioPageTitle: "Portfolio",
     portfolioFlagship: "Flagship Project",
     backToHome: "← Back to homepage",
     backToPortfolio: "← Back to portfolio",
     aboutTeaser:
-      "Before tech, I spent fourteen years as a train driver — a background that shaped how I work: precise execution, calm under pressure, and deep respect for systems that must not fail.",
+      "Before tech, I spent fourteen years as a train driver. That background shows up in how I work: I care about precision, I stay calm under pressure, and I take seriously that systems need to keep running.",
     readMoreAbout: "More about me →",
   },
   sv: {
@@ -67,7 +67,7 @@ export const dict = {
     skills: "Kompetenser",
     contact: "Kontakt",
     contactSubtitle:
-      "Har du en .NET-roll, ett konsultuppdrag eller vill bara prata teknik — e-post är snabbaste vägen. Jag svarar inom en till två dagar.",
+      "Har du en .NET-roll, ett konsultuppdrag, eller vill du bara prata teknik? E-post är snabbaste sättet att nå mig. Jag svarar oftast inom en till två dagar.",
     contactPage: "Kontaktsida",
     downloadCV: "Ladda ner CV",
     viewProjects: "Se projekt",
@@ -75,12 +75,12 @@ export const dict = {
     heroSubtitle: "C# · .NET · React · Azure",
     heroLocation: "Stockholm, Sverige",
     heroTagline:
-      "Jag bygger backends som håller, frontends som är logiska och system som integrerar AI där det faktiskt hjälper — konsulterar via School of Applied Technology.",
-    heroValueProp: "Ren arkitektur. Läsbar kod. Leverans redo för produktion.",
+      "Jag skriver C#/.NET-backends, bygger React-frontends och använder AI där det löser ett verkligt problem. Konsulterar just nu via School of Applied Technology.",
+    heroValueProp: "Läsbar kod. Tydlig struktur. Genomtänkta avvägningar.",
     // Hero proof badges
     proofStack: "C# / .NET / React",
     proofAI: "AI-integrerade appar",
-    proofMindset: "Fullstack + arkitektur",
+    proofMindset: "Fullstack + systemtänk",
     proofLocation: "Stockholm",
     // Skills section headers
     skillsCoreStack: "Kärnstack",
@@ -89,30 +89,30 @@ export const dict = {
     skillsLanguages: "Språk",
     // About me paragraphs (homepage + about page)
     aboutParagraphs: [
-      "Hej, jag heter Marcus. Jag är en fullstack .NET-utvecklare i Stockholm och konsulterar just nu via School of Applied Technology. Jag bygger webbprodukter där backend-struktur, frontend-upplevelse och långsiktig hållbarhet är lika viktiga som att leverera snabbt.",
-      "Mitt fokus ligger på C#/.NET, React, databaser, molntjänster och AI-integrationer som löser riktiga problem i stället för att bara kännas moderna. Jag trivs bäst när jag får tänka över hela systemet: domänmodellering, API:er, dataflöden, arkitektur, UX och de trade-offs som gör en produkt lättare att vidareutveckla över tid. Jag bryr mig om clean architecture, men bara när den faktiskt skapar tydlighet, stabilitet och flexibilitet i praktiken.",
-      "Innan jag gick över till tech arbetade jag i fjorton år som lokförare på ProTrain, SJ AB, MTR Pendeltågen och SJ Stockholmståg. Den bakgrunden har präglat hur jag arbetar: lugn under press, precision i genomförandet och en stark känsla för att detaljer spelar roll när systemen runt omkring måste fungera. Den lärde mig också ansvar, konsekvens och att förtroende byggs genom disciplin och pålitlighet.",
-      "Jag har även en bakgrund inom hälsovetenskap, vilket har förstärkt mitt intresse för lärande, coaching och långsiktig utveckling — både för mig själv och för andra. Tillsammans har de här erfarenheterna gjort mig till en utvecklare som värderar struktur, tydlighet och kvalitet, inte som abstrakta ideal, utan som praktiska verktyg för att bygga bättre produkter och fungera väl i starka team.",
-      "Jag är särskilt intresserad av .NET-konsulting, fullstack-produktutveckling och team som bryr sig om ägarskap, genomtänkt engineering och att bygga saker ordentligt.",
+      "Hej, jag heter Marcus. Jag är fullstack .NET-utvecklare i Stockholm och konsulterar just nu via School of Applied Technology. Jag jobbar med hela stacken, från databas och API-design till frontend och deployment, och jag bryr mig om att skriva kod som andra kan läsa och underhålla.",
+      "Mina huvudsakliga verktyg är C#/.NET, React, TypeScript, PostgreSQL och Azure. Jag integrerar också AI (Azure OpenAI) när det faktiskt tillför värde, inte bara för att det låter bra. Jag gillar att tänka på hur hela systemet hänger ihop: domänmodeller, dataflöden, API-kontrakt och de avvägningar som avgör om något blir lätt eller svårt att ändra om sex månader.",
+      "Innan jag sadlade om till mjukvara jobbade jag fjorton år som lokförare på ProTrain, SJ AB, MTR Pendeltågen och SJ Stockholmståg. Den bakgrunden lärde mig att hålla lugnet när saker går fel, ta ansvar för min del av systemet och bry mig om detaljerna som håller saker igång. Jag arbetade också flera år som körlärare och utbildade nya förare.",
+      "Jag har en kandidatexamen i idrottsvetenskap med inriktning hälsopedagogik från GIH, och jag jobbade som personlig tränare innan jag gick in i utveckling. Det gav mig erfarenhet av coachning, att förklara komplexa saker enkelt och att hjälpa människor förändra beteenden över tid.",
+      "Jag söker .NET-konsulting, fullstack-produktarbete, eller ett team som värderar tydligt tänkande, ägarskap och att bygga saker ordentligt.",
     ] as readonly string[],
     // Secondary page copy
     aboutPageTitle: "Om mig",
     aboutPageApproach: "Hur jag tänker kring arbetet",
     aboutPageApproachItems: [
-      "Jag föredrar system som är enkla att resonera kring framför system som är smarta. Ren arkitektur vinner oftast över smart arkitektur.",
-      "Jag tar precision på allvar — från att namnge saker tydligt till att skriva tester som faktiskt fångar regressioner.",
-      "Fjorton år i säkerhetskritisk drift lämnade mig med en vana att tänka på edge cases innan de blir incidenter.",
-      "Jag kommunicerar tydligt med kollegor och kunder. Bra kod och en bra förklaring av den är båda en del av att göra jobbet.",
+      "Jag föredrar system som är enkla att resonera kring. Clean architecture är bra, men bara när det gör koden lättare att jobba med, inte svårare.",
+      "Jag tar namngivning, testning och struktur på allvar. Små saker bygger på varandra.",
+      "Fjorton år i säkerhetskritisk drift gav mig en vana att tänka på edge cases innan de blir incidenter.",
+      "Jag kommunicerar rakt med kollegor och kunder. Bra kod och en tydlig förklaring av den är båda en del av att göra jobbet bra.",
     ] as readonly string[],
     educationPageTitle: "Utbildning & Erfarenhet",
     educationPageSubtitle:
-      "Två år av parallella studier och arbete — min väg in i utveckling var inte rak, men det är en del av vad som formade hur jag tänker.",
+      "Min väg in i utveckling gick via parallella studier och arbete. Den var inte rak, men de olika bakgrunderna formar hur jag tänker kring problem.",
     portfolioPageTitle: "Portfolio",
     portfolioFlagship: "Flaggskeppsprojekt",
     backToHome: "← Tillbaka till startsidan",
     backToPortfolio: "← Tillbaka till portfolio",
     aboutTeaser:
-      "Innan tech arbetade jag i fjorton år som lokförare — en bakgrund som format hur jag arbetar: precision i genomförandet, lugn under press och respekt för system som måste fungera.",
+      "Innan tech jobbade jag fjorton år som lokförare. Den bakgrunden syns i hur jag arbetar: jag bryr mig om precision, håller lugnet under press och tar på allvar att system behöver fortsätta fungera.",
     readMoreAbout: "Läs mer om mig →",
   },
 } as const;

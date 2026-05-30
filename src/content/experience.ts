@@ -21,14 +21,14 @@ export const experience: ExperienceItem[] = [
     period: "02/2026 – present",
     bullets: {
       en: [
-        "Working as a fullstack .NET consultant in teams focused on delivering end-to-end solutions.",
-        "Collaborating in agile environments with a strong focus on code quality, structure, and long-term maintainability.",
-        "Contributing to development where technology, responsibility, and teamwork need to work together in practice.",
+        "Building fullstack .NET applications in small agile teams, working across backend, frontend, and deployment.",
+        "Writing C#/.NET APIs, React frontends, and integrating services with a focus on readable code and clear architecture.",
+        "Collaborating daily with other developers through mob programming, code review, and shared ownership of delivery.",
       ],
       sv: [
-        "Arbetar som fullstack .NET-konsult i team där fokus ligger på att leverera lösningar end-to-end.",
-        "Samarbetar agilt med andra utvecklare med särskilt fokus på kodkvalitet, struktur och långsiktigt hållbara lösningar.",
-        "Bidrar till utveckling där teknik, ansvarstagande och samarbete behöver fungera tillsammans i praktiken.",
+        "Bygger fullstack .NET-applikationer i små agila team, med arbete över backend, frontend och deployment.",
+        "Skriver C#/.NET-API:er, React-frontends och integrerar tjänster med fokus på läsbar kod och tydlig arkitektur.",
+        "Samarbetar dagligen med andra utvecklare genom mob-programmering, kodgranskning och delat ägarskap av leveransen.",
       ],
     },
   },
@@ -39,14 +39,14 @@ export const experience: ExperienceItem[] = [
     period: "03/2024 – 01/2026",
     bullets: {
       en: [
-        "Designed individualized training programs based on each client's goals, level, and conditions.",
-        "Coached clients in strength training, conditioning, and health with a focus on motivation, progression, and sustainable results.",
-        "Built strong communication skills and the ability to create trust, structure, and long-term commitment when working with people.",
+        "Designed training programs adapted to individual goals, fitness levels, and physical conditions.",
+        "Coached clients in strength, conditioning, and health. Learned to explain things clearly and adjust my communication to each person.",
+        "Built experience in creating trust, keeping people accountable, and supporting long-term behaviour change.",
       ],
       sv: [
-        "Utformade individanpassade träningsupplägg utifrån kundernas mål, nivå och förutsättningar.",
-        "Coachade klienter inom styrka, kondition och hälsa med fokus på motivation, progression och hållbara resultat.",
-        "Byggde stark kommunikativ förmåga och vana att skapa förtroende, struktur och långsiktighet i arbetet med människor.",
+        "Utformade träningsupplägg anpassade efter individuella mål, träningsnivå och fysiska förutsättningar.",
+        "Coachade klienter inom styrka, kondition och hälsa. Lärde mig att förklara tydligt och anpassa kommunikationen efter varje person.",
+        "Fick erfarenhet av att skapa förtroende, hålla människor ansvariga och stödja långsiktig beteendeförändring.",
       ],
     },
   },
@@ -60,12 +60,12 @@ export const experience: ExperienceItem[] = [
     period: "12/2023 – 10/2025",
     bullets: {
       en: [
-        "Worked in a safety-critical environment with high demands for precision, responsibility, and decision-making.",
-        "Handled complex situations with calmness, accuracy, and a strong focus on safety and punctuality.",
+        "Operated commuter trains in Stockholm with strict safety requirements and tight schedules.",
+        "Made real-time decisions under time pressure with direct consequences for passengers and traffic flow.",
       ],
       sv: [
-        "Arbetade i en säkerhetskritisk miljö med höga krav på precision, ansvar och beslutsfattande.",
-        "Hanterade komplexa situationer med lugn, noggrannhet och stort fokus på säkerhet och punktlighet.",
+        "Körde pendeltåg i Stockholm med strikta säkerhetskrav och täta tidtabeller.",
+        "Fattade beslut i realtid under tidspress med direkta konsekvenser för passagerare och trafikflöde.",
       ],
     },
   },
@@ -79,12 +79,12 @@ export const experience: ExperienceItem[] = [
     period: "03/2018 – 12/2023",
     bullets: {
       en: [
-        "Worked in a safety-critical environment with high demands for precision, responsibility, and decision-making.",
-        "Handled complex situations with calmness, accuracy, and a strong focus on safety and punctuality.",
+        "Drove commuter trains on the Stockholm network for over five years, handling daily operations in a high-frequency system.",
+        "Developed routines for staying focused and making correct decisions over long shifts in a safety-critical role.",
       ],
       sv: [
-        "Arbetade i en säkerhetskritisk miljö med höga krav på precision, ansvar och beslutsfattande.",
-        "Hanterade komplexa situationer med lugn, noggrannhet och stort fokus på säkerhet och punktlighet.",
+        "Körde pendeltåg på Stockholms pendeltågsnät i över fem år, med daglig drift i ett högfrekvent system.",
+        "Utvecklade rutiner för att hålla fokus och fatta korrekta beslut under långa arbetspass i en säkerhetskritisk roll.",
       ],
     },
   },
@@ -95,12 +95,12 @@ export const experience: ExperienceItem[] = [
     period: "04/2013 – 02/2018",
     bullets: {
       en: [
-        "Combined operational work as a train driver with responsibility for supervision and training.",
-        "Developed the ability to explain clearly, support others in their development, and take responsibility for quality in execution.",
+        "Combined daily train operations with responsibility for training and supervising new drivers.",
+        "Learned to explain procedures clearly, give constructive feedback, and take responsibility for someone else's learning.",
       ],
       sv: [
-        "Kombinerade operativt arbete som lokförare med ansvar för handledning och utbildning.",
-        "Utvecklade förmåga att förklara tydligt, stötta andra i deras utveckling och ta ansvar för kvalitet i genomförandet.",
+        "Kombinerade daglig tågkörning med ansvar för utbildning och handledning av nya förare.",
+        "Lärde mig att förklara procedurer tydligt, ge konstruktiv feedback och ta ansvar för någon annans lärande.",
       ],
     },
   },
@@ -111,12 +111,12 @@ export const experience: ExperienceItem[] = [
     period: "06/2011 – 04/2013",
     bullets: {
       en: [
-        "Worked as a consultant for several different operators and adapted quickly to new environments and ways of working.",
-        "Built strong flexibility, professionalism, and the ability to deliver reliably in new contexts.",
+        "Worked as a consulting train driver for multiple operators, adapting quickly to different systems and procedures.",
+        "Learned early on how to be reliable and professional in unfamiliar environments.",
       ],
       sv: [
-        "Arbetade som konsult för flera olika operatörer och anpassade mig snabbt till nya miljöer och arbetssätt.",
-        "Byggde tidigt upp flexibilitet, professionalism och förmåga att leverera tryggt även i nya sammanhang.",
+        "Arbetade som konsultlokförare för flera operatörer och anpassade mig snabbt till olika system och rutiner.",
+        "Lärde mig tidigt att vara pålitlig och professionell i okända miljöer.",
       ],
     },
   },

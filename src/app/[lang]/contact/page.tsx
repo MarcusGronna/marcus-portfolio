@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     ? "Kontakta Marcus Grönnå – Fullstack .NET-utvecklare"
     : "Contact Marcus Grönnå – Fullstack .NET Developer";
   const description = isSv
-    ? "Kontakta Marcus Grönnå — fullstack .NET-utvecklare i Stockholm. Tillgänglig för .NET-konsulting, fullstack-produktarbete och roller som bryr sig om kvalitet."
-    : "Get in touch with Marcus Grönnå — fullstack .NET developer in Stockholm. Available for .NET consulting, fullstack product work, and roles that care about quality.";
+    ? "Kontakta Marcus Grönnå. Fullstack .NET-utvecklare i Stockholm. Tillgänglig för .NET-konsulting och fullstack-produktarbete."
+    : "Get in touch with Marcus Grönnå. Fullstack .NET developer in Stockholm. Available for .NET consulting and fullstack product work.";
   const url = `${site.url}/${lang}/contact`;
 
   return {

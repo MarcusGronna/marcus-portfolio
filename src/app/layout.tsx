@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s | Marcus Grönnå",
   },
   description:
-    "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure. Building backends, frontends, and AI-integrated systems.",
+    "Portfolio of Marcus Grönnå. Fullstack .NET developer in Stockholm. C#, .NET, React, TypeScript, Azure.",
   alternates: {
     // Point canonical to the Swedish default; per-page metadata overrides this
     canonical: "https://marcusgronna.com/sv",
@@ -34,14 +34,14 @@ export const metadata: Metadata = {
     url: "https://marcusgronna.com/",
     title: "Marcus Grönnå – Fullstack .NET Developer",
     description:
-      "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
+      "Portfolio of Marcus Grönnå. Fullstack .NET developer in Stockholm. C#, .NET, React, Azure.",
     siteName: "marcusgronna.com",
   },
   twitter: {
     card: "summary_large_image",
     title: "Marcus Grönnå – Fullstack .NET Developer",
     description:
-      "Portfolio of Marcus Grönnå — fullstack .NET developer in Stockholm. C# / .NET / React / Azure.",
+      "Portfolio of Marcus Grönnå. Fullstack .NET developer in Stockholm. C#, .NET, React, Azure.",
   },
   robots: { index: true, follow: true },
 };
