@@ -78,7 +78,7 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
         <div className="mb-8 overflow-x-auto rounded-xl border border-brand-600/20 bg-brand-600/5 p-4">
             <div className="min-w-[540px]">
                 {/* Year tick labels */}
-                <div className="relative h-5 ml-[160px] mb-1">
+                <div className="relative h-5 ml-[200px] mb-1">
                     {TICK_YEARS.map((year) => (
                         <span
                             key={year}
@@ -103,8 +103,8 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
                         return (
                             <div key={entry.id} className="flex items-center gap-2">
                                 {/* Short label */}
-                                <div className="w-[160px] shrink-0 text-right pr-2">
-                                    <span className="text-xs text-brand-700 line-clamp-1 leading-tight">
+                                <div className="w-[200px] shrink-0 text-right pr-2">
+                                    <span className="text-xs text-brand-700 whitespace-normal break-words leading-tight">
                                         {entry.title[lang]}
                                     </span>
                                 </div>
@@ -141,7 +141,7 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
                 </div>
 
                 {/* Legend */}
-                <div className="flex items-center gap-6 mt-4 ml-[160px] text-xs text-brand-700">
+                <div className="flex items-center gap-6 mt-4 ml-[200px] text-xs text-brand-700">
                     <div className="flex items-center gap-1.5">
                         <div className="w-4 h-3 rounded bg-accent-400/80" />
                         <span>{dict[lang].education}</span>
