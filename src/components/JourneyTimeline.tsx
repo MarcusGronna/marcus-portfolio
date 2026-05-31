@@ -104,7 +104,7 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
                             <div key={entry.id} className="flex items-center gap-2">
                                 {/* Short label */}
                                 <div className="w-[200px] shrink-0 text-right pr-2">
-                                    <span className="text-xs text-brand-700 whitespace-normal break-words leading-tight">
+                                    <span className="text-xs text-brand-700 whitespace-normal break-words leading-[1.15]">
                                         {entry.title[lang]}
                                     </span>
                                 </div>
