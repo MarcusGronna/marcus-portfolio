@@ -265,4 +265,25 @@ export const timelineEntries: TimelineEntry[] = [
       sv: "Yrkesutbildning i säkerhet, regelverk och operativt beslutsfattande. Grund för ett metodiskt arbetssätt under press.",
     },
   },
+  {
+    id: "military-service",
+    type: "experience",
+    title: {
+      en: "Military Service, Squad Leader",
+      sv: "Värnplikt, skyttegruppchef",
+    },
+    organization: {
+      en: "Swedish Armed Forces, Helicopter Wing",
+      sv: "Helikopterflottiljen, Försvarsmakten",
+    },
+    period: "01/2009 – 12/2009",
+    startYear: 2009,
+    startMonth: 1,
+    endYear: 2009,
+    endMonth: 12,
+    summary: {
+      en: "Leadership, discipline, teamwork, and decision-making in a safety-critical environment.",
+      sv: "Ledarskap, disciplin, samarbete och beslutsfattande i säkerhetskritisk miljö.",
+    },
+  },
 ];
