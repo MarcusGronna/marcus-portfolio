@@ -4,13 +4,13 @@ import { dict } from "@/content/i18n";
 
 // ── Gantt constants ──────────────────────────────────────────────────────────
 
-const GANTT_MIN = 2010;
+const GANTT_MIN = 2009;
 const GANTT_END = 2027; // exclusive – bars can stretch to 100 %
-const GANTT_SPAN = GANTT_END - GANTT_MIN; // 17
+const GANTT_SPAN = GANTT_END - GANTT_MIN; // 18
 const GANTT_MIN_BAR_PCT = 1.5; // minimum bar width (%) so single-year entries stay visible
 
 // Year ticks – denser for recent years to show 2024-2025 overlap clearly
-const TICK_YEARS = [2010, 2013, 2016, 2018, 2020, 2022, 2024, 2025, 2026];
+const TICK_YEARS = [2009, 2012, 2015, 2018, 2020, 2022, 2024, 2025, 2026];
 
 /**
  * Convert a calendar year+fraction to a percentage position (0–100) along the Gantt axis.
