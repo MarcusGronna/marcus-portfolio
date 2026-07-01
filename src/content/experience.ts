@@ -12,6 +12,28 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
+    id: "sj-lia-dev",
+    title: {
+      en: "Internship / LIA – Software Development",
+      sv: "Arbetspraktik / LIA – Systemutveckling",
+    },
+    employer: {
+      en: "SJ Stockholmståg AB",
+      sv: "SJ Stockholmståg AB",
+    },
+    period: "8 weeks, 2026",
+    bullets: {
+      en: [
+        "Developed a REST API for train information using ASP.NET Core, SQLite, and Entity Framework Core.",
+        "The work included CRUD functionality, database migrations, Clean Architecture, Swagger documentation, Git, and unit tests with xUnit.",
+      ],
+      sv: [
+        "Utvecklade ett REST API för tåginformation med ASP.NET Core, SQLite och Entity Framework Core.",
+        "Arbetet omfattade CRUD-funktionalitet, databasmigreringar, Clean Architecture, Swagger-dokumentation, Git och enhetstester med xUnit.",
+      ],
+    },
+  },
+  {
     id: "soat-consultant",
     title: { en: "Fullstack C# .NET", sv: "Fullstack C# .NET" },
     employer: {
