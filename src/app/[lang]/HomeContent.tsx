@@ -98,7 +98,7 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
               {dict[lang].contact}
             </Link>
             <a
-              href={lang === "sv" ? "/marcus-gronna-cv-sv.pdf" : "/marcus-gronna-cv-en.pdf"}
+              href={lang === "sv" ? "/Marcus Grönnå - CV - SV.pdf" : "/Marcus Grönnå - CV - EN.pdf"}
               download
               onClick={() => track("cv_download")}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 hover:text-ink-900 underline underline-offset-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
@@ -278,7 +278,7 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
               {dict[lang].contactPage}
             </Link>
             <a
-              href={lang === "sv" ? "/marcus-gronna-cv-sv.pdf" : "/marcus-gronna-cv-en.pdf"}
+              href={lang === "sv" ? "/Marcus Grönnå - CV - SV.pdf" : "/Marcus Grönnå - CV - EN.pdf"}
               download
               onClick={() => track("cv_download")}
               className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-brand-600/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"

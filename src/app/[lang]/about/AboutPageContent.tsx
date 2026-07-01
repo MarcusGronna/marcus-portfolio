@@ -19,7 +19,7 @@ export default function AboutPageContent({ lang }: { lang: "en" | "sv" }) {
           ))}
           <div className="flex flex-wrap gap-3 mt-4">
             <a
-              href={lang === "sv" ? "/marcus-gronna-cv-sv.pdf" : "/marcus-gronna-cv-en.pdf"}
+              href={lang === "sv" ? "/Marcus Grönnå - CV - SV.pdf" : "/Marcus Grönnå - CV - EN.pdf"}
               download
               onClick={() => track("cv_download")}
               className="inline-flex items-center gap-2 bg-accent-400 text-ink-900 font-semibold rounded px-5 py-2 hover:bg-accent-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900"

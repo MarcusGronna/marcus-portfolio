@@ -39,8 +39,8 @@ public/              # Static assets (images, CV PDFs, favicons)
 
 Place the latest CV files in `public/` with the following names:
 
-- `marcus-gronna-cv-en.pdf` — English version
-- `marcus-gronna-cv-sv.pdf` — Swedish version
+- `Marcus Grönnå - CV - EN.pdf` — English version
+- `Marcus Grönnå - CV - SV.pdf` — Swedish version
 
 ## Deployment
 
