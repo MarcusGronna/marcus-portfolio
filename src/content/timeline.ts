@@ -21,6 +21,24 @@ export interface TimelineEntry {
 export const timelineEntries: TimelineEntry[] = [
   // ── Experience ─────────────────────────────────────────────────────────────
   {
+    id: "soat-consultant",
+    type: "experience",
+    title: { en: "Fullstack C# .NET Consultant", sv: "Fullstack C# .NET-konsult" },
+    organization: {
+      en: "School of Applied Technology",
+      sv: "School of Applied Technology",
+    },
+    period: "02/2026 – 06/2026",
+    startYear: 2026,
+    startMonth: 2,
+    endYear: 2026,
+    endMonth: 6,
+    summary: {
+      en: "Building fullstack .NET applications in agile teams. Working across backend, frontend, and deployment with a focus on readable code and clear architecture.",
+      sv: "Bygger fullstack .NET-applikationer i agila team. Jobbar över backend, frontend och deployment med fokus på läsbar kod och tydlig arkitektur.",
+    },
+  },
+  {
     id: "sj-lia-dev",
     type: "experience",
     title: {
@@ -31,31 +49,14 @@ export const timelineEntries: TimelineEntry[] = [
       en: "SJ Stockholmståg AB",
       sv: "SJ Stockholmståg AB",
     },
-    period: "8 weeks, 2026",
-    startYear: 2026,
-    startMonth: 2,
-    endYear: 2026,
-    endMonth: 3,
+    period: "08/2025 – 10/2025",
+    startYear: 2025,
+    startMonth: 8,
+    endYear: 2025,
+    endMonth: 10,
     summary: {
       en: "Developed a REST API for train information using ASP.NET Core, SQLite, and Entity Framework Core. The work included CRUD functionality, database migrations, Clean Architecture, Swagger documentation, Git, and unit tests with xUnit.",
       sv: "Utvecklade ett REST API för tåginformation med ASP.NET Core, SQLite och Entity Framework Core. Arbetet omfattade CRUD-funktionalitet, databasmigreringar, Clean Architecture, Swagger-dokumentation, Git och enhetstester med xUnit.",
-    },
-  },
-  {
-    id: "soat-consultant",
-    type: "experience",
-    title: { en: "Fullstack C# .NET Consultant", sv: "Fullstack C# .NET-konsult" },
-    organization: {
-      en: "School of Applied Technology",
-      sv: "School of Applied Technology",
-    },
-    period: "02/2026 – present",
-    startYear: 2026,
-    startMonth: 2,
-    endYear: null,
-    summary: {
-      en: "Building fullstack .NET applications in agile teams. Working across backend, frontend, and deployment with a focus on readable code and clear architecture.",
-      sv: "Bygger fullstack .NET-applikationer i agila team. Jobbar över backend, frontend och deployment med fokus på läsbar kod och tydlig arkitektur.",
     },
   },
   {
