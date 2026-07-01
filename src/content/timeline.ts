@@ -21,6 +21,27 @@ export interface TimelineEntry {
 export const timelineEntries: TimelineEntry[] = [
   // ── Experience ─────────────────────────────────────────────────────────────
   {
+    id: "sj-lia-dev",
+    type: "experience",
+    title: {
+      en: "Internship / LIA – Software Development",
+      sv: "Arbetspraktik / LIA – Systemutveckling",
+    },
+    organization: {
+      en: "SJ Stockholmståg AB",
+      sv: "SJ Stockholmståg AB",
+    },
+    period: "8 weeks, 2026",
+    startYear: 2026,
+    startMonth: 2,
+    endYear: 2026,
+    endMonth: 3,
+    summary: {
+      en: "Developed a REST API for train information using ASP.NET Core, SQLite, and Entity Framework Core. The work included CRUD functionality, database migrations, Clean Architecture, Swagger documentation, Git, and unit tests with xUnit.",
+      sv: "Utvecklade ett REST API för tåginformation med ASP.NET Core, SQLite och Entity Framework Core. Arbetet omfattade CRUD-funktionalitet, databasmigreringar, Clean Architecture, Swagger-dokumentation, Git och enhetstester med xUnit.",
+    },
+  },
+  {
     id: "soat-consultant",
     type: "experience",
     title: { en: "Fullstack C# .NET Consultant", sv: "Fullstack C# .NET-konsult" },
