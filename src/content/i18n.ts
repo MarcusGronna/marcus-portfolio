@@ -9,7 +9,7 @@ export const dict = {
     skills: "Skills",
     contact: "Contact",
     contactSubtitle:
-      "If you have a .NET role, a consulting project, or just want to talk tech, email is the fastest way to reach me. I usually reply within a day or two.",
+      "If you have a .NET role, a project opportunity, or just want to talk tech, email is the fastest way to reach me. I usually reply within a day or two.",
     contactPage: "Contact page",
     downloadCV: "Download CV",
     viewProjects: "View Projects",
@@ -17,7 +17,7 @@ export const dict = {
     heroSubtitle: "C# · .NET · React · Azure",
     heroLocation: "Stockholm, Sweden",
     heroTagline:
-      "I write C#/.NET backends, build React frontends, and use AI where it solves a real problem. Currently consulting through School of Applied Technology.",
+      "I write C# and .NET backends, build React frontends and use AI where it solves a real problem. I am currently looking for new opportunities as a software developer.",
     heroValueProp: "Readable code. Clear structure. Thoughtful trade-offs.",
     // Hero proof badges
     proofStack: "C# / .NET / React",
@@ -31,11 +31,11 @@ export const dict = {
     skillsLanguages: "Languages",
     // About me paragraphs (homepage + about page)
     aboutParagraphs: [
-      "Hi, I'm Marcus. I'm a fullstack .NET developer in Stockholm, currently consulting through School of Applied Technology. I work across the stack, from database and API design to frontend and deployment, and I care about writing code that other people can read and maintain.",
+      "Hi, I'm Marcus. I'm a fullstack .NET developer in Stockholm. I work across the stack, from database and API design to frontend and deployment, and I care about writing code that other people can read and maintain.",
       "My main tools are C#/.NET, React, TypeScript, PostgreSQL, and Azure. I also integrate AI (Azure OpenAI) when it actually adds value, not just for the sake of it. I like thinking about how the whole system fits together: domain models, data flow, API contracts, and the trade-offs that decide whether something will be easy or painful to change six months from now.",
       "Before switching to software, I worked fourteen years as a train driver at ProTrain, SJ AB, MTR Pendeltågen, and SJ Stockholmståg. That background taught me to stay calm when things go wrong, to take responsibility for my part of the system, and to care about the details that keep things running. I also spent several years as an instructor, training new drivers.",
       "I have a bachelor's degree in sports science and health pedagogy from GIH, and I worked as a personal trainer before moving into development. That gave me experience in coaching, explaining complex things simply, and helping people change behaviour over time.",
-      "I'm looking for .NET consulting, fullstack product work, or a team that values clear thinking, ownership, and building things properly.",
+      "I'm looking for fullstack product work, .NET roles, or a team that values clear thinking, ownership, and building things properly.",
     ] as readonly string[],
     // Secondary page copy
     aboutPageTitle: "About Me",
@@ -67,7 +67,7 @@ export const dict = {
     skills: "Kompetenser",
     contact: "Kontakt",
     contactSubtitle:
-      "Har du en .NET-roll, ett konsultuppdrag, eller vill du bara prata teknik? E-post är snabbaste sättet att nå mig. Jag svarar oftast inom en till två dagar.",
+      "Har du en .NET-roll, ett projektuppdrag, eller vill du bara prata teknik? E-post är snabbaste sättet att nå mig. Jag svarar oftast inom en till två dagar.",
     contactPage: "Kontaktsida",
     downloadCV: "Ladda ner CV",
     viewProjects: "Se projekt",
@@ -75,7 +75,7 @@ export const dict = {
     heroSubtitle: "C# · .NET · React · Azure",
     heroLocation: "Stockholm, Sverige",
     heroTagline:
-      "Jag skriver C#/.NET-backends, bygger React-frontends och använder AI där det löser ett verkligt problem. Konsulterar just nu via School of Applied Technology.",
+      "Jag utvecklar backend i C# och .NET, bygger frontend i React och använder AI där det löser ett verkligt problem. Jag söker nu nya möjligheter som systemutvecklare.",
     heroValueProp: "Läsbar kod. Tydlig struktur. Genomtänkta avvägningar.",
     // Hero proof badges
     proofStack: "C# / .NET / React",
@@ -89,11 +89,11 @@ export const dict = {
     skillsLanguages: "Språk",
     // About me paragraphs (homepage + about page)
     aboutParagraphs: [
-      "Hej, jag heter Marcus. Jag är fullstack .NET-utvecklare i Stockholm och konsulterar just nu via School of Applied Technology. Jag jobbar med hela stacken, från databas och API-design till frontend och deployment, och jag bryr mig om att skriva kod som andra kan läsa och underhålla.",
+      "Hej, jag heter Marcus. Jag är fullstack .NET-utvecklare i Stockholm. Jag jobbar med hela stacken, från databas och API-design till frontend och deployment, och jag bryr mig om att skriva kod som andra kan läsa och underhålla.",
       "Mina huvudsakliga verktyg är C#/.NET, React, TypeScript, PostgreSQL och Azure. Jag integrerar också AI (Azure OpenAI) när det faktiskt tillför värde, inte bara för att det låter bra. Jag gillar att tänka på hur hela systemet hänger ihop: domänmodeller, dataflöden, API-kontrakt och de avvägningar som avgör om något blir lätt eller svårt att ändra om sex månader.",
       "Innan jag sadlade om till mjukvara jobbade jag fjorton år som lokförare på ProTrain, SJ AB, MTR Pendeltågen och SJ Stockholmståg. Den bakgrunden lärde mig att hålla lugnet när saker går fel, ta ansvar för min del av systemet och bry mig om detaljerna som håller saker igång. Jag arbetade också flera år som körlärare och utbildade nya förare.",
       "Jag har en kandidatexamen i idrottsvetenskap med inriktning hälsopedagogik från GIH, och jag jobbade som personlig tränare innan jag gick in i utveckling. Det gav mig erfarenhet av coachning, att förklara komplexa saker enkelt och att hjälpa människor förändra beteenden över tid.",
-      "Jag söker .NET-konsulting, fullstack-produktarbete, eller ett team som värderar tydligt tänkande, ägarskap och att bygga saker ordentligt.",
+      "Jag söker fullstack-produktarbete, .NET-roller, eller ett team som värderar tydligt tänkande, ägarskap och att bygga saker ordentligt.",
     ] as readonly string[],
     // Secondary page copy
     aboutPageTitle: "Om mig",

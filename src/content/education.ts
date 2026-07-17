@@ -19,8 +19,8 @@ export const education: EducationItem[] = [
       sv: "School of Applied Technology",
     },
     program: {
-      en: "Fullstack C# .NET",
-      sv: "Fullstack C# .NET",
+      en: "Fullstack .NET Developer",
+      sv: "Fullstack .NET-utvecklare",
     },
     year: "01/2026",
     description: {

@@ -23,7 +23,7 @@ export const timelineEntries: TimelineEntry[] = [
   {
     id: "soat-consultant",
     type: "experience",
-    title: { en: "Fullstack C# .NET Consultant", sv: "Fullstack C# .NET-konsult" },
+    title: { en: "Fullstack .NET Developer", sv: "Fullstack .NET-utvecklare" },
     organization: {
       en: "School of Applied Technology",
       sv: "School of Applied Technology",
@@ -34,8 +34,8 @@ export const timelineEntries: TimelineEntry[] = [
     endYear: 2026,
     endMonth: 6,
     summary: {
-      en: "Building fullstack .NET applications in agile teams. Working across backend, frontend, and deployment with a focus on readable code and clear architecture.",
-      sv: "Bygger fullstack .NET-applikationer i agila team. Jobbar över backend, frontend och deployment med fokus på läsbar kod och tydlig arkitektur.",
+      en: "Built fullstack .NET applications in agile teams. Worked across backend, frontend and deployment with a focus on readable code and clear architecture.",
+      sv: "Byggde fullstackapplikationer i .NET i agila team. Arbetade med backend, frontend och driftsättning med fokus på läsbar kod och tydlig arkitektur.",
     },
   },
   {
@@ -145,7 +145,7 @@ export const timelineEntries: TimelineEntry[] = [
   {
     id: "soat-fullstack-net",
     type: "education",
-    title: { en: "Fullstack C# .NET", sv: "Fullstack C# .NET" },
+    title: { en: "Fullstack .NET Developer", sv: "Fullstack .NET-utvecklare" },
     organization: {
       en: "School of Applied Technology",
       sv: "School of Applied Technology",
@@ -189,11 +189,11 @@ export const timelineEntries: TimelineEntry[] = [
       en: "Företagsuniversitetet (Vocational College)",
       sv: "Företagsuniversitetet (Yrkeshögskolan)",
     },
-    period: "08/2024 – 06/2025",
+    period: "08/2024 – 10/2025",
     startYear: 2024,
     startMonth: 8,
     endYear: 2025,
-    endMonth: 6,
+    endMonth: 10,
     summary: {
       en: "Studies in JavaScript, React, TypeScript, HTML5, CSS3, and agile ways of working for fullstack development.",
       sv: "Studier i JavaScript, React, TypeScript, HTML5, CSS3 och agila arbetssätt för fullstackutveckling.",

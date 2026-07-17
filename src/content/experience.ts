@@ -13,7 +13,7 @@ export interface ExperienceItem {
 export const experience: ExperienceItem[] = [
   {
     id: "soat-consultant",
-    title: { en: "Fullstack C# .NET", sv: "Fullstack C# .NET" },
+    title: { en: "Fullstack .NET Developer", sv: "Fullstack .NET-utvecklare" },
     employer: {
       en: "School of Applied Technology",
       sv: "School of Applied Technology",
@@ -21,14 +21,14 @@ export const experience: ExperienceItem[] = [
     period: "02/2026 – 06/2026",
     bullets: {
       en: [
-        "Building fullstack .NET applications in small agile teams, working across backend, frontend, and deployment.",
-        "Writing C#/.NET APIs, React frontends, and integrating services with a focus on readable code and clear architecture.",
-        "Collaborating daily with other developers through mob programming, code review, and shared ownership of delivery.",
+        "Built fullstack .NET applications in small agile teams, working across backend, frontend, and deployment.",
+        "Wrote C#/.NET APIs, React frontends, and integrated services with a focus on readable code and clear architecture.",
+        "Collaborated daily with other developers through mob programming, code review, and shared ownership of delivery.",
       ],
       sv: [
-        "Bygger fullstack .NET-applikationer i små agila team, med arbete över backend, frontend och deployment.",
-        "Skriver C#/.NET-API:er, React-frontends och integrerar tjänster med fokus på läsbar kod och tydlig arkitektur.",
-        "Samarbetar dagligen med andra utvecklare genom mob-programmering, kodgranskning och delat ägarskap av leveransen.",
+        "Byggde fullstack .NET-applikationer i små agila team, med arbete över backend, frontend och driftsättning.",
+        "Skrev C#/.NET-API:er, React-frontends och integrerade tjänster med fokus på läsbar kod och tydlig arkitektur.",
+        "Samarbetade dagligen med andra utvecklare genom mob-programmering, kodgranskning och delat ägarskap av leveransen.",
       ],
     },
   },
