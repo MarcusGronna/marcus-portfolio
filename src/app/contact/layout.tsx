@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Marcus Grönnå – Fullstack .NET Developer",
   description:
-    "Get in touch with Marcus Grönnå — fullstack .NET developer in Stockholm. Available for .NET consulting, fullstack product work, and roles that care about quality.",
+    "Get in touch with Marcus Grönnå — fullstack .NET developer in Stockholm. Available for fullstack product work, .NET roles, and teams that care about quality.",
   alternates: { canonical: "/contact" },
   openGraph: {
     type: "website",

@@ -12,7 +12,7 @@ const phases: Phase[] = [
   { label: { en: "Train Driver", sv: "Lokförare" }, period: "2010–2025", accent: false },
   { label: { en: "Health Science", sv: "Hälsovetenskap" }, period: "2020–2023", accent: false },
   { label: { en: "Web Development", sv: "Webbutveckling" }, period: "2023–2025", accent: false },
-  { label: { en: ".NET Consulting", sv: ".NET-konsulting" }, period: "2026–", accent: true },
+  { label: { en: ".NET Development", sv: ".NET-utveckling" }, period: "2026", accent: true },
 ];
 
 export default function ExperienceOverview({ lang }: { lang: "en" | "sv" }) {
