@@ -18,6 +18,7 @@ export const skillCategories: SkillCategory[] = [
       "ASP.NET Core",
       "React",
       "TypeScript",
+      "Azure (AZ-900 Certified)",
       "EF Core",
       "PostgreSQL / SQL Server / SQLite",
       "REST API",

@@ -13,6 +13,7 @@ import { fadeUp } from "@/lib/framer-variants";
 import { projects } from "@/content/projects";
 import { skillCategories } from "@/content/skills";
 import { dict } from "@/content/i18n";
+import { azureFundamentalsCertification, cvDownloads } from "@/content/certifications";
 
 // Skill bucket styling
 const bucketStyles: Record<string, { wrapper: string; badge: string; label: string }> = {
@@ -98,7 +99,7 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
               {dict[lang].contact}
             </Link>
             <a
-              href={lang === "sv" ? "/Marcus Grönnå-CV-SV-new.pdf" : "/Marcus Grönnå-CV-EN-new.pdf"}
+              href={cvDownloads[lang]}
               download
               onClick={() => track("cv_download")}
               className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 hover:text-ink-900 underline underline-offset-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 rounded"
@@ -228,6 +229,44 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
         </motion.div>
       </section>
 
+      {/* CERTIFICATIONS */}
+      <section id="certifications" className="flex flex-col items-center justify-center py-12 md:py-16">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          className="w-full max-w-3xl"
+        >
+          <h2 className="text-2xl font-bold mb-8">{dict[lang].certifications}</h2>
+          <a
+            href={azureFundamentalsCertification.verificationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${azureFundamentalsCertification.name} — ${dict[lang].viewCredential}`}
+            className="group block rounded-xl border border-brand-600/20 bg-surface-50 p-5 sm:p-6 shadow-sm transition hover:bg-brand-600/5 hover:border-brand-600/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700"
+          >
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <div className="shrink-0 rounded-lg border border-brand-600/15 bg-white p-2">
+                <img
+                  src={azureFundamentalsCertification.badgePath}
+                  alt={azureFundamentalsCertification.badgeAlt}
+                  className="h-20 w-20 object-contain"
+                />
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-brand-700">Microsoft Certified:</p>
+                <p className="text-lg font-bold text-ink-900 leading-snug">{azureFundamentalsCertification.name.replace("Microsoft Certified: ", "")}</p>
+                <p className="text-sm text-brand-700 mt-1">{azureFundamentalsCertification.issuer}</p>
+                <p className="text-sm text-brand-700">{azureFundamentalsCertification.earnedLabel[lang]}</p>
+                <p className="mt-3 text-sm font-semibold text-brand-700 group-hover:text-ink-900 transition">
+                  {dict[lang].viewCredential}
+                </p>
+              </div>
+            </div>
+          </a>
+        </motion.div>
+      </section>
+
       {/* CONTACT */}
       <section id="contact" className="flex flex-col items-center justify-center text-center py-12 md:py-16">
         <motion.div
@@ -278,7 +317,7 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
               {dict[lang].contactPage}
             </Link>
             <a
-              href={lang === "sv" ? "/Marcus Grönnå-CV-SV-new.pdf" : "/Marcus Grönnå-CV-EN-new.pdf"}
+              href={cvDownloads[lang]}
               download
               onClick={() => track("cv_download")}
               className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded px-6 py-2 hover:bg-brand-600/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600"

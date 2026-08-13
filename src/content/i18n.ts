@@ -6,6 +6,7 @@ export const dict = {
     education: "Education",
     experience: "Experience",
     journey: "Journey",
+    certifications: "Certifications",
     skills: "Skills",
     contact: "Contact",
     contactSubtitle:
@@ -29,10 +30,11 @@ export const dict = {
     skillsAlsoWorked: "Also Worked With",
     skillsCurrentFocus: "Current Focus",
     skillsLanguages: "Languages",
+    viewCredential: "View credential ↗",
     // About me paragraphs (homepage + about page)
     aboutParagraphs: [
       "Hi, I'm Marcus. I'm a fullstack .NET developer in Stockholm. I work across the stack, from database and API design to frontend and deployment, and I care about writing code that other people can read and maintain.",
-      "My main tools are C#/.NET, React, TypeScript, PostgreSQL, and Azure. I also integrate AI (Azure OpenAI) when it actually adds value, not just for the sake of it. I like thinking about how the whole system fits together: domain models, data flow, API contracts, and the trade-offs that decide whether something will be easy or painful to change six months from now.",
+      "My main tools are C#/.NET, React, TypeScript, PostgreSQL, and Azure. I have earned Microsoft Certified: Azure Fundamentals (AZ-900), which supports my growing focus on cloud development in backend-heavy .NET systems with practical AI integration. I like thinking about how the whole system fits together: domain models, data flow, API contracts, and the trade-offs that decide whether something will be easy or painful to change six months from now.",
       "Before switching to software, I worked fourteen years as a train driver at ProTrain, SJ AB, MTR Pendeltågen, and SJ Stockholmståg. That background taught me to stay calm when things go wrong, to take responsibility for my part of the system, and to care about the details that keep things running. I also spent several years as an instructor, training new drivers.",
       "I have a bachelor's degree in sports science and health pedagogy from GIH, and I worked as a personal trainer before moving into development. That gave me experience in coaching, explaining complex things simply, and helping people change behaviour over time.",
       "I'm looking for fullstack product work, .NET roles, or a team that values clear thinking, ownership, and building things properly.",
@@ -64,6 +66,7 @@ export const dict = {
     education: "Utbildning",
     experience: "Erfarenhet",
     journey: "Resa",
+    certifications: "Certifieringar",
     skills: "Kompetenser",
     contact: "Kontakt",
     contactSubtitle:
@@ -87,10 +90,11 @@ export const dict = {
     skillsAlsoWorked: "Har också arbetat med",
     skillsCurrentFocus: "Nuvarande fokus",
     skillsLanguages: "Språk",
+    viewCredential: "Visa certifikat ↗",
     // About me paragraphs (homepage + about page)
     aboutParagraphs: [
       "Hej, jag heter Marcus. Jag är fullstack .NET-utvecklare i Stockholm. Jag jobbar med hela stacken, från databas och API-design till frontend och deployment, och jag bryr mig om att skriva kod som andra kan läsa och underhålla.",
-      "Mina huvudsakliga verktyg är C#/.NET, React, TypeScript, PostgreSQL och Azure. Jag integrerar också AI (Azure OpenAI) när det faktiskt tillför värde, inte bara för att det låter bra. Jag gillar att tänka på hur hela systemet hänger ihop: domänmodeller, dataflöden, API-kontrakt och de avvägningar som avgör om något blir lätt eller svårt att ändra om sex månader.",
+      "Mina huvudsakliga verktyg är C#/.NET, React, TypeScript, PostgreSQL och Azure. Jag har tagit Microsoft Certified: Azure Fundamentals (AZ-900), vilket stödjer mitt växande fokus på cloud development i backendtunga .NET-system med praktisk AI-integration. Jag gillar att tänka på hur hela systemet hänger ihop: domänmodeller, dataflöden, API-kontrakt och de avvägningar som avgör om något blir lätt eller svårt att ändra om sex månader.",
       "Innan jag sadlade om till mjukvara jobbade jag fjorton år som lokförare på ProTrain, SJ AB, MTR Pendeltågen och SJ Stockholmståg. Den bakgrunden lärde mig att hålla lugnet när saker går fel, ta ansvar för min del av systemet och bry mig om detaljerna som håller saker igång. Jag arbetade också flera år som körlärare och utbildade nya förare.",
       "Jag har en kandidatexamen i idrottsvetenskap med inriktning hälsopedagogik från GIH, och jag jobbade som personlig tränare innan jag gick in i utveckling. Det gav mig erfarenhet av coachning, att förklara komplexa saker enkelt och att hjälpa människor förändra beteenden över tid.",
       "Jag söker fullstack-produktarbete, .NET-roller, eller ett team som värderar tydligt tänkande, ägarskap och att bygga saker ordentligt.",
