@@ -3,7 +3,7 @@
 // Unified timeline: education + experience combined
 // -----------------------------------------------
 
-export type TimelineType = "education" | "experience";
+export type TimelineType = "education" | "experience" | "certification";
 
 export interface TimelineEntry {
   id: string;
@@ -36,6 +36,27 @@ export const timelineEntries: TimelineEntry[] = [
     summary: {
       en: "Built fullstack .NET applications in agile teams. Worked across backend, frontend and deployment with a focus on readable code and clear architecture.",
       sv: "Byggde fullstackapplikationer i .NET i agila team. Arbetade med backend, frontend och driftsättning med fokus på läsbar kod och tydlig arkitektur.",
+    },
+  },
+  {
+    id: "microsoft-azure-fundamentals-az900",
+    type: "certification",
+    title: {
+      en: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+      sv: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+    },
+    organization: {
+      en: "Microsoft",
+      sv: "Microsoft",
+    },
+    period: "08/2026",
+    startYear: 2026,
+    startMonth: 8,
+    endYear: 2026,
+    endMonth: 8,
+    summary: {
+      en: "Earned Microsoft Azure Fundamentals certification, validating foundational knowledge of cloud concepts, Azure architecture, Azure services, management, governance, security, and pricing.",
+      sv: "Certifierad inom Microsoft Azure Fundamentals med verifierade grundkunskaper inom cloud concepts, Azure-arkitektur, Azure-tjänster, management, governance, security och pricing.",
     },
   },
   {

@@ -1,4 +1,6 @@
 // src/lib/seo.ts
+import { azureFundamentalsCertification } from "@/content/certifications";
+
 export const site = {
   name: "Marcus Grönnå",
   url: "https://marcusgronna.com",
@@ -22,6 +24,14 @@ export function personJsonLd() {
       "https://www.linkedin.com/in/marcus-gr%C3%B6nn%C3%A5-6a5006260/",
     ],
     knowsAbout: ["C#", ".NET", "ASP.NET Core", "React", "TypeScript", "Azure", "PostgreSQL"],
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      name: "Microsoft Certified: Azure Fundamentals (AZ-900)",
+      credentialCategory: "Cloud fundamentals certification",
+      recognizedBy: { "@type": "Organization", name: "Microsoft" },
+      dateCreated: "2026-08",
+      url: azureFundamentalsCertification.verificationUrl,
+    },
   };
 }
 
