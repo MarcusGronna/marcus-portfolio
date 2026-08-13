@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiMail, FiLinkedin, FiGithub, FiDownload } from "react-icons/fi";
 import { track } from "@vercel/analytics";
@@ -247,9 +248,11 @@ export default function HomeContent({ lang }: { lang: "en" | "sv" }) {
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
               <div className="shrink-0 rounded-lg border border-brand-600/15 bg-white p-2">
-                <img
+                <Image
                   src={azureFundamentalsCertification.badgePath}
                   alt={azureFundamentalsCertification.badgeAlt}
+                  width={80}
+                  height={80}
                   className="h-20 w-20 object-contain"
                 />
               </div>
