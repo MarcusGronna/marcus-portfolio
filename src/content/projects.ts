@@ -539,12 +539,12 @@ export const projects: Project[] = [
       en: "Mobile / Frontend / Health & Fitness",
       sv: "Mobil / Frontend / Hälsa & Träning",
     },
-    image: "/projects/trainmatex/exercise-details.png",
+    image: "/projects/trainmatex/dropdown.jpg",
     images: [
-      "/projects/trainmatex/exercise-details.png",
-      "/projects/trainmatex/swipe-add-exercise.png",
-      "/projects/trainmatex/swipe-remove-exercise.png",
-      "/projects/trainmatex/personal-workout.png",
+      "/projects/trainmatex/dropdown.jpg",
+      "/projects/trainmatex/slideAdd.jpg",
+      "/projects/trainmatex/slideRemove.jpg",
+      "/projects/trainmatex/MittTräningspass.jpg",
     ],
     imageOrientation: "portrait",
     tech: [
