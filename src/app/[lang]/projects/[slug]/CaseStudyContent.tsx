@@ -79,6 +79,7 @@ function ArchitectureFlow({ steps }: { steps: string[] }) {
 export default function CaseStudyContent({ project, lang }: { project: Project; lang: "en" | "sv" }) {
   const [modalSrc, setModalSrc] = useState<string | null>(null);
   const [modalAlt, setModalAlt] = useState("");
+  const isPortrait = project.imageOrientation === "portrait";
 
   return (
     <article className="max-w-3xl mx-auto py-8 px-4 sm:px-6">
@@ -93,17 +94,26 @@ export default function CaseStudyContent({ project, lang }: { project: Project; 
 
       {/* Hero */}
       <motion.div variants={fadeUp} initial="hidden" animate="visible">
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-8 shadow-lg">
+        <div
+          className={`relative w-full rounded-xl overflow-hidden mb-8 shadow-lg ${
+            isPortrait ? "aspect-[9/16] max-w-sm mx-auto bg-surface-100" : "aspect-video"
+          }`}
+        >
           <Image
             src={project.image}
             alt={project.title[lang]}
             fill
             sizes="(max-width: 768px) 100vw, 768px"
-            className="object-cover"
+            className={isPortrait ? "object-contain" : "object-cover"}
             priority
           />
         </div>
 
+        {project.category && (
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-700 mb-3">
+            {project.category[lang]}
+          </p>
+        )}
         <h1 className="mb-2">{project.title[lang]}</h1>
 
         <p className="text-lg text-brand-700 leading-relaxed mb-6">{project.summary[lang]}</p>
@@ -194,7 +204,9 @@ export default function CaseStudyContent({ project, lang }: { project: Project; 
                     setModalSrc(src);
                     setModalAlt(alt);
                   }}
-                  className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
+                  className={`relative w-full rounded-xl overflow-hidden shadow-md group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400 ${
+                    isPortrait ? "aspect-[9/16] max-w-sm mx-auto bg-surface-100" : "aspect-video"
+                  }`}
                   aria-label={`View full size: ${alt}`}
                 >
                   <Image
@@ -202,7 +214,9 @@ export default function CaseStudyContent({ project, lang }: { project: Project; 
                     alt={alt}
                     fill
                     sizes="(max-width: 640px) 100vw, 360px"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    className={`transition-transform duration-300 ${
+                      isPortrait ? "object-contain" : "object-cover group-hover:scale-105"
+                    }`}
                   />
                   <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30">
                     <FiZoomIn className="text-white drop-shadow" size={32} aria-hidden="true" />
