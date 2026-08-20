@@ -37,6 +37,7 @@ export default function ProjectFrame({
     ? `/${lang}/projects/${project.slug}`
     : project.url ?? project.github ?? null;
   const cardIsExternal = !project.caseStudy && cardHref != null;
+  const isPortrait = project.imageOrientation === "portrait";
 
   const handleCardClick = (e: React.MouseEvent) => {
     // Don't navigate if clicking on an interactive element (link, button)
@@ -78,19 +79,30 @@ export default function ProjectFrame({
         "
       >
         {/* Image */}
-        <div className="relative w-full md:w-[45%] aspect-video md:aspect-auto md:min-h-[300px] shrink-0 overflow-hidden">
+        <div
+          className={`relative w-full md:w-[45%] shrink-0 overflow-hidden ${
+            isPortrait ? "aspect-[4/5] md:aspect-[4/5] md:min-h-[300px] bg-surface-100" : "aspect-video md:aspect-auto md:min-h-[300px]"
+          }`}
+        >
           <Image
             src={project.image}
             alt={project.title[lang]}
             fill
             sizes="(max-width: 768px) 100vw, 540px"
-            className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-[1.03] transform-gpu"
+            className={`transition-transform duration-700 ease-in-out transform-gpu ${
+              isPortrait ? "object-contain" : "object-cover group-hover:scale-[1.03]"
+            }`}
             priority={priority}
           />
         </div>
 
         {/* Content */}
         <div className="p-6 md:p-8 flex-1 flex flex-col">
+          {project.category && (
+            <p className="text-xs font-bold uppercase tracking-widest text-brand-700 mb-2">
+              {project.category[lang]}
+            </p>
+          )}
           <h3 className="text-2xl font-bold mb-3 leading-tight">
             {cardHref && !cardIsExternal ? (
               <Link
@@ -182,19 +194,26 @@ export default function ProjectFrame({
       "
     >
       {/* Image */}
-      <div className="relative w-full aspect-video overflow-hidden">
+      <div className={`relative w-full overflow-hidden ${isPortrait ? "aspect-[4/5] bg-surface-100" : "aspect-video"}`}>
         <Image
           src={project.image}
           alt={project.title[lang]}
           fill
           sizes="(max-width: 640px) 100vw, 360px"
-          className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-[1.03] transform-gpu"
+          className={`transition-transform duration-700 ease-in-out transform-gpu ${
+            isPortrait ? "object-contain" : "object-cover group-hover:scale-[1.03]"
+          }`}
           priority={priority}
         />
       </div>
 
       {/* Text content */}
       <div className="p-4 flex-1 flex flex-col">
+        {project.category && (
+          <p className="text-[11px] font-bold uppercase tracking-widest text-brand-700 mb-1.5">
+            {project.category[lang]}
+          </p>
+        )}
         <h4 className="font-bold text-lg mb-1.5 leading-snug">
           {cardHref && !cardIsExternal ? (
             <Link
