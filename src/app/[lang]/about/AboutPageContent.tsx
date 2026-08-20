@@ -4,6 +4,7 @@ import { dict } from "@/content/i18n";
 import Link from "next/link";
 import { FiDownload, FiMail, FiCheckCircle } from "react-icons/fi";
 import { track } from "@vercel/analytics";
+import { cvDownloads } from "@/content/certifications";
 
 export default function AboutPageContent({ lang }: { lang: "en" | "sv" }) {
   return (
@@ -19,7 +20,7 @@ export default function AboutPageContent({ lang }: { lang: "en" | "sv" }) {
           ))}
           <div className="flex flex-wrap gap-3 mt-4">
             <a
-              href={lang === "sv" ? "/Marcus Grönnå-CV-SV-new.pdf" : "/Marcus Grönnå-CV-EN-new.pdf"}
+              href={cvDownloads[lang]}
               download
               onClick={() => track("cv_download")}
               className="inline-flex items-center gap-2 bg-accent-400 text-ink-900 font-semibold rounded px-5 py-2 hover:bg-accent-300 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900"

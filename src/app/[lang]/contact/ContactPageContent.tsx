@@ -3,6 +3,7 @@ import { dict } from "@/content/i18n";
 import { FiMail, FiLinkedin, FiGithub, FiDownload, FiArrowRight } from "react-icons/fi";
 import { track } from "@vercel/analytics";
 import Link from "next/link";
+import { cvDownloads } from "@/content/certifications";
 
 const texts = {
   emailCta: {
@@ -78,7 +79,7 @@ export default function ContactPageContent({ lang }: { lang: "en" | "sv" }) {
 
       {/* CV download */}
       <a
-        href={lang === "sv" ? "/Marcus Grönnå-CV-SV-new.pdf" : "/Marcus Grönnå-CV-EN-new.pdf"}
+        href={cvDownloads[lang]}
         download
         onClick={() => track("cv_download")}
         className="inline-flex items-center gap-2 border border-brand-600 text-ink-900 font-semibold rounded-xl px-6 py-3 hover:bg-brand-600/10 transition mb-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink-900"

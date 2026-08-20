@@ -20,17 +20,24 @@ function toPct(year: number) {
 }
 
 /** Short month abbreviation */
-const MONTH_SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MONTH_NAMES = {
+    en: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    sv: ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"],
+} as const;
 
-function periodLabel(entry: TimelineEntry): string {
+function periodLabel(entry: TimelineEntry, lang: "en" | "sv"): string {
     const sm = entry.startMonth;
     const em = entry.endMonth;
     const ey = entry.endYear;
+    const months = MONTH_NAMES[lang];
+    if (sm && em && ey && entry.startYear === ey && sm === em) {
+        return `${months[sm - 1]} ${entry.startYear}`;
+    }
     if (sm && em && ey) {
-        return `${MONTH_SHORT[sm - 1]} ${entry.startYear} – ${MONTH_SHORT[em - 1]} ${ey}`;
+        return `${months[sm - 1]} ${entry.startYear} – ${months[em - 1]} ${ey}`;
     }
     if (sm && !ey) {
-        return `${MONTH_SHORT[sm - 1]} ${entry.startYear} – present`;
+        return `${months[sm - 1]} ${entry.startYear} – ${lang === "sv" ? "nu" : "present"}`;
     }
     return entry.period;
 }
@@ -39,12 +46,15 @@ function periodLabel(entry: TimelineEntry): string {
 
 function EntryCard({ entry, lang }: { entry: TimelineEntry; lang: "en" | "sv" }) {
     const isEdu = entry.type === "education";
-    const period = periodLabel(entry);
+    const isCert = entry.type === "certification";
+    const period = periodLabel(entry, lang);
     return (
         <div
             className={[
                 "rounded-xl border bg-surface-50 shadow-sm p-4 sm:p-5",
-                isEdu
+                isCert
+                    ? "border-brand-700/40 border-l-[3px] border-l-brand-700"
+                    : isEdu
                     ? "border-accent-400/50 border-l-[3px] border-l-accent-400"
                     : "border-brand-600/30 border-l-[3px] border-l-brand-700",
             ].join(" ")}>
@@ -93,6 +103,7 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
                 <div className="space-y-1.5">
                     {sorted.map((entry) => {
                         const isEdu = entry.type === "education";
+                        const isCert = entry.type === "certification";
                         const startFraction = ((entry.startMonth ?? 1) - 1) / 12;
                         const startPct = toPct(entry.startYear + startFraction);
                         const endYear = entry.endYear ?? GANTT_END - 1;
@@ -126,13 +137,13 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
                                     <div
                                         className={[
                                             "absolute top-1 bottom-1 rounded flex items-center",
-                                            isEdu ? "bg-accent-400/80" : "bg-brand-700/60",
+                                            isCert ? "bg-brand-700/80" : isEdu ? "bg-accent-400/80" : "bg-brand-700/60",
                                         ].join(" ")}
                                         style={{
                                             left: `${startPct}%`,
                                             width: `${widthPct}%`,
                                         }}
-                                        title={`${entry.title[lang]} (${periodLabel(entry)})`}
+                                        title={`${entry.title[lang]} (${periodLabel(entry, lang)})`}
                                     />
                                 </div>
                             </div>
@@ -150,6 +161,10 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
                         <div className="w-4 h-3 rounded bg-brand-700/60" />
                         <span>{dict[lang].experience}</span>
                     </div>
+                    <div className="flex items-center gap-1.5">
+                        <div className="w-4 h-3 rounded bg-brand-700/80" />
+                        <span>{dict[lang].certifications}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,18 +176,26 @@ function GanttChart({ lang }: { lang: "en" | "sv" }) {
 export default function JourneyTimeline({ lang }: { lang: "en" | "sv" }) {
 
     // ── Group entries by startYear ──────────────────────────────────────────
-    const yearGroupMap = new Map<number, { edu: TimelineEntry[]; exp: TimelineEntry[] }>();
+    const yearGroupMap = new Map<number, { edu: TimelineEntry[]; cert: TimelineEntry[]; exp: TimelineEntry[] }>();
     for (const entry of timelineEntries) {
         const yr = entry.startYear;
-        if (!yearGroupMap.has(yr)) yearGroupMap.set(yr, { edu: [], exp: [] });
-        yearGroupMap.get(yr)![entry.type === "education" ? "edu" : "exp"].push(entry);
+        if (!yearGroupMap.has(yr)) yearGroupMap.set(yr, { edu: [], cert: [], exp: [] });
+        const bucket = entry.type === "education" ? "edu" : entry.type === "certification" ? "cert" : "exp";
+        yearGroupMap.get(yr)![bucket].push(entry);
     }
 
     // Sort each group by endYear descending
     for (const group of yearGroupMap.values()) {
-        const byEnd = (a: TimelineEntry, b: TimelineEntry) =>
-            (b.endYear ?? 9999) - (a.endYear ?? 9999);
+        const byEnd = (a: TimelineEntry, b: TimelineEntry) => {
+            const aEndYear = a.endYear ?? 9999;
+            const bEndYear = b.endYear ?? 9999;
+            if (bEndYear !== aEndYear) return bEndYear - aEndYear;
+            const aEndMonth = a.endMonth ?? 12;
+            const bEndMonth = b.endMonth ?? 12;
+            return bEndMonth - aEndMonth;
+        };
         group.edu.sort(byEnd);
+        group.cert.sort(byEnd);
         group.exp.sort(byEnd);
     }
 
@@ -180,9 +203,13 @@ export default function JourneyTimeline({ lang }: { lang: "en" | "sv" }) {
 
     // Mobile: all sorted by recency
     const allSorted = [...timelineEntries].sort((a, b) => {
-        const aEnd = a.endYear ?? 9999;
-        const bEnd = b.endYear ?? 9999;
-        return bEnd !== aEnd ? bEnd - aEnd : b.startYear - a.startYear;
+        const aEndYear = a.endYear ?? 9999;
+        const bEndYear = b.endYear ?? 9999;
+        if (bEndYear !== aEndYear) return bEndYear - aEndYear;
+        const aEndMonth = a.endMonth ?? 12;
+        const bEndMonth = b.endMonth ?? 12;
+        if (bEndMonth !== aEndMonth) return bEndMonth - aEndMonth;
+        return b.startYear - a.startYear;
     });
 
     return (
@@ -223,6 +250,9 @@ export default function JourneyTimeline({ lang }: { lang: "en" | "sv" }) {
                                 {/* Education column */}
                                 <div className="space-y-4 relative">
                                     {group.edu.map((entry) => (
+                                        <EntryCard key={entry.id} entry={entry} lang={lang} />
+                                    ))}
+                                    {group.cert.map((entry) => (
                                         <EntryCard key={entry.id} entry={entry} lang={lang} />
                                     ))}
                                 </div>

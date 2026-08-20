@@ -6,9 +6,12 @@ export interface Project {
   slug: string;
   title: { en: string; sv: string };
   summary: { en: string; sv: string };
+  category?: { en: string; sv: string };
   image: string;
   /** Additional screenshots shown as a gallery on the case-study page */
   images?: string[];
+  /** Used to preserve portrait mobile screenshots without aggressive cropping */
+  imageOrientation?: "landscape" | "portrait";
   tech: string[];
   year: number;
   /** Live demo URL – omit if no public deployment exists yet */
@@ -520,6 +523,122 @@ export const projects: Project[] = [
         "Förbättra lokal utvecklingsuppsättning för multi-service-testning",
         "Utöka automatiserade tester kring eventflöden och SSE-beteende",
       ],
+    },
+  },
+  {
+    slug: "trainmatex",
+    title: {
+      en: "TrainMateX",
+      sv: "TrainMateX",
+    },
+    summary: {
+      en: "Mobile fitness application built with React Native, Expo and TypeScript where users can browse exercises from an external API and build personal workouts through swipe-based interactions. The app uses global state management, local persistence and animated UI interactions, with a focus on creating a clear and intuitive mobile user experience.",
+      sv: "Mobil träningsapplikation byggd med React Native, Expo och TypeScript där användaren kan utforska övningar från ett externt API och bygga personliga träningspass med swipe-baserade interaktioner. Appen använder global state management, lokal persistens och animerade UI-interaktioner med fokus på en tydlig och intuitiv mobil användarupplevelse.",
+    },
+    category: {
+      en: "Mobile / Frontend / Health & Fitness",
+      sv: "Mobil / Frontend / Hälsa & Träning",
+    },
+    image: "/projects/trainmatex/exercise-details.png",
+    images: [
+      "/projects/trainmatex/exercise-details.png",
+      "/projects/trainmatex/swipe-add-exercise.png",
+      "/projects/trainmatex/swipe-remove-exercise.png",
+      "/projects/trainmatex/personal-workout.png",
+    ],
+    imageOrientation: "portrait",
+    tech: [
+      "React Native",
+      "TypeScript",
+      "Expo",
+      "Context API",
+      "AsyncStorage",
+      "REST API",
+      "React Native Reanimated",
+      "expo-router",
+    ],
+    year: 2025,
+    github: "https://github.com/MarcusGronna/TrainMateX",
+    caseStudy: true,
+    highlights: {
+      en: [
+        "Browse exercise data from an external API in a mobile-first interface",
+        "Build personal workouts through swipe-based add and remove interactions",
+        "Persist workout state locally with animated, intuitive UI feedback",
+      ],
+      sv: [
+        "Utforska övningsdata från ett externt API i ett mobile-first-gränssnitt",
+        "Bygg personliga träningspass genom swipe-baserade interaktioner för att lägga till och ta bort",
+        "Bevara träningspass lokalt med animerad och intuitiv UI-feedback",
+      ],
+    },
+    role: {
+      en: "Solo Developer – school project in the Webmaster programme at University West",
+      sv: "Ensam utvecklare – skolprojekt inom Webmasterprogrammet på Högskolan Väst",
+    },
+    problem: {
+      en: "The goal was to build a mobile workout experience where users could quickly browse exercises, inspect exercise details, and assemble a personal workout without a cluttered flow. The project was developed within the Webmaster programme at University West, but the focus was on applying mobile frontend architecture and interaction design in a realistic app concept.",
+      sv: "Målet var att bygga en mobil träningsupplevelse där användaren snabbt kan utforska övningar, se detaljerad övningsinformation och sätta ihop ett personligt träningspass utan ett rörigt flöde. Projektet utvecklades inom Webmasterprogrammet på Högskolan Väst, men fokus låg på att tillämpa mobil frontend-arkitektur och interaktionsdesign i ett realistiskt appkoncept.",
+    },
+    solution: {
+      en: "The app was built with React Native, Expo, and TypeScript. Exercise data is fetched from an external REST API, while workout state is shared globally through Context API and persisted locally with AsyncStorage. expo-router structures the navigation flow, and React Native Reanimated supports the swipe-based interactions and animated UI transitions that make the mobile experience feel responsive and clear.",
+      sv: "Appen byggdes med React Native, Expo och TypeScript. Övningsdata hämtas från ett externt REST API, medan träningspassets tillstånd delas globalt via Context API och persisteras lokalt med AsyncStorage. expo-router strukturerar navigationsflödet, och React Native Reanimated stödjer de swipe-baserade interaktionerna och animerade UI-övergångarna som gör mobilupplevelsen responsiv och tydlig.",
+    },
+    goals: {
+      en: [
+        "Create a clear mobile flow for browsing exercises and composing workouts",
+        "Integrate exercise data from an external API into a usable app experience",
+        "Use shared global state and local persistence for personal workout management",
+        "Design swipe-driven interactions that feel natural on mobile devices",
+      ],
+      sv: [
+        "Skapa ett tydligt mobilflöde för att utforska övningar och sätta ihop träningspass",
+        "Integrera övningsdata från ett externt API i en användbar appupplevelse",
+        "Använda delat globalt state och lokal persistens för personlig träningspasshantering",
+        "Designa swipe-drivna interaktioner som känns naturliga på mobila enheter",
+      ],
+    },
+    challenges: {
+      en: [
+        "Designing swipe interactions that remain understandable and forgiving on small screens",
+        "Keeping global workout state and AsyncStorage persistence in sync",
+        "Presenting exercise data from the external API in a way that stays easy to scan on mobile",
+      ],
+      sv: [
+        "Designa swipe-interaktioner som förblir begripliga och förlåtande på små skärmar",
+        "Hålla globalt träningspass-state och AsyncStorage-persistens synkroniserade",
+        "Presentera övningsdata från det externa API:et på ett sätt som är lätt att överblicka på mobil",
+      ],
+    },
+    keyDecisions: {
+      en: [
+        "React Native + Expo for rapid cross-platform mobile development",
+        "Context API for shared workout state without prop drilling",
+        "AsyncStorage so personal workouts remain available locally between sessions",
+        "React Native Reanimated for gesture-driven feedback and smoother UI transitions",
+      ],
+      sv: [
+        "React Native + Expo för snabb cross-platform-utveckling på mobil",
+        "Context API för delat träningspass-state utan prop-drilling",
+        "AsyncStorage så att personliga träningspass finns kvar lokalt mellan sessioner",
+        "React Native Reanimated för geststyrd feedback och mjukare UI-övergångar",
+      ],
+    },
+    results: {
+      en: [
+        "Working mobile app flow for browsing exercises, viewing details, and managing a personal workout",
+        "Demonstrated practical use of React Native navigation, animation, persistence, and shared state",
+        "Portfolio project showing mobile-first interaction design rather than a traditional web UI",
+      ],
+      sv: [
+        "Fungerande mobilappflöde för att utforska övningar, visa detaljer och hantera ett personligt träningspass",
+        "Demonstrerade praktisk användning av React Native-navigering, animation, persistens och delat state",
+        "Portfolio-projekt som visar mobile-first-interaktionsdesign snarare än ett traditionellt webb-UI",
+      ],
+    },
+    whatILearned: {
+      en: "This project gave me practical experience translating interaction ideas into a mobile UI where gestures, state updates, and persistence all need to feel immediate. It also reinforced how important it is to structure data flow clearly when the same workout state is reused across multiple screens and interactions.",
+      sv: "Projektet gav mig praktisk erfarenhet av att översätta interaktionsidéer till ett mobilt UI där gester, state-uppdateringar och persistens alla behöver kännas omedelbara. Det förstärkte också hur viktigt det är att strukturera dataflödet tydligt när samma träningspass-state återanvänds över flera skärmar och interaktioner.",
     },
   },
   {
